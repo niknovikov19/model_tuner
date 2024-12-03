@@ -1,10 +1,20 @@
 from copy import deepcopy
 from dataclasses import dataclass, field
-from typing import Dict, List, Tuple, Union
+from typing import Dict, List, Tuple, Union, Literal
 
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.optimize import curve_fit
+
+
+def _vec_or_item(x):
+    return x if x.size > 0 else x.item()
+
+def column(x: np.ndarray) -> np.ndarray:
+    x = x.squeeze()
+    if x.ndim > 1:
+        raise ValueError('Input has more than one non-singleton dimension')
+    return x.reshape(-1, 1)
 
 
 class ModelDesc:
@@ -140,11 +150,15 @@ class PopRegimeWC(PopRegime):
     
 @dataclass
 class NetRegimeWC(NetRegime):
-    def __init__(self, pop_names: List[str] = None, pop_rates: List[float] = None):
+    def __init__(self, pop_names: List[str] = None,
+                 pop_rates: List[float] = None):
         self.pop_regimes = {}
         if pop_names is not None:
             for pop_name, r in zip(pop_names, pop_rates):
                 self.pop_regimes[pop_name] = PopRegimeWC(r=r)
+    
+    def get_pop_rate(self, pop_name: str) -> float:
+        return self.pop_regimes[pop_name].r
     
     def get_pop_rates_vec(self) -> np.ndarray:
         return self.get_pop_attr_vec('r')
@@ -188,12 +202,6 @@ def wc_gain(x: float, pop: PopParamsWC) -> float:
 
 def wc_gain_inv(r: float, pop: PopParamsWC) -> float:
     return -np.log(pop.mult / r - 1) / pop.gain + pop.thresh
-
-def column(x: np.ndarray) -> np.ndarray:
-    x = x.squeeze()
-    if x.ndim > 1:
-        raise ValueError('Input has more than one non-singleton dimension')
-    return x.reshape(-1, 1)
 
 def run_wc_model(
         model: ModelDescWC,
@@ -247,88 +255,203 @@ class NetIRMapperWC(NetIRMapper):
             self.set_pop_mapper(name, PopIRMapperWC(pop))
 
 
-def _vec_or_item(x):
-    return x if x.size > 0 else x.item()
+class MapFunc1D:
+    def __init__(self):
+        self.par = {name: np.nan for name in self.get_par_names()}
+    
+    @staticmethod
+    def get_par_names() -> List[str]: pass
+
+    def get_par_vals(self) -> List:
+        return [self.par[name] for name in self.get_par_names()]
+        
+    @staticmethod
+    def f(x: Union[float, np.ndarray],
+          *args, **kwargs
+          ) -> Union[float, np.ndarray]:
+        pass
+    
+    @staticmethod
+    def f_inv(x: Union[float, np.ndarray],
+              *args, **kwargs
+              ) -> Union[float, np.ndarray]:
+        pass
+    
+    def apply(self, x: Union[float, np.ndarray]) -> Union[float, np.ndarray]:
+        return self.f(x, **self.par)
+    
+    def apply_inv(self, y: Union[float, np.ndarray]) -> Union[float, np.ndarray]:
+        return self.f_inv(y, **self.par)
+    
+    @staticmethod
+    def _get_fit_bounds() -> Tuple[List[float], List[float]]: pass
+        
+    @staticmethod
+    def _get_first_fit_guess(xx: np.ndarray, yy: np.ndarray) -> Tuple: pass
+    
+    def fit(self, xx: np.ndarray, yy: np.ndarray, from_prev=False):
+        if from_prev:
+            par0 = self.get_par_vals()
+        else:
+            par0 = self._get_first_fit_guess(xx, yy)
+        bounds = self._get_fit_bounds()
+        try:
+            par, _ = curve_fit(self.f, xx, yy, p0=par0,
+                               bounds=bounds,
+                               nan_policy='omit')
+            self.par = {name: par[n]
+                        for n, name in enumerate(self.get_par_names())}
+        except Exception as e:
+            print(f'Fitting failed ({e})')
+            self.par = {name: np.nan for name in self.get_par_names()}
+
+class MapFunc1DExp(MapFunc1D):    
+    @staticmethod
+    def get_par_names() -> List[str]:
+        return ['a', 'b', 'k']
+
+    @staticmethod
+    def f(x: Union[float, np.ndarray],
+          a, b, k
+          ) -> Union[float, np.ndarray]:
+        y = a * np.exp(b * x) + k
+        #y[y < 0] = np.nan
+        return y
+    
+    @staticmethod
+    def f_inv(y: Union[float, np.ndarray],
+              a, b, k
+              ) -> Union[float, np.ndarray]:
+        x = np.log((y - k) / a) / b
+        #x[x < 0] = np.nan
+        return x
+    
+    @staticmethod
+    def _get_fit_bounds() -> Tuple[List[float], List[float]]:
+        return [0, 0, -100], [np.inf, np.inf, np.inf]
+    
+    @staticmethod
+    def _get_first_fit_guess(xx: np.ndarray, yy: np.ndarray) -> Tuple[float]:
+        b0 = 1.0
+        k0 = np.nanmin(yy) - 0.1 * np.abs(np.nanmin(yy))
+        a0 = (np.nanmax(yy) - k0) / np.exp(b0 * np.nanmax(xx))
+        return a0, b0, k0
+    
+class MapFunc1DSigmoid(MapFunc1D):
+    @staticmethod
+    def get_par_names() -> List[str]:
+        return ['a', 'b', 'c', 'k']
+    
+    @staticmethod
+    def f(x: Union[float, np.ndarray],
+          a, b, c, k
+          ) -> Union[float, np.ndarray]:
+        y = c + a / (1 + np.exp(-k * (x - b)))
+        return y
+    
+    @staticmethod
+    def f_inv(y: Union[float, np.ndarray],
+              a, b, c, k
+              ) -> Union[float, np.ndarray]:
+        x = b - np.log(a / (y - c) - 1) / k
+        return x
+    
+    @staticmethod
+    def _get_fit_bounds() -> Tuple[List[float], List[float]]:
+        bounds = {
+            'a': (0.1, 10),
+            'b': (-10, 20),
+            'c': (-10, 20),
+            'k': (0.1, 10)
+        }
+        low = [bounds[p][0] for p in ['a', 'b', 'c', 'k']]
+        high = [bounds[p][1] for p in ['a', 'b', 'c', 'k']]
+        return low, high
+    
+    @staticmethod
+    def _get_first_fit_guess(xx: np.ndarray, yy: np.ndarray) -> Tuple[float]:
+        k0 = 1
+        c0 = np.nanmin(yy)
+        a0 = np.nanmax(yy) - c0
+        th = c0 + a0 / 2
+        n1 = np.argmax(yy[yy < th])
+        n2 = np.argmin(yy[yy > th])
+        x1, y1 = xx[n1], yy[n1]
+        x2, y2 = xx[n2], yy[n2]
+        b0 = (x1 + x2) / 2
+        return a0, b0, c0, k0
+
 
 class NetUCMapperWC(NetUCMapper):
-    def __init__(self):
-        self.pop_names = []
-        self.is_identity = True
-        self.fit_par = {'a': [], 'b': [], 'k': []}
+    def __init__(
+            self,
+            pop_names: List[str],
+            map_type: Literal['exp', 'sigmoid'] = 'exp'):
+        self._pop_names = pop_names
+        self._is_identity = True
+        self._map_funcs = {}
+        for pop in self._pop_names:
+            if map_type == 'exp':
+                self._map_funcs[pop] = MapFunc1DExp()
+            elif map_type == 'sigmoid':
+                self._map_funcs[pop] = MapFunc1DSigmoid()
+            else:
+                raise ValueError(f'Unknown map type: {map_type}')
     
-    #@staticmethod
-    def map_func(self, rr_u, a, b, k):
-        rr_c = a * np.exp(b * np.array(rr_u)) + k
-        rr_c[rr_c < 0] = np.nan
-        return _vec_or_item(rr_c)
-    
-    #@staticmethod
-    def map_func_inv(self, rr_c, a, b, k):
-        rr_u = np.log((np.array(rr_c) - k) / a) / b
-        rr_u[rr_u < 0] = np.nan
-        return _vec_or_item(rr_u)
-    
-    def set_to_identity(self, pop_names: List[str]):
-        self.pop_names = pop_names
-        self.is_identity = True
+    def set_to_identity(self):
+        self._is_identity = True
     
     def _Ru_to_Rc(self, Ru: NetRegimeWC) -> NetRegimeWC:
-        if Ru.get_pop_names() != self.pop_names:
+        if Ru.get_pop_names() != self._pop_names:
             raise ValueError('Ru should have the same pops. as the mapper')
-        rr_u = Ru.get_pop_rates()
-        if self.is_identity:
-            rr_c = rr_u
+        if self._is_identity:
+            Rc = {pop: Ru.get_pop_rate(pop) for pop in self._pop_names}
         else:
-            rr_c = self.map_func(rr_u, **self.fit_par)
-        return NetRegimeWC(self.pop_names, rr_c)
+            Rc = {pop: self._map_funcs[pop].apply(Ru.get_pop_rate(pop))
+                  for pop in self._pop_names}
+        return NetRegimeWC(pop_regimes=Rc)
         
     def _Rc_to_Ru(self, Rc: NetRegimeWC) -> NetRegimeWC:
-        if Rc.get_pop_names() != self.pop_names:
+        if Rc.get_pop_names() != self._pop_names:
             raise ValueError('Rc should have the same pops. as the mapper')
-        rr_c = Rc.get_pop_rates_vec()
-        if self.is_identity:
-            rr_u = rr_c
+        if self._is_identity:
+            Ru = {pop: Rc.get_pop_rate(pop) for pop in self._pop_names}
         else:
-            rr_u = self.map_func_inv(rr_c, **self.fit_par)
-        return NetRegimeWC(self.pop_names, rr_u)
+            Ru = {pop: self._map_funcs[pop].apply_inv(Rc.get_pop_rate(pop))
+                  for pop in self._pop_names}
+        return NetRegimeWC(self._pop_names, Ru.values())
     
     def fit_from_data(self, Ru: NetRegimeListWC, Rc: NetRegimeListWC):
         if len(Ru) != len(Rc):
              raise ValueError('Ru and Rc should have the same length')
-        if Ru.get_pop_names() != Rc.get_pop_names():
-            raise ValueError('Ru and Rc entries should have the same pops.')
-        self.is_identity = False
-        self.pop_names = Ru.get_pop_names()        
-        npops = len(self.pop_names)
-        for p in ['a', 'b', 'k']:
-            self.fit_par[p] = np.zeros(npops)
-        def fit_func(rr_u, *args):
-            return self.map_func(rr_u, *args)
+        if Ru.get_pop_names() != self._pop_names:
+            raise ValueError('Ru should have the same pops. as the mapper')
+        if Rc.get_pop_names() != self._pop_names:
+            raise ValueError('Rc should have the same pops. as the mapper')
         rr_u_mat = Ru.get_pop_attr_mat('r')
         rr_c_mat = Rc.get_pop_attr_mat('r')
-        for n in range(npops):
-            rr_u = rr_u_mat[n, :]
-            rr_c = rr_c_mat[n, :]
-            b0 = 1.0
-            k0 = np.nanmin(rr_c) - 0.1 * np.abs(np.nanmin(rr_c))
-            a0 = (np.nanmax(rr_c) - k0) / np.exp(b0 * np.nanmax(rr_u))
-            par0 = [a0, b0, k0]
-            bounds = ([0, 0, 0], [np.inf, np.inf, np.inf])
-            try:
-                par, _ = curve_fit(fit_func, rr_u, rr_c, p0=par0,
-                                   bounds=bounds, nan_policy='omit')
-            except Exception as e:
-                print(f'Fitting failed ({e})')
-                par = [np.nan] * 3
-            for m, p in enumerate(['a', 'b', 'k']):
-                self.fit_par[p][n] = par[m]
+        from_prev = not self._is_identity
+        for n, pop in enumerate(self._pop_names):
+            self._map_funcs[pop].fit(rr_u_mat[n, :], rr_c_mat[n, :], from_prev)
+        self._is_identity = False
           
 
+def create_test_model_1pop():
+    model = ModelDescWC(num_pops=1)
+    model.conn[0, 0] = -0.1
+    return model
+
+def create_test_model_2pop():
+    model = ModelDescWC(num_pops=2)
+    model.conn = np.array([[0.1, -0.2], [0.2, -0.1]])
+    return model
+
 # Network of Wilson-Cowan populations
-npops = 1
-model = ModelDescWC(num_pops=npops)
+#model = create_test_model_1pop()
+model = create_test_model_2pop()
+
 pop_names = model.get_pop_names()
-model.conn[0, 0] = -0.1
+npops = len(pop_names)
 
 # Original target regime (vector of pop. firing rates)
 rr_base = np.arange(npops) + 1
@@ -345,15 +468,19 @@ R0_lst = NetRegimeListWC(
 ir_mapper = NetIRMapperWC(model)
 
 # Unconnected-to-connected regime mapper
-uc_mapper = NetUCMapperWC()
-uc_mapper.set_to_identity(pop_names)
+#uc_mapper = NetUCMapperWC(pop_names, 'exp')
+uc_mapper = NetUCMapperWC(pop_names, 'sigmoid')
+uc_mapper.set_to_identity()
 
 # Params of WC model simulations
 sim_par = {'niter': 20, 'dr_mult': 1}
 
-Rc_lst = R0_lst.copy()
+need_plot_iter = 0
+need_plot_res = 1
 
-for iter_num in range(100):
+n_iter = 20
+
+for iter_num in range(n_iter):
     print(f'Iter: {iter_num}')
     Rc_lst = R0_lst.copy()
     Rc_prev_lst = Rc_lst.copy()
@@ -366,11 +493,12 @@ for iter_num in range(100):
         Rc_lst[n] = Rc_new
         sim_err = np.abs(sim_info['dr_mat'][:, -1]).max()
         err = np.abs(R0_lst[n].get_pop_rates_vec() - Rc_new.get_pop_rates_vec()).max()
-        print(f'Point: {n}, sim_err = {sim_err:.04f}, err = {err:.04f}')
+        n_nan = np.sum(np.isnan(Rc_new.get_pop_rates_vec()))
+        print(f'Point: {n}, sim_err = {sim_err:.02f}, nan = {n_nan}, '
+              f'err = {err:.04f}')
     uc_mapper.fit_from_data(Ru_lst, Rc_lst)
     
-    need_plot = 1
-    if need_plot:
+    if need_plot_iter or (need_plot_res and (iter_num == (n_iter - 1))):
         plt.figure(112)
         plt.clf()
         ru_mat = Ru_lst.get_pop_attr_mat('r')
@@ -380,129 +508,33 @@ for iter_num in range(100):
         for m in range(ru_mat.shape[1]):
             Ru_ = NetRegimeWC(pop_names, ru_mat[:, m])
             iu_mat[:, m] = ir_mapper.R_to_I(Ru_).get_pop_attr_vec('I')
-        for n in range(npops):
+        for n, pop in enumerate(pop_names):
             rr_u = ru_mat[n, :]
             rr_c = rc_mat[n, :]
             rr_c_prev = rc_prev_mat[n, :]
             ii_u = iu_mat[n, :]
-            for x in [rr_c_prev, rr_c, rr_u, ii_u]:
-                print(np.round(x, 2))
+            #for x in [rr_c_prev, rr_c, rr_u, ii_u]:
+            #    print(np.round(x, 2))
             plt.subplot(2, npops, n + 1)
             plt.plot(ii_u, rr_u, '.')
-            x = np.linspace(np.nanmin(ii_u), np.nanmax(ii_u), 200)
-            plt.plot(x, wc_gain(x, model.pops[f'pop{n}']))
+            ii_u_ = np.linspace(np.nanmin(ii_u), np.nanmax(ii_u), 200)
+            plt.plot(ii_u_, wc_gain(ii_u_, model.pops[pop]))
             plt.xlabel('Iu')
             plt.ylabel('Ru')
+            rvis_max = rr_base[n] * pfr_vec.max() * 1.2
             plt.xlim(-3.5, 0)
-            plt.ylim(0, 2)
-            plt.title(f'pop = {n}')
+            plt.ylim(0, rvis_max)
+            plt.title(f'pop = {pop}')
             plt.subplot(2, npops, npops + n + 1)
             plt.plot(rr_u, rr_c, '.')
-            z = np.linspace(np.nanmin(rr_u), np.nanmax(rr_u), 200)
-            par = {key: val[n] for key, val in uc_mapper.fit_par.items()}
-            plt.plot(z, uc_mapper.map_func(z, **par))
+            rr_u_ = np.linspace(np.nanmin(rr_u), np.nanmax(rr_u), 200)
+            plt.plot(rr_u_, uc_mapper._map_funcs[pop].apply(rr_u_))
             plt.plot(rr_u, rr_c_prev, 'kx')
             plt.xlabel('Ru')
             plt.ylabel('Rc')
-            plt.xlim(0, 2)
-            plt.ylim(0, 2)
+            plt.xlim(0, rvis_max)
+            plt.ylim(0, rvis_max)
         plt.draw()
-        if np.isnan(par['a']):
-            break
-        if not plt.waitforbuttonpress():
-            break
-                
-
-
-# =============================================================================
-# n = 0
-# R0 = R0_vec[n]
-# 
-# R_iter = [R0]
-# 
-# for iter_num in range(10):
-#     R = R_iter[-1]
-#     I = ir_mapper.R_to_I(R)
-#     P = I.apply_to_net_params(P_base)
-#     req = SimRequest(cfg, P)
-#     req_name = f'req_{n}_{iter_num}'
-#     disp.submit_sim_request(req_name, req)
-#     sim_res = disp.get_sim_result(req_name)
-#     R_next = NetRegime.calc_from_sim_result(sim_res)
-#     R_iter.append(R_next)
-# =============================================================================
-
-
-
-
-# =============================================================================
-# class NetRegime:
-#     def __init__(self, fpath): pass
-# 
-#     @classmethod
-#     def calc_from_sim_result(cls, sim_res: SimResult) -> 'NetRegime':
-#         pass
-# 
-# def net_regime_from_pfr(R: NetRegime, pfr: float) -> NetRegime:
-#     pass
-# 
-# class NetInput:
-#     def __init__(self): pass
-#     def apply_to_net_params(par: NetParams) -> NetParams: pass
-# =============================================================================
-
-
-# =============================================================================
-# class NetParams:
-#     def __init__(self): pass
-# 
-# class SimConfig:
-#     def __init__(self): pass
-# 
-# class ModelDescNP(ModelDesc):
-#     def __init__(self):
-#         self.net_params = NetParams()
-#         self.sim_cfg = SimConfig()
-# 
-# 
-# R_base = NetRegime('R_base.json')
-# 
-# pfr_vec = np.linspace(0, 1, 10)
-# R0_vec = [net_regime_from_pfr(R_base, pfr) for pfr in pfr_vec]
-# 
-# ir_mapper = IRMapper()
-# 
-# P_base = NetParams()
-# cfg = SimConfig()
-# 
-# disp = SimRequestDispatcher()
-# 
-# n = 0
-# R0 = R0_vec[n]
-# 
-# R_iter = [R0]
-# 
-# for iter_num in range(10):
-#     R = R_iter[-1]
-#     I = ir_mapper.R_to_I(R)
-#     P = I.apply_to_net_params(P_base)
-#     req = SimRequest(cfg, P)
-#     req_name = f'req_{n}_{iter_num}'
-#     disp.submit_sim_request(req_name, req)
-#     sim_res = disp.get_sim_result(req_name)
-#     R_next = NetRegime.calc_from_sim_result(sim_res)
-#     R_iter.append(R_next)
-# 
-# 
-# class SimRequest:
-#     def __init__(self, cfg: SimConfig, net_params: NetParams):
-#         self.cfg = cfg
-#         self.net_params = net_params
-# 
-# class SimResult:
-#     def __init__(self): pass
-#         
-# class SimRequestDispatcher:
-#     def submit_sim_request(self, name, req: SimRequest): pass
-#     def get_sim_result(self, name) -> SimResult: pass
-# =============================================================================
+        if need_plot_iter:
+            if not plt.waitforbuttonpress():
+                break
