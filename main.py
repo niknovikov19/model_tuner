@@ -125,8 +125,8 @@ class NetUCMapper:
     
     def Ru_to_Rc(
             self,
-            Ru: Union[NetRegime, list[NetRegime]]
-            ) -> Union[NetRegime, list[NetRegime]]:
+            Ru: Union[NetRegime, NetRegimeList]
+            ) -> Union[NetRegime, NetRegimeList]:
         """Unconnected -> connected. """
         if isinstance(Ru, NetRegime):
             return self._Ru_to_Rc(Ru)
@@ -135,13 +135,15 @@ class NetUCMapper:
         
     def Rc_to_Ru(
             self,
-            Rc: Union[NetRegime, list[NetRegime]]
-            ) -> Union[NetRegime, list[NetRegime]]:
+            Rc: Union[NetRegime, NetRegimeList]
+            ) -> Union[NetRegime, NetRegimeList]:
         """Connected -> unconnected. """
         if isinstance(Rc, NetRegime):
             return self._Rc_to_Ru(Rc)
         else:
             return NetRegimeList([self._Rc_to_Ru(Rc_) for Rc_ in Rc])
+        
+    def fit_from_data(self, Ru: NetRegimeList, Rc: NetRegimeList): pass
 
 
 @dataclass        
