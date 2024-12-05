@@ -5,11 +5,6 @@ from typing import Dict, List, Tuple, Union, Literal
 import numpy as np
 
 
-class ModelDesc:
-    def __init__(self): pass
-    def get_pop_names(self) -> List[str]: pass
-
-    
 @dataclass
 class PopRegime:
     pass
@@ -79,3 +74,8 @@ class NetRegimeList:
             raise ValueError('All entries of NetRegimeList should have the same pops.')
         M = [R.get_pop_attr_vec(attr).reshape(-1, 1) for R in self.net_regimes]
         return np.concatenate(M, axis=1)
+
+
+class ModelDesc:
+    def __init__(self): pass
+    def get_pop_names(self) -> List[str]: pass
