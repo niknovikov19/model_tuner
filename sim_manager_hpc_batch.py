@@ -7,6 +7,9 @@ from typing import Dict, List, Tuple, Union, Literal, Any
 from fabric import Connection as FabricConnection
 from fs.sshfs import SSHFS
 
+from sim_manager import SimManager, SimStatus
+from ssh_client import SSHClient
+
 
 class SimManagerHPCBatch(SimManager):
     
@@ -16,6 +19,7 @@ class SimManagerHPCBatch(SimManager):
     
     def __init__(
             self,
+            ssh: SSHClient,
             fpath_bacth_script: str,
             hpc_dir_requests: str = None,
             hpc_dir_results: str = None,
@@ -27,9 +31,7 @@ class SimManagerHPCBatch(SimManager):
         self._hpc_dir_results = hpc_dir_results or self.HPC_DIR_RESULTS_DEF
         self._hpc_dir_logs = hpc_dir_logs or self.HPC_DIR_LOGS_DEF
         self._is_req_batch_pushed = False
-        self._ssh_host = ''
-        self._ssh_user = ''
-        self._ssh_password = ''
+        self._ssh = ssh
     
     def _ready_for_request(self) -> bool:
         return not self._is_req_batch_pushed
@@ -39,20 +41,6 @@ class SimManagerHPCBatch(SimManager):
     
     def _gen_sim_result_path(self, label: str) -> str:
         return os.path.join(self._hpc_dir_results, f'{label}.pkl')
-    
-    def _get_sshfs_handler(self) -> SSHFS:
-        return SSHFS(f'{self._ssh_username}@{self._ssh_host}',
-                     passwd=self._ssh_password)
-    
-    def _get_ssh_conn_handler(self) -> FabricConnection:
-        return FabricConnection(
-            host=self._ssh_host, user=self._ssh_username,
-            connect_kwargs={'password': self._ssh_password}
-        )
-    
-    def _ssh_file_exists(self, fpath: str) -> bool:
-        with self._get_sshfs_handler() as fs:
-            return fs.exists(fpath)
 
     def _update_sim_status(self, label: str) -> None:
         if label not in self.sims:
@@ -60,7 +48,7 @@ class SimManagerHPCBatch(SimManager):
         if self.sims[label].status == SimStatus.WAITING:
             # Mark simulation as DONE if its result file appeared on hpc
             fpath_res = self._gen_sim_result_path(label)
-            if self._ssh_file_exists(fpath_res):
+            if self._ssh.file_exists(fpath_res):
                 self.sims[label].status = SimStatus.DONE    
     
     def _init_sim_request(self, label: str, params: Dict, push_now: bool) -> None:
@@ -72,18 +60,18 @@ class SimManagerHPCBatch(SimManager):
             raise ValueError('SimManagerHPCBatch does not support pushing '
                              'of individual simulations, use push_all_requests()')
     
-    def _sim_requests_to_json(
+    def _sim_requests_to_hpc_json(
             self,
             fpath_json: str,
             labels_used: List[str] = None
             ) -> None:
         if labels_used is None: labels_used = self.sims.keys()
         sim_reqs = {label: self.sims[label].params for label in labels_used}
-        with self._get_sshfs_handler() as fs:
+        with self._ssh.get_filesys_handler() as fs:
             with fs.open(fpath_json, 'w') as fid:
                 json.dump(sim_reqs, fid)
     
-    def _ssh_run_script(self,
+    def _run_hpc_script(self,
                         fpath_script: str,
                         fpath_out: str,
                         cmd_args: Union[str, List[str]]
@@ -95,7 +83,7 @@ class SimManagerHPCBatch(SimManager):
         # Command to run: background, survive ssh disconnection, redirect outputs  
         cmd = f'nohup python {fpath_script} {cmd_args} > {fpath_out} 2>&1 &'
         # Run the command via ssh
-        with self._get_ssh_conn_handler() as conn:
+        with self._ssh.get_conn_handler() as conn:
             conn.run(cmd, hide=True)
     
     def push_all_requests(self) -> None:
@@ -106,10 +94,10 @@ class SimManagerHPCBatch(SimManager):
             raise ValueError('Cannot push, previous batch is still processing')
         # Store params of simulations into a json file on HPC
         fpath_reqs_json = self._gen_sim_requests_json_path()
-        self._sim_requests_to_json(fpath_reqs_json, sims_to_push.keys())
+        self._sim_requests_to_hpc_json(fpath_reqs_json, sims_to_push.keys())
         # Run batch script on HPC, pass the path to the json file as an argument
         fpath_log = os.path.join(self._hpc_dir_logs, 'batch_log.txt')
-        self._ssh_run_script(self._fpath_bacth_script, fpath_log,
+        self._run_hpc_script(self._fpath_bacth_script, fpath_log,
                              cmd_args=fpath_reqs_json)
         # Update statuses
         for sim in sims_to_push.values():
