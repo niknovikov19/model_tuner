@@ -25,7 +25,7 @@ class SimManagerHPCBatch(SimManager):
             hpc_dir_results: str = None,
             hpc_dir_logs: str = None,
             ):
-        super().init()
+        super().__init__()
         self._fpath_bacth_script = fpath_bacth_script
         self._hpc_dir_requests = hpc_dir_requests or self.HPC_DIR_REQUESTS_DEF
         self._hpc_dir_results = hpc_dir_results or self.HPC_DIR_RESULTS_DEF
@@ -82,6 +82,7 @@ class SimManagerHPCBatch(SimManager):
         cmd_args = ' '.join([f'"{arg}"' for arg in cmd_args])  # add quotes
         # Command to run: background, survive ssh disconnection, redirect outputs  
         cmd = f'nohup python {fpath_script} {cmd_args} > {fpath_out} 2>&1 &'
+        #cmd = f'python {fpath_script} > {fpath_out}'
         # Run the command via ssh
         with self._ssh.get_conn_handler() as conn:
             conn.run(cmd, hide=True)
@@ -96,7 +97,7 @@ class SimManagerHPCBatch(SimManager):
         fpath_reqs_json = self._gen_sim_requests_json_path()
         self._sim_requests_to_hpc_json(fpath_reqs_json, sims_to_push.keys())
         # Run batch script on HPC, pass the path to the json file as an argument
-        fpath_log = os.path.join(self._hpc_dir_logs, 'batch_log.txt')
+        fpath_log = os.path.join(self._hpc_dir_logs, 'batch_log.out')
         self._run_hpc_script(self._fpath_bacth_script, fpath_log,
                              cmd_args=fpath_reqs_json)
         # Update statuses
