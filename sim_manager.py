@@ -6,10 +6,13 @@ from typing import Dict, List, Tuple, Union, Literal, Any
 
 
 class SimStatus(Enum):
-    NEED_PUSH: auto()
-    WAITING: auto()
-    DONE: auto()
-    ERROR: auto()
+    NEED_PUSH = auto()
+    WAITING = auto()
+    DONE = auto()
+    ERROR = auto()
+        
+    def is_finished(self) -> bool:
+        return self in {SimStatus.DONE, SimStatus.ERROR}
 
 class SimManager(ABC):
     """
@@ -29,22 +32,43 @@ class SimManager(ABC):
         self.sims: Dict[str, 'SimManager.SimInfo'] = {}
     
     @abstractmethod
-    def _update_sim_status(self, label: str) -> None: pass
+    def _update_sim_status(self, label: str) -> None:
+        """Set self.sims[label].status. """
+        pass
 
     @abstractmethod
-    def _ready_for_request(self) -> bool: pass
+    def _ready_for_request(self) -> bool:
+        """Is the object ready for add_sim_request()? """
+        pass
     
     @abstractmethod
-    def _init_sim_request(self, label: str, params: Dict, push_now: bool) -> None: pass
+    def _init_sim_request(self, label: str, params: Dict, push_now: bool) -> None:
+        pass
 
     @abstractmethod
-    def push_all_requests(self) -> None: pass
+    def push_all_requests(self) -> None:
+        pass
 
-    def get_sim_status(self, label: str) -> SimStatus:
+    def get_sim_status(self, label: str, update=True) -> SimStatus:
         if label not in self.sims:
             raise ValueError(f'Simulation {label} does not exist')
-        self._update_sim_status(label)
+        if update:
+            self._update_sim_status(label)
         return self.sims[label].status
+    
+    @abstractmethod
+    def _update_all_sim_statuses(self) -> None:
+        pass
+    
+    def get_all_sim_statuses(self, update=True) -> Dict[str, SimStatus]:
+        if update:
+            self._update_all_sim_statuses()
+        return {label: sim.status for label, sim in self.sims.items()}
+    
+    def is_finished(self, update=True) -> bool:
+        if update:
+            self._update_all_sim_statuses()
+        return all(sim.status.is_finished() for sim in self.sims.values())
     
     def add_sim_request(
             self,

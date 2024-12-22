@@ -2,7 +2,7 @@ from pathlib import Path
 import sys
 import time
 
-sys.path.append(str(Path(__file__).resolve().parents[2]))
+sys.path.append(str(Path(__file__).resolve().parents[3]))
 
 from fs.permissions import Permissions
 
@@ -36,8 +36,9 @@ fname_script = 'hpc_script.py'
 fpath_script_local = (dirpath_local / fname_script).as_posix()
 fpath_script_hpc = (dirpath_hpc_base / fname_script).as_posix()
 
-# Log file
+# Log and result files
 fpath_log_hpc = (dirpath_hpc_log / 'log.out').as_posix()
+fpath_result_hpc = (dirpath_hpc_result / 'result.out').as_posix()
 
 # SSH Client
 ssh_client = SSHClient(hostname, username, port, private_key_path)
@@ -51,7 +52,7 @@ with ssh_client.get_filesys_handler() as fs:
     
     # Delete remote files: script, log, result
     print('Delete old files...')
-    for fpath in [fpath_script_hpc, fpath_log_hpc]:
+    for fpath in [fpath_script_hpc, fpath_log_hpc, fpath_result_hpc]:
         delete_file(fs, fpath)
     # ...
     
@@ -62,20 +63,28 @@ ssh_client.upload_file(fpath_script_local, fpath_script_hpc)
 print('Upload the script...')
 sim_manager = SimManagerHPCBatch(ssh_client, None)
 
-# Run the script
+# Run the script, pass dirpath_hpc_base as a command line argument
 print('Run the script...')
 sim_manager._run_hpc_script(
-    fpath_script_hpc, fpath_log_hpc, cmd_args='test_arg'
+    fpath_script_hpc, fpath_log_hpc, cmd_args=dirpath_hpc_base.as_posix()
 )
 print('Done')
 
-# Read the log several times with sleep intervals
+# Monitor the log until the result file appears
 with ssh_client.get_filesys_handler() as fs:
-    print('Content of the log file:')
-    for n in range(7):
+    while True:
+        finished = fs.exists(fpath_result_hpc)
         with fs.open(fpath_log_hpc, 'r') as fid:
             content = fid.read()
-            print(f'---- {n} ----')
+            print('-------------')
+            print('>>> Content of the log file:')
             print(content)
             time.sleep(0.2)
+        if finished:
+            break
+    
     print('-------------')
+    print('>>> Content of the result file:')
+    with fs.open(fpath_result_hpc, 'r') as fid:
+        content = fid.read()
+        print(content)
