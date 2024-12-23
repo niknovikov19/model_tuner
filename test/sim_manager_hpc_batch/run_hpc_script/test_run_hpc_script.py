@@ -7,7 +7,7 @@ sys.path.append(str(Path(__file__).resolve().parents[3]))
 from fs.permissions import Permissions
 
 from sim_manager_hpc_batch import SimManagerHPCBatch
-from ssh_client import SSHClient
+from ssh_client import SSHParams, SSHClient
 
 
 def delete_file(fs, fpath):
@@ -18,10 +18,12 @@ def delete_file(fs, fpath):
         raise RuntimeError(f'Deleted file still exists: {fpath}')
 
 # SSH parameters
-hostname = 'lethe.downstate.edu'
-username = 'niknovikov19'
-port = 1415
-private_key_path = r'C:\Users\aleks\.ssh\id_rsa_lethe'
+ssh_par = SSHParams(
+    host='lethe.downstate.edu',
+    user='niknovikov19',
+    port=1415,
+    fpath_private_key=r'C:\Users\aleks\.ssh\id_rsa_lethe'
+)
 
 # Local folder
 dirpath_local = Path(__file__).resolve().parent
@@ -41,40 +43,37 @@ fpath_log_hpc = (dirpath_hpc_log / 'log.out').as_posix()
 fpath_result_hpc = (dirpath_hpc_result / 'result.out').as_posix()
 
 # SSH Client
-ssh_client = SSHClient(hostname, username, port, private_key_path)
+with SSHClient(ssh_par) as ssh:
 
-with ssh_client.get_filesys_handler() as fs:
     # Create HPC folders
     print('Create folders...')
     perm = Permissions(mode=0o777)  # Full permissions (rwxrwxrwx)
     for dirpath in [dirpath_hpc_base, dirpath_hpc_log, dirpath_hpc_result]:
-        fs.makedirs(dirpath.as_posix(), permissions=perm, recreate=True)
+        ssh.fs.makedirs(dirpath.as_posix(), permissions=perm, recreate=True)
     
     # Delete remote files: script, log, result
     print('Delete old files...')
     for fpath in [fpath_script_hpc, fpath_log_hpc, fpath_result_hpc]:
-        delete_file(fs, fpath)
-    # ...
+        delete_file(ssh.fs, fpath)
     
-# Upload the script to HPC
-ssh_client.upload_file(fpath_script_local, fpath_script_hpc)   
+    # Upload the script to HPC
+    ssh.fs.upload_file(fpath_script_local, fpath_script_hpc)   
+    
+    # Simulation manager
+    print('Upload the script...')
+    sim_manager = SimManagerHPCBatch(ssh, None)
+    
+    # Run the script, pass dirpath_hpc_base as a command line argument
+    print('Run the script...')
+    sim_manager._run_hpc_script(
+        fpath_script_hpc, fpath_log_hpc, cmd_args=dirpath_hpc_base.as_posix()
+    )
+    print('Done')
 
-# Simulation manager
-print('Upload the script...')
-sim_manager = SimManagerHPCBatch(ssh_client, None)
-
-# Run the script, pass dirpath_hpc_base as a command line argument
-print('Run the script...')
-sim_manager._run_hpc_script(
-    fpath_script_hpc, fpath_log_hpc, cmd_args=dirpath_hpc_base.as_posix()
-)
-print('Done')
-
-# Monitor the log until the result file appears
-with ssh_client.get_filesys_handler() as fs:
+    # Monitor the log until the result file appears
     while True:
-        finished = fs.exists(fpath_result_hpc)
-        with fs.open(fpath_log_hpc, 'r') as fid:
+        finished = ssh.fs.exists(fpath_result_hpc)
+        with ssh.fs.open(fpath_log_hpc, 'r') as fid:
             content = fid.read()
             print('-------------')
             print('>>> Content of the log file:')
@@ -85,6 +84,6 @@ with ssh_client.get_filesys_handler() as fs:
     
     print('-------------')
     print('>>> Content of the result file:')
-    with fs.open(fpath_result_hpc, 'r') as fid:
+    with ssh.fs.open(fpath_result_hpc, 'r') as fid:
         content = fid.read()
         print(content)

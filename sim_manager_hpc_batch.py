@@ -52,7 +52,7 @@ class SimManagerHPCBatch(SimManager):
         if self.sims[label].status == SimStatus.WAITING:
             # Mark simulation as DONE if its result file appeared on hpc
             fpath_res = self._gen_sim_result_path(label)
-            if self._ssh.file_exists(fpath_res):
+            if self._ssh.fs.exists(fpath_res):
                 self.sims[label].status = SimStatus.DONE
     
     def _update_all_sim_statuses(self) -> None:
@@ -75,9 +75,8 @@ class SimManagerHPCBatch(SimManager):
             ) -> None:
         if labels_used is None: labels_used = self.sims.keys()
         sim_reqs = {label: self.sims[label].params for label in labels_used}
-        with self._ssh.get_filesys_handler() as fs:
-            with fs.open(fpath_json, 'w') as fid:
-                json.dump(sim_reqs, fid)
+        with self._ssh.fs.open(fpath_json, 'w') as fid:
+            json.dump(sim_reqs, fid)
     
     def _run_hpc_script(self,
                         fpath_script: str,
@@ -91,8 +90,7 @@ class SimManagerHPCBatch(SimManager):
         # Command to run: background, survive ssh disconnection, redirect outputs  
         cmd = f'nohup python {fpath_script} {cmd_args} > {fpath_out} 2>&1 &'
         # Run the command via ssh
-        with self._ssh.get_conn_handler() as conn:
-            conn.run(cmd, hide=True)
+        self._ssh.conn.run(cmd, hide=True)
     
     def push_all_requests(self) -> None:
         # Simulations that await pushing

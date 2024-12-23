@@ -26,6 +26,6 @@ for sim_label, sim_params in sim_requests.items():
     with open(fpath_res, 'wb') as fid:
         pickle.dump(sim_params, fid)
     print('Done', flush=True)
-    time.sleep(10)
+    time.sleep(2)
 
 print('Test script finished')
