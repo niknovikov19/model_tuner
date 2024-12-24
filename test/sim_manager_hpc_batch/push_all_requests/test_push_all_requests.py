@@ -8,7 +8,7 @@ sys.path.append(str(Path(__file__).resolve().parents[3]))
 
 from fs.permissions import Permissions
 
-from sim_manager_hpc_batch import SimManagerHPCBatch
+from sim_manager_hpc_batch import SimManagerHPCBatch, SimBatchPaths
 from ssh_client import SSHParams, SSHClient
 
 
@@ -18,6 +18,13 @@ def delete_file(fs, fpath):
         fs.remove(fpath)
     if fs.exists(fpath):
         raise RuntimeError(f'Deleted file still exists: {fpath}')
+
+def joinpath_hpc(base, *args):
+    return Path(base).joinpath(*args).as_posix()
+
+def joinpath_local(base, *args):
+    return str(Path(base).joinpath(*args))
+
 
 # SSH parameters
 ssh_par = SSHParams(
@@ -30,11 +37,8 @@ ssh_par = SSHParams(
 # Local folder
 dirpath_local = Path(__file__).resolve().parent
 
-# HPC folders
-dirpath_hpc_base = Path('/ddn/niknovikov19/test/model_tuner/test_push_all_requests')
-dirpath_hpc_log = dirpath_hpc_base / 'log'
-dirpath_hpc_req = dirpath_hpc_base / 'requests'
-dirpath_hpc_res = dirpath_hpc_base / 'results'
+# HPC base folder
+dirpath_hpc_base = '/ddn/niknovikov19/test/model_tuner/test_push_all_requests'
 
 # Simulation labels
 num_req = 5
@@ -42,36 +46,34 @@ sim_labels = [f'req{n}' for n in range(num_req)]
 
 # Script to run
 fname_script = 'hpc_batch_script.py'
-fpath_script_local = (dirpath_local / fname_script).as_posix()
-fpath_script_hpc = (dirpath_hpc_base / fname_script).as_posix()
+fpath_script_local = joinpath_local(dirpath_local, fname_script)
+fpath_script_hpc = joinpath_hpc(dirpath_hpc_base, fname_script)
+
+# HPC paths
+hpc_paths = SimBatchPaths.create_default(dirpath_base=dirpath_hpc_base)
 
 with SSHClient(ssh_par) as ssh:
     # Simulation manager
     sim_manager = SimManagerHPCBatch(
         ssh,
-        fpath_bacth_script=fpath_script_hpc,
-        hpc_dir_requests=dirpath_hpc_req.as_posix(),
-        hpc_dir_results=dirpath_hpc_res.as_posix(),
-        hpc_dir_logs=dirpath_hpc_log.as_posix()
+        fpath_batch_script=fpath_script_hpc,
+        batch_paths=hpc_paths
     )
     
-    # File paths: log, requests, results
-    fpath_log_hpc = sim_manager._gen_log_path()
-    fpath_req_hpc = sim_manager._gen_sim_requests_json_path()
-    fpath_res_hpc_lst = [sim_manager._gen_sim_result_path(label)
+    # Result files
+    fpath_res_hpc_lst = [sim_manager.get_sim_result_path(label)
                          for label in sim_labels]
     
     # Create HPC folders
     print('Create folders...')
     perm = Permissions(mode=0o777)  # Full permissions (rwxrwxrwx)
-    dirs = [dirpath_hpc_base, dirpath_hpc_log, dirpath_hpc_req, dirpath_hpc_res]
-    for dirpath in dirs:
-        ssh.fs.makedirs(dirpath.as_posix(), permissions=perm, recreate=True)
+    for dirpath in hpc_paths.get_used_folders():
+        ssh.fs.makedirs(dirpath, permissions=perm, recreate=True)
     
     # Delete remote files: script, log, result
     print('Delete old files...')
-    files = [fpath_script_hpc, fpath_log_hpc, fpath_req_hpc] + fpath_res_hpc_lst
-    for fpath in files:
+    fpaths_todel = hpc_paths.get_all_files() + fpath_res_hpc_lst
+    for fpath in fpaths_todel:
         delete_file(ssh.fs, fpath)
         
     # Upload the script to HPC

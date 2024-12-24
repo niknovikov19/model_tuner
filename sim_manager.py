@@ -48,26 +48,23 @@ class SimManager(ABC):
     @abstractmethod
     def push_all_requests(self) -> None:
         pass
-
+    
+    def _update_all_sim_statuses(self) -> None:
+        for sim_label in self.sims:
+            self._update_sim_status(sim_label)
+    
     def get_sim_status(self, label: str, update=True) -> SimStatus:
         if label not in self.sims:
             raise ValueError(f'Simulation {label} does not exist')
-        if update:
-            self._update_sim_status(label)
+        if update: self._update_sim_status(label)
         return self.sims[label].status
     
-    @abstractmethod
-    def _update_all_sim_statuses(self) -> None:
-        pass
-    
     def get_all_sim_statuses(self, update=True) -> Dict[str, SimStatus]:
-        if update:
-            self._update_all_sim_statuses()
+        if update: self._update_all_sim_statuses()
         return {label: sim.status for label, sim in self.sims.items()}
     
     def is_finished(self, update=True) -> bool:
-        if update:
-            self._update_all_sim_statuses()
+        if update: self._update_all_sim_statuses()
         return all(sim.status.is_finished() for sim in self.sims.values())
     
     def add_sim_request(
