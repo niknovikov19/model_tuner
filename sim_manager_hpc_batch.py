@@ -3,7 +3,7 @@ from enum import Enum, auto
 import json
 import os
 from pathlib import Path
-from typing import Dict, List, Tuple, Union, Literal, Any, ClassVar
+from typing import Dict, List, Tuple, Union, Literal, Any, ClassVar, Optional
 
 from fabric import Connection as FabricConnection
 from fs.sshfs import SSHFS
@@ -59,11 +59,13 @@ class SimManagerHPCBatch(SimManager):
             ssh: SSHClient,
             fpath_batch_script: str,
             batch_paths: SimBatchPaths,
+            conda_env: Optional[str] = None
             ):
         super().__init__()
         self._ssh = ssh
         self._fpath_batch_script = fpath_batch_script
         self._paths = batch_paths
+        self._conda_env = conda_env or 'base'
         self._is_req_batch_pushed = False        
     
     def _ready_for_request(self) -> bool:
@@ -109,8 +111,13 @@ class SimManagerHPCBatch(SimManager):
         if isinstance(cmd_args, str):
             cmd_args = [cmd_args]
         cmd_args = ' '.join([f'"{arg}"' for arg in cmd_args])  # add quotes
-        # Command to run: background, survive ssh disconnection, redirect outputs  
-        cmd = f'nohup python {fpath_script} {cmd_args} > {fpath_log} 2>&1 &'
+        # Command to run: set conda env, run python script in background,
+        # redirect outputs, and make it survive ssh disconnection
+        cmd = f"""(
+            source ~/.bashrc
+            conda activate {self._conda_env}
+            nohup python {fpath_script} {cmd_args} > {fpath_log} 2>&1 &
+        ) &"""
         # Run the command via ssh
         self._ssh.conn.run(cmd, hide=True)
     
