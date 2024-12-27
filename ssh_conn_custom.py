@@ -1,15 +1,8 @@
-from dataclasses import dataclass
-from typing import List, Optional
+from typing import List
 
 from fabric import Connection
 
-
-@dataclass
-class SSHParams:
-    host: str
-    user: str
-    port: Optional[int] = 22
-    fpath_private_key: Optional[str] = None  # on the local machine
+from ssh_params import SSHParams
 
 
 class SSHConnCustomCloseError(Exception):
@@ -33,6 +26,7 @@ class SSHConnCustom(Connection):
         conn_chain = self._create_proxy_chain(ssh_par[:-1])
         gateway = conn_chain[-1] if conn_chain else None
         # Create the final ssh connection (self)
+        # NOTE: all keys should be in the local filesystem
         ssh_par_final = ssh_par[-1]
         super().__init__(
             host=ssh_par_final.host,

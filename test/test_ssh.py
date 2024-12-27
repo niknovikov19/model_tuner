@@ -1,12 +1,7 @@
-import os
-
-from fabric import Connection as FabricConnection
+from fabric import Connection
 from fs.sshfs import SSHFS
 import paramiko
 
-
-def path_join(*parts, sep='/'):
-    return sep.join(str(part).strip(sep) for part in parts)
 
 # SSH parameters
 hostname = 'lethe.downstate.edu'
@@ -29,7 +24,7 @@ with SSHFS(
     print(fs.listdir(remote_dir))
 
 # Test ssh-based command running
-with FabricConnection(
+with Connection(
         host=hostname,
         user=username,
         port=port,

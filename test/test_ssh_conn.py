@@ -3,7 +3,7 @@ import sys
 
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 
-from ssh_client import SSHClient
+from ssh_conn_custom import SSHConnCustom
 from ssh_params import SSHParams
 
 
@@ -20,19 +20,7 @@ ssh_par_grid = SSHParams(
     fpath_private_key=r'C:\Users\aleks\.ssh\id_ed25519_grid'
 )
 
-# HPC folder
-remote_dir = 'ddn/niknovikov19'
-
-with SSHClient(
-        ssh_par_fs=ssh_par_lethe,
-        ssh_par_conn=[ssh_par_lethe, ssh_par_grid]
-        ) as ssh:
-    # Test ssh-based file system
-    print(f'Contents of {remote_dir} via SSHFS')
-    print(ssh.fs.listdir(remote_dir))
-
-    # Test ssh-based command running
-    result = ssh.conn.run('ls -l', hide=True)
-    print(f'\nContents of {remote_dir} via "ls - l"')
+with SSHConnCustom([ssh_par_lethe, ssh_par_grid]) as conn:
+    result = conn.run('uname -a', hide=True)
     print(result.stdout.strip())
-    
+    conn.close()
