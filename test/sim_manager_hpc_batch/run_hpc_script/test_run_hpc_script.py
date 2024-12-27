@@ -60,7 +60,8 @@ with SSHClient(ssh_par) as ssh:
     
     # Delete remote files: script, log, result
     print('Delete old files...')
-    fpaths_todel = hpc_paths.get_all_files() + [fpath_res_hpc]
+    fpaths_todel = (hpc_paths.get_all_files() + 
+                    [fpath_res_hpc, fpath_script_hpc])
     for fpath in fpaths_todel:
         delete_file(ssh.fs, fpath)
     
@@ -69,7 +70,12 @@ with SSHClient(ssh_par) as ssh:
     
     # Simulation manager
     print('Upload the script...')
-    sim_manager = SimManagerHPCBatch(ssh, None, hpc_paths)
+    sim_manager = SimManagerHPCBatch(
+        ssh=ssh,
+        fpath_batch_script=None,
+        batch_paths=hpc_paths,
+        conda_env='netpyne_batch'
+    )
     
     # Run the script, pass dirpath_hpc_base as a command line argument
     print('Run the script...')

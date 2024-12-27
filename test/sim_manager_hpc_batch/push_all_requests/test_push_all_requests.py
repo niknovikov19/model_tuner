@@ -55,9 +55,10 @@ hpc_paths = SimBatchPaths.create_default(dirpath_base=dirpath_hpc_base)
 with SSHClient(ssh_par) as ssh:
     # Simulation manager
     sim_manager = SimManagerHPCBatch(
-        ssh,
+        ssh=ssh,
         fpath_batch_script=fpath_script_hpc,
-        batch_paths=hpc_paths
+        batch_paths=hpc_paths,
+        conda_env='netpyne_batch'
     )
     
     # Result files
@@ -72,13 +73,14 @@ with SSHClient(ssh_par) as ssh:
     
     # Delete remote files: script, log, result
     print('Delete old files...')
-    fpaths_todel = hpc_paths.get_all_files() + fpath_res_hpc_lst
+    fpaths_todel = (hpc_paths.get_all_files() + fpath_res_hpc_lst + 
+                    [fpath_script_hpc])
     for fpath in fpaths_todel:
         delete_file(ssh.fs, fpath)
         
     # Upload the script to HPC
     print('Upload the script...')
-    ssh.fs.upload_file(fpath_script_local, fpath_script_hpc)   
+    ssh.fs.upload_file(fpath_script_local, fpath_script_hpc)
     
     # Add sim requests
     for n, label in enumerate(sim_labels):
