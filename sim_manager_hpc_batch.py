@@ -1,12 +1,7 @@
-from dataclasses import dataclass, is_dataclass, fields
-from enum import Enum, auto
+from dataclasses import dataclass
 import json
-import os
 from pathlib import Path
-from typing import Dict, List, Tuple, Union, Literal, Any, ClassVar, Optional
-
-from fabric import Connection as FabricConnection
-from fs.sshfs import SSHFS
+from typing import Dict, List, Union, ClassVar, Optional
 
 from sim_manager import SimManager, SimStatus
 from ssh_client import SSHClient
@@ -21,13 +16,21 @@ def _get_parent_dir_hpc(fpath):
 
 @dataclass
 class SimBatchPaths:
+    base_dir: str
     requests_file: str
     results_dir: str
     log_file: str
     batchtools_dir: str
     
-    FILE_FIELDS: ClassVar[List[str]] = ['requests_file', 'log_file']
-    FOLDER_FIELDS: ClassVar[List[str]] = ['results_dir', 'batchtools_dir']
+    FILE_FIELDS: ClassVar[List[str]] = [
+        'requests_file',
+        'log_file'
+    ]
+    FOLDER_FIELDS: ClassVar[List[str]] = [
+        'base_dir',
+        'results_dir', 
+        'batchtools_dir'
+    ]
     
     def get_used_folders(self) -> List[str]:
         folder_paths = [getattr(self, f) for f in self.FOLDER_FIELDS]
@@ -48,7 +51,8 @@ class SimBatchPaths:
             'batchtools_dir': 'batchtools'
         }
         paths_abs = {key: _joinpath_hpc(dirpath_base, path_rel)
-                     for key, path_rel in paths_rel.items()}        
+                     for key, path_rel in paths_rel.items()}
+        paths_abs['base_dir'] = dirpath_base        
         return cls(**paths_abs)
 
 
@@ -134,7 +138,8 @@ class SimManagerHPCBatch(SimManager):
         self._run_hpc_script(
             self._fpath_batch_script,
             self._paths.log_file,
-            cmd_args=[fpath_reqs_json, self._paths.results_dir]
+            #cmd_args=[fpath_reqs_json, self._paths.results_dir]
+            cmd_args=[self._paths.base_dir]
         )
         # Update statuses
         for sim in sims_to_push.values():

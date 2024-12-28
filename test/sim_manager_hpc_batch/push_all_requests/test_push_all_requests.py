@@ -8,8 +8,9 @@ sys.path.append(str(Path(__file__).resolve().parents[3]))
 
 from fs.permissions import Permissions
 
+from ssh_client import SSHClient
 from sim_manager_hpc_batch import SimManagerHPCBatch, SimBatchPaths
-from ssh_client import SSHParams, SSHClient
+from ssh_params import SSHParams
 
 
 def delete_file(fs, fpath):
@@ -27,11 +28,16 @@ def joinpath_local(base, *args):
 
 
 # SSH parameters
-ssh_par = SSHParams(
+ssh_par_lethe = SSHParams(
     host='lethe.downstate.edu',
     user='niknovikov19',
     port=1415,
     fpath_private_key=r'C:\Users\aleks\.ssh\id_rsa_lethe'
+)
+ssh_par_grid = SSHParams(
+    host='grid',
+    user='niknovikov19',
+    fpath_private_key=r'C:\Users\aleks\.ssh\id_ed25519_grid'
 )
 
 # Local folder
@@ -49,10 +55,19 @@ fname_script = 'hpc_batch_script.py'
 fpath_script_local = joinpath_local(dirpath_local, fname_script)
 fpath_script_hpc = joinpath_hpc(dirpath_hpc_base, fname_script)
 
-# HPC paths
+# HPC paths used by SimManager
 hpc_paths = SimBatchPaths.create_default(dirpath_base=dirpath_hpc_base)
 
-with SSHClient(ssh_par) as ssh:
+with SSHClient(
+        ssh_par_fs=ssh_par_lethe,
+        ssh_par_conn=[ssh_par_lethe, ssh_par_grid]
+        ) as ssh:
+    
+    # Test grid connection
+    print('Test grid connection:')
+    result = ssh.conn.run('uname -a', hide=True)
+    print(result.stdout.strip())
+    
     # Simulation manager
     sim_manager = SimManagerHPCBatch(
         ssh=ssh,
@@ -73,8 +88,9 @@ with SSHClient(ssh_par) as ssh:
     
     # Delete remote files: script, log, result
     print('Delete old files...')
-    fpaths_todel = (hpc_paths.get_all_files() + fpath_res_hpc_lst + 
-                    [fpath_script_hpc])
+    fpaths_todel = (hpc_paths.get_all_files()
+                    + fpath_res_hpc_lst 
+                    + [fpath_script_hpc])
     for fpath in fpaths_todel:
         delete_file(ssh.fs, fpath)
         

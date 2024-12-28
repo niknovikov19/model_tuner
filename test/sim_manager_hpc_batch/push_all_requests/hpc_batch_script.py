@@ -1,14 +1,21 @@
 import json
 import os
+from pathlib import Path
 import pickle
 import sys
 import time
 
 
+def joinpath_hpc(base, *args):
+    return Path(base).joinpath(*args).as_posix()
+
+
 print('Test script started', flush=True)
 
-fpath_reqs_json = sys.argv[1]
-dirpath_res = sys.argv[2]
+dirpath_base = sys.argv[1]
+
+fpath_reqs_json = joinpath_hpc(dirpath_base, 'requests/requests.json')
+dirpath_res = joinpath_hpc(dirpath_base, 'results')
 
 print(f'File with sim requests: {fpath_reqs_json}', flush=True)
 print(f'Output folder for the results: {dirpath_res}', flush=True)

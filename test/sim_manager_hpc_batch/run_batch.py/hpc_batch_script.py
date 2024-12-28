@@ -14,7 +14,7 @@ from sim_manager_hpc_batch import SimBatchPaths
 # Base folder
 dirpath_base = sys.argv[1]
 
-# Paths
+# Collection of hpc paths used by SimManagerHPCBatch
 paths = SimBatchPaths.create_default(dirpath_base)
 
 # Read sim labels from the requests json file
