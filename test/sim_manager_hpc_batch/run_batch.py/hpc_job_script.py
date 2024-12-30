@@ -10,11 +10,13 @@ from netpyne.batchtools import comm, specs
 comm.initialize()
 
 cfg = specs.SimConfig()
+
+cfg.sim_manager = {}
 cfg.update_cfg()
 
 dirpath_res = cfg.saveFolder
-sim_label = cfg.sim_manager.sim_label
-fpath_reqs = cfg.sim_manager.requests_file
+sim_label = cfg.sim_manager['sim_label']
+fpath_reqs = cfg.sim_manager['requests_file']
 
 print(f'Job script started (label={sim_label})', flush=True)
 print(f'File with sim requests: {fpath_reqs}', flush=True)

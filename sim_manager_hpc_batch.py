@@ -117,11 +117,15 @@ class SimManagerHPCBatch(SimManager):
         cmd_args = ' '.join([f'"{arg}"' for arg in cmd_args])  # add quotes
         # Command to run: set conda env, run python script in background,
         # redirect outputs, and make it survive ssh disconnection
-        cmd = f"""(
-            source ~/.bashrc
-            conda activate {self._conda_env}
-            nohup python {fpath_script} {cmd_args} > {fpath_log} 2>&1 &
-        ) &"""
+        dirpath_script = Path(fpath_script).parent.as_posix()
+        cmd = f"""
+            bash -l -c '(
+                conda activate {self._conda_env}
+                cd {dirpath_script}
+                nohup python {fpath_script} {cmd_args} > {fpath_log} 2>&1 &
+            )&' &
+        """
+        #print(f'COMMAND: \n {cmd}')
         # Run the command via ssh
         self._ssh.conn.run(cmd, hide=True)
     

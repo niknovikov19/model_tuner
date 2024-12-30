@@ -27,6 +27,9 @@ batch_params = {
     'sim_manager.requests_file': [paths.requests_file],
 }
 
+print('Batch params:', flush=True)
+print(batch_params, flush=True)
+
 sge_config = {
     'queue': 'cpu.q',
     'cores': 1,
@@ -35,6 +38,7 @@ sge_config = {
     'command': (
         'conda activate netpyne_batch \n'
         'export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH \n'
+        f'cd {dirpath_base} \n'
         'mpiexec -n $NSLOTS -hosts $(hostname) nrniv -python -mpi hpc_job_script.py'
     )
 }
