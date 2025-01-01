@@ -90,7 +90,7 @@ pfr_vec = np.linspace(0.1, 1.5, 10)
 
 # Target regimes (base * pfr for each pfr)
 R0_lst = NetRegimeListWC(
-    [NetRegimeWC(pop_names, rr_base * pfr) for pfr in pfr_vec]
+    [NetRegimeWC.from_rates(pop_names, rr_base * pfr) for pfr in pfr_vec]
 )
 
 # I-R mapper, explicitly uses Wilson-Cowan gain functions of populations
@@ -104,9 +104,9 @@ uc_mapper.set_to_identity()
 # Params of WC model simulations
 sim_par = {'niter': 20, 'dr_mult': 1}
 
-need_delete_prev_results = True
+need_delete_prev_results = 0
 
-need_plot_iter = 0
+need_plot_iter = 1
 need_plot_res = 1
 
 n_iter = 5
@@ -207,20 +207,24 @@ with SSHClient(
         uc_mapper.fit_from_data(Ru_lst, Rc_lst)
         
         if need_plot_iter or (need_plot_res and (iter_num == (n_iter - 1))):
-            plt.figure(112)
+            plt.figure(115)
             plt.clf()
+            
             ru_mat = Ru_lst.get_pop_attr_mat('r')
             rc_mat = Rc_lst.get_pop_attr_mat('r')
             rc_prev_mat = Rc_prev_lst.get_pop_attr_mat('r')
             iu_mat = np.full_like(ru_mat, np.nan)
+            
             for m in range(ru_mat.shape[1]):
-                Ru_ = NetRegimeWC(pop_names, ru_mat[:, m])
+                Ru_ = NetRegimeWC.from_rates(pop_names, ru_mat[:, m])
                 iu_mat[:, m] = ir_mapper.R_to_I(Ru_).get_pop_attr_vec('I')
+                
             for n, pop in enumerate(pop_names):
                 rr_u = ru_mat[n, :]
                 rr_c = rc_mat[n, :]
                 rr_c_prev = rc_prev_mat[n, :]
                 ii_u = iu_mat[n, :]
+
                 plt.subplot(2, npops, n + 1)
                 plt.plot(ii_u, rr_u, '.')
                 ii_u_ = np.linspace(np.nanmin(ii_u), np.nanmax(ii_u), 200)
@@ -231,6 +235,7 @@ with SSHClient(
                 plt.xlim(-3.5, 0)
                 plt.ylim(0, rvis_max)
                 plt.title(f'pop = {pop}')
+                
                 plt.subplot(2, npops, npops + n + 1)
                 plt.plot(rr_u, rr_c, '.')
                 rr_u_ = np.linspace(np.nanmin(rr_u), np.nanmax(rr_u), 200)
@@ -240,6 +245,7 @@ with SSHClient(
                 plt.ylabel('Rc')
                 plt.xlim(0, rvis_max)
                 plt.ylim(0, rvis_max)
+            
             plt.draw()
             #if need_plot_iter:
             #    if not plt.waitforbuttonpress():
