@@ -19,7 +19,7 @@ class PopInput:
 class NetRegime:
     pop_regimes: Dict[str, PopRegime] = field(default_factory=dict)
     
-    def __init__(self): pass  # constructor should be defined in children
+    #def __init__(self): pass  # constructor should be defined in children
     
     def get_pop_names(self):
         return list(self.pop_regimes.keys())

@@ -32,7 +32,7 @@ pfr_vec = np.linspace(0.1, 1.5, 20)
 
 # Target regimes (base * pfr for each pfr)
 R0_lst = NetRegimeListWC(
-    [NetRegimeWC(pop_names, rr_base * pfr) for pfr in pfr_vec]
+    [NetRegimeWC.from_rates(pop_names, rr_base * pfr) for pfr in pfr_vec]
 )
 
 # I-R mapper, explicitly uses Wilson-Cowan gain functions of populations
@@ -70,7 +70,7 @@ for iter_num in range(n_iter):
     uc_mapper.fit_from_data(Ru_lst, Rc_lst)
     
     if need_plot_iter or (need_plot_res and (iter_num == (n_iter - 1))):
-        plt.figure(113)
+        plt.figure(114)
         plt.clf()
         
         ru_mat = Ru_lst.get_pop_attr_mat('r')
@@ -79,7 +79,7 @@ for iter_num in range(n_iter):
         iu_mat = np.full_like(ru_mat, np.nan)
         
         for m in range(ru_mat.shape[1]):
-            Ru_ = NetRegimeWC(pop_names, ru_mat[:, m])
+            Ru_ = NetRegimeWC.from_rates(pop_names, ru_mat[:, m])
             iu_mat[:, m] = ir_mapper.R_to_I(Ru_).get_pop_attr_vec('I')
             
         for n, pop in enumerate(pop_names):

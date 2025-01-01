@@ -56,7 +56,7 @@ class NetUCMapperWC(NetUCMapper):
         else:
             Rc = {pop: self._map_funcs[pop].apply(Ru.get_pop_rate(pop))
                   for pop in self._pop_names}
-        return NetRegimeWC(pop_regimes=Rc)
+        return NetRegimeWC.from_rates_dict(Rc)
         
     def _Rc_to_Ru(self, Rc: NetRegimeWC) -> NetRegimeWC:
         if Rc.get_pop_names() != self._pop_names:
@@ -66,7 +66,7 @@ class NetUCMapperWC(NetUCMapper):
         else:
             Ru = {pop: self._map_funcs[pop].apply_inv(Rc.get_pop_rate(pop))
                   for pop in self._pop_names}
-        return NetRegimeWC(self._pop_names, Ru.values())
+        return NetRegimeWC.from_rates_dict(Ru)
     
     def fit_from_data(self, Ru: NetRegimeListWC, Rc: NetRegimeListWC):
         if len(Ru) != len(Rc):

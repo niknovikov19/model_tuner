@@ -5,6 +5,7 @@ import numpy as np
 
 from defs_wc import NetInputWC, NetRegimeWC
 from defs_base import ModelDesc
+from utils import from_dict_or_dataclass
 
 
 @dataclass
@@ -20,6 +21,18 @@ class ModelDescWC(ModelDesc):
     
     pops: Dict[str, PopParamsWC] = field(default_factory=dict)
     conn: np.ndarray = field(default_factory=lambda: np.array([]))
+    
+    def __init__(
+            self,
+            pops: Dict[str, PopParamsWC | dict] = None,
+            conn: np.ndarray = None
+            ):
+        pops = pops or {}
+        self.pops = {
+            pop_name: from_dict_or_dataclass(par, PopParamsWC)
+            for pop_name, par in pops.items()
+        }
+        self.conn = conn or np.array([])
     
     def get_pop_names(self) -> List[str]:
         return list(self.pops.keys())
@@ -81,5 +94,24 @@ def run_wc_model(
         rr += dr_mult * drr
         info['r_mat'][:, n], info['dr_mat'][:, n] = rr, drr
     # Result
-    R = NetRegimeWC(model.get_pop_names(), rr)
+    R = NetRegimeWC.from_rates(model.get_pop_names(), rr)
     return R, info
+
+
+# Test of ModelDescWC constructors
+if __name__ == '__main__':
+    
+    pops1 = {
+        'pop1': PopParamsWC(mult=11, gain=1, thresh=0.1),
+        'pop2': PopParamsWC(mult=22, gain=2, thresh=0.2)
+    }
+    model1 = ModelDescWC(pops=pops1)
+    print(model1)
+    
+    pops2 = {
+        'pop1': {'mult': 11, 'gain': 1, 'thresh': 0.1},
+        'pop2': {'mult': 22, 'gain': 2, 'thresh': 0.2},
+    }
+    model2 = ModelDescWC(pops=pops2)
+    print(model2)
+    
