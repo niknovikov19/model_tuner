@@ -1,8 +1,9 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, is_dataclass, asdict
 import json
 from pathlib import Path
 from typing import Dict, List, Union, ClassVar, Optional
 
+from json_encoders import CustomEncoder
 from sim_manager import SimManager, SimStatus
 from ssh_client import SSHClient
 
@@ -70,31 +71,50 @@ class SimManagerHPCBatch(SimManager):
         self._fpath_batch_script = fpath_batch_script
         self._paths = batch_paths
         self._conda_env = conda_env or 'base'
-        self._is_req_batch_pushed = False        
-    
-    def _ready_for_request(self) -> bool:
-        return not self._is_req_batch_pushed
+        self._is_batch_script_running = False
+        self.update_status()
     
     def get_sim_result_path(self, label: str) -> str:
         return (Path(self._paths.results_dir) / f'{label}.pkl').as_posix()
-
+    
+    def _update_batch_script_status(self) -> None:
+        proc_str = f'python {self._fpath_batch_script}'
+        cmd = f'ps aux | grep "{proc_str}" | grep -v grep'
+        self._is_batch_script_running = (
+            self._ssh.conn.run(cmd, hide=True, warn=True).ok
+        )
+    
     def _update_sim_status(self, label: str) -> None:
-        if label not in self.sims:
-            raise ValueError(f'Simulation {label} does not exist')
-        if self.sims[label].status == SimStatus.WAITING:
-            # Mark simulation as DONE if its result file appeared on hpc
-            fpath_res = self.get_sim_result_path(label)
-            if self._ssh.fs.exists(fpath_res):
-                self.sims[label].status = SimStatus.DONE
-
-    def _init_sim_request(self, label: str, params: Dict, push_now: bool) -> None:
-        if label not in self.sims:
-            raise ValueError(f'Simulation {label} does not exist')
-        if self.sims[label].status != SimStatus.NEED_PUSH:
-            raise ValueError(f'Simulation {label} should have NEED_PUSH status')
-        if push_now:
-            raise ValueError('SimManagerHPCBatch does not support pushing '
-                             'of individual simulations, use push_all_requests()')
+        sim = self.sims[label]
+        # Statuses other than WAITING don't require an update
+        if sim.status != SimStatus.WAITING:
+            return
+        
+        # If the batch script is still running - consider the sims not ready
+        if self._is_batch_script_running:
+            return         
+        
+        # Check whether the result file of this simulation exists
+        # (after completion of the batch script)
+        fpath_res = self.get_sim_result_path(label)
+        if self._ssh.fs.exists(fpath_res):
+            sim.status = SimStatus.DONE
+        else:
+            sim.status = SimStatus.ERROR  # batch finished, but no result       
+    
+    def update_status(self) -> None:
+        """Update statuses of simulation requests. """        
+        self._update_batch_script_status()
+        for label in self.sims:
+            self._update_sim_status(label)
+    
+    def _ready_for_request(self) -> bool:
+        """Check whether the object is ready for add_sim_request(). """
+        ready = (
+            not self.is_waiting(update=False) and  # no requests being processed
+            not self._is_batch_script_running
+        )
+        return ready
     
     def _sim_requests_to_hpc_json(
             self,
@@ -104,7 +124,7 @@ class SimManagerHPCBatch(SimManager):
         if labels_used is None: labels_used = self.sims.keys()
         sim_reqs = {label: self.sims[label].params for label in labels_used}
         with self._ssh.fs.open(fpath_json, 'w') as fid:
-            json.dump(sim_reqs, fid)
+            json.dump(sim_reqs, fid, cls=CustomEncoder)
     
     def _run_hpc_script(self,
                         fpath_script: str,
@@ -123,32 +143,34 @@ class SimManagerHPCBatch(SimManager):
                 conda activate {self._conda_env}
                 cd {dirpath_script}
                 nohup python {fpath_script} {cmd_args} > {fpath_log} 2>&1 &
-            )&' &
+            )'
         """
         #print(f'COMMAND: \n {cmd}')
         # Run the command via ssh
         self._ssh.conn.run(cmd, hide=True)
     
-    def push_all_requests(self) -> None:
-        # Simulations that await pushing
-        sims_to_push = {label: sim for label, sim in self.sims.items()
-                        if sim.status == SimStatus.NEED_PUSH}
-        if len(sims_to_push) != 0 and self._is_req_batch_pushed:
-            raise ValueError('Cannot push, previous batch is still processing')
+    def _push_requests(self, labels: list[str]) -> None:
+        if not labels:
+            return
+        
+        # Check that the previous bath is finished, before pushing a new one
+        if self._is_batch_script_running:
+            raise ValueError('Cannot push, previous batch is still in progress')
+            
         # Store params of simulations into a json file on HPC
         fpath_reqs_json = self._paths.requests_file
-        self._sim_requests_to_hpc_json(fpath_reqs_json, sims_to_push.keys())
+        self._sim_requests_to_hpc_json(fpath_reqs_json, labels)
+        
         # Run batch script on HPC, pass the path to the json file  as command line arguments
         self._run_hpc_script(
             self._fpath_batch_script,
             self._paths.log_file,
-            #cmd_args=[fpath_reqs_json, self._paths.results_dir]
             cmd_args=[self._paths.base_dir]
         )
-        # Update statuses
-        for sim in sims_to_push.values():
-            sim.status = SimStatus.WAITING
-        self._is_req_batch_pushed = True
         
-
+        # Update statuses of the pushed simulations
+        for label in labels:
+            self.sims[label].status = SimStatus.WAITING
+        
+        self._is_batch_script_running = True
     
