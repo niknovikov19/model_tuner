@@ -12,18 +12,32 @@ class PopParamsWC:
     mult: float = 10
     gain: float = 1
     thresh: float = 1
+
+
+@dataclass
+class ModelDescWC(ModelDesc):
+    """Description of a Wilson-Cowan model. """
     
-class ModelDescWC(ModelDesc):    
-    def __init__(self, num_pops):
-        super().__init__()
-        self.pops = {}
-        for n in range(num_pops):
-            self.pops[f'pop{n}'] = PopParamsWC()
-        self.conn = 2 * np.random.rand(num_pops, num_pops) - 1
+    pops: Dict[str, PopParamsWC] = field(default_factory=dict)
+    conn: np.ndarray = field(default_factory=lambda: np.array([]))
     
     def get_pop_names(self) -> List[str]:
         return list(self.pops.keys())
-
+    
+    @classmethod
+    def create_unconn(cls, num_pops: int) -> 'ModelDescWC':
+        model = ModelDescWC()
+        for n in range(num_pops):
+            model.pops[f'pop{n}'] = PopParamsWC()
+        model.conn = np.zeros((num_pops, num_pops))
+        return model
+    
+    @classmethod
+    def create_random(cls, num_pops: int) -> 'ModelDescWC':
+        model = ModelDescWC.create_unconn(num_pops)
+        model.conn = 2 * np.random.rand(num_pops, num_pops) - 1
+        return model    
+    
 
 def wc_gain(x: float, pop: PopParamsWC) -> float:
     return pop.mult / (1 + np.exp(-pop.gain * (x - pop.thresh)))

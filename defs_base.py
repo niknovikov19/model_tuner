@@ -1,3 +1,4 @@
+from abc import ABC, abstractmethod
 from copy import deepcopy
 from dataclasses import dataclass, field
 from typing import Dict, List, Tuple, Union, Literal
@@ -76,6 +77,7 @@ class NetRegimeList:
         return np.concatenate(M, axis=1)
 
 
-class ModelDesc:
-    def __init__(self): pass
+@dataclass
+class ModelDesc(ABC):
+    @abstractmethod
     def get_pop_names(self) -> List[str]: pass

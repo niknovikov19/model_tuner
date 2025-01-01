@@ -7,14 +7,15 @@ from model_wc import PopParamsWC, ModelDescWC, wc_gain, run_wc_model
 
 
 def create_test_model_1pop():
-    model = ModelDescWC(num_pops=1)
+    model = ModelDescWC.create_unconn(num_pops=1)
     model.conn[0, 0] = -0.1
     return model
 
 def create_test_model_2pop():
-    model = ModelDescWC(num_pops=2)
+    model = ModelDescWC.create_unconn(num_pops=2)
     model.conn = np.array([[0.1, -0.2], [0.2, -0.1]])
     return model
+
 
 # Network of Wilson-Cowan populations
 #model = create_test_model_1pop()
@@ -69,22 +70,24 @@ for iter_num in range(n_iter):
     uc_mapper.fit_from_data(Ru_lst, Rc_lst)
     
     if need_plot_iter or (need_plot_res and (iter_num == (n_iter - 1))):
-        plt.figure(112)
+        plt.figure(113)
         plt.clf()
+        
         ru_mat = Ru_lst.get_pop_attr_mat('r')
         rc_mat = Rc_lst.get_pop_attr_mat('r')
         rc_prev_mat = Rc_prev_lst.get_pop_attr_mat('r')
         iu_mat = np.full_like(ru_mat, np.nan)
+        
         for m in range(ru_mat.shape[1]):
             Ru_ = NetRegimeWC(pop_names, ru_mat[:, m])
             iu_mat[:, m] = ir_mapper.R_to_I(Ru_).get_pop_attr_vec('I')
+            
         for n, pop in enumerate(pop_names):
             rr_u = ru_mat[n, :]
             rr_c = rc_mat[n, :]
             rr_c_prev = rc_prev_mat[n, :]
             ii_u = iu_mat[n, :]
-            #for x in [rr_c_prev, rr_c, rr_u, ii_u]:
-            #    print(np.round(x, 2))
+
             plt.subplot(2, npops, n + 1)
             plt.plot(ii_u, rr_u, '.')
             ii_u_ = np.linspace(np.nanmin(ii_u), np.nanmax(ii_u), 200)
@@ -95,6 +98,7 @@ for iter_num in range(n_iter):
             plt.xlim(-3.5, 0)
             plt.ylim(0, rvis_max)
             plt.title(f'pop = {pop}')
+            
             plt.subplot(2, npops, npops + n + 1)
             plt.plot(rr_u, rr_c, '.')
             rr_u_ = np.linspace(np.nanmin(rr_u), np.nanmax(rr_u), 200)
@@ -104,6 +108,7 @@ for iter_num in range(n_iter):
             plt.ylabel('Rc')
             plt.xlim(0, rvis_max)
             plt.ylim(0, rvis_max)
+        
         plt.draw()
         if need_plot_iter:
             if not plt.waitforbuttonpress():
