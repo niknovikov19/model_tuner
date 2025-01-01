@@ -28,12 +28,15 @@ with open(fpath_reqs, 'r') as fid:
 sim_params = sim_requests[sim_label]
 
 # Process the request
-print(f'Process request {sim_label}', flush=True)
-sim_params['label'] = sim_label
-sim_params['processed'] = True
-fpath_res = os.path.join(dirpath_res, f'{sim_label}.pkl')
-with open(fpath_res, 'wb') as fid:
-    pickle.dump(sim_params, fid)
+if sim_label != 'req3':
+    print(f'Process request {sim_label}', flush=True)
+    sim_params['label'] = sim_label
+    sim_params['processed'] = True
+    fpath_res = os.path.join(dirpath_res, f'{sim_label}.pkl')
+    with open(fpath_res, 'wb') as fid:
+        pickle.dump(sim_params, fid)
+else:
+    print(f'Ignore request {sim_label}', flush=True)
 
 print('Test script finished')
 
