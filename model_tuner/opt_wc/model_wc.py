@@ -1,11 +1,12 @@
 from dataclasses import dataclass, field
-from typing import Dict, List, Tuple, Union, Literal
+from typing import Dict, List, Tuple
 
 import numpy as np
 
-from defs_wc import NetInputWC, NetRegimeWC
-from defs_base import ModelDesc
-from utils import from_dict_or_dataclass
+from ..opt_base import ModelDesc
+from ..utils import from_dict_or_dataclass
+
+from .defs_wc import NetInputWC, NetRegimeWC
 
 
 @dataclass

@@ -1,13 +1,11 @@
-from dataclasses import dataclass, field
-from typing import Dict, List, Tuple, Union, Literal
+from typing import List, Literal
 
-import numpy as np
+from ..opt_base import MapFunc1DExp, MapFunc1DSigmoid
+from ..opt_base import PopIRMapper, NetIRMapper, NetUCMapper
 
-from defs_wc import PopInputWC, NetInputWC
-from defs_wc import PopRegimeWC, NetRegimeWC, NetRegimeListWC
-from map_funcs_1d import MapFunc1DExp, MapFunc1DSigmoid
-from mappers_base import PopIRMapper, NetIRMapper, NetUCMapper
-from model_wc import PopParamsWC, ModelDescWC, wc_gain, wc_gain_inv
+from .defs_wc import PopInputWC
+from .defs_wc import PopRegimeWC, NetRegimeWC, NetRegimeListWC
+from .model_wc import PopParamsWC, ModelDescWC, wc_gain, wc_gain_inv
 
 
 class PopIRMapperWC(PopIRMapper):
@@ -33,7 +31,8 @@ class NetUCMapperWC(NetUCMapper):
     def __init__(
             self,
             pop_names: List[str],
-            map_type: Literal['exp', 'sigmoid'] = 'exp'):
+            map_type: Literal['exp', 'sigmoid'] = 'exp'
+            ):
         self._pop_names = pop_names
         self._is_identity = True
         self._map_funcs = {}

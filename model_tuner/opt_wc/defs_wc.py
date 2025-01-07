@@ -1,11 +1,11 @@
-from dataclasses import dataclass, field
-from typing import Dict, List, Tuple, Union, Literal
+from dataclasses import dataclass
+from typing import Dict, List
 
 import numpy as np
 
-from defs_base import PopInput, NetInput
-from defs_base import PopRegime, NetRegime, NetRegimeList
-from utils import from_dict_or_dataclass
+from ..opt_base import PopInput, NetInput
+from ..opt_base import PopRegime, NetRegime, NetRegimeList
+from ..utils import from_dict_or_dataclass
 
 
 @dataclass        

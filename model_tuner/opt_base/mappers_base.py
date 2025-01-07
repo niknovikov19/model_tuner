@@ -1,7 +1,7 @@
-from typing import Dict, List, Tuple, Union, Literal
+from typing import Dict, Union
 
-from defs_base import PopInput, NetInput
-from defs_base import PopRegime, NetRegime, NetRegimeList
+from .defs_base import PopInput, NetInput
+from .defs_base import PopRegime, NetRegime, NetRegimeList
 
 
 class PopIRMapper:

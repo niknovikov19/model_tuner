@@ -1,21 +1,26 @@
-import os
 from pathlib import Path
 import sys
 
-sys.path.append(str(Path(__file__).resolve().parents[1]))
+# Folder that contains model_tuner package
+sys.path.append(str(Path(__file__).resolve().parents[3]))
 
-from ssh_client import SSHParams, SSHClient
+from model_tuner.ssh import SSHParams, SSHClient
 
 
 def path_join(*parts, sep='/'):
     return sep.join(str(part).strip(sep) for part in parts)
 
 # SSH parameters
-ssh_par = SSHParams(
+ssh_par_lethe = SSHParams(
     host='lethe.downstate.edu',
     user='niknovikov19',
     port=1415,
     fpath_private_key=r'C:\Users\aleks\.ssh\id_rsa_lethe'
+)
+ssh_par_grid = SSHParams(
+    host='grid',
+    user='niknovikov19',
+    fpath_private_key=r'C:\Users\aleks\.ssh\id_ed25519_grid'
 )
 
 # Remote folder
@@ -24,12 +29,15 @@ dirpath_remote = 'ddn/niknovikov19/test/model_tuner/test_ssh_upload'
 # Local folder
 dirpath_local = str(Path(__file__).resolve().parent)
 
-with SSHClient(ssh_par) as ssh:    
+with SSHClient(
+        ssh_par_fs=ssh_par_lethe,
+        ssh_par_conn=[ssh_par_lethe, ssh_par_grid]
+        ) as ssh:   
     # Create a file locally
     fname_test = 'test_file'
     fpath_test_local = path_join(dirpath_local, fname_test, sep='\\')
     with open(fpath_test_local, 'w') as fid:
-        fid.write('This is a test file to upload via SSH')
+        fid.write('This is a test file to upload via SSH.')
     
     # Test file path in the remote filesystem
     fpath_test_remote = path_join(dirpath_remote, fname_test, sep='/')

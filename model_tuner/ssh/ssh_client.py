@@ -1,9 +1,9 @@
 from typing import List
 
 
-from ssh_conn_custom import SSHConnCustom
-from ssh_fs_custom import SSHFSCustom
-from ssh_params import SSHParams
+from .ssh_conn_custom import SSHConnCustom
+from .ssh_fs_custom import SSHFSCustom
+from .ssh_params import SSHParams
 
 
 class SSHClientCloseError(Exception):

@@ -1,9 +1,17 @@
+from pathlib import Path
+import sys
+
+import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
-from defs_wc import NetInputWC, NetRegimeWC, NetRegimeListWC
-from mappers_wc import NetIRMapperWC, NetUCMapperWC
-from model_wc import PopParamsWC, ModelDescWC, wc_gain, run_wc_model
+# Folder that contains model_tuner package
+sys.path.append(str(Path(__file__).resolve().parents[2]))
+
+from model_tuner.opt_wc import NetRegimeWC, NetRegimeListWC
+from model_tuner.opt_wc import NetIRMapperWC, NetUCMapperWC
+from model_tuner.opt_wc import ModelDescWC
+from model_tuner.opt_wc import wc_gain, run_wc_model
 
 
 def create_test_model_1pop():
@@ -16,6 +24,8 @@ def create_test_model_2pop():
     model.conn = np.array([[0.1, -0.2], [0.2, -0.1]])
     return model
 
+
+matplotlib.use('qt5agg')
 
 # Network of Wilson-Cowan populations
 #model = create_test_model_1pop()
@@ -71,6 +81,7 @@ for iter_num in range(n_iter):
     
     if need_plot_iter or (need_plot_res and (iter_num == (n_iter - 1))):
         plt.figure(114)
+        #plt.ion()
         plt.clf()
         
         ru_mat = Ru_lst.get_pop_attr_mat('r')
@@ -109,7 +120,10 @@ for iter_num in range(n_iter):
             plt.xlim(0, rvis_max)
             plt.ylim(0, rvis_max)
         
-        plt.draw()
         if need_plot_iter:
+            plt.draw()
             if not plt.waitforbuttonpress():
                 break
+
+#plt.ioff()
+#plt.show(block=True)

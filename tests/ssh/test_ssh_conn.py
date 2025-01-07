@@ -1,10 +1,10 @@
 from pathlib import Path
 import sys
 
-sys.path.append(str(Path(__file__).resolve().parents[1]))
+# Folder that contains model_tuner package
+sys.path.append(str(Path(__file__).resolve().parents[2]))
 
-from ssh_conn_custom import SSHConnCustom
-from ssh_params import SSHParams
+from model_tuner.ssh import SSHParams, SSHConnCustom
 
 
 # SSH parameters

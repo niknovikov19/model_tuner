@@ -2,7 +2,7 @@ from typing import List
 
 from fabric import Connection
 
-from ssh_params import SSHParams
+from .ssh_params import SSHParams
 
 
 class SSHConnCustomCloseError(Exception):

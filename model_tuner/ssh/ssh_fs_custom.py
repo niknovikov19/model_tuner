@@ -5,7 +5,7 @@ from fs.osfs import OSFS
 from fs.sshfs import SSHFS
 import paramiko
 
-from ssh_params import SSHParams
+from .ssh_params import SSHParams
 
 
 class SSHFSCustom(SSHFS):
