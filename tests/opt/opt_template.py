@@ -1,5 +1,11 @@
-from defs_base import NetInput, NetRegime, NetRegimeList
-from mappers_base import NetIRMapper, NetUCMapper
+from pathlib import Path
+import sys
+
+# Folder that contains model_tuner package
+sys.path.append(str(Path(__file__).resolve().parents[2]))
+
+from model_tuner.opt_base import NetInput, NetRegime, NetRegimeList
+from model_tuner.opt_base import NetIRMapper, NetUCMapper
 
 
 # Original baseline regime
@@ -19,7 +25,7 @@ uc_mapper = NetUCMapper()
 # Run simulation for the connected network with the external input I,
 # and get the resulting regime
 def run_model(I: NetInput) -> NetRegime:
-    pass
+    return NetRegime()
 
 # Allocate temporary lists for unconnected and conneted network regimes
 Ru_lst = NetRegimeList([])

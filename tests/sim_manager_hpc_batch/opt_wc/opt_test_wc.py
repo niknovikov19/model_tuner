@@ -10,13 +10,13 @@ from fs.permissions import Permissions
 import matplotlib.pyplot as plt
 import numpy as np
 
-from defs_wc import NetInputWC, NetRegimeWC, NetRegimeListWC
-from mappers_wc import NetIRMapperWC, NetUCMapperWC
-from model_wc import PopParamsWC, ModelDescWC, wc_gain, run_wc_model
-from ssh_client import SSHClient
-from sim_manager import SimStatus
-from sim_manager_hpc_batch import SimManagerHPCBatch, SimBatchPaths
-from ssh_params import SSHParams
+from model_tuner.opt_wc import NetRegimeWC, NetRegimeListWC
+from model_tuner.opt_wc import NetIRMapperWC, NetUCMapperWC
+from model_tuner.opt_wc import ModelDescWC
+from model_tuner.opt_wc import wc_gain
+
+from model_tuner.sim_manager import SimManagerHPCBatch, SimBatchPaths, SimStatus
+from model_tuner.ssh import SSHParams, SSHClient
 
 
 def fs_delete(fs, path):

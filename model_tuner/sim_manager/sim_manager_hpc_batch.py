@@ -1,11 +1,12 @@
-from dataclasses import dataclass, is_dataclass, asdict
+from dataclasses import dataclass
 import json
 from pathlib import Path
-from typing import Dict, List, Union, ClassVar, Optional
+from typing import List, Union, ClassVar, Optional
 
-from json_encoders import CustomEncoder
-from sim_manager import SimManager, SimStatus
-from ssh_client import SSHClient
+from ..ssh import SSHClient
+from ..utils import CustomEncoder
+
+from .sim_manager import SimManager, SimStatus
 
 
 def _joinpath_hpc(base, *args):

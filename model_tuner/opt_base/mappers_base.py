@@ -1,12 +1,17 @@
+from abc import ABC, abstractmethod
 from typing import Dict, Union
 
 from .defs_base import PopInput, NetInput
 from .defs_base import PopRegime, NetRegime, NetRegimeList
 
 
-class PopIRMapper:
+class PopIRMapper(ABC):
+    @abstractmethod
     def I_to_R(self, I: PopInput) -> PopRegime: pass
+
+    @abstractmethod
     def R_to_I(self, R: PopRegime) -> PopInput: pass
+
     
 class NetIRMapper:
     def __init__(self):

@@ -1,26 +1,30 @@
+from abc import ABC, abstractmethod
 from typing import List, Tuple, Union
 
 import numpy as np
 from scipy.optimize import curve_fit
 
 
-class MapFunc1D:
+class MapFunc1D(ABC):
     def __init__(self):
         self.par = {name: np.nan for name in self.get_par_names()}
     
     @staticmethod
+    @abstractmethod
     def get_par_names() -> List[str]: pass
 
     def get_par_vals(self) -> List:
         return [self.par[name] for name in self.get_par_names()]
         
     @staticmethod
+    @abstractmethod
     def f(x: Union[float, np.ndarray],
           *args, **kwargs
           ) -> Union[float, np.ndarray]:
         pass
     
     @staticmethod
+    @abstractmethod
     def f_inv(x: Union[float, np.ndarray],
               *args, **kwargs
               ) -> Union[float, np.ndarray]:
@@ -33,9 +37,11 @@ class MapFunc1D:
         return self.f_inv(y, **self.par)
     
     @staticmethod
+    @abstractmethod
     def _get_fit_bounds() -> Tuple[List[float], List[float]]: pass
         
     @staticmethod
+    @abstractmethod
     def _get_first_fit_guess(xx: np.ndarray, yy: np.ndarray) -> Tuple: pass
     
     def fit(self, xx: np.ndarray, yy: np.ndarray, from_prev=False):

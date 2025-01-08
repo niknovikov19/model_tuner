@@ -1,14 +1,14 @@
 from pathlib import Path
 from pprint import pprint
 import sys
-import time
 
+# Folder that contains model_tuner package
 sys.path.append(str(Path(__file__).resolve().parents[3]))
 
 from fs.permissions import Permissions
 
-from sim_manager_hpc_batch import SimManagerHPCBatch
-from ssh_client import SSHParams, SSHClient
+from model_tuner.sim_manager import SimManagerHPCBatch
+from model_tuner.ssh import SSHParams, SSHClient
 
 
 def delete_file(fs, fpath):
@@ -23,11 +23,16 @@ def joinpath_hpc(base, *args):
 
 
 # SSH parameters
-ssh_par = SSHParams(
+ssh_par_lethe = SSHParams(
     host='lethe.downstate.edu',
     user='niknovikov19',
     port=1415,
     fpath_private_key=r'C:\Users\aleks\.ssh\id_rsa_lethe'
+)
+ssh_par_grid = SSHParams(
+    host='grid',
+    user='niknovikov19',
+    fpath_private_key=r'C:\Users\aleks\.ssh\id_ed25519_grid'
 )
 
 # HPC folder
@@ -37,7 +42,10 @@ dirpath_hpc_base = '/ddn/niknovikov19/test/model_tuner/test_sim_requests_to_json
 fpath_req_json = joinpath_hpc(dirpath_hpc_base, 'sim_requests.json')
 fpath_req_sub_json = joinpath_hpc(dirpath_hpc_base, 'sim_requests_sub.json')
 
-with SSHClient(ssh_par) as ssh:
+with SSHClient(
+        ssh_par_fs=ssh_par_lethe,
+        ssh_par_conn=[ssh_par_lethe, ssh_par_grid]
+        ) as ssh:
     # Create HPC folders
     print('Create folders...')
     perm = Permissions(mode=0o777)  # Full permissions (rwxrwxrwx)

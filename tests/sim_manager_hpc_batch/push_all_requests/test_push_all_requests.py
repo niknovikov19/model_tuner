@@ -4,13 +4,13 @@ from pprint import pprint
 import sys
 import time
 
+# Folder that contains model_tuner package
 sys.path.append(str(Path(__file__).resolve().parents[3]))
 
 from fs.permissions import Permissions
 
-from ssh_client import SSHClient
-from sim_manager_hpc_batch import SimManagerHPCBatch, SimBatchPaths
-from ssh_params import SSHParams
+from model_tuner.sim_manager import SimManagerHPCBatch, SimBatchPaths
+from model_tuner.ssh import SSHParams, SSHClient
 
 
 def delete_file(fs, fpath):
