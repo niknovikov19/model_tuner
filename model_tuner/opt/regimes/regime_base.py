@@ -9,16 +9,10 @@ import numpy as np
 class PopRegime:
     pass
 
-@dataclass      
-class PopInput:
-    pass
-
 
 @dataclass
 class NetRegime:
     pop_regimes: Dict[str, PopRegime] = field(default_factory=dict)
-    
-    #def __init__(self): pass  # constructor should be defined in children
     
     def get_pop_names(self):
         return list(self.pop_regimes.keys())
@@ -26,24 +20,22 @@ class NetRegime:
     def get_pop_attr_vec(self, attr: str) -> np.ndarray:
         return np.array([getattr(R, attr) for R in self.pop_regimes.values()])
 
-@dataclass
-class NetInput:
-    pop_inputs: Dict[str, PopInput] = field(default_factory=dict)
-    
-    def get_pop_names(self):
-        return list(self.pop_regimes.keys())
-    
-    def get_pop_attr_vec(self, attr: str) -> np.ndarray:
-        return np.array([getattr(I, attr) for I in self.pop_inputs.values()])
-
 
 @dataclass
 class NetRegimeList:
     net_regimes: List[NetRegime] = field(default_factory=list)
     
     def __post_init__(self):
-        if not self.check_pop_consistency():
-            raise ValueError('All entries of NetRegimeList should have the same pops.')
+        if not self._check_pop_consistency():
+            raise ValueError(
+                'All entries of NetRegimeList should have the same pops.'
+            )
+    
+    def _check_pop_consistency(self) -> bool:
+        for R in self.net_regimes:
+            if R.get_pop_names() != self.net_regimes[0].get_pop_names():
+                return False
+        return True
     
     def __getitem__(self, n: int) -> NetRegime:
         return self.net_regimes[n]
@@ -57,14 +49,8 @@ class NetRegimeList:
     def copy(self) -> 'NetRegimeList':
         return deepcopy(self)
     
-    def check_pop_consistency(self) -> bool:
-        for R in self.net_regimes:
-            if R.get_pop_names() != self.net_regimes[0].get_pop_names():
-                return False
-        return True
-    
     def get_pop_names(self):
-        if not self.check_pop_consistency():
+        if not self._check_pop_consistency():
             raise ValueError('All entries of NetRegimeList should have the same pops.')
         return self.net_regimes[0].get_pop_names()
     

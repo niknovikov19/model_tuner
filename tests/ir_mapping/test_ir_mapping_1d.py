@@ -8,53 +8,14 @@ import numpy as np
 from model_tuner.sim_manager import SimManagerHPCBatch, SimBatchPaths, SimStatus
 from model_tuner.ssh import SSHParams, SSHClient
 
-from model_tuner.opt_base import PopInput, NetInput
-from model_tuner.opt_base import PopRegime, NetRegime, NetRegimeList
-from model_tuner.opt_base import PopIRMapper, NetIRMapper, NetUCMapper
+from model_tuner.opt.inputs import PopInput1D, NetInput1D
+from model_tuner.opt.regimes import PopRegime1D, NetRegime1D, NetRegime1DList
+from model_tuner.opt.ir_mappers import PopIREmpiricalMapper1D
+from model_tuner.opt.ir_mappers import NetIREmpiricalMapper1D
+# NetUCMapper
 
-from model_tuner.opt_base import MapFunc1D, MapFunc1DExp, MapFunc1DSigmoid
-
-
-def create_map_func_by_name(func_name: str) -> MapFunc1D:
-    if func_name == 'exp_1d':
-        return MapFunc1DExp()
-    if func_name == 'sigmoid_1d':
-        return MapFunc1DSigmoid()
-    raise ValueError(f'Unknown map function: {func_name}')
-
-
-@dataclass
-class PopInput1D(PopInput):
-    value: float
-
-@dataclass
-class PopRegime1D(PopRegime):
-    value: float
-
-
-class PopIREmpiricalMapper1D(PopIRMapper):
-    def __init__(
-            self,
-            map_type: Literal['exp_1d', 'sigmoid_1d'] = 'exp_1d'
-            ):
-        self._map_func = create_map_func_by_name(map_type)
-        
-    def I_to_R(self, I: PopInput1D) -> PopRegime1D:
-        x_out = self._map_func.apply(I.value)
-        return PopRegime1D(value=x_out)
-
-    def R_to_I(self, R: PopRegime1D) -> PopInput1D:
-        x_in = self._map_func.apply_inv(R.value)
-        return PopInput1D(value=x_in)
-    
-    def fit_from_data(
-            self,
-            values_in: np.ndarray,
-            values_out: np.ndarray
-            ) -> None:
-        if len(values_in) != len(values_out):
-             raise ValueError('Value vectors should have the same length')
-        self._map_func.fit(values_in, values_out)
+from model_tuner.opt.map_funcs import MapFunc1D
+from model_tuner.opt.map_funcs import MapFunc1DExp, MapFunc1DSigmoid
 
 
 @dataclass
@@ -84,7 +45,7 @@ class BatchMetricGetter(ABC):
         pass
 
 
-class BatchMetricGetterTest(BatchMetricGetter):
+class BatchMetricGetterSurrogate(BatchMetricGetter):
     
     def __init__(self):
         self._batch_params = {
@@ -124,7 +85,7 @@ class BatchMetricGetterTest(BatchMetricGetter):
 
 
 # Object to request metrics of batch sim results
-bmg = BatchMetricGetterTest()
+bmg = BatchMetricGetterSurrogate()
 
 # Batch parameter values that characterize the model input
 inp_rates = bmg.get_batch_par_values('rxe')
@@ -132,7 +93,7 @@ inp_rates = bmg.get_batch_par_values('rxe')
 pop_rates = {}
 
 # Network input-to-regime mapper
-net_ir_mapper = NetIRMapper()
+net_ir_mapper = NetIREmpiricalMapper1D()
 
 for pop_name in bmg.get_pop_names():
     # Request firing rates of a pop (for every batch parameter value)
@@ -157,7 +118,7 @@ for n, r_inp in enumerate(rr_inp):
     # Combine pop inputs to a network input
     pop_inputs = {pop_name: PopInput1D(value=r_inp)
                   for pop_name in pop_names}
-    net_input = NetInput(pop_inputs=pop_inputs)
+    net_input = NetInput1D(pop_inputs=pop_inputs)
     
     # Apply I-R mapping
     net_regime = net_ir_mapper.I_to_R(net_input)
@@ -183,9 +144,3 @@ for n, pop_name in enumerate(pop_names):
     plt.title(pop_name)
     plt.xlabel('Input rate')
     plt.xlabel('Pop. rate')
-    
-    
-
-
-
-
