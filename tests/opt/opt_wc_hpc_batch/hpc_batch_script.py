@@ -3,8 +3,9 @@ import sys
 
 from netpyne.batchtools.search import search
 
-sys.path.append('/ddn/niknovikov19/repo/model_tuner')
-from sim_manager_hpc_batch import SimBatchPaths
+sys.path.append('/ddn/niknovikov19/repo')
+
+from model_tuner.sim_manager import SimBatchPaths
 
 
 # Base folder

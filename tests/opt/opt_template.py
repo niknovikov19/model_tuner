@@ -4,8 +4,10 @@ import sys
 # Folder that contains model_tuner package
 sys.path.append(str(Path(__file__).resolve().parents[2]))
 
-from model_tuner.opt_base import NetInput, NetRegime, NetRegimeList
-from model_tuner.opt_base import NetIRMapper, NetUCMapper
+from model_tuner.opt.inputs import NetInput
+from model_tuner.opt.regimes import NetRegime, NetRegimeList
+from model_tuner.opt.ir_mappers import NetIRMapper
+from model_tuner.opt.uc_mappers import NetUCMapper
 
 
 # Original baseline regime

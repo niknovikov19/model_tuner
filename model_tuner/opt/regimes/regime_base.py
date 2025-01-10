@@ -56,7 +56,7 @@ class NetRegimeList:
     
     def get_pop_attr_mat(self, attr: str) -> np.ndarray:
         """Returns (pops x regimes) matrix. """
-        if not self.check_pop_consistency():
+        if not self._check_pop_consistency():
             raise ValueError('All entries of NetRegimeList should have the same pops.')
         M = [R.get_pop_attr_vec(attr).reshape(-1, 1) for R in self.net_regimes]
         return np.concatenate(M, axis=1)

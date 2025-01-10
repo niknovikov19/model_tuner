@@ -8,10 +8,11 @@ import numpy as np
 # Folder that contains model_tuner package
 sys.path.append(str(Path(__file__).resolve().parents[2]))
 
-from model_tuner.opt_wc import NetRegimeWC, NetRegimeListWC
-from model_tuner.opt_wc import NetIRMapperWC, NetUCMapperWC
-from model_tuner.opt_wc import ModelDescWC
-from model_tuner.opt_wc import wc_gain, run_wc_model
+from model_tuner.opt.regimes import NetRegimeWC, NetRegimeWCList
+from model_tuner.opt.ir_mappers import NetIRMapperWC
+from model_tuner.opt.uc_mappers import NetUCMapperWC
+from model_tuner.opt.wc import ModelDescWC
+from model_tuner.opt.wc import wc_gain, run_wc_model
 
 
 def create_test_model_1pop():
@@ -41,7 +42,7 @@ rr_base = np.arange(npops) + 1
 pfr_vec = np.linspace(0.1, 1.5, 20)
 
 # Target regimes (base * pfr for each pfr)
-R0_lst = NetRegimeListWC(
+R0_lst = NetRegimeWCList(
     [NetRegimeWC.from_rates(pop_names, rr_base * pfr) for pfr in pfr_vec]
 )
 

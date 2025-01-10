@@ -10,12 +10,14 @@ from fs.permissions import Permissions
 import matplotlib.pyplot as plt
 import numpy as np
 
-from model_tuner.opt_wc import NetRegimeWC, NetRegimeListWC
-from model_tuner.opt_wc import NetIRMapperWC, NetUCMapperWC
-from model_tuner.opt_wc import ModelDescWC
-from model_tuner.opt_wc import wc_gain
+from model_tuner.opt.regimes import NetRegimeWC, NetRegimeWCList
+from model_tuner.opt.ir_mappers import NetIRMapperWC
+from model_tuner.opt.uc_mappers import NetUCMapperWC
+from model_tuner.opt.wc import ModelDescWC
+from model_tuner.opt.wc import wc_gain
 
-from model_tuner.sim_manager import SimManagerHPCBatch, SimBatchPaths, SimStatus
+from model_tuner.sim_manager import SimStatus
+from model_tuner.sim_manager import SimManagerHPCBatch, SimBatchPaths
 from model_tuner.ssh import SSHParams, SSHClient
 
 
@@ -89,7 +91,7 @@ rr_base = np.arange(npops) + 1
 pfr_vec = np.linspace(0.1, 1.5, 10)
 
 # Target regimes (base * pfr for each pfr)
-R0_lst = NetRegimeListWC(
+R0_lst = NetRegimeWCList(
     [NetRegimeWC.from_rates(pop_names, rr_base * pfr) for pfr in pfr_vec]
 )
 

@@ -2,13 +2,14 @@ import json
 import os
 import pickle
 import sys
-import time
 
 from netpyne.batchtools import comm, specs
 
-sys.path.append('/ddn/niknovikov19/repo/model_tuner')
-from defs_wc import NetInputWC, NetRegimeWC 
-from model_wc import ModelDescWC, run_wc_model
+sys.path.append('/ddn/niknovikov19/repo')
+
+from model_tuner.opt.inputs import NetInputWC
+from model_tuner.opt.regimes import NetRegimeWC  
+from model_tuner.opt.wc import ModelDescWC, run_wc_model
 
 
 # Initiate connection with the batchtools main process
