@@ -58,7 +58,8 @@ class DataFormat(Enum):
 
 def _load_formatted_data(fpath_data: str, **kwargs) -> Any:
     """Load data from a file using a method based on the file extension. """
-    data_format = DataFormat.from_extension(Path(fpath_data.suffix))
+    
+    data_format = DataFormat.from_extension(Path(fpath_data).suffix)
     
     if data_format == DataFormat.PKL:
         with open(fpath_data, 'rb') as fid:
@@ -78,7 +79,11 @@ def _load_formatted_data(fpath_data: str, **kwargs) -> Any:
 
 def _save_formatted_data(data: Any, fpath_data: str, **kwargs) -> None:
     """Save data to a file using a method based on the file extension. """
+    
     data_format = DataFormat.from_extension(Path(fpath_data).suffix)
+    
+    dirpath_data = str(Path(fpath_data).parent)
+    os.makedirs(dirpath_data, exist_ok=True)
     
     if data_format == DataFormat.PKL:
         with open(fpath_data, 'wb') as fid:
@@ -185,7 +190,7 @@ class DataKeeper:
             data_name: str,
             data_params: Any,
             data_format: DataFormat = DataFormat.PKL,
-            allow_rewrite: bool = True,
+            allow_rewrite: bool = False,
             **kwargs
             ) -> None:
         """Store data to disk. """
