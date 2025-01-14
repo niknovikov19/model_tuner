@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from enum import Enum, auto
-from typing import Dict
+from typing import Dict, List
 
 
 class SimStatus(Enum):
@@ -33,7 +33,12 @@ class SimManager(ABC):
     
     @abstractmethod
     def update_status(self) -> None:
-        """Update statuses of self.sims elements. """
+        """
+        Update the statuses of self.sims entries. 
+        Update any impelmentation-specific properties that track the state
+            of individual simulations and of a mechanism that controls them.
+            (E.g. requesting progress info from HPC belongs here.)
+        """
         pass
 
     @abstractmethod
@@ -42,7 +47,15 @@ class SimManager(ABC):
         pass
 
     @abstractmethod
-    def _push_requests(self, labels: list[str]) -> None:
+    def _push_requests(self, labels: List[str]) -> None:
+        """
+        Push the requests with given labels for actual running.
+        Status of every request is expecte to change from NEED_PUSH to WAITING.
+        If a request status is not NEED_PUSH - generate an esception.
+        This method can be called by:
+            - add_sim_request() with push_now==True ("labels" will contain one entry)
+            - push_all_requests()
+        """
         pass
     
     def get_sim_status(self, label: str, update=True) -> SimStatus:
@@ -87,6 +100,7 @@ class SimManager(ABC):
             # Push the request if needed
             if push_now:
                 self._push_requests([label])
+                # TODO: check that the status changed to WAITING
         
         # Return the status: WAITING if push_now is True, NEED_PUSH otherwise
         return self.sims[label].status
@@ -95,3 +109,4 @@ class SimManager(ABC):
         labels_to_push = [label for label, sim in self.sims.items()
                           if sim.status == SimStatus.NEED_PUSH] 
         self._push_requests(labels_to_push)
+        # TODO: check that the statuses changed to WAITING
