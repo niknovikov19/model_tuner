@@ -5,7 +5,7 @@ import sys
 
 from netpyne.batchtools import comm, specs
 
-sys.path.append('/ddn/niknovikov19/repo')
+sys.path.append('/ddn/niknovikov19/repo/model_tuner')
 
 from model_tuner.opt.inputs import NetInputWC
 from model_tuner.opt.regimes import NetRegimeWC  
