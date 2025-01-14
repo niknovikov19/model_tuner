@@ -1,4 +1,4 @@
-from dataclasses import fields, is_dataclass
+from dataclasses import fields, is_dataclass, asdict
 from enum import Enum, auto
 import hashlib
 import json
@@ -14,15 +14,17 @@ import xarray as xr
 class CustomEncoder(json.JSONEncoder):
     """JSON encoder that treats ndarrays and dataclasses. """
     def treat_dataclass(self, obj):
-        return obj.__dict__    
+        return obj.__dict__
+        #return asdict(obj)
+    
     def default(self, obj):
         if isinstance(obj, np.ndarray):
-            obj = obj.tolist()
+            return obj.tolist()
         if isinstance(obj, np.integer):
-            obj = int(obj)
+            return int(obj)
         if is_dataclass(obj):
-            obj = self.treat_dataclass(obj)
-        return json.JSONEncoder.encode(self, obj)
+            return self.treat_dataclass(obj)
+        return super().default(obj)
     
 class NonDefEncoder(CustomEncoder):
     """JSON encoder: remove dataclass fields with default values. """

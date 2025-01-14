@@ -7,7 +7,7 @@ class ProcStepParams:
 
 @dataclass(frozen=True)
 class SpikeTrainParams(ProcStepParams):    
-    combine_cells: bool = True,
+    combine_cells: bool = True
     time_limits: list = (0, None)
     subtract_t0: bool = True  # make spike times relative to time_limits[0]
     ms: bool = False  # spike times in miliseconds, otherwise - in seconds
