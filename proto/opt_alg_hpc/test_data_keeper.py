@@ -1,7 +1,7 @@
 import os
 import shutil
 
-from data_keeper import DataKeeper
+from data_keeper import DataKeeper, DataFormat
 
 
 dirpath_dk = r'D:\WORK\Salvador\repo\model_tuner\proto\opt_alg_hpc\data\test_data_keeper'
@@ -49,3 +49,9 @@ dk.store_data(data_new, data_name, params_new)
 data_new_stored = dk.get_data(data_name, params_new)
 print(data_new_stored)
 
+# Add new data without params, save as json
+data_name = 'data3'
+data_new = {'data_content': 'DATA3'}
+dk.store_data(data_new, data_name, data_format=DataFormat.JSON)
+data_new_stored = dk.get_data(data_name)
+print(data_new_stored)

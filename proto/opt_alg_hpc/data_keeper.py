@@ -18,7 +18,7 @@ class CustomEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, np.ndarray):
             obj = obj.tolist()
-        if isinstance(obj, np.int32) or isinstance(obj, np.int64):
+        if isinstance(obj, np.integer):
             obj = int(obj)
         if is_dataclass(obj):
             obj = self.treat_dataclass(obj)
@@ -68,7 +68,7 @@ def _load_formatted_data(fpath_data: str, **kwargs) -> Any:
     
     elif data_format == DataFormat.JSON:
         with open(fpath_data, 'r') as fid:
-            data = json.load(fid, cls=CustomEncoder)
+            data = json.load(fid)
         return data
     
     elif data_format == DataFormat.XR:
@@ -158,24 +158,29 @@ class DataKeeper:
         """Save metadata about stored data entries in a human-readable format (JSON). """
         with open(self.metadata_file, 'w') as f:
             json.dump(self.data_index, f, indent=4, cls=CustomEncoder)
+    
+    @classmethod
+    def _get_empty_params(cls):
+        return {}        
             
     def exists(
             self,
             data_name: str,
-            data_params: Any
+            data_params: Any = None
             ) -> bool:
         """Check if a data entry exists. """
+        data_params = data_params or self._get_empty_params()
         key = self._generate_data_key(data_name, data_params)
         return (key in self.data_index)
     
     def get_data(
             self,
             data_name: str,
-            data_params: Any,
+            data_params: Any = None,
             **kwargs
             ) -> Any:
         """Load data entry. """
-        data_params = data_params or {}
+        data_params = data_params or self._get_empty_params()
         if self.exists(data_name, data_params):
             key = self._generate_data_key(data_name, data_params)
             fpath_rel = self.data_index[key]['filepath_rel']
@@ -188,14 +193,14 @@ class DataKeeper:
             self,
             data: Any,
             data_name: str,
-            data_params: Any,
+            data_params: Any = None,
             data_format: DataFormat = DataFormat.PKL,
             allow_rewrite: bool = False,
             **kwargs
             ) -> None:
         """Store data to disk. """
         
-        data_params = data_params or {}        
+        data_params = data_params or self._get_empty_params()       
         if self.exists(data_name, data_params) and not allow_rewrite:
             raise RuntimeError('Data rewriting is prohibited')
          
