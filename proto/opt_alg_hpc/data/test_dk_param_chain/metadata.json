@@ -1,0 +1,71 @@
+{
+    "sim_result_82e8753e7b4731a1a9cb5bf06a137ee9": {
+        "name": "sim_result",
+        "params": {
+            "sim_result": null
+        },
+        "filepath_rel": "sim_result\\sim_result_82e8753e7b4731a1a9cb5bf06a137ee9.pkl"
+    },
+    "spikes_5d7b9952681b5e7ff0be50d8bd29d888": {
+        "name": "spikes",
+        "params": {
+            "sim_result": null,
+            "spikes": {
+                "combine_cells": true,
+                "time_limits": [
+                    0,
+                    null
+                ],
+                "subtract_t0": true,
+                "ms": false,
+                "ndigits": 6
+            }
+        },
+        "filepath_rel": "spikes\\spikes_5d7b9952681b5e7ff0be50d8bd29d888.pkl"
+    },
+    "proc_step_478c40cc44c3688b03792da34b1cc693": {
+        "name": "proc_step",
+        "params": {
+            "sim_result": null,
+            "spikes": {
+                "combine_cells": true,
+                "time_limits": [
+                    0,
+                    null
+                ],
+                "subtract_t0": true,
+                "ms": false,
+                "ndigits": 6
+            },
+            "proc_step": {}
+        },
+        "filepath_rel": "proc_step\\proc_step_478c40cc44c3688b03792da34b1cc693.pkl"
+    },
+    "proc_step_2_31e33f77f52d0ffb66aa68f8e94eafef": {
+        "name": "proc_step_2",
+        "params": {
+            "sim_result": null,
+            "spikes": {
+                "combine_cells": true,
+                "time_limits": [
+                    0,
+                    null
+                ],
+                "subtract_t0": true,
+                "ms": false,
+                "ndigits": 6
+            },
+            "proc_step": {},
+            "proc_step_2": {
+                "x3": 3,
+                "par3": {
+                    "x2": 2,
+                    "par2": {
+                        "x1": 1
+                    }
+                }
+            }
+        },
+        "filepath_rel": "proc_step_2\\proc_step_2_31e33f77f52d0ffb66aa68f8e94eafef.pkl"
+    }
+}

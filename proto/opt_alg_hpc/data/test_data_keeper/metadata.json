@@ -1,0 +1,33 @@
+{
+    "data1_d91e1753f75c289253f0b553a90ca78b": {
+        "name": "data1",
+        "params": {
+            "par11": 11,
+            "par12": "12"
+        },
+        "filepath_rel": "data1\\data1_d91e1753f75c289253f0b553a90ca78b.pkl"
+    },
+    "data2_44c8fdfdbd4da64fd20a977ca2b9f5cc": {
+        "name": "data2",
+        "params": {
+            "par21": 21,
+            "par22": "22"
+        },
+        "filepath_rel": "data2\\data2_44c8fdfdbd4da64fd20a977ca2b9f5cc.pkl"
+    },
+    "data2_24480bef12ef1365fc410a8560f3a777": {
+        "name": "data2",
+        "params": [
+            {
+                "par21": 21,
+                "par22": "22_new"
+            }
+        ],
+        "filepath_rel": "data2\\data2_24480bef12ef1365fc410a8560f3a777.pkl"
+    },
+    "data3_99914b932bd37a50b983c5e7c90ae93b": {
+        "name": "data3",
+        "params": {},
+        "filepath_rel": "data3\\data3_99914b932bd37a50b983c5e7c90ae93b.json"
+    }
+}

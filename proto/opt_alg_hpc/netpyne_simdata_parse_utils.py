@@ -1,1 +1,0 @@
-def get_pop_spikes(self): pass
