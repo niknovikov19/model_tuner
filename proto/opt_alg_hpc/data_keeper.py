@@ -2,6 +2,7 @@ from dataclasses import fields, is_dataclass, asdict
 from enum import Enum, auto
 import hashlib
 import json
+import logging
 import os
 from pathlib import Path
 import pickle as pkl
@@ -18,6 +19,8 @@ class CustomEncoder(json.JSONEncoder):
         #return asdict(obj)
     
     def default(self, obj):
+        if isinstance(obj, Path):
+            return str(obj)
         if isinstance(obj, np.ndarray):
             return obj.tolist()
         if isinstance(obj, np.integer):
@@ -201,7 +204,9 @@ class DataKeeper:
             **kwargs
             ) -> None:
         """Store data to disk. """
+        logging.debug(f'DataKeeper.store_data(): {data_name}')
         
+        # Check if the data already exists
         data_params = data_params or self._get_empty_params()       
         if self.exists(data_name, data_params) and not allow_rewrite:
             raise RuntimeError('Data rewriting is prohibited')

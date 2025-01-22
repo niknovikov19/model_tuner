@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from enum import Enum, auto
 from io import IOBase
+import os
 from pathlib import Path
 import pickle
 from typing import Any, Dict, List, Optional
@@ -29,19 +30,28 @@ class SimResult(ABC):
 
 @dataclass(frozen=True)
 class SimResultFile(SimResult):
-    fs: FS
     filepath: Path
+    fs: FS | None = None
     
     def exists(self) -> bool:
-        return self.fs.exists(self.filepath)
+        if self.fs:
+            return self.fs.exists(self.filepath)
+        else:
+            return os.path.exists(str(self.filepath))
     
     def open_file(self, *args, **kwargs) -> IOBase:
         if not self.exists():
             raise ValueError(f'Simulation result does not exist: {self.filepath}')
-        return self.fs.open(self.filepath, *args, **kwargs)
+        if self.fs:
+            return self.fs.open(self.filepath, *args, **kwargs)
+        else:
+            return open(str(self.filepath), *args, **kwargs)
     
     def delete(self) -> None:
-        self.fs.remove(self.filepath)
+        if self.fs:
+            self.fs.remove(self.filepath)
+        else:
+            os.remove(str(self.filepath))
 
 # =============================================================================
 #     def __eq__(self, other):

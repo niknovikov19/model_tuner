@@ -58,8 +58,12 @@ def get_pop_cell_gids(sim_result, pop_name):
 def get_sim_data(sim_result):
     return sim_result['simData']
 
-def get_pop_size(sim_result, pop_name):
+def get_pop_size(sim_result, pop_name) -> int:
     return len(get_pop_cell_gids(sim_result, pop_name))
+
+def get_net_size(sim_result) -> Dict[str, int]:
+    return {pop_name: get_pop_size(sim_result, pop_name)
+            for pop_name in get_pop_names(sim_result)}
 
 def get_sim_duration(sim_result):
     return sim_result['simConfig']['duration'] / 1000
