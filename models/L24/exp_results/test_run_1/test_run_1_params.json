@@ -1,0 +1,138 @@
+{
+    "simConfig": {
+        "addSynMechs": true,
+        "allowConnsWithWeight0": true,
+        "allowSelfConns": false,
+        "analysis": {
+            "plotRaster": {
+                "dpi": 300,
+                "figSize": [
+                    14,
+                    12
+                ],
+                "include": [
+                    "L2e",
+                    "L2i",
+                    "L4e",
+                    "L4i"
+                ],
+                "lw": 0.3,
+                "marker": ".",
+                "markerSize": 3,
+                "orderInverse": true,
+                "popRates": true,
+                "saveFig": true,
+                "showFig": false,
+                "timeRange": [
+                    100,
+                    2000.0
+                ]
+            },
+            "plotSpikeStats": {
+                "dpi": 300,
+                "figSize": [
+                    6,
+                    12
+                ],
+                "saveFig": 1,
+                "showFig": 0,
+                "stats": [
+                    "rate",
+                    "isicv"
+                ],
+                "timeRange": [
+                    100,
+                    2000.0
+                ]
+            }
+        },
+        "backupCfgFile": [],
+        "cache_efficient": false,
+        "compactConnFormat": false,
+        "connRandomSecFromList": true,
+        "connected": true,
+        "coreneuron": false,
+        "createNEURONObj": true,
+        "createPyStruct": true,
+        "cvode_active": false,
+        "cvode_atol": 0.001,
+        "distributeSynsUniformly": true,
+        "dt": 0.05,
+        "dump_coreneuron_model": false,
+        "duration": 2000.0,
+        "equal_inputs": false,
+        "ext_input_rates": {
+            "L2e": 65,
+            "L2i": 110,
+            "L4e": 115,
+            "L4i": 280
+        },
+        "filename": "model_output",
+        "gatherOnlySimData": false,
+        "gpu": false,
+        "hParams": {
+            "celsius": 6.3,
+            "clamp_resist": 0.001,
+            "v_init": -65.0
+        },
+        "includeParamsLabel": true,
+        "invertedYCoord": true,
+        "oneSynPerNetcon": true,
+        "printPopAvgRates": false,
+        "printRunTime": false,
+        "printSynsAfterRule": false,
+        "pt3dRelativeToCellLocation": true,
+        "rand123GlobalIndex": null,
+        "random123": false,
+        "recordCells": [],
+        "recordCellsSpikes": [
+            "L2e",
+            "L2i",
+            "L4e",
+            "L4i"
+        ],
+        "recordDipole": false,
+        "recordDipolesHNN": false,
+        "recordLFP": [],
+        "recordStep": 0.1,
+        "recordStim": false,
+        "recordTime": true,
+        "recordTraces": {},
+        "saveCSV": false,
+        "saveCellConns": true,
+        "saveCellSecs": true,
+        "saveDat": false,
+        "saveDataInclude": [
+            "netParams",
+            "netCells",
+            "netPops",
+            "simConfig",
+            "simData"
+        ],
+        "saveDipoleCells": false,
+        "saveDipolePops": false,
+        "saveDpk": false,
+        "saveFolder": "D:\\WORK\\Salvador\\repo\\model_tuner\\models\\L24\\exp_results\\test_run_1",
+        "saveHDF5": false,
+        "saveJson": false,
+        "saveLFPCells": false,
+        "saveLFPPops": false,
+        "saveMat": false,
+        "savePickle": false,
+        "saveTiming": false,
+        "seeds": {
+            "cell": 1,
+            "conn": 1,
+            "loc": 1,
+            "m": 123,
+            "stim": 3
+        },
+        "simLabel": "test_run_1",
+        "timestampFilename": false,
+        "timing": true,
+        "tstop": 1000.0,
+        "use_fast_imem": false,
+        "validateNetParams": false,
+        "verbose": false
+    }
+}

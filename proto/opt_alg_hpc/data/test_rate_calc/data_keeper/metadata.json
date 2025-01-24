@@ -1,0 +1,63 @@
+{
+    "net_spikes_a0fee37f45c3c1e9c2c5e4c88dbbcc9d": {
+        "name": "net_spikes",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "D:\\WORK\\Salvador\\repo\\model_tuner\\proto\\opt_alg_hpc\\data\\test_rate_calc\\sim_res_data.pkl"
+                },
+                "net_spikes": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes\\net_spikes_a0fee37f45c3c1e9c2c5e4c88dbbcc9d.pkl"
+    },
+    "net_rates_d51e8efc350516cb891951ebf54acdde": {
+        "name": "net_rates",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "D:\\WORK\\Salvador\\repo\\model_tuner\\proto\\opt_alg_hpc\\data\\test_rate_calc\\sim_res_data.pkl"
+                },
+                "net_spikes": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates\\net_rates_d51e8efc350516cb891951ebf54acdde.pkl"
+    }
+}
