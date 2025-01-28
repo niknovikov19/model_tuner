@@ -2,13 +2,14 @@
 implementation of batchtk sim manager for hpc
 make sure to use the WIP batchtk branch for now as it implements the SSH based dispatcher
 """
-from sim_manager import SimManager, SimStatus
+from model_tuner.sim_manager import SimManager, SimStatus
+from model_tuner.ssh import SSHParams, SSHFSCustom, SSHConnCustom
 from enum import Enum, auto
 from typing import Dict, List
-from batchtk.sshtk.dispatchers import SSHDispatcher
-from batchtk.runtk.submits import Submit, FILE_HANDLES, Template
-from batchtk.runtk import STATUS
-from fabric import Connection, Config
+from batchtk.runtk.dispatchers import SSHDispatcher
+from batchtk.runtk.submits import Submit, Template
+from batchtk.runtk import STATUS, FILE_HANDLES
+
 
 # edit this script template per your project specs (i.e.
 # smp w/ number of cores, vmem with required mem, h_rt with walltime
@@ -44,23 +45,30 @@ class SGESSHSubmit(Submit):
             handles = FILE_HANDLES,
         )
 
-submit = SGESSHSubmit()
-"""
-    def __init__(self, submit=None, host=None, remote_dir=None, fs=None,
-                 remote_out='.', connection=None, config_path='~/.ssh/config',
-                 fabric_config=None, env=None, label=None, **kwargs):
-"""
+ssh_par_lethe = SSHParams(
+    host='lethe.downstate.edu',
+    user='niknovikov19',
+    port=1415,
+    fpath_private_key=r'C:\Users\aleks\.ssh\id_rsa_lethe'
+)
+ssh_par_grid = SSHParams(
+    host='grid',
+    user='niknovikov19',
+    fpath_private_key=r'C:\Users\aleks\.ssh\id_ed25519_grid'
+)
+
+dispatcher_kwargs = {
+    'submit': SGESSHSubmit(),
+    'remote_dir': '/ddn/jchen/new_project', # the directory where the python script exists on the remote machine
+    'remote_out': '/ddn/jchen/new_project_out', # the directory where generated files exist
+    'connection': SSHConnCustom([ssh_par_lethe, ssh_par_grid]), #note that just providing a connection instance will create a filesystem object as well
+    'fs': SSHFSCustom(ssh_par_lethe) # through the use of connection.sftp(), and may be preferred. however, providing a 'fs' argument will
+} # over-ride the .sftp() call, and instead use the provided filesystem object provided it follows FSProtocol (see modification to ssh_fs_custom
 
 class BatchTKSimManager(SimManager):
-    def __init__(self):
+    def __init__(self, dispatcher_kwargs: Dict):
         super().__init__()
-        self.dispatcher_kwargs = {
-            'submit': SSHSubmitSFS(),
-            'remote_dir': '/ddn/jchen/project', # the directory where the python script exists on the remote machine
-            'remote_out': '/ddn/jchen/project/batch_out', # the directory where generated files exist
-            'host': 'grid0',
-            'connection': Connection('grid0', config=Config(user_ssh_path='~/.ssh/config')),
-        }
+        self.dispatcher_kwargs = dispatcher_kwargs
         self.dispatchers = {}
     def update_status(self) -> None:
         """
