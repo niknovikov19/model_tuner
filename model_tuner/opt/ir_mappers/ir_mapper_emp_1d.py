@@ -1,4 +1,4 @@
-from typing import Literal
+from typing import Dict, Literal
 
 import numpy as np
 
@@ -7,15 +7,19 @@ from ..regimes import PopRegime1D
 
 from ..ir_mappers import PopIRMapper, NetIRMapper
 
-from ..map_funcs import create_map_func_by_name
+from ..map_funcs import MapFuncType
+from ..map_funcs import create_map_func_by_type
 
 
 class PopIREmpiricalMapper1D(PopIRMapper):
     def __init__(
             self,
-            map_type: Literal['exp_1d', 'sigmoid_1d'] = 'exp_1d'
+            map_type: MapFuncType | str = MapFuncType.EXP_1D,
+            map_params: Dict | None = None
             ):
-        self._map_func = create_map_func_by_name(map_type)
+        map_type = MapFuncType(map_type)
+        map_params = map_params or {}
+        self._map_func = create_map_func_by_type(map_type, **map_params)
         
     def I_to_R(self, I: PopInput1D) -> PopRegime1D:
         x_out = self._map_func.apply(I.value)

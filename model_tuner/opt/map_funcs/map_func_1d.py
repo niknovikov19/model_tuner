@@ -5,6 +5,10 @@ import numpy as np
 from scipy.optimize import curve_fit
 
 
+def _is_1d_array(x: np.ndarray) -> bool:
+    return len(x) == len(x.ravel())
+
+
 class MapFunc1D(ABC):
     def __init__(self):
         self.par = {name: np.nan for name in self.get_par_names()}
@@ -16,24 +20,26 @@ class MapFunc1D(ABC):
     def get_par_vals(self) -> List:
         return [self.par[name] for name in self.get_par_names()]
         
-    @staticmethod
+    #@staticmethod
     @abstractmethod
-    def f(x: Union[float, np.ndarray],
+    def f(self,
+          x: float | np.ndarray,
           *args, **kwargs
-          ) -> Union[float, np.ndarray]:
+          ) -> float | np.ndarray:
         pass
     
-    @staticmethod
+    #@staticmethod
     @abstractmethod
-    def f_inv(x: Union[float, np.ndarray],
+    def f_inv(self,
+              x: float | np.ndarray,
               *args, **kwargs
-              ) -> Union[float, np.ndarray]:
+              ) -> float | np.ndarray:
         pass
     
-    def apply(self, x: Union[float, np.ndarray]) -> Union[float, np.ndarray]:
+    def apply(self, x: float | np.ndarray) -> float | np.ndarray:
         return self.f(x, **self.par)
     
-    def apply_inv(self, y: Union[float, np.ndarray]) -> Union[float, np.ndarray]:
+    def apply_inv(self, y: float | np.ndarray) -> float | np.ndarray:
         return self.f_inv(y, **self.par)
     
     @staticmethod
@@ -44,18 +50,29 @@ class MapFunc1D(ABC):
     @abstractmethod
     def _get_first_fit_guess(xx: np.ndarray, yy: np.ndarray) -> Tuple: pass
     
-    def fit(self, xx: np.ndarray, yy: np.ndarray, from_prev=False):
+    def fit(self, xx: np.ndarray, yy: np.ndarray, from_prev=False) -> None:        
+        # Convert both arrays to 1-d format
+        if not _is_1d_array(xx) or not _is_1d_array(yy):
+            raise ValueError('xx and yy should be effectively 1-dimentional')
+        xx, yy = xx.ravel(), yy.ravel()
+            
+        # Initial guess
         if from_prev:
-            par0 = self.get_par_vals()
+            par0 = self.get_par_vals()  # use the result of the previous fitting
         else:
-            par0 = self._get_first_fit_guess(xx, yy)
-        bounds = self._get_fit_bounds()
+            par0 = self._get_first_fit_guess(xx, yy)  # defined in subclasses
+            
+        # Bounds of fitting
+        bounds = self._get_fit_bounds()  # defined in subclasses
+        
+        # Fit
         try:
-            par, _ = curve_fit(self.f, xx, yy, p0=par0,
-                               bounds=bounds,
-                               nan_policy='omit')
-            self.par = {name: par[n]
-                        for n, name in enumerate(self.get_par_names())}
+            par, _ = curve_fit(
+                self.f, xx, yy, p0=par0, bounds=bounds, nan_policy='omit'
+            )  
+            self.par = {
+                name: par[n] for n, name in enumerate(self.get_par_names())
+            }
         except Exception as e:
             print(f'Fitting failed ({e})')
             self.par = {name: np.nan for name in self.get_par_names()}

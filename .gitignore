@@ -2,3 +2,4 @@ _old
 *__pycache__*
 *.pyc
 *.pkl
+*exp_results*

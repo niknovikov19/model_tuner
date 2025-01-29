@@ -47,6 +47,10 @@ class DataProcessor:
             recalc: bool = False
             ) -> DataIndex:
         
+        logging.debug(
+            'DataProcessor._proc_step(): '
+            f'f = {step_func.__name__}, data = {data_name_out}'
+        )
         self._check()
 
         # Generate output data index
@@ -57,7 +61,10 @@ class DataProcessor:
         
         # Check if the step result already exists        
         if (self.dk.exists(data_id_out.data_name, data_id_out.params_chain)
-            and not recalc):
+                and not recalc):
+            logging.debug(
+                "DataProcessor._proc_step(): don't recalculate"
+            )
             return data_id_out
         
         # Load input data
@@ -85,7 +92,9 @@ class DataProcessor:
             recalc: bool = False
             ) -> DataIndex:
         """Calculate pop. firing rates from spike trains. """
-        logging.debug('DataProcessor.calc_net_rates()')
+        logging.debug(
+            f'DataProcessor.calc_net_rates() data = {data_name_out}'
+        )
         return self._proc_step(
             data_id_in,
             step_func=proc_funcs.calc_net_rates,

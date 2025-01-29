@@ -82,7 +82,9 @@ class SimResultParserNetPyNE:
             recalc: bool = False
             ) -> DataIndex:
         
-        logging.debug('SimResultParserNetPyNE.extract_net_spikes()')
+        logging.debug(
+            f'SimResultParserNetPyNE.extract_net_spikes(): data = {data_name_out}'
+        )
         self._check()
         
         # Generate output data index

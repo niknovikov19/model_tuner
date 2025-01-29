@@ -14,7 +14,7 @@ from model_tuner.opt.ir_mappers import PopIREmpiricalMapper1D
 from model_tuner.opt.ir_mappers import NetIREmpiricalMapper1D
 # NetUCMapper
 
-from model_tuner.opt.map_funcs import MapFunc1D
+from model_tuner.opt.map_funcs import MapFuncType, MapFunc1D
 from model_tuner.opt.map_funcs import MapFunc1DExp, MapFunc1DSigmoid
 
 
@@ -57,14 +57,17 @@ class BatchMetricGetterSurrogate(BatchMetricGetter):
     def _gen_surrogate_data(self):
         self._rate_data = {}
         self._data_gen_par = {
-            'pop1': {'a': 1.0, 'b': 0.1, 'k': 10.0, 's': 0.2},
-            'pop2': {'a': 2.0, 'b': 0.2, 'k': 20.0, 's': 0.5}
+            'pop1': {'a': 1.0, 'b': 0.1, 'k': -1.3, 's': 0.2},
+            'pop2': {'a': 2.0, 'b': 0.2, 'k': -3.1, 's': 0.5}
         }
+        self._positive = True
         for pop_name in self._pop_names:
             x = self._batch_params['rxe']
             a, b, k, s = [self._data_gen_par[pop_name][p]
                           for p in ('a', 'b', 'k', 's')]
             y = a * np.exp(b * x) + k + s * np.random.rand(len(x))
+            if self._positive:
+                y = np.maximum(y, 0)
             self._rate_data[pop_name] = y
     
     def get_batch_par_names(self) -> List[str]:
@@ -100,7 +103,13 @@ for pop_name in bmg.get_pop_names():
     pop_rates[pop_name] = bmg.get_pop_rates_batch(pop_name)
     
     # Fit input-to-regime mapping for a pop
-    pop_ir_mapper = PopIREmpiricalMapper1D(map_type='exp_1d')
+    pop_ir_mapper = PopIREmpiricalMapper1D(
+        map_type='exp_1d',
+        map_params = {
+            'x_positive': False,
+            'y_positive': True
+        }
+    )
     pop_ir_mapper.fit_from_data(inp_rates, pop_rates[pop_name])
     
     net_ir_mapper.set_pop_mapper(pop_name, pop_ir_mapper)

@@ -5,7 +5,7 @@ from fs.base import FS
 from sim_result import SimResultFile
 
 
-class SimResultManager:
+class SimResultLocator:
     def __init__(self, dirpath_base: str | Path, fs: FS):
         fs.check()  # raises an exception if the filesystem is closed
         self.dirpath_base = Path(dirpath_base)
