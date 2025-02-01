@@ -48,10 +48,10 @@ class MapFunc1DSigmoid(MapFunc1D):
         is_scalar = not isinstance(y, np.ndarray)
         if is_scalar:
             y = np.array([y])
-            
+        
         if self._y_positive:
             y[y < 0] = np.nan
-            
+        
         y[(a / (y - c)) < 1] = np.nan
         x = b - np.log(a / (y - c) - 1) / k
         
@@ -66,6 +66,7 @@ class MapFunc1DSigmoid(MapFunc1D):
     @staticmethod
     def _get_fit_bounds() -> Tuple[List[float], List[float]]:
         bounds = {p: (-np.inf, np.inf) for p in ['a', 'b', 'c', 'k']}
+        #bounds['c'] = (0, np.inf)
 # =============================================================================
 #         bounds = {
 #             'a': (0.1, 10),

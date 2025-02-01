@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import Dict, List
 
 import numpy as np
 
@@ -19,21 +20,26 @@ class NetRegime1D(NetRegime):
     def get_pop_regimes_vec(self) -> np.ndarray:
         return self.get_pop_attr_vec('value')
     
-# =============================================================================
-#     @classmethod
-#     def from_rates(cls, pop_names: List[str], pop_rates: List[float]) -> 'NetRegimeWC':
-#         R = NetRegimeWC()
-#         for pop_name, r in zip(pop_names, pop_rates):
-#             R.pop_regimes[pop_name] = PopRegimeWC(r=r)
-#         return R
-#     
-#     @classmethod
-#     def from_rates_dict(cls, pop_rates: Dict[str, float]) -> 'NetRegimeWC':
-#         return cls.from_rates(
-#             pop_names=list(pop_rates.keys()),
-#             pop_rates=list(pop_rates.values())
-#         )
-# =============================================================================
+    @classmethod
+    def from_values(
+            cls,
+            pop_names: List[str],
+            pop_values: List[float]
+            ) -> 'NetRegime1D':
+        R = NetRegime1D()
+        for pop_name, val in zip(pop_names, pop_values):
+            R.pop_regimes[pop_name] = PopRegime1D(value=val)
+        return R
+    
+    @classmethod
+    def from_dict(
+            cls,
+            pop_vals_dict: Dict[str, float]
+            ) -> 'NetRegime1D':
+        return cls.from_values(
+            pop_names=list(pop_vals_dict.keys()),
+            pop_values=list(pop_vals_dict.values())
+        )
 
 
 @dataclass

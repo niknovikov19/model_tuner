@@ -2,8 +2,8 @@ from typing import Dict, Literal
 
 import numpy as np
 
-from ..inputs import PopInput1D
-from ..regimes import PopRegime1D
+from ..inputs import PopInput1D, NetInput1D
+from ..regimes import PopRegime1D, NetRegime1D
 
 from ..ir_mappers import PopIRMapper, NetIRMapper
 
@@ -39,4 +39,16 @@ class PopIREmpiricalMapper1D(PopIRMapper):
         self._map_func.fit(values_in, values_out)
 
 
-NetIREmpiricalMapper1D = NetIRMapper
+class NetIREmpiricalMapper1D(NetIRMapper):
+    
+    def I_to_R(self, I: NetInput1D) -> NetRegime1D:
+        R = NetRegime1D()
+        for name, I_ in I.pop_inputs.items():
+            R.pop_regimes[name] = self.pop_IR_mappers[name].I_to_R(I_)
+        return R
+    
+    def R_to_I(self, R: NetRegime1D) -> NetInput1D:
+        I = NetInput1D()
+        for name, R_ in R.pop_regimes.items():
+            I.pop_inputs[name] = self.pop_IR_mappers[name].R_to_I(R_)
+        return I

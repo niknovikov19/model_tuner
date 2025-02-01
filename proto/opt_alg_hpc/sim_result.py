@@ -35,7 +35,7 @@ class SimResultFile(SimResult):
     
     def exists(self) -> bool:
         if self.fs:
-            return self.fs.exists(self.filepath)
+            return self.fs.exists(self.filepath.as_posix())
         else:
             return os.path.exists(str(self.filepath))
     
@@ -43,13 +43,13 @@ class SimResultFile(SimResult):
         if not self.exists():
             raise ValueError(f'Simulation result does not exist: {self.filepath}')
         if self.fs:
-            return self.fs.open(self.filepath, *args, **kwargs)
+            return self.fs.open(self.filepath.as_posix(), *args, **kwargs)
         else:
             return open(str(self.filepath), *args, **kwargs)
     
     def delete(self) -> None:
         if self.fs:
-            self.fs.remove(self.filepath)
+            self.fs.remove(self.filepath.as_posix())
         else:
             os.remove(str(self.filepath))
 

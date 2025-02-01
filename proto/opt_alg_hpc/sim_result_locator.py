@@ -12,7 +12,7 @@ class SimResultLocator:
         self.fs = fs
     
     def _locate_result(self, sim_label: str) -> SimResultFile:
-        fname_res = f'{sim_label}.pkl'
+        fname_res = f'{sim_label}_data.pkl'
         fpath_res = self.dirpath_base / fname_res
         return SimResultFile(fs=self.fs, filepath=fpath_res)
     

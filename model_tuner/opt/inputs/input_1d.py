@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import Dict
 
 import numpy as np
 
@@ -15,3 +16,9 @@ class NetInput1D(NetInput):
 
     def get_pop_inputs_vec(self) -> np.ndarray:
         return self.get_pop_attr_vec('value')
+    
+    def to_values_dict(self) -> Dict[str, float]:
+        vd = {}
+        for pop_name, pop_inp in self.pop_inputs.items():
+            vd[pop_name] = pop_inp.value
+        return vd
