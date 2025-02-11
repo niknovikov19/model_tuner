@@ -2,4 +2,5 @@ _old
 *__pycache__*
 *.pyc
 *.pkl
+*.png
 *exp_results*
