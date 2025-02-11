@@ -8,12 +8,12 @@ import numpy as np
 
 dirpath_in = Path(
     r'D:\WORK\Salvador\repo\model_tuner\proto\opt_alg_hpc\data\test_opt_hpc_batch'
-    #r'\exp_r0=(2_10_5_15)_pfr=(0.1_1.5_7)_wmult=0.25_alpha=0.5\info'
-    r'\exp_r0=(2_10_5_15)_pfr=(0.1_1.5_7)_wmult=0.1_alpha=0.5\info'
+    r'\exp_r0=(2_10_5_15)_pfr=(0.1_1.5_7)_wmult=0.25_alpha=0.25\info'
+    #r'\exp_r0=(2_10_5_15)_pfr=(0.1_1.5_7)_wmult=0.1_alpha=0.5\info'
     #r'\exp_r0=(2_10_5_15)_pfr=(0.1_1.5_7)_wmult=0.1_alpha=0.25\info'
 )
 
-n_iter = 25
+n_iter = 50
 n_pop = 4
 n_pts = 7
 
