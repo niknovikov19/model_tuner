@@ -80,7 +80,8 @@ class DataProcessor:
         self.dk.store_data(
             data_out,
             data_name=data_id_out.data_name,
-            data_params=data_id_out.params_chain
+            data_params=data_id_out.params_chain,
+            allow_rewrite=True
         )        
         return data_id_out
     

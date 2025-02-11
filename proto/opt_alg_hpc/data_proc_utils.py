@@ -7,13 +7,15 @@ def calc_pop_rate(
         pop_spikes: List[np.ndarray],  # per cells or combined into 1 entry
         time_limits: Tuple[float],
         ncells: int = 1
-        ) -> List[float]:
+        ) -> float | List[float]:
     rates = []
     T = time_limits[1] - time_limits[0]
     for spike_times in pop_spikes:
         nspikes = np.sum((spike_times >= time_limits[0]) &
                          (spike_times <= time_limits[1]))
         rates.append(nspikes / T / ncells)
+    if len(rates) == 1:
+        rates = rates[0]
     return rates
 
 def calc_net_rates(
@@ -21,7 +23,7 @@ def calc_net_rates(
         time_limits: Tuple[float],
         ncells: Dict[str, int] | None = None,
         pop_names: List[str] | None = None
-        ) -> Dict[str, List[float]]:  # {pop: rates}
+        ) -> Dict[str, float | List[float]]:  # {pop: rates}
     net_rates = {}
     pop_names = pop_names or list(net_spikes)
     ncells = ncells or {pop_name: 1 for pop_name in pop_names}

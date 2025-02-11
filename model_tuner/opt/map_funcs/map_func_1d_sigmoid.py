@@ -6,65 +6,23 @@ from .map_func_1d import MapFunc1D
 
 
 class MapFunc1DSigmoid(MapFunc1D):
-    def __init__(
-            self,
-            x_positive: bool = False,
-            y_positive: bool = False
-            ):
-        self._x_positive = x_positive
-        self._y_positive = y_positive
     
-    @staticmethod
-    def get_par_names() -> List[str]:
+    @classmethod
+    def get_par_names(cls) -> List[str]:
         return ['a', 'b', 'c', 'k']
     
-    def f(self,
-          x: float | np.ndarray,
-          a, b, c, k
-          ) -> float | np.ndarray:
-        
-        is_scalar = not isinstance(x, np.ndarray)
-        if is_scalar:
-            x = np.array([x])
-        
-        if self._x_positive:
-            x[x < 0] = np.nan
-            
+    def f(self, x: np.ndarray, a, b, c, k) -> np.ndarray:
         y = c + a / (1 + np.exp(-k * (x - b)))
-        
-        if self._y_positive:
-            y = np.maximum(0, y)
-            
-        if is_scalar:
-            y = y.ravel()[0]
-
         return y
     
-    def f_inv(self,
-              y: float | np.ndarray,
-              a, b, c, k
-              ) -> float | np.ndarray:
-        
-        is_scalar = not isinstance(y, np.ndarray)
-        if is_scalar:
-            y = np.array([y])
-        
-        if self._y_positive:
-            y[y < 0] = np.nan
-        
+    def f_inv(self, y: np.ndarray, a, b, c, k) -> np.ndarray:
+        y = y.copy()
         y[(a / (y - c)) < 1] = np.nan
         x = b - np.log(a / (y - c) - 1) / k
-        
-        if self._x_positive:
-            x = np.maximum(0, x)
-        
-        if is_scalar:
-            x = x.ravel()[0]
-        
         return x
     
-    @staticmethod
-    def _get_fit_bounds() -> Tuple[List[float], List[float]]:
+    @classmethod
+    def _get_fit_bounds(cls) -> Tuple[List[float], List[float]]:
         bounds = {p: (-np.inf, np.inf) for p in ['a', 'b', 'c', 'k']}
         #bounds['c'] = (0, np.inf)
 # =============================================================================
@@ -79,17 +37,74 @@ class MapFunc1DSigmoid(MapFunc1D):
         high = [bounds[p][1] for p in ['a', 'b', 'c', 'k']]
         return low, high
     
-    @staticmethod
-    def _get_first_fit_guess(xx: np.ndarray, yy: np.ndarray) -> Tuple[float]:
-        k0 = 1 / np.max(np.abs(xx))
+# =============================================================================
+#     @staticmethod
+#     def _get_first_fit_guess(xx: np.ndarray, yy: np.ndarray) -> Tuple:
+#         k0 = 1 / np.max(np.abs(xx))
+#         c0 = np.nanmin(yy)
+#         a0 = np.nanmax(yy) - c0
+#         th = c0 + a0 / 2
+#         mask1 = yy < th
+#         mask2 = yy > th
+#         n1 = np.argmax(yy[mask1])
+#         n2 = np.argmin(yy[mask2])
+#         x1, y1 = xx[mask1][n1], yy[mask1][n1]
+#         x2, y2 = xx[mask2][n2], yy[mask2][n2]
+#         b0 = (x1 + x2) / 2
+#         return a0, b0, c0, k0
+# =============================================================================
+    
+    @classmethod
+    def _get_first_fit_guess(cls, xx: np.ndarray, yy: np.ndarray) -> Tuple:
+        is_increasing = yy[-1] > yy[0]
+        
+# =============================================================================
+#         if is_increasing:
+#             c0 = np.nanmin(yy)
+#             a0 = np.nanmax(yy) - c0
+#         else:
+#             c0 = np.nanmax(yy)
+#             a0 = np.nanmin(yy) - c0
+# =============================================================================
+
         c0 = np.nanmin(yy)
         a0 = np.nanmax(yy) - c0
-        th = c0 + a0 / 2
-        mask1 = yy < th
-        mask2 = yy > th
-        n1 = np.argmax(yy[mask1])
-        n2 = np.argmin(yy[mask2])
-        x1, y1 = xx[mask1][n1], yy[mask1][n1]
-        x2, y2 = xx[mask2][n2], yy[mask2][n2]
-        b0 = (x1 + x2) / 2
+    
+        # Points closest to the middle threshold 
+# =============================================================================
+#         th = c0 + a0 / 2
+#         mask1 = yy < th
+#         mask2 = yy > th
+#         n1 = np.argmax(yy[mask1])  # Highest value below threshold
+#         n2 = np.argmin(yy[mask2])  # Lowest value above threshold
+#         x1, y1 = xx[mask1][n1], yy[mask1][n1]
+#         x2, y2 = xx[mask2][n2], yy[mask2][n2]
+# =============================================================================
+        
+        # Interval with the max. slope and its midpoint
+        dy = yy[1:] - yy[:-1]
+        n = np.nanargmax(dy)
+        x01, y01 = xx[n], yy[n]
+        x02, y02 = xx[n + 1], yy[n + 1]
+        b0 = (x01 + x02) / 2
+        
+        # Corner points
+        x1, y1 = xx[0], yy[0]
+        x2, y2 = xx[-1], yy[-1]
+        
+        for _ in range(5):
+            k0 = 4 * (y02 - y01) / (x02 - x01) / a0
+            S = lambda x: 1 / (1 + np.exp(-k0 * (x - b0)))
+            a0 = (y2 - y1) / (S(x2) - S(x1))
+            c0 = y1 - a0 * S(x1)
+        
+        #k0 = 4 * (y02 - y01) / (x02 - x01) / a0
+    
+# =============================================================================
+#         # Adjust k0 based on monotonicity
+#         k0 = 1 / np.max(np.abs(xx))
+#         if not is_increasing:
+#             k0 = -k0  # Flip sign if decreasing
+# =============================================================================
+        
         return a0, b0, c0, k0

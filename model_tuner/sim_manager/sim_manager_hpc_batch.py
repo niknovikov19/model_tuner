@@ -76,7 +76,8 @@ class SimManagerHPCBatch(SimManager):
         self.update_status()
     
     def get_sim_result_path(self, label: str) -> str:
-        return (Path(self._paths.results_dir) / f'{label}.pkl').as_posix()
+        # TODO: don't duplicate the code from sim_result_locator.py
+        return (Path(self._paths.results_dir) / f'{label}_data.pkl').as_posix()
     
     def _update_batch_script_status(self) -> None:
         proc_str = f'python {self._fpath_batch_script}'

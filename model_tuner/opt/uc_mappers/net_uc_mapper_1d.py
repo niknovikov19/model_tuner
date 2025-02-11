@@ -49,16 +49,25 @@ class NetUCMapper1D(NetUCMapper):
                   for pop in self._pop_names}
         return NetRegime1D.from_dict(Ru)
     
-    def fit_from_data(self, Ru: NetRegime1DList, Rc: NetRegime1DList):
+    def fit_from_data(
+            self,
+            Ru: NetRegime1DList,
+            Rc: NetRegime1DList
+            ) -> bool:
         if len(Ru) != len(Rc):
              raise ValueError('Ru and Rc should have the same length')
         if Ru.get_pop_names() != self._pop_names:
             raise ValueError('Ru should have the same pops. as the mapper')
         if Rc.get_pop_names() != self._pop_names:
             raise ValueError('Rc should have the same pops. as the mapper')
+            
         rr_u_mat = Ru.get_pop_attr_mat('value')
         rr_c_mat = Rc.get_pop_attr_mat('value')
-        from_prev = not self._is_identity
+        
+        #from_prev = not self._is_identity
+        from_prev = 0
         for n, pop in enumerate(self._pop_names):
             self._map_funcs[pop].fit(rr_u_mat[n, :], rr_c_mat[n, :], from_prev)
+            
         self._is_identity = False
+        return all([f.is_valid() for f in self._map_funcs.values()])
