@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from dataclasses import dataclass
 from typing import List, Tuple, Union
 
 import numpy as np
@@ -8,17 +9,49 @@ from scipy.optimize import curve_fit
 def _is_1d_array(x: np.ndarray) -> bool:
     return len(x) == len(x.ravel())
 
+def _is_scalar(x: float | np.ndarray) -> bool:
+    return not isinstance(x, np.ndarray)
+
+def _to_array(x: float | np.ndarray) -> np.ndarray:
+    if _is_scalar(x):
+        x = np.array([x])
+    return x
+
+def _to_scalar(x: np.ndarray) -> float:
+    return x.ravel()[0]
+
+def _clip_to_nan(
+        x: np.ndarray, limits: Tuple = (None, None), need_copy: bool = True
+        ) -> np.ndarray:
+    x1 = limits[0] or -np.inf
+    x2 = limits[1] or np.inf
+    mask = (x < x1) | (x > x2)
+    y = x.copy() if need_copy else x
+    y[mask] = np.nan
+    return y
+    
+def _get_empty_bounds(par_names: List[str]) -> Tuple[List[float], List[float]]:
+    npar = len(par_names)
+    low = [(-np.inf, np.inf) for _ in range(npar)]
+    high = [(-np.inf, np.inf) for _ in range(npar)]
+    return low, high
+
+
+@dataclass
+class MapFitParams:
+    ftol: float = 1e-3
+    xtol: float = 1e-4
+    verbose: bool = False
+    method: str = 'trf'
+    max_nfev: int = 1000
+    par0_kprev: float = 1  # proportion of the previous fit in the initial guess
+    return_first_guess: bool = False  # don't do the fitting, return the initial guess
+    
 
 class MapFunc1D(ABC):
     
-    def __init__(
-            self,
-            x_positive: bool = False,
-            y_positive: bool = False
-            ):
+    def __init__(self):
         self.par = {name: np.nan for name in self.get_par_names()}
-        self._x_positive = x_positive
-        self._y_positive = y_positive
     
     @classmethod
     @abstractmethod
@@ -29,65 +62,22 @@ class MapFunc1D(ABC):
         return [self.par[name] for name in self.get_par_names()]
         
     @abstractmethod
-    def f(self, x: np.ndarray, *args, **kwargs) -> np.ndarray:
+    def f(self, x: float | np.ndarray, *args, **kwargs) -> float | np.ndarray:
         pass
     
     @abstractmethod
-    def f_inv(self, y: np.ndarray, *args, **kwargs) -> np.ndarray:
+    def f_inv(self, y: float | np.ndarray, *args, **kwargs) -> float | np.ndarray:
         pass
-    
-    def _apply(
-            self, x: float | np.ndarray, *args, **kwargs
-            ) -> float | np.ndarray:
-
-        is_scalar = not isinstance(x, np.ndarray)
-        if is_scalar:
-            x = np.array([x])
-        
-        if self._x_positive:
-            x[x < 0] = np.nan
-            
-        y = self.f(x, *args, **kwargs)
-        
-        if self._y_positive:
-            y = np.maximum(0, y)
-            
-        if is_scalar:
-            y = y.ravel()[0]
-
-        return y
-    
-    def _apply_inv(
-            self, y: float | np.ndarray, *args, **kwargs
-            ) -> float | np.ndarray:
-        
-        is_scalar = not isinstance(y, np.ndarray)
-        if is_scalar:
-            y = np.array([y])
-        
-        if self._y_positive:
-            y[y < 0] = np.nan
-        
-        x = self.f_inv(y, *args, **kwargs)
-        
-        if self._x_positive:
-            x = np.maximum(0, x)
-        
-        if is_scalar:
-            x = x.ravel()[0]
-        
-        return x
     
     def apply(self, x: float | np.ndarray) -> float | np.ndarray:
-        return self._apply(x, **self.par)
+        return self.f(x, **self.par)
     
     def apply_inv(self, y: float | np.ndarray) -> float | np.ndarray:
-        return self._apply_inv(y, **self.par)
+        return self.f_inv(y, **self.par)
     
     @classmethod
-    @abstractmethod
     def _get_fit_bounds(cls) -> Tuple[List[float], List[float]]:
-        pass
+        return _get_empty_bounds(cls.get_par_names())  # can be overloaded in a subclass
         
     @classmethod
     @abstractmethod
@@ -101,31 +91,47 @@ class MapFunc1D(ABC):
         for par_name, val in self.par:
             self.par[par_name] = (1 - alpha) * val + alpha * fmix.par[par_name]
     
-    def fit(self, xx: np.ndarray, yy: np.ndarray, from_prev=False) -> None:
+    def fit(
+            self,
+            xx: np.ndarray,
+            yy: np.ndarray,
+            opt_par: MapFitParams = MapFitParams(),
+            ww: np.ndarray | None = None,
+            bounds: List[Tuple[float, float]] = None,
+            ) -> None:
         
         # Convert both arrays to 1-d format
         if not _is_1d_array(xx) or not _is_1d_array(yy):
-            raise ValueError('xx and yy should be effectively 1-dimentional')
+            raise ValueError('xx and yy should be effectively 1-dimensional')
         xx, yy = xx.ravel(), yy.ravel()
             
         # Initial guess
-        if from_prev:
-            par0 = self.get_par_vals()  # use the result of the previous fitting
-        else:
-            par0 = self._get_first_fit_guess(xx, yy)  # defined in subclasses
+        par0 = self._get_first_fit_guess(xx, yy)  # default first guess (from a subclass)
+        par0_prev = self.get_par_vals()  # result of the previous fitting
+        if not np.any(np.isnan(par0_prev)):
+            par0.mix(par0_prev, opt_par.par0_kprev)  # mix par0 and par0_prev
+        
+        # Accept the initial guess without further fitting
+        if opt_par.return_first_guess:
+            self.par = {
+                name: par0[n] for n, name in enumerate(self.get_par_names())
+            }
+            return
             
         # Bounds of fitting
-        bounds = self._get_fit_bounds()  # defined in subclasses
+        bounds = bounds or {}
+        bounds_def = self._get_fit_bounds()  # default bounds (from a subclass)
+        bounds = bounds_def | bounds  # replace bounds provided in arguments
         
         # Fit
         try:
-            sigma = np.clip(yy ** 0.5, 0.1, 5)
             par, _ = curve_fit(
-                self._apply, xx, yy, p0=par0, bounds=bounds, nan_policy='omit',
-                #sigma=sigma, absolute_sigma=True,
-                ftol=1e-3, xtol=1e-4, verbose=0, method='trf', max_nfev=1000
-            )  
-            #par = par0
+                self.f, xx, yy, p0=par0, bounds=bounds, nan_policy='omit',
+                sigma=ww, absolute_sigma=(ww is not None),
+                ftol=opt_par.ftol, xtol=opt_par.xtol,
+                method=opt_par.method, max_nfev=opt_par.max_nfev,
+                verbose=opt_par.verbose
+            )
             self.par = {
                 name: par[n] for n, name in enumerate(self.get_par_names())
             }

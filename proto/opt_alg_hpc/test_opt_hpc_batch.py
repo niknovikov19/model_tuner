@@ -97,7 +97,10 @@ def init_ir_mapper() -> NetIREmpiricalMapper1D:
         )
         rlim = r_limits[pop_name]
         mask = (inp_rates >= rlim[0]) & (inp_rates <= rlim[1])
-        pop_ir_mapper.fit_from_data(inp_rates[mask], pop_rates[pop_name][mask])
+        xx = inp_rates[mask]
+        yy = pop_rates[pop_name][mask]
+        ww = np.clip(yy ** 0.5, 0.1, 5)
+        pop_ir_mapper.fit_from_data(xx, yy, ww)
         
         net_ir_mapper.set_pop_mapper(pop_name, pop_ir_mapper)
     

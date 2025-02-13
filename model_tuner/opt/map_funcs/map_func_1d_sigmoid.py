@@ -3,83 +3,46 @@ from typing import List, Tuple, Union
 import numpy as np
 
 from .map_func_1d import MapFunc1D
+from .map_func_1d import _is_scalar, _to_scalar, _to_array, _clip_to_nan
 
 
 class MapFunc1DSigmoid(MapFunc1D):
+    def __init__(
+            self,
+            x_limits: Tuple[float, float] = (-np.inf, np.inf),
+            y_limits: Tuple[float, float] = (-np.inf, np.inf)
+            ):
+        self._x_limits = x_limits
+        self._y_limits = y_limits
     
     @classmethod
     def get_par_names(cls) -> List[str]:
         return ['a', 'b', 'c', 'k']
     
-    def f(self, x: np.ndarray, a, b, c, k) -> np.ndarray:
-        y = c + a / (1 + np.exp(-k * (x - b)))
+    def f(self, x: float | np.ndarray, a, b, c, k) -> float | np.ndarray:
+        x_ = _to_array(x)
+        x_ = _clip_to_nan(x_, self._x_limits)    
+        y = c + a / (1 + np.exp(-k * (x_ - b)))
+        y = y.clip(self._y_limits)
+        if _is_scalar(x):
+            y = _to_scalar(y)
         return y
     
-    def f_inv(self, y: np.ndarray, a, b, c, k) -> np.ndarray:
-        y = y.copy()
-        y[(a / (y - c)) < 1] = np.nan
-        x = b - np.log(a / (y - c) - 1) / k
+    def f_inv(self, y: float | np.ndarray, a, b, c, k) -> float | np.ndarray:
+        y_ = _to_array(y)
+        y_ = _clip_to_nan(y_, self._y_limits, need_copy=True)
+        y_[(a / (y_ - c)) < 1] = np.nan
+        x = b - np.log(a / (y_ - c) - 1) / k
+        x = y.clip(self._x_limits)
+        if _is_scalar(y):
+            x = _to_scalar(x)
         return x
     
     @classmethod
-    def _get_fit_bounds(cls) -> Tuple[List[float], List[float]]:
-        bounds = {p: (-np.inf, np.inf) for p in ['a', 'b', 'c', 'k']}
-        #bounds['c'] = (0, np.inf)
-# =============================================================================
-#         bounds = {
-#             'a': (0.1, 10),
-#             'b': (-10, 20),
-#             'c': (-10, 20),
-#             'k': (0.1, 10)
-#         }
-# =============================================================================
-        low = [bounds[p][0] for p in ['a', 'b', 'c', 'k']]
-        high = [bounds[p][1] for p in ['a', 'b', 'c', 'k']]
-        return low, high
-    
-# =============================================================================
-#     @staticmethod
-#     def _get_first_fit_guess(xx: np.ndarray, yy: np.ndarray) -> Tuple:
-#         k0 = 1 / np.max(np.abs(xx))
-#         c0 = np.nanmin(yy)
-#         a0 = np.nanmax(yy) - c0
-#         th = c0 + a0 / 2
-#         mask1 = yy < th
-#         mask2 = yy > th
-#         n1 = np.argmax(yy[mask1])
-#         n2 = np.argmin(yy[mask2])
-#         x1, y1 = xx[mask1][n1], yy[mask1][n1]
-#         x2, y2 = xx[mask2][n2], yy[mask2][n2]
-#         b0 = (x1 + x2) / 2
-#         return a0, b0, c0, k0
-# =============================================================================
-    
-    @classmethod
     def _get_first_fit_guess(cls, xx: np.ndarray, yy: np.ndarray) -> Tuple:
-        is_increasing = yy[-1] > yy[0]
-        
-# =============================================================================
-#         if is_increasing:
-#             c0 = np.nanmin(yy)
-#             a0 = np.nanmax(yy) - c0
-#         else:
-#             c0 = np.nanmax(yy)
-#             a0 = np.nanmin(yy) - c0
-# =============================================================================
 
         c0 = np.nanmin(yy)
         a0 = np.nanmax(yy) - c0
-    
-        # Points closest to the middle threshold 
-# =============================================================================
-#         th = c0 + a0 / 2
-#         mask1 = yy < th
-#         mask2 = yy > th
-#         n1 = np.argmax(yy[mask1])  # Highest value below threshold
-#         n2 = np.argmin(yy[mask2])  # Lowest value above threshold
-#         x1, y1 = xx[mask1][n1], yy[mask1][n1]
-#         x2, y2 = xx[mask2][n2], yy[mask2][n2]
-# =============================================================================
         
         # Interval with the max. slope and its midpoint
         dy = yy[1:] - yy[:-1]
@@ -97,14 +60,5 @@ class MapFunc1DSigmoid(MapFunc1D):
             S = lambda x: 1 / (1 + np.exp(-k0 * (x - b0)))
             a0 = (y2 - y1) / (S(x2) - S(x1))
             c0 = y1 - a0 * S(x1)
-        
-        #k0 = 4 * (y02 - y01) / (x02 - x01) / a0
-    
-# =============================================================================
-#         # Adjust k0 based on monotonicity
-#         k0 = 1 / np.max(np.abs(xx))
-#         if not is_increasing:
-#             k0 = -k0  # Flip sign if decreasing
-# =============================================================================
         
         return a0, b0, c0, k0
