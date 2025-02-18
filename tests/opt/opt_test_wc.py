@@ -50,20 +50,21 @@ R0_lst = NetRegimeWCList(
 ir_mapper = NetIRMapperWC(model)
 
 # Unconnected-to-connected regime mapper
-#uc_mapper = NetUCMapperWC(pop_names, 'exp')
-uc_mapper = NetUCMapperWC(pop_names, 'sigmoid')
+#uc_mapper = NetUCMapperWC(pop_names, 'exp_1d')
+uc_mapper = NetUCMapperWC(pop_names, 'sigmoid_1d')
 uc_mapper.set_to_identity()
 
 # Params of WC model simulations
 sim_par = {'niter': 20, 'dr_mult': 1}
 
-need_plot_iter = 0
+need_plot_iter = 1
 need_plot_res = 1
 
 n_iter = 20
 
 for iter_num in range(n_iter):
     print(f'Iter: {iter_num}')
+
     Rc_lst = R0_lst.copy()
     Rc_prev_lst = Rc_lst.copy()
     Ru_lst = uc_mapper.Rc_to_Ru(Rc_lst)
@@ -126,5 +127,4 @@ for iter_num in range(n_iter):
             if not plt.waitforbuttonpress():
                 break
 
-#plt.ioff()
-#plt.show(block=True)
+plt.show()

@@ -23,7 +23,6 @@ from model_tuner.sim_manager import SimStatus
 from model_tuner.sim_manager import SimManagerHPCBatch, SimBatchPaths
 from model_tuner.ssh import SSHParams, SSHClient
 
-from filesys import FileSystem, FileSystemLocal
 from proc_params import ProcStepParams, NetSpikesParams, NetRatesParams
 
 from batch_metric_getter import BatchMetricGetter1D

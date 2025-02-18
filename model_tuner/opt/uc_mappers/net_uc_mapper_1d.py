@@ -1,7 +1,7 @@
 from typing import Dict, List, Literal
 
 from ..regimes import NetRegime1D, NetRegime1DList
-from ..map_funcs import MapFuncType
+from ..map_funcs import MapFuncType, MapFitParams, MapFunc1D
 from ..map_funcs import create_map_func_by_type
 
 from .net_uc_mapper import NetUCMapper
@@ -20,7 +20,7 @@ class NetUCMapper1D(NetUCMapper):
         
         map_type = MapFuncType(map_type)
         map_params = map_params or {}
-        self._map_funcs = {}
+        self._map_funcs: Dict[str, MapFunc1D] = {}
         for pop in self._pop_names:
             self._map_funcs[pop] = create_map_func_by_type(
                 map_type, **map_params
@@ -52,7 +52,8 @@ class NetUCMapper1D(NetUCMapper):
     def fit_from_data(
             self,
             Ru: NetRegime1DList,
-            Rc: NetRegime1DList
+            Rc: NetRegime1DList,
+            fit_params: MapFitParams = MapFitParams()
             ) -> bool:
         if len(Ru) != len(Rc):
              raise ValueError('Ru and Rc should have the same length')
@@ -64,10 +65,8 @@ class NetUCMapper1D(NetUCMapper):
         rr_u_mat = Ru.get_pop_attr_mat('value')
         rr_c_mat = Rc.get_pop_attr_mat('value')
         
-        #from_prev = not self._is_identity
-        from_prev = 0
         for n, pop in enumerate(self._pop_names):
-            self._map_funcs[pop].fit(rr_u_mat[n, :], rr_c_mat[n, :], from_prev)
+            self._map_funcs[pop].fit(rr_u_mat[n, :], rr_c_mat[n, :], opt_par=fit_params)
             
         self._is_identity = False
         return all([f.is_valid() for f in self._map_funcs.values()])

@@ -12,6 +12,7 @@ class MapFunc1DSigmoid(MapFunc1D):
             x_limits: Tuple[float, float] = (-np.inf, np.inf),
             y_limits: Tuple[float, float] = (-np.inf, np.inf)
             ):
+        super().__init__()
         self._x_limits = x_limits
         self._y_limits = y_limits
     
@@ -23,7 +24,7 @@ class MapFunc1DSigmoid(MapFunc1D):
         x_ = _to_array(x)
         x_ = _clip_to_nan(x_, self._x_limits)    
         y = c + a / (1 + np.exp(-k * (x_ - b)))
-        y = y.clip(self._y_limits)
+        y = y.clip(*self._y_limits)
         if _is_scalar(x):
             y = _to_scalar(y)
         return y
@@ -33,7 +34,7 @@ class MapFunc1DSigmoid(MapFunc1D):
         y_ = _clip_to_nan(y_, self._y_limits, need_copy=True)
         y_[(a / (y_ - c)) < 1] = np.nan
         x = b - np.log(a / (y_ - c) - 1) / k
-        x = y.clip(self._x_limits)
+        x = y.clip(*self._x_limits)
         if _is_scalar(y):
             x = _to_scalar(x)
         return x
