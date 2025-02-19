@@ -1,3 +1,8 @@
+"""
+Low-level functions to process data extracted from a NetPyNE simulation result.
+
+"""
+
 from typing import Dict, List, Tuple
 
 import numpy as np

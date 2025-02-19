@@ -1,4 +1,4 @@
-from dataclasses import fields, is_dataclass, asdict
+from dataclasses import fields, is_dataclass
 from enum import Enum, auto
 import hashlib
 import json
@@ -6,7 +6,7 @@ import logging
 import os
 from pathlib import Path
 import pickle as pkl
-from typing import Any, Dict, Optional
+from typing import Any, Dict
 
 import numpy as np
 import xarray as xr
@@ -114,7 +114,7 @@ class DataKeeper:
         self.storage_dir = Path(storage_dir)
         # Metadata to track stored data
         self.metadata_file = self.storage_dir / metadata_file
-        self.data_index = self._load_metadata()
+        self.data_index: Dict = self._load_metadata()
         
     def _hash_params(self, params: Any, exclude_default=False) -> str:
         """Create a hash from params to generate a unique key for each data entry. """
@@ -229,7 +229,7 @@ class DataKeeper:
         )
         _save_formatted_data(data, fpath_data_abs, **kwargs)
 
-    def list_data(self):
+    def list_data(self) -> Dict:
         """Return a human-readable format of stored data information."""
         return self.data_index
     

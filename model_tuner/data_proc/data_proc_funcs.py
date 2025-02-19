@@ -1,13 +1,21 @@
+"""
+High-level functions for data processing. Based on low-level functions 
+from data_proc_utils and netpyne_res_parse_utils modules.
+Operate with data types defined in data_types module and
+processing parameters defined in proc_params module.
+
+"""
+
 import logging
 from typing import Any
 
 #import numpy as np
 
-from proc_params import NetSpikesParams, NetRatesParams, ProcParamsChain
-from data_types import DataType, NetSpikesData, NetRatesData
+from .proc_params import NetSpikesParams, NetRatesParams, ProcParamsChain
+from .data_types import NetSpikesData, NetRatesData
 
-import data_proc_utils as proc_utils
-import netpyne_res_parse_utils as parse_utils
+from . import data_proc_utils as proc_utils
+from . import netpyne_res_parse_utils as parse_utils
 
 
 def extract_net_spikes(

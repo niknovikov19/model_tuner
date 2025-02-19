@@ -1,10 +1,19 @@
+"""
+Tuning of Wilson-Cowan model to the required firing rates.
+'Simulation' of the model occurs on HPC.
+Intermediate results are stored in DataKeeper and reused if possible.
+
+"""
+
+import os
 from pathlib import Path
 import pickle
 from pprint import pprint
+import shutil
 import sys
 import time
 
-sys.path.append(str(Path(__file__).resolve().parents[3]))
+#sys.path.append(str(Path(__file__).resolve().parents[3]))
 
 from fs.permissions import Permissions
 import matplotlib.pyplot as plt
@@ -13,18 +22,16 @@ import numpy as np
 from model_tuner.opt.regimes import NetRegimeWC, NetRegimeWCList
 from model_tuner.opt.ir_mappers import NetIRMapperWC
 from model_tuner.opt.uc_mappers import NetUCMapperWC
-from model_tuner.opt.wc import ModelDescWC
-from model_tuner.opt.wc import wc_gain
+from model_tuner.opt.wc import ModelDescWC, wc_gain
 
-from model_tuner.sim_manager import SimStatus
+#from model_tuner.sim_manager import SimStatus
 from model_tuner.sim_manager import SimManagerHPCBatch, SimBatchPaths
+from model_tuner.sim_manager import SimResultLocator
 from model_tuner.ssh import SSHParams, SSHClient
 
-from data_keeper import DataKeeper
-from filesys import FileSystem, FileSystemLocal
-from model_tuner.opt.regimes import NetRegimeWC
-from proc_params import ProcStepParams
-from sim_res_desc import SimResultDesc, SimResultDescPKL
+from model_tuner.data_proc import DataKeeper
+
+#from sim_res_desc import SimResultDesc, SimResultDescPKL
 
 
 def fs_delete(fs, path):
@@ -41,9 +48,9 @@ def joinpath_local(base, *args):
     return str(Path(base).joinpath(*args))
 
 
-def locate_sim_res_wc(sim_label: str, dirpath_res: str | Path) -> SimResultDesc:
-    fpath_pkl = Path(dirpath_res) / f'{sim_label}.pkl'
-    return SimResultDescPKL(fpath_pkl=fpath_pkl)
+#def locate_sim_res_wc(sim_label: str, dirpath_res: str | Path) -> SimResultDesc:
+#    fpath_pkl = Path(dirpath_res) / f'{sim_label}.pkl'
+#    return SimResultDescPKL(fpath_pkl=fpath_pkl)
 
 
 # SSH parameters
@@ -59,8 +66,12 @@ ssh_par_grid = SSHParams(
     fpath_private_key=r'C:\Users\aleks\.ssh\id_ed25519_grid'
 )
 
-# Local folder
-dirpath_local = str(Path(__file__).resolve().parent)
+# Local folders
+dirpath_scripts_local = str(Path(__file__).resolve().parent)
+dirpath_res_local = Path(
+    r'D:\WORK\Salvador\repo\model_tuner\test_data\test_opt_wc_batch_dk'
+)
+os.makedirs(dirpath_res_local, exist_ok=True)
 
 # HPC base folder
 dirpath_hpc_base = '/ddn/niknovikov19/test/model_tuner/test_opt_wc_batch'
@@ -74,9 +85,8 @@ scripts_info = {
     'job': {'name': 'hpc_job_script_wc.py'}
 }
 for info in scripts_info.values():
-    info['fpath_local'] = joinpath_local(dirpath_local, info['name'])
+    info['fpath_local'] = joinpath_local(dirpath_scripts_local, info['name'])
     info['fpath_hpc'] = joinpath_hpc(dirpath_hpc_base, info['name'])
-
 
 def create_test_model_1pop():
     model = ModelDescWC.create_unconn(num_pops=1)
@@ -110,24 +120,37 @@ R0_lst = NetRegimeWCList(
 ir_mapper = NetIRMapperWC(model)
 
 # Unconnected-to-connected regime mapper
-#uc_mapper = NetUCMapperWC(pop_names, 'exp')
-uc_mapper = NetUCMapperWC(pop_names, 'sigmoid')
+#uc_mapper = NetUCMapperWC(pop_names, 'exp_1d')
+uc_mapper = NetUCMapperWC(pop_names, 'sigmoid_1d')
 uc_mapper.set_to_identity()
 
 # Params of WC model simulations
 sim_par = {'niter': 20, 'dr_mult': 1}
 
+# Flags
 need_delete_prev_results = 0
-
-need_plot_iter = 1
+need_plot_iter = 0
 need_plot_res = 1
 
+# Number of iterations of the main optimization algorithm
 n_iter = 5
+
+# Initialize DataKeeper
+dirpath_dk = str(dirpath_res_local / 'data_keeper')
+if os.path.exists(dirpath_dk) and need_delete_prev_results:
+    shutil.rmtree(dirpath_dk)
+os.makedirs(dirpath_dk, exist_ok=True)
+dk = DataKeeper(dirpath_dk)
 
 with SSHClient(
         ssh_par_fs=ssh_par_lethe,
         ssh_par_conn=[ssh_par_lethe, ssh_par_grid]
         ) as ssh:
+    
+    # Object that maps sim labels to sim result files
+    sim_res_locator = SimResultLocator(
+        hpc_paths.results_dir, ssh.fs, '{sim_label}.pkl'
+    )
     
     # Simulation manager
     sim_manager = SimManagerHPCBatch(
@@ -177,11 +200,19 @@ with SSHClient(
         for n, Ru in enumerate(Ru_lst):
             print(f'Point: {n}')
             
+            # Generate a unique simulation label
+            sim_label = f'req_{iter_num}_{n}'
+            sim_labels.append(sim_label)
+
+            # Check if the simulation result already exists
+            if sim_res_locator.result_exists(sim_label):
+                print('Simulation result already exists, do not re-run')
+                continue
+
             # Calculate an input Iu that provides the unconnected regime Ru
             Iu = ir_mapper.R_to_I(Ru)
             
             # Add a request for simulation with the input Iu (non-blocking)
-            sim_label = f'req_{iter_num}_{n}'
             sim_request = {
                 'wc_model': model,
                 'wc_sim_params': sim_par,
@@ -189,7 +220,7 @@ with SSHClient(
                 'R0': Ru
             }            
             sim_manager.add_sim_request(sim_label, sim_request)
-            sim_labels.append(sim_label)
+            print(f'Add request: {sim_request["Iext"]}')
         
         # Push simulation requests
         print('Push simulation requests to HPC', flush=True)
@@ -202,19 +233,22 @@ with SSHClient(
             time.sleep(0.5)
         print()
         pprint(sim_manager.get_all_sim_statuses())
-        
-        # Read the results
+
+        # Extract network regimes from simulation results
         print('Retrieving the results', end='', flush=True)
-        for n, label in enumerate(sim_labels):
-            print('.', end='', flush=True)
-            if sim_manager.get_sim_status(label) == SimStatus.DONE:
-                fpath_res = sim_manager.get_sim_result_path(label)
-                with ssh.fs.open(fpath_res, 'rb') as fid:
-                    sim_result = pickle.load(fid)
-                Rc_lst[n] = sim_result['R']
+        for n, sim_label in enumerate(sim_labels):
+            #print('.', end='', flush=True)            
+            sim_result_desc = sim_res_locator.locate_result(sim_label)
+            if dk.exists(sim_label):
+                print('Load existing data from DataKeeper')
+                sim_result = dk.get_data(sim_label)
             else:
-                raise RuntimeError(f'Simulation {label} has ERROR status')
-        print()
+                print('Read data from remote file and store in DataKeeper')
+                with sim_result_desc.open_file('rb') as fid:
+                    sim_result = pickle.load(fid)
+                dk.store_data(sim_result, sim_label)
+            Rc_lst[n] = sim_result['R']
+        print('Completed')
                 
         # Re-estimate the Ru->Rc mapping based on the simulations' results
         uc_mapper.fit_from_data(Ru_lst, Rc_lst)
@@ -260,6 +294,7 @@ with SSHClient(
                 plt.ylim(0, rvis_max)
             
             plt.draw()
+            plt.show()
             #if need_plot_iter:
             #    if not plt.waitforbuttonpress():
             #        break

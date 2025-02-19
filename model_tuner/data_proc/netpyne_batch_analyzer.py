@@ -1,10 +1,6 @@
-#import importlib
 import json
 import glob
-#import logging
-#import os
 from pathlib import Path
-#import pickle as pkl
 from typing import Any, List, Dict
 
 
@@ -68,6 +64,5 @@ class BatchAnalyzer:
     
     def get_all_jobs_param(self, param_name: str) -> List:
         return [self.get_job_param(param_name, job_id)
-                for job_id in range(self.num_jobs)]
-    
+                for job_id in range(self.num_jobs)]    
     

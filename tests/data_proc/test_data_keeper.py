@@ -1,11 +1,12 @@
 import os
 import shutil
 
-from data_keeper import DataKeeper, DataFormat
+from model_tuner.data_proc.data_keeper import DataKeeper, DataFormat
 
 
-dirpath_dk = r'D:\WORK\Salvador\repo\model_tuner\proto\opt_alg_hpc\data\test_data_keeper'
-shutil.rmtree(dirpath_dk)
+dirpath_dk = r'D:\WORK\Salvador\repo\model_tuner\proto\test_data\test_data_keeper'
+if os.path.exists(dirpath_dk):
+    shutil.rmtree(dirpath_dk)
 os.makedirs(dirpath_dk, exist_ok=True)
 
 dk = DataKeeper(dirpath_dk)

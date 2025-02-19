@@ -4,8 +4,8 @@ from typing import Any, Dict, List, Tuple
 
 import numpy as np
 
-from proc_params import ProcStepParams, ProcParamsChain
-from proc_params import NetSpikesParams, NetRatesParams
+from .proc_params import ProcStepParams, ProcParamsChain
+from .proc_params import NetSpikesParams, NetRatesParams
 
 
 class DataType(Enum):
@@ -54,4 +54,3 @@ class NetRatesData(GenericData):
     data_type: DataType = field(init=False, default=DataType.RATES)
     params: NetRatesParams
     data: Dict[str, List[float] | float] = field(default_factory=dict)
-

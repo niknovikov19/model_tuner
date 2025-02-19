@@ -2,8 +2,6 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, List, Tuple, Iterator
 
-#import numpy as np
-
 
 @dataclass(frozen=True)
 class ProcStepParams:

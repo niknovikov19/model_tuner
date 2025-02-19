@@ -1,4 +1,5 @@
 from typing import List
+import sys
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -8,8 +9,13 @@ from model_tuner.opt.ir_mappers import PopIREmpiricalMapper1D
 from model_tuner.opt.ir_mappers import NetIREmpiricalMapper1D
 from model_tuner.opt.map_funcs import MapFuncType, MapFitParams
 
-from proc_params import NetSpikesParams, NetRatesParams
-from batch_metric_getter import BatchMetricGetter1D
+from model_tuner.data_proc import NetSpikesParams, NetRatesParams
+from model_tuner.data_proc import BatchMetricGetter1D
+
+# Needed for unpickling files that were created with the old folder structure
+from model_tuner.data_proc import data_types, proc_params
+sys.modules['data_types'] = data_types
+sys.modules['proc_params'] = proc_params
 
 
 def plot_ir_mapping(

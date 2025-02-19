@@ -1,34 +1,55 @@
+"""
+Test calculation of firing rates from spikes.
+Three methods:
+1. Direct calculation with low-level functions.
+2. Direct calculation with high-level functions.
+3. Calculation with storage of results in DataKeeper.
+
+"""
+
 import logging
+import os
 from pathlib import Path
 import pickle
 from pprint import pprint
+import sys
 
 # Low-level data-processing
-import netpyne_res_parse_utils as parse_utils
-import data_proc_utils as proc_utils
+from model_tuner.data_proc import netpyne_res_parse_utils as parse_utils
+from model_tuner.data_proc import data_proc_utils as proc_utils
 
 # High-level data-processing
-from proc_params import NetSpikesParams, NetRatesParams
-from data_types import DataType, NetSpikesData, NetRatesData
-import data_proc_funcs as proc_funcs
+from model_tuner.data_proc import NetSpikesParams, NetRatesParams
+#from data_types import DataType, NetSpikesData, NetRatesData
+from model_tuner.data_proc import data_proc_funcs as proc_funcs
 
 # High-level data-processing with DataKeeper as a storage
-from sim_result import SimResultFile
-from data_keeper import DataKeeper
-from netpyne_result_parser import SimResultParserNetPyNE
-from sim_data_proc import DataProcessor
+from model_tuner.data_proc import (
+    SimResultFile,
+    DataKeeper,
+    SimResultParserNetPyNE,
+    DataProcessor
+)
+
+# Needed for unpickling files that were created with the old folder structure
+from model_tuner.data_proc import data_types, proc_params
+sys.modules['data_types'] = data_types
+sys.modules['proc_params'] = proc_params
 
 
 logging.basicConfig(level=logging.DEBUG, force=True)
 
-dirpath_root = Path(r'D:\WORK\Salvador\repo\model_tuner\proto\opt_alg_hpc'
+dirpath_sim = Path(r'D:\WORK\Salvador\repo\model_tuner\proto\opt_alg_hpc'
                     r'\data\test_rate_calc')
-fpath_sim_res = dirpath_root / 'sim_res_data.pkl'
+fpath_sim_res = dirpath_sim / 'sim_res_data.pkl'
+
+dirpath_root = Path(r'D:\WORK\Salvador\repo\model_tuner\test_data\test_rate_calc')
+os.makedirs(str(dirpath_root), exist_ok=True)
 
 pop_names = ['L2e', 'L2i', 'L4e', 'L4i']
 
-test_low_level = 0
-test_high_level = 0
+test_low_level = 1
+test_high_level = 1
 test_dk = 1
 
 
@@ -76,6 +97,7 @@ if test_dk:
     
     # Initialize DataKeeper
     dirpath_dk = str(dirpath_root / 'data_keeper')
+    os.makedirs(dirpath_dk, exist_ok=True)
     dk = DataKeeper(dirpath_dk)
     
     # Open sim result for parsing
@@ -100,5 +122,3 @@ if test_dk:
     # Load rates from dk
     rates_dk = data_proc.load_data(rates_id)
     pprint(rates_dk.data)
-    
-    

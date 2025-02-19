@@ -1,15 +1,20 @@
+"""
+Top-level class for extracting data from a NetPyNE simulation result.    
+Based of high-level functions from data_proc_funcs module.
+Reads inputs from DataKeeper object and stores results in it.
+
+"""
+
 import logging
 import pickle
-from typing import Any
 
-from proc_params import ProcStepParams, ProcParamsChain
-from proc_params import SourceDataParams, NetSpikesParams, NetRatesParams
-from data_types import DataType, GenericData, DataIndex
-from data_types import NetSpikesData, NetRatesData
+from .proc_params import ProcParamsChain
+from .proc_params import SourceDataParams, NetSpikesParams
+from .data_types import DataIndex
 
-from sim_result import SimResultFile
-import data_proc_funcs as proc_funcs
-from data_keeper import DataKeeper
+from .sim_result import SimResultFile
+from . import data_proc_funcs as proc_funcs
+from .data_keeper import DataKeeper
 
 
 class SimResultParserNetPyNE:

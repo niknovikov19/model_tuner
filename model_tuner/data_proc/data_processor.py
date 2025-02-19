@@ -1,17 +1,21 @@
-from dataclasses import dataclass, field
+"""
+Top-level class for data processing. Based of high-level functions 
+from data_proc_funcs module. Reads inputs from DataKeeper object and 
+stores results in it.
+
+"""
+
 import logging
-from typing import Any, Dict
 from typing import TypeVar, Callable
 
-import numpy as np
 
-from proc_params import ProcStepParams, ProcParamsChain
-from proc_params import NetSpikesParams, NetRatesParams
-from data_types import GenericData, DataIndex
+from .proc_params import ProcStepParams
+from .proc_params import NetRatesParams
+from .data_types import GenericData, DataIndex
 #from data_types import NetSpikesData, NetRatesData
 
-import data_proc_funcs as proc_funcs
-from data_keeper import DataKeeper
+from . import data_proc_funcs as proc_funcs
+from .data_keeper import DataKeeper
 
 
 TDataInp = TypeVar('TDataInp', bound=GenericData)
