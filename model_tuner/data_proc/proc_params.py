@@ -24,7 +24,7 @@ class SourceDataParams(ProcStepParams):
 
 @dataclass(frozen=True)
 class NetSpikesParams(ProcStepParams):
-    pop_names: List[str] = None
+    pop_names: Tuple[str, ...] | None = None
     combine_cells: bool = True
     time_limits: list = (0, None)
     subtract_t0: bool = True  # make spike times relative to time_limits[0]
@@ -33,7 +33,7 @@ class NetSpikesParams(ProcStepParams):
 
 @dataclass(frozen=True)
 class NetRatesParams(ProcStepParams):
-    pop_names: List[str] = None  # None means all populations
+    pop_names: Tuple[str, ...] | None = None  # None means all populations
     time_limits: Tuple = (0, None)  # None means end of a simulation
 
 

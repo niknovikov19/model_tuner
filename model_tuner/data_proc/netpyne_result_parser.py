@@ -1,7 +1,7 @@
 """
 Top-level class for extracting data from a NetPyNE simulation result.    
-Based of high-level functions from data_proc_funcs module.
-Reads inputs from DataKeeper object and stores results in it.
+Based on high-level functions from data_proc_funcs module.
+Reads inputs from a DataKeeper object and stores results in it.
 
 """
 

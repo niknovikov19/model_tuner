@@ -10,10 +10,7 @@ from pathlib import Path
 import pickle
 from pprint import pprint
 import shutil
-import sys
 import time
-
-#sys.path.append(str(Path(__file__).resolve().parents[3]))
 
 from fs.permissions import Permissions
 import matplotlib.pyplot as plt
@@ -30,8 +27,6 @@ from model_tuner.sim_manager import SimResultLocator
 from model_tuner.ssh import SSHParams, SSHClient
 
 from model_tuner.data_proc import DataKeeper
-
-#from sim_res_desc import SimResultDesc, SimResultDescPKL
 
 
 def fs_delete(fs, path):

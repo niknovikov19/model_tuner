@@ -1,3 +1,4 @@
+from dataclasses import dataclass, field
 import logging
 import os
 from pathlib import Path
@@ -5,8 +6,7 @@ import pickle
 from pprint import pprint
 import sys
 import time
-
-#sys.path.append(str(Path(__file__).resolve().parents[3]))
+from typing import Dict, Tuple
 
 from fs.permissions import Permissions
 import matplotlib.pyplot as plt
@@ -17,21 +17,25 @@ from model_tuner.opt.regimes import PopRegime1D, NetRegime1D, NetRegime1DList
 from model_tuner.opt.ir_mappers import PopIREmpiricalMapper1D
 from model_tuner.opt.ir_mappers import NetIREmpiricalMapper1D
 from model_tuner.opt.uc_mappers import NetUCMapper1D
-from model_tuner.opt.map_funcs import MapFuncType
+from model_tuner.opt.map_funcs import MapFuncType, MapFitParams
 
-from model_tuner.sim_manager import SimStatus
-from model_tuner.sim_manager import SimManagerHPCBatch, SimBatchPaths
 from model_tuner.ssh import SSHParams, SSHClient
 
-from proc_params import ProcStepParams, NetSpikesParams, NetRatesParams
+from model_tuner.sim_manager import (
+    SimStatus,
+    SimManagerHPCBatch,
+    SimBatchPaths,
+    SimResultLocator
+)
 
-from batch_metric_getter import BatchMetricGetter1D
-
-from sim_result import SimResultFile
-from sim_result_locator import SimResultLocator
-from data_keeper import DataKeeper
-from netpyne_result_parser import SimResultParserNetPyNE
-from sim_data_proc import DataProcessor
+from model_tuner.data_proc import (
+    ProcStepParams,
+    NetSpikesParams,
+    NetRatesParams,
+    SimResultFile,
+    DataKeeper,
+    BatchMetricGetter1D
+)
 
 
 def fs_delete(fs, path):
@@ -48,7 +52,7 @@ def joinpath_local(base, *args):
     return str(Path(base).joinpath(*args))
 
 
-def init_ir_mapper() -> NetIREmpiricalMapper1D:
+def init_ir_mapper(ir_fit_params: IRFitParams) -> NetIREmpiricalMapper1D:
 
     dirpath_batch = (
         r'D:\WORK\Salvador\repo\model_tuner\models\L24\exp_results\rx_batch_unconn_2'
@@ -60,13 +64,6 @@ def init_ir_mapper() -> NetIREmpiricalMapper1D:
     proc_params = {
         'net_spikes': NetSpikesParams(pop_names=pop_names),
         'net_rates': NetRatesParams(time_limits=(0.5, None))
-    }
-
-    r_limits = {
-        'L2e': (0, 250),
-        'L2i': (0, 1000),
-        'L4e': (0, 250),
-        'L4i': (0, 1000),
     }
     
     # Object that exctracts firing rates from batch sim results
@@ -377,6 +374,7 @@ with SSHClient(
             sim_label = f'req_{iter_num}_{point_num}'
             sim_labels.append(sim_label)
             
+            # Check if the simulation result already exists
             if sim_res_locator.result_exists(sim_label):
                 print('Simulation result already exists, do not re-run')
                 continue
