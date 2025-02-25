@@ -8,10 +8,11 @@ import numpy as np
 from model_tuner.opt.inputs import PopInput1D, NetInput1D
 from model_tuner.opt.ir_mappers import PopIREmpiricalMapper1D
 from model_tuner.opt.ir_mappers import NetIREmpiricalMapper1D
-from model_tuner.opt.map_funcs import MapFuncType, MapFitParams
 
-from model_tuner.data_proc import NetSpikesParams, NetRatesParams
 from model_tuner.data_proc import BatchMetricGetter1D
+
+from model_tuner.main import IRMapFitParams
+from model_tuner.utils import load_yaml
 
 # Needed for unpickling files that were created with the old folder structure
 from model_tuner.data_proc import data_types, proc_params
@@ -66,47 +67,26 @@ def plot_ir_mapping(
     plt.show()
 
 
-dirpath_batch = (
-    r'D:\WORK\Salvador\repo\model_tuner\models\L24\exp_results\rx_batch_unconn_2'
-)
-exp_name = 'rx_batch_unconn_2'
-pop_names = ['L2e', 'L2i', 'L4e', 'L4i']
-batch_param_name = 'ext_inp_rate_common'
+dirpath_base = r'D:\WORK\Salvador\repo\model_tuner\test_data\test_ir_mapping_1d_netpyne'
+os.makedirs(dirpath_base, exist_ok=True)
+fpath_yaml = os.path.join(dirpath_base, 'config.yaml')
+
+# Load from YAML
+par = load_yaml(fpath_yaml, data_class=IRMapFitParams)
 
 proc_params = {
-    'net_spikes': NetSpikesParams(pop_names=pop_names),
-    'net_rates': NetRatesParams(time_limits=(0.5, None))
+    'net_spikes': par.spikes_calc_params,
+    'net_rates': par.rates_calc_params
 }
-
-# Limits for the input rates used for fitting
-r_limits = {
-    'L2e': (0, 250),
-    'L2i': (0, 1000),
-    'L4e': (0, 250),
-    'L4i': (0, 1000),
-}
-
-# Fitting bounds for I-R mapping parameters
-fit_param_bounds = {
-    'q': (1, 10)
-}
-
-# Prameters of the formula that determines the weights for fitting
-fit_weight_pow = 0.5
-fit_weight_limits = (0.1, 10)
-
-# Paramteres of the fitting algorithm
-fit_params = MapFitParams(
-    #return_first_guess=True
-)
 
 # Object that exctracts firing rates from batch sim results
 bmg = BatchMetricGetter1D(
-    dirpath_batch, exp_name, pop_names, batch_param_name, proc_params
+    par.dirpath_batch, par.exp_name, par.pop_names,
+    par.batch_param_name, proc_params
 )
 
 # Batch parameter values that characterize the model input
-inp_rates = bmg.get_batch_par_values(batch_param_name)
+inp_rates = bmg.get_batch_par_values(par.batch_param_name)
 
 pop_rates = {}
 
@@ -119,31 +99,30 @@ for pop_name in bmg.get_pop_names():
     pop_rates[pop_name] = bmg.get_pop_rates_batch(pop_name)
 
     # Select data points used for fitting
-    rlim = r_limits[pop_name]
-    mask = (inp_rates >= rlim[0]) & (inp_rates <= rlim[1])
+    mask = ((inp_rates >= par.inp_limits[pop_name][0]) & 
+            (inp_rates <= par.inp_limits[pop_name][1]))
     xx = inp_rates[mask]
     yy = pop_rates[pop_name][mask]
 
     # Weights for fitting (prioritize the points with low rates)
-    weights = np.clip(
-        yy ** fit_weight_pow, fit_weight_limits[0], fit_weight_limits[1]
-    )
+    ww = None
+    if par.use_fit_weights:
+        ww = np.clip(
+            yy ** par.fit_weight_pow, *par.fit_weight_limits
+        )
     
     # Fit input-to-regime mapping for a pop
-    pop_ir_mapper = PopIREmpiricalMapper1D(
-        map_type=MapFuncType.RICHARDS_1D,
-        map_params = {
-            'x_limits': (0, np.inf),
-            'y_limits': (0, np.inf)
-        }
-    )
+    pop_ir_mapper = PopIREmpiricalMapper1D(par.map_type, par.map_params)
     pop_ir_mapper.fit_from_data(
-        xx, yy, fit_params=fit_params, weights=weights,
-        bounds=fit_param_bounds
+        xx, yy, fit_params=par.map_fit_params, weights=ww,
+        bounds=par.fit_param_bounds
     )
     
     net_ir_mapper.set_pop_mapper(pop_name, pop_ir_mapper)
 
 need_plot = 1
 if need_plot:
-    plot_ir_mapping(bmg, batch_param_name, net_ir_mapper, pop_names, r_limits)
+    plot_ir_mapping(
+        bmg, par.batch_param_name, net_ir_mapper,
+        par.pop_names, par.inp_limits
+    )

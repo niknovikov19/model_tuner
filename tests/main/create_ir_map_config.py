@@ -1,19 +1,12 @@
-from dataclasses import asdict, dataclass, is_dataclass
-from enum import Enum
-from io import IOBase
 import os
 from pprint import pprint
-from typing import Any, Protocol
 
-import dacite
-from deepdiff import DeepDiff
 import numpy as np
-import yaml
 
 from model_tuner.opt.map_funcs import MapFuncType, MapFitParams
 from model_tuner.data_proc import NetSpikesParams, NetRatesParams
-
 from model_tuner.main import IRMapFitParams
+from model_tuner.utils import save_yaml, load_yaml, compare_yaml, yaml_diff
 
 
 par = IRMapFitParams()
@@ -53,6 +46,7 @@ par.inp_limits = {
 }
 
 # Parameters of the formula that determines the fitting weights
+par.use_fit_weights = True
 par.fit_weight_pow = 0.5
 par.fit_weight_limits = (0.1, 10)
 
@@ -65,54 +59,6 @@ dirpath_base = r'D:\WORK\Salvador\repo\model_tuner\test_data\main\create_ir_map_
 os.makedirs(dirpath_base, exist_ok=True)
 fpath_yaml = os.path.join(dirpath_base, 'config.yaml')
 replace_old = False
-
-def _prepare_for_yaml(obj):
-    """Prepare an object for saving to YAML. """
-    if is_dataclass(obj):
-        obj = asdict(obj)  # dataclass -> dict
-    if isinstance(obj, tuple):
-        return [_prepare_for_yaml(item) for item in obj]  # tuple -> list
-    elif isinstance(obj, list):
-        return [_prepare_for_yaml(item) for item in obj]
-    elif isinstance(obj, dict):
-        return {key: _prepare_for_yaml(value) for key, value in obj.items()}
-    elif isinstance(obj, Enum):
-        return obj.value  # Enum -> str
-    else:
-        return obj
-
-def save_yaml(obj: Any, fpath_yaml: str) -> None:
-    """Save an object to YAML. """
-    obj = _prepare_for_yaml(obj)
-    with open(fpath_yaml, 'w') as fid:
-        yaml.dump(obj, fid, default_flow_style=False)
-
-def compare_yaml(obj1: Any, obj2: Any) -> bool:
-    """Compare two objects saved to YAML. """
-    obj1 = _prepare_for_yaml(obj1)
-    obj2 = _prepare_for_yaml(obj2)
-    return obj1 == obj2
-
-class DataclassProtocol(Protocol):
-    """Protocol for dataclasses. """
-    __dataclass_fields__: dict  # all dataclasses have this attribute
-
-def load_yaml(
-        fpath_yaml,
-        data_class: DataclassProtocol | None = None
-        ) -> DataclassProtocol | dict:
-    """Load an object from YAML. """
-    with open(fpath_yaml, 'r') as fid:
-        obj = yaml.safe_load(fid)
-    if data_class is not None:
-        if not is_dataclass(data_class):
-            raise ValueError('data_class argument should be a dataclass')
-        obj = dacite.from_dict(
-            data_class=data_class,
-            data=obj,
-            config=dacite.Config(cast=[tuple, Enum])
-        )
-    return obj
 
 # Save to YAML
 if not os.path.exists(fpath_yaml) or replace_old:
@@ -127,4 +73,4 @@ if compare_yaml(par, par_loaded):
     print('Loaded config is the same as the original one')
 else:
     print('Error: loaded config is different from the original one')
-    pprint(DeepDiff(par, par_loaded))
+    pprint(yaml_diff(par, par_loaded))

@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 import pickle
 from pprint import pprint
-import sys
+import shutil
 import time
 from typing import Dict, Tuple
 
@@ -12,30 +12,32 @@ from fs.permissions import Permissions
 import matplotlib.pyplot as plt
 import numpy as np
 
-from model_tuner.opt.inputs import PopInput1D, NetInput1D
-from model_tuner.opt.regimes import PopRegime1D, NetRegime1D, NetRegime1DList
-from model_tuner.opt.ir_mappers import PopIREmpiricalMapper1D
-from model_tuner.opt.ir_mappers import NetIREmpiricalMapper1D
+from model_tuner.opt.regimes import NetRegime1D, NetRegime1DList
 from model_tuner.opt.uc_mappers import NetUCMapper1D
-from model_tuner.opt.map_funcs import MapFuncType, MapFitParams
+from model_tuner.opt.ir_mappers import NetIREmpiricalMapper1D
 
 from model_tuner.ssh import SSHParams, SSHClient
-
 from model_tuner.sim_manager import (
-    SimStatus,
     SimManagerHPCBatch,
     SimBatchPaths,
     SimResultLocator
 )
 
 from model_tuner.data_proc import (
-    ProcStepParams,
-    NetSpikesParams,
-    NetRatesParams,
-    SimResultFile,
-    DataKeeper,
-    BatchMetricGetter1D
+    DataKeeper
 )
+
+from model_tuner.main import (
+    IRMapFitParams,
+    UCMapFitParams,
+    OptExperimentParams,
+    init_ir_mapper,
+    init_uc_mapper,
+    get_sim_rates,
+    plot_opt_iteration
+)
+
+from model_tuner.utils import load_yaml, compare_yaml, yaml_diff
 
 
 def fs_delete(fs, path):
@@ -52,257 +54,135 @@ def joinpath_local(base, *args):
     return str(Path(base).joinpath(*args))
 
 
-def init_ir_mapper(ir_fit_params: IRFitParams) -> NetIREmpiricalMapper1D:
-
-    dirpath_batch = (
-        r'D:\WORK\Salvador\repo\model_tuner\models\L24\exp_results\rx_batch_unconn_2'
-    )
-    exp_name = 'rx_batch_unconn_2'
-    pop_names = ['L2e', 'L2i', 'L4e', 'L4i']
-    batch_param_name = 'ext_inp_rate_common'
-
-    proc_params = {
-        'net_spikes': NetSpikesParams(pop_names=pop_names),
-        'net_rates': NetRatesParams(time_limits=(0.5, None))
-    }
-    
-    # Object that exctracts firing rates from batch sim results
-    bmg = BatchMetricGetter1D(
-        dirpath_batch, exp_name, pop_names, batch_param_name, proc_params
-    )
-
-    # Batch parameter values that characterize the model input
-    inp_rates = bmg.get_batch_par_values(batch_param_name)
-
-    pop_rates = {}
-
-    # Network input-to-regime mapper
-    net_ir_mapper = NetIREmpiricalMapper1D()
-
-    for pop_name in bmg.get_pop_names():
-        # Request firing rates of a pop (for every batch parameter value)
-        pop_rates[pop_name] = bmg.get_pop_rates_batch(pop_name)
-        
-        # Fit input-to-regime mapping for a pop
-        pop_ir_mapper = PopIREmpiricalMapper1D(
-            map_type=MapFuncType.RICHARDS_1D,
-            map_params = {
-                'x_positive': True,
-                'y_positive': True
-            }
-        )
-        rlim = r_limits[pop_name]
-        mask = (inp_rates >= rlim[0]) & (inp_rates <= rlim[1])
-        xx = inp_rates[mask]
-        yy = pop_rates[pop_name][mask]
-        ww = np.clip(yy ** 0.5, 0.1, 5)
-        pop_ir_mapper.fit_from_data(xx, yy, ww)
-        
-        net_ir_mapper.set_pop_mapper(pop_name, pop_ir_mapper)
-    
-    need_plot = 1
-    if need_plot:
-        plot_ir_mapping(bmg, batch_param_name, net_ir_mapper)
-    
-    return net_ir_mapper
-
-
-def plot_ir_mapping(
-        bmg: BatchMetricGetter1D,
-        batch_param_name: str,
-        net_ir_mapper: NetIREmpiricalMapper1D
-        ):
-
-    # Inputs and outputs used for fitting
-    inp_rates = bmg.get_batch_par_values(batch_param_name)
-    pop_rates = {}
-    for pop_name in bmg.get_pop_names():
-        pop_rates[pop_name] = bmg.get_pop_rates_batch(pop_name)
-        
-    r_limits = {
-        'L2e': (0, 250),
-        'L2i': (100, 750),
-        'L4e': (0, 250),
-        'L4i': (100, 750),
-    }
-
-    # Apply I-R mapping to a range of input rates
-    n_points = 100
-    rr_inp, rr_pop = {}, {}
-    for pop_name in bmg.get_pop_names():
-        rlim = r_limits[pop_name]
-        rr_inp[pop_name] = np.linspace(rlim[0], rlim[1], n_points)
-        rr_pop[pop_name] = np.zeros(n_points)
-        for n, r_inp in enumerate(rr_inp[pop_name]):
-            pop_inputs = {pop_name_: PopInput1D(value=r_inp)
-                          for pop_name_ in pop_names}
-            net_input = NetInput1D(pop_inputs=pop_inputs)
-            net_regime = net_ir_mapper.I_to_R(net_input)        
-            rr_pop[pop_name][n] = net_regime.pop_regimes[pop_name].value
-    
-    plt.figure()    
-    for n, pop_name in enumerate(pop_names):
-        plt.subplot(1, len(pop_names), n + 1)
-        
-        # Fitted data produced by the I-R mapper
-        x, y = rr_inp[pop_name], rr_pop[pop_name]
-        plt.plot(x, y)
-        
-        # Data used to "learn" the I-R mapping
-        plt.plot(inp_rates, pop_rates[pop_name], 'k.')
-        
-        plt.title(pop_name)
-        plt.xlabel('Input rate')
-        plt.ylabel('Pop. rate')
-        plt.xlim(x.min(), x.max())
-        plt.ylim(y.min(), y.max())
-
-
-def get_sim_regime(
-        dk: DataKeeper,
-        sim_res_locator: SimResultLocator,
-        sim_label: str
-        ) -> NetRegime1D:
-
-    # Locate sim result by sim label
-    sim_result_desc = sim_res_locator.locate_result(sim_label)
-    
-    # Initialize sim result parser
-    res_parser = SimResultParserNetPyNE(dk=dk, result_desc=sim_result_desc)
-    
-    # Initialize data processor
-    data_proc = DataProcessor(dk)
-    
-    proc_params = {
-        'net_spikes': NetSpikesParams(pop_names=pop_names),
-        'net_rates': NetRatesParams(time_limits=(0.5, None))
-    }
-    
-    # Extract spikes from the sim result and strore them into dk
-    spikes_data_id = res_parser.extract_net_spikes(
-        proc_params['net_spikes'],
-        data_name_out=f'net_spikes_{sim_label}'
-    )
-    
-    # Load spikes from dk, calculate rates from them, save rates into dk
-    rates_data_id = data_proc.calc_net_rates(
-        spikes_data_id,
-        proc_params['net_rates'],
-        data_name_out=f'net_rates_{sim_label}',
-        recalc=False
-    )
-    
-    # Load rates from dk
-    rates = data_proc.load_data(rates_data_id)
-    return NetRegime1D.from_dict(rates.data)
-
-    
-# SSH parameters
-ssh_par_lethe = SSHParams(
-    host='lethe.downstate.edu',
-    user='niknovikov19',
-    port=1415,
-    fpath_private_key=r'C:\Users\aleks\.ssh\id_rsa_lethe'
-)
-ssh_par_grid = SSHParams(
-    host='grid',
-    user='niknovikov19',
-    fpath_private_key=r'C:\Users\aleks\.ssh\id_ed25519_grid'
+# Local base folder (configs in the root, results in subfolders)
+dirpath_base_local = Path(
+    r'D:\WORK\Salvador\repo\model_tuner\test_data\test_opt_L24_hpc_batch'
 )
 
-
-pop_names = ['L2e', 'L2i', 'L4e', 'L4i']
-npops = len(pop_names)
-
-# Original target regime (pop. firing rates)
-rr_base = {
-    'L2e': 2.,
-    'L2i': 10.,
-    'L4e': 5.,
-    'L4i': 15.
+# Load config files
+configs = {
+    'ir_map_params': {'class': IRMapFitParams},
+    'uc_map_params': {'class': UCMapFitParams},
+    'ssh_params': {'class': Dict}
 }
+for config_name, config_info in configs.items():
+    config_path = dirpath_base_local / f'{config_name}.yaml'
+    config_info['data'] = load_yaml(config_path, data_class=config_info['class'])
+ir_map_params = configs['ir_map_params']['data']
+uc_map_params = configs['uc_map_params']['data']
+ssh_params = configs['ssh_params']['data']
 
-# Multipliers for the target regime
-pfr_vec = np.linspace(0.1, 1.5, 7)
+ssh_par_lethe = SSHParams(**ssh_params['lethe'])
+ssh_par_grid = SSHParams(**ssh_params['grid'])
 
-# Rate of U-C mapping change between iterations (0 = old, 1 = replace)
-uc_alpha = 0.25
+# Parameters of the model tuning experiment
+exp_params = OptExperimentParams(
+    fpath_batch_script_hpc = (
+        '/ddn/niknovikov19/repo/model_tuner/models/L24/opt_batch_script.py'
+    ),
+    dirpath_hpc_base = '/ddn/niknovikov19/test/model_tuner/test_opt_L24_batch',
+    conva_env='netpyne_batch',
+    pop_names=('L2e', 'L2i', 'L4e', 'L4i'),
+    rr_base={
+        'L2e': 2.,
+        'L2i': 10.,
+        'L4e': 5.,
+        'L4i': 15.
+    },
+    pfr_vec=np.linspace(0.1, 1.5, 7),
+    uc_alpha=0.25,
+    wmult=0.25
+)
 
-# Global weight multiplier
-wmult = 0.25
+def _gen_exp_name(exp_params: OptExperimentParams) -> str:
+    rr_str = 'r0=({})'.format(
+        '_'.join([str(int(r)) for r in exp_params.rr_base.values()])
+    )
+    pfr_str = 'pfr=({}_{}_{})'.format(
+        exp_params.pfr_vec.min(),
+        exp_params.pfr_vec.max(),
+        len(exp_params.pfr_vec)
+    )
+    param_str = 'wmult={}_alpha={}'.format(
+        exp_params.wmult,
+        exp_params.uc_alpha
+    )
+    return f'{rr_str}_{pfr_str}_{param_str}'
 
-# Experiment name
-rr_str = 'r0=(' + '_'.join([str(int(r)) for r in rr_base.values()]) + ')'
-pfr_str = f'pfr=({pfr_vec.min()}_{pfr_vec.max()}_{len(pfr_vec)})'
-param_str = f'wmult={wmult}_alpha={uc_alpha}'
-exp_name = f'exp_{rr_str}_{pfr_str}_{param_str}'
+exp_name = _gen_exp_name(exp_params)
 #print(exp_name)
 
-need_delete_prev_results = 0
-
-need_plot_iter = 1
-need_plot_res = 1
-
-n_iter = 50
-
-
-# Local folder for the results
-dirpath_res_local = Path(
-    r'D:\WORK\Salvador\repo\model_tuner\proto\opt_alg_hpc\data\test_opt_hpc_batch'
-)
-dirpath_res_local = dirpath_res_local / exp_name
+# Local folder to store experiment results
+dirpath_res_local = dirpath_base_local / exp_name
 os.makedirs(dirpath_res_local, exist_ok=True)
 
-# HPC base folder
+# Copy config files to the experiment folder if needed
+for config_name, config_info in configs.items():
+    fpath_cfg_exp = dirpath_res_local / f'{config_name}.yaml'
+    if fpath_cfg_exp.exists():
+        # If a config file already exists in the experiment folder,
+        # it should match the original config from the base folder
+        cfg_prev = load_yaml(fpath_cfg_exp, data_class=config_info['class'])
+        if not compare_yaml(config_info['data'], cfg_prev):
+            err_str = (
+                f'Config file {config_name}.yaml from the experiment folder'
+                'does not match the original file from the base folder.'
+            )
+            print(err_str)
+            pprint(yaml_diff(config_info['data'], cfg_prev))
+            raise Exception(err_str)
+    else:
+        # Copy the original config file to the experiment folder
+        fpath_cfg_base = dirpath_base_local / f'{config_name}.yaml'
+        shutil.copy(fpath_cfg_base, fpath_cfg_exp)
+
+# Local folder to store intermediate optimization plots
+dirpath_figs_local = dirpath_res_local / 'opt_figs'
+os.makedirs(dirpath_figs_local, exist_ok=True)
+# Local folder to store optimization info (Ru and Rc)
+dirpath_info = dirpath_res_local / 'info'
+os.makedirs(dirpath_info, exist_ok=True)
+
+# HPC base folder for the experiment data
 exp_name_hpc = exp_name.replace('=', '_').replace('(', '').replace(')', '')
-dirpath_hpc_base = '/ddn/niknovikov19/test/model_tuner/test_opt_L24_batch'
-dirpath_hpc_base = dirpath_hpc_base + '/' + exp_name_hpc
-
-# HPC paths
+dirpath_hpc_base = exp_params.dirpath_hpc_base + '/' + exp_name_hpc
+# HPC paths used in batch simulations
 hpc_paths = SimBatchPaths.create_default(dirpath_base=dirpath_hpc_base)
-
-# Batchtools script to run
-fpath_batch_script_hpc = (
-    '/ddn/niknovikov19/repo/model_tuner/models/L24/opt_batch_script.py'
-)
 
 # Initialize DataKeeper
 dirpath_dk = str(dirpath_res_local / 'data_keeper')
 os.makedirs(dirpath_dk, exist_ok=True)
 dk = DataKeeper(dirpath_dk)
 
-# Folder to store intermediate optimization plots
-dirpath_figs_local = dirpath_res_local / 'opt_figs'
-os.makedirs(dirpath_figs_local, exist_ok=True)
-
-
-# Target regimes (base * pfr for each pfr)
-Rc0_lst = []
-for pfr in pfr_vec:
-    rr = [rr_base[pop_name] * pfr for pop_name in pop_names]
-    Rc0_lst.append(NetRegime1D.from_values(pop_names, rr))
-Rc0_lst = NetRegime1DList(Rc0_lst)
-
 logging.basicConfig(level=logging.ERROR, force=True)
 
-# I-R mapper, fit a pre-calculated batch sim result
-ir_mapper = init_ir_mapper()
-
-# Unconnected-to-connected regime mapper
-uc_mapper = NetUCMapper1D(
-    pop_names=pop_names,
-    #map_type='exp_1d',
-    map_type='sigmoid_1d',
-    map_params = {
-        'x_positive': True,
-        'y_positive': True
-    }
+# Initialize input-to-regime mapper: fit a pre-calculated batch sim result
+ir_mapper: NetIREmpiricalMapper1D = init_ir_mapper(
+    ir_map_params, need_plot=True
 )
-uc_mapper.set_to_identity()
 
+# Initialize unconnected-to-connected regime mapper: set to identity
+uc_mapper: NetUCMapper1D = init_uc_mapper(uc_map_params)
 
-#logging.basicConfig(level=logging.DEBUG, force=True)
+# Target regimes (base * pfr for each pfr)
+def gen_target_regimes_list(
+        exp_params_: OptExperimentParams
+        ) -> NetRegime1DList:
+    Rc0_lst_ = []
+    for pfr in exp_params_.pfr_vec:
+        rr = [exp_params_.rr_base[pop_name] * pfr
+              for pop_name in exp_params_.pop_names]
+        Rc0_lst_.append(
+            NetRegime1D.from_values(exp_params_.pop_names, rr)
+        )
+    return NetRegime1DList(Rc0_lst_)
+Rc0_lst = gen_target_regimes_list(exp_params)
 
+need_delete_prev_results = 0
+need_plot_iter = 1
+need_plot_res = 1
+
+n_iter = 50
 
 with SSHClient(
         ssh_par_fs=ssh_par_lethe,
@@ -315,9 +195,9 @@ with SSHClient(
     # Simulation manager
     sim_manager = SimManagerHPCBatch(
         ssh=ssh,
-        fpath_batch_script=fpath_batch_script_hpc,
+        fpath_batch_script=exp_params.fpath_batch_script_hpc,
         batch_paths=hpc_paths,
-        conda_env='netpyne_batch'
+        conda_env=exp_params.conda_env
     )
     
     # Create HPC folders
@@ -328,8 +208,6 @@ with SSHClient(
     
     # Delete remote files: scripts, log, results
     print('Delete old files...')
-    #paths_todel = (hpc_paths.get_all_files()
-    #                + [info['fpath_hpc'] for info in scripts_info.values()])
     paths_todel = []
     if need_delete_prev_results:
         paths_todel += ssh.fs.listdir(hpc_paths.results_dir)
@@ -338,13 +216,14 @@ with SSHClient(
     
     # Loop over iterations of the main optimization algorithm
     for iter_num in range(n_iter):
+        
         print(f'==== Iter: {iter_num} ====')
         
         # Calculate unconnected regimes (Ru) from the connected target regimes (Rc)
         # using the current estimation of Rc->Ru mapping
         Ru_lst_ = uc_mapper.Rc_to_Ru(Rc0_lst)
         
-        # Discart points for which Rc->Ru mapping failed
+        # Discard points for which Rc->Ru mapping failed
         Ru_lst = NetRegime1DList()
         Rc_lst = NetRegime1DList()
         valid_points = []
@@ -387,7 +266,7 @@ with SSHClient(
             # Add a request for simulation with the input Iu (non-blocking)
             sim_request = {
                 'input': Iu.to_values_dict(),
-                'wmult': wmult
+                'wmult': exp_params.wmult
             }            
             sim_manager.add_sim_request(sim_label, sim_request)
             print(f'Add request: {sim_request["input"]}')
@@ -411,17 +290,16 @@ with SSHClient(
         for n, sim_label in enumerate(sim_labels):
             print('.', end='', flush=True)            
             sim_result_desc = sim_res_locator.locate_result(sim_label)            
-            Rc_lst[n] = get_sim_regime(dk, sim_res_locator, sim_label)
+            Rc_lst[n] = get_sim_rates(dk, sim_res_locator, sim_label)
         print('\nCompleted')
         
         # Mix old and new regimes
-        Rc_lst = NetRegime1DList.mix(Rc_prev_lst, Rc_lst, uc_alpha)
+        Rc_lst = NetRegime1DList.mix(Rc_prev_lst, Rc_lst, exp_params.uc_alpha)
         
+        # Save info about the current state of the optimization process
         Ru_mat = Ru_lst.get_pop_regimes_mat()
         Rc_mat = Rc_lst.get_pop_regimes_mat()
         info = {'Ru': Ru_mat, 'Rc': Rc_mat}
-        dirpath_info = dirpath_res_local / 'info'
-        os.makedirs(dirpath_info, exist_ok=True)
         fpath_info = dirpath_info / f'Ru_Rc_{sim_label}.pkl'
         with open(fpath_info, 'wb') as fid:
             pickle.dump(info, fid)        
@@ -429,54 +307,19 @@ with SSHClient(
         # Re-estimate the Ru->Rc mapping based on the simulations' results
         uc_fit_res = uc_mapper.fit_from_data(Ru_lst, Rc_lst)
         
-        if need_plot_iter or (need_plot_res and (iter_num == (n_iter - 1))):
+        # Visualize the state of the optimization process
+        if need_plot_iter or (need_plot_res and (iter_num == (n_iter - 1))):            
+            plt.ion()
             plt.figure(111)
-            plt.clf()
-            
-            ru_mat = Ru_lst.get_pop_attr_mat('value')
-            rc_mat = Rc_lst.get_pop_attr_mat('value')
-            rc_prev_mat = Rc_prev_lst.get_pop_attr_mat('value')
-            rc0_mat = Rc0_lst.get_pop_attr_mat('value')
-            iu_mat = np.full_like(ru_mat, np.nan)
-            
-            for m in range(ru_mat.shape[1]):
-                Ru_ = NetRegime1D.from_values(pop_names, ru_mat[:, m])
-                iu_mat[:, m] = ir_mapper.R_to_I(Ru_).get_pop_inputs_vec()
-                
-            for n, pop in enumerate(pop_names):
-                rr_u = ru_mat[n, :]
-                rr_c = rc_mat[n, :]
-                rr_c_prev = rc_prev_mat[n, :]
-                rr_c0 = rc0_mat[n, :]
-                ii_u = iu_mat[n, :]
-
-                plt.subplot(2, npops, n + 1)
-                plt.plot(ii_u, rr_u, '.')
-                #ii_u_ = np.linspace(np.nanmin(ii_u), np.nanmax(ii_u), 200)
-                ii_u_ = np.linspace(0, 1000, 200)
-                plt.xlabel('Iu')
-                plt.ylabel('Ru')
-                rvis_max = rr_base[pop] * pfr_vec.max() * 1.2
-                #plt.xlim(-3.5, 0)
-                #plt.ylim(0, rvis_max)
-                plt.title(f'pop = {pop}')
-                
-                plt.subplot(2, npops, npops + n + 1)
-                plt.plot(rr_u, rr_c, '.')
-                rr_u_ = np.linspace(np.nanmin(rr_u), np.nanmax(rr_u), 200)
-                #rr_u_ = np.linspace(0, 100, 200)
-                plt.plot(rr_u_, uc_mapper._map_funcs[pop].apply(rr_u_))
-                plt.plot(rr_u, rr_c_prev, 'kx')
-                plt.xlabel('Ru')
-                plt.ylabel('Rc')
-                plt.xlim(0, rr_c0.max() * 2)
-                plt.ylim(0, rr_c0.max() * 1.2)
-            
+            plot_opt_iteration(
+                exp_params.pop_names, ir_mapper, uc_mapper,
+                Ru_lst, Rc_lst, Rc_prev_lst, Rc0_lst
+            )
+            plt.get_current_fig_manager().window.showMaximized()
             plt.draw()
+            plt.show()
             plt.savefig(dirpath_figs_local / f'opt_iter={iter_num}.png')
-        
+
         if not uc_fit_res:
             print('U-C map fitting failed - stop')
             break
-        
-        #break

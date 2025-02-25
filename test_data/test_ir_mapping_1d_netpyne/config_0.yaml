@@ -1,0 +1,78 @@
+
+# Batch experiment that probes a range of input values
+dirpath_batch: D:\WORK\Salvador\repo\model_tuner\models\L24\exp_results\rx_batch_unconn_2
+exp_name: rx_batch_unconn_2
+
+pop_names:
+- L2e
+- L2i
+- L4e
+- L4i
+
+# Name of the parameter that varies in the batch
+batch_param_name: ext_inp_rate_common
+
+# Parameters of the simulation result processing
+spikes_calc_params:   # spikes -> rates
+  combine_cells: true
+  ms: false
+  ndigits: 6
+  pop_names: null
+  subtract_t0: true
+  time_limits:
+  - 0
+  - null
+rates_calc_params:    # sim_result -> spikes
+  pop_names: null
+  time_limits:
+  - 0.5
+  - null
+
+# I-R mapping type and hyperparameters
+map_type: richards_1d    # asymmetric sigmoid
+map_params:
+  x_limits:
+  - 0
+  - .inf
+  y_limits:
+  - 0
+  - .inf
+
+# Fitting bounds for I-R mapping parameters
+fit_param_bounds:
+  q:    # asymmetry coefficient of RICHARDS_1D mapping
+  - 1
+  - 10
+
+# Limits for the input rates used for fitting
+inp_limits:
+  L2e:
+  - 0
+  - 250
+  L2i:
+  - 0
+  - 1000
+  L4e:
+  - 0
+  - 250
+  L4i:
+  - 0
+  - 1000
+
+# Parameters of the formula that determines the fitting weights
+use_fit_weights: true 
+fit_weight_pow: 0.5
+fit_weight_limits:
+- 0.1
+- 10
+
+# Parameters of the fitting algorithm
+map_fit_params:
+  ftol: 0.001
+  max_nfev: 1000
+  method: trf
+  par0_kprev: 0
+  return_first_guess: false
+  verbose: false
+  xtol: 0.0001
+
