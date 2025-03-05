@@ -11,3 +11,4 @@ def init_uc_mapper(par: UCMapFitParams) -> NetUCMapper1D:
         map_params=par.map_params
     )
     uc_mapper.set_to_identity()
+    return uc_mapper

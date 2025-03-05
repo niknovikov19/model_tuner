@@ -15,7 +15,7 @@ class NetUCMapper1D(NetUCMapper):
             map_params: Dict | None = None
             ):
         
-        self._pop_names = pop_names
+        self._pop_names = list(pop_names)
         self._is_identity = True
         
         map_type = MapFuncType(map_type)

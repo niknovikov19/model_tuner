@@ -64,6 +64,20 @@ class NetRegime1DList(NetRegimeList):
         return self.get_pop_attr_mat('value')
     
     @classmethod
+    def from_regimes_mat(
+            cls,
+            pop_names: List[str],
+            regimes_mat: np.ndarray  # pops x regimes
+            ) -> 'NetRegime1DList':
+        L = NetRegime1DList()
+        for n in range(regimes_mat.shape[1]):
+            regime_vals = regimes_mat[:, n]
+            L.net_regimes.append(
+                NetRegime1D.from_values(pop_names, regime_vals)
+            )
+        return L
+    
+    @classmethod
     def mix(
             cls,
             L1: 'NetRegime1DList',

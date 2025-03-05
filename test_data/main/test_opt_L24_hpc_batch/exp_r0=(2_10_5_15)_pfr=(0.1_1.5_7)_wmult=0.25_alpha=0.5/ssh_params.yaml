@@ -1,0 +1,11 @@
+lethe:
+    host: lethe.downstate.edu
+    user: niknovikov19
+    port: 1415
+    fpath_private_key: 'C:\Users\aleks\.ssh\id_rsa_lethe'
+
+grid:
+    host: grid
+    user: niknovikov19
+    fpath_private_key: 'C:\Users\aleks\.ssh\id_ed25519_grid'
+

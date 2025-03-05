@@ -5,8 +5,7 @@ lethe:
     fpath_private_key: 'C:\Users\aleks\.ssh\id_rsa_lethe'
 
 grid:
-    host: lethe.downstate.edu
+    host: grid
     user: niknovikov19
-    fpath_private_key: 'C:\Users\aleks\.ssh\id_rsa_grid'
-
+    fpath_private_key: 'C:\Users\aleks\.ssh\id_ed25519_grid'
 

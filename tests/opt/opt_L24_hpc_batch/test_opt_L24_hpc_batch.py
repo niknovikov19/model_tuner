@@ -1,4 +1,3 @@
-from dataclasses import dataclass, field
 import logging
 import os
 from pathlib import Path
@@ -6,7 +5,7 @@ import pickle
 from pprint import pprint
 import shutil
 import time
-from typing import Dict, Tuple
+from typing import Dict
 
 from fs.permissions import Permissions
 import matplotlib.pyplot as plt
@@ -23,9 +22,7 @@ from model_tuner.sim_manager import (
     SimResultLocator
 )
 
-from model_tuner.data_proc import (
-    DataKeeper
-)
+from model_tuner.data_proc import DataKeeper
 
 from model_tuner.main import (
     IRMapFitParams,
@@ -38,6 +35,12 @@ from model_tuner.main import (
 )
 
 from model_tuner.utils import load_yaml, compare_yaml, yaml_diff
+
+# Needed for unpickling files that were created with the old folder structure
+import sys
+from model_tuner.data_proc import data_types, proc_params
+sys.modules['data_types'] = data_types
+sys.modules['proc_params'] = proc_params
 
 
 def fs_delete(fs, path):
@@ -56,20 +59,20 @@ def joinpath_local(base, *args):
 
 # Local base folder (configs in the root, results in subfolders)
 dirpath_base_local = Path(
-    r'D:\WORK\Salvador\repo\model_tuner\test_data\test_opt_L24_hpc_batch'
+    r'D:\WORK\Salvador\repo\model_tuner\test_data\main\test_opt_L24_hpc_batch'
 )
 
 # Load config files
 configs = {
     'ir_map_params': {'class': IRMapFitParams},
     'uc_map_params': {'class': UCMapFitParams},
-    'ssh_params': {'class': Dict}
+    'ssh_params': {'class': None}
 }
 for config_name, config_info in configs.items():
     config_path = dirpath_base_local / f'{config_name}.yaml'
     config_info['data'] = load_yaml(config_path, data_class=config_info['class'])
-ir_map_params = configs['ir_map_params']['data']
-uc_map_params = configs['uc_map_params']['data']
+ir_map_params: IRMapFitParams = configs['ir_map_params']['data']
+uc_map_params: UCMapFitParams = configs['uc_map_params']['data']
 ssh_params = configs['ssh_params']['data']
 
 ssh_par_lethe = SSHParams(**ssh_params['lethe'])
@@ -81,7 +84,7 @@ exp_params = OptExperimentParams(
         '/ddn/niknovikov19/repo/model_tuner/models/L24/opt_batch_script.py'
     ),
     dirpath_hpc_base = '/ddn/niknovikov19/test/model_tuner/test_opt_L24_batch',
-    conva_env='netpyne_batch',
+    conda_env='netpyne_batch',
     pop_names=('L2e', 'L2i', 'L4e', 'L4i'),
     rr_base={
         'L2e': 2.,
@@ -94,8 +97,15 @@ exp_params = OptExperimentParams(
     wmult=0.25
 )
 
+config_info['exp_params'] = {
+    'class': OptExperimentParams,
+    'data': exp_params
+}
+
+n_iter = 20
+
 def _gen_exp_name(exp_params: OptExperimentParams) -> str:
-    rr_str = 'r0=({})'.format(
+    rr_str = 'exp_r0=({})'.format(
         '_'.join([str(int(r)) for r in exp_params.rr_base.values()])
     )
     pfr_str = 'pfr=({}_{}_{})'.format(
@@ -181,8 +191,6 @@ Rc0_lst = gen_target_regimes_list(exp_params)
 need_delete_prev_results = 0
 need_plot_iter = 1
 need_plot_res = 1
-
-n_iter = 50
 
 with SSHClient(
         ssh_par_fs=ssh_par_lethe,
@@ -290,7 +298,11 @@ with SSHClient(
         for n, sim_label in enumerate(sim_labels):
             print('.', end='', flush=True)            
             sim_result_desc = sim_res_locator.locate_result(sim_label)            
-            Rc_lst[n] = get_sim_rates(dk, sim_res_locator, sim_label)
+            Rc_lst[n] = get_sim_rates(
+                dk, sim_res_locator, sim_label,
+                uc_map_params.spikes_calc_params,
+                uc_map_params.rates_calc_params
+            )
         print('\nCompleted')
         
         # Mix old and new regimes
@@ -307,7 +319,7 @@ with SSHClient(
         # Re-estimate the Ru->Rc mapping based on the simulations' results
         uc_fit_res = uc_mapper.fit_from_data(Ru_lst, Rc_lst)
         
-        # Visualize the state of the optimization process
+        # Visualize the iteration result
         if need_plot_iter or (need_plot_res and (iter_num == (n_iter - 1))):            
             plt.ion()
             plt.figure(111)
