@@ -34,7 +34,7 @@ class MapFunc1DSigmoid(MapFunc1D):
         y_ = _clip_to_nan(y_, self._y_limits, need_copy=True)
         y_[(a / (y_ - c)) < 1] = np.nan
         x = b - np.log(a / (y_ - c) - 1) / k
-        x = y.clip(*self._x_limits)
+        x = x.clip(*self._x_limits)
         if _is_scalar(y):
             x = _to_scalar(x)
         return x

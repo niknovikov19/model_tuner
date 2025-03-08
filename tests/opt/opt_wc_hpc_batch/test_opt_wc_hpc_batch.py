@@ -99,8 +99,8 @@ R0_lst = NetRegimeWCList(
 ir_mapper = NetIRMapperWC(model)
 
 # Unconnected-to-connected regime mapper
-#uc_mapper = NetUCMapperWC(pop_names, 'exp')
-uc_mapper = NetUCMapperWC(pop_names, 'sigmoid')
+#uc_mapper = NetUCMapperWC(pop_names, 'exp_1d')
+uc_mapper = NetUCMapperWC(pop_names, 'sigmoid_1d')
 uc_mapper.set_to_identity()
 
 # Params of WC model simulations
