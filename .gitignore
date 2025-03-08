@@ -4,4 +4,10 @@ _old
 *.pkl
 *.png
 *exp_results*
+<<<<<<< HEAD
 *.zip
+=======
+*.zip
+*x86_64*
+*ray*
+>>>>>>> hpc-L24-fix

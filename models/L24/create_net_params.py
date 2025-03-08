@@ -46,6 +46,7 @@ def create_net_params(cfg):
     netParams.delayMin_i = 0.75
     netParams.weightMin = w_p
     netParams.dweight = 0.1
+    netParams.wmult = cfg.wmult
     
     ############################################################
     # Cell parameters
@@ -159,7 +160,7 @@ def create_net_params(cfg):
             if not cfg.connected:
                 continue
             
-            ww = 'max(0, weightMin + dweight * weightMin * normal(0, 1))'
+            ww = 'max(0, weightMin + dweight * weightMin * normal(0, 1)) * wmult'
             de = 'max(0.1, delayMin_e + normal(0, ddelay * delayMin_e))'
             di = 'max(0.1, delayMin_i + normal(0, ddelay * delayMin_i))'
             
@@ -187,7 +188,7 @@ def create_net_params(cfg):
     for r, pop_name in enumerate(pop_names):
         
         if cfg.equal_inputs:
-            inp_rate = cfg.ext_input_rates['common']
+            inp_rate = cfg.ext_inp_rate_common
         else:
             inp_rate = cfg.ext_input_rates[pop_name]
         

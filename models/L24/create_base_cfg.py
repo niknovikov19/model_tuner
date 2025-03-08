@@ -17,6 +17,8 @@ def create_base_cfg():
     cfg.equal_inputs = False
     cfg.ext_inp_rate_common: 0  # used if equal_inputs==True
     
+    cfg.wmult = 1
+    
     # Input rates (used if equal_inputs==False)
     cfg.ext_input_rates = {
         'L2e': 65,

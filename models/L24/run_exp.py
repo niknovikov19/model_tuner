@@ -22,7 +22,7 @@ def _load_module(fpath_mod):
     return mod
 
 
-exp_name = 'test_run_1'
+exp_name = 'test_wmult_0.1'
 
 is_batch = False
 need_run = True
