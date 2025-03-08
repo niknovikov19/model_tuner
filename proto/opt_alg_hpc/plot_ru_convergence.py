@@ -7,13 +7,11 @@ import numpy as np
 
 
 dirpath_in = Path(
-    r'D:\WORK\Salvador\repo\model_tuner\proto\opt_alg_hpc\data\test_opt_hpc_batch'
-    r'\exp_r0=(2_10_5_15)_pfr=(0.1_1.5_7)_wmult=0.25_alpha=0.25\info'
-    #r'\exp_r0=(2_10_5_15)_pfr=(0.1_1.5_7)_wmult=0.1_alpha=0.5\info'
-    #r'\exp_r0=(2_10_5_15)_pfr=(0.1_1.5_7)_wmult=0.1_alpha=0.25\info'
+    r'D:\WORK\Salvador\repo\model_tuner\test_data\main\test_opt_L24_hpc_batch'
+    r'\exp_r0=(2_10_5_15)_pfr=(0.1_1.5_7)_wmult=0.25_alpha=0.25\old\info'
 )
 
-n_iter = 50
+n_iter = 20
 n_pop = 4
 n_pts = 7
 
@@ -29,13 +27,15 @@ for n in range(n_iter):
     n_pts_ = res['Ru'].shape[1]
     Ru[:, :n_pts_, n] = res['Ru']
 
+plt.ion()
 plt.figure()
 for pop_num in range(n_pop):
     plt.subplot(2, 2, pop_num + 1)
     for n in range(n_pts):
         rr = Ru[pop_num, n, :]
-        plt.plot(rr)
+        plt.plot(rr, '.-')
         plt.title(pop_names[pop_num])
 
 
+input('Press Enter to exit')
     

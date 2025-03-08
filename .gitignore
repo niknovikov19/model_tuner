@@ -4,3 +4,4 @@ _old
 *.pkl
 *.png
 *exp_results*
+*.zip

@@ -1,4 +1,4 @@
-from typing import Dict, Literal
+from typing import Dict, List, Literal, Tuple
 
 import numpy as np
 
@@ -7,15 +7,32 @@ from ..regimes import PopRegime1D, NetRegime1D
 
 from ..ir_mappers import PopIRMapper, NetIRMapper
 
-from ..map_funcs import MapFuncType
+from ..map_funcs import MapFuncType, MapFitParams
 from ..map_funcs import create_map_func_by_type
 
 
 class PopIREmpiricalMapper1D(PopIRMapper):
+    """
+    PopIREmpiricalMapper1D is a class that maps input values to regime values and vice versa
+    using an empirical mapping function. It also provides functionality to fit the mapping
+    function from data.
+    Attributes:
+        _map_func: The mapping function used to transform input values to regime values and vice versa.
+    Methods:
+        __init__(map_type: MapFuncType | str = MapFuncType.EXP_1D, map_params: Dict | None = None):
+            Initializes the PopIREmpiricalMapper1D with a specified mapping function type and parameters.
+        I_to_R(I: PopInput1D) -> PopRegime1D:
+            Maps input values (I) to regime values (R) using the mapping function.
+        R_to_I(R: PopRegime1D) -> PopInput1D:
+            Maps regime values (R) to input values (I) using the inverse of the mapping function.
+        fit_from_data(values_in: np.ndarray, values_out: np.ndarray, fit_params: MapFitParams = MapFitParams(),
+                      weights: np.ndarray | None = None, bounds: List[Tuple[float, float]] = None) -> None:
+            Fits the mapping function to the provided input and output data.
+    """
     def __init__(
             self,
             map_type: MapFuncType | str = MapFuncType.EXP_1D,
-            map_params: Dict | None = None
+            map_params: Dict | None = None,
             ):
         map_type = MapFuncType(map_type)
         map_params = map_params or {}
@@ -32,11 +49,17 @@ class PopIREmpiricalMapper1D(PopIRMapper):
     def fit_from_data(
             self,
             values_in: np.ndarray,
-            values_out: np.ndarray
+            values_out: np.ndarray,
+            fit_params: MapFitParams = MapFitParams(),
+            weights: np.ndarray | None = None,
+            bounds: Dict[str, Tuple[float, float]] | None = None
             ) -> None:
         if len(values_in) != len(values_out):
-             raise ValueError('Value vectors should have the same length')
-        self._map_func.fit(values_in, values_out)
+             raise ValueError('Input and output value vectors should have the same length')
+        if (weights is not None) and (len(weights) != len(values_in)):
+             raise ValueError('Value and weight vectors should have the same length')
+        
+        self._map_func.fit(values_in, values_out, fit_params, weights, bounds)
 
 
 class NetIREmpiricalMapper1D(NetIRMapper):
