@@ -1,0 +1,3 @@
+,data,loss,timestamp,checkpoint_dir_name,done,training_iteration,trial_id,date,time_this_iter_s,time_total_s,pid,hostname,node_ip,time_since_restore,iterations_since_restore,config/sim_manager.sim_label,config/sim_manager.requests_file,config/saveFolder,config/simLabel,logdir
+0,"loss    0.0
+dtype: float64",0.0,1741060522,,False,1,745ef_00000,2025-03-03_22-55-22,13.716095447540283,13.716095447540283,3540142,grid,10.0.0.101,13.716095447540283,1,req_16_6,/ddn/niknovikov19/test/model_tuner/test_opt_L24_batch/exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.5/requests/requests.json,/ddn/niknovikov19/test/model_tuner/test_opt_L24_batch/exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.5/results,sim_manager_batch_00000,745ef_00000
