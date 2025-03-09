@@ -65,7 +65,8 @@ class SimManagerHPCBatch(SimManager):
             ssh: SSHClient,
             fpath_batch_script: str,
             batch_paths: SimBatchPaths,
-            conda_env: Optional[str] = None
+            conda_env: Optional[str] = None,
+            res_filename_templ = '{sim_label}_data.pkl'
             ):
         super().__init__()
         self._ssh = ssh
@@ -73,11 +74,13 @@ class SimManagerHPCBatch(SimManager):
         self._paths = batch_paths
         self._conda_env = conda_env or 'base'
         self._is_batch_script_running = False
+        self._res_filename_templ = res_filename_templ
         self.update_status()
     
     def get_sim_result_path(self, label: str) -> str:
         # TODO: don't duplicate the code from sim_result_locator.py
-        return (Path(self._paths.results_dir) / f'{label}_data.pkl').as_posix()
+        fname_res = self._res_filename_templ.format(sim_label=label)
+        return (Path(self._paths.results_dir) / fname_res).as_posix()
     
     def _update_batch_script_status(self) -> None:
         proc_str = f'python {self._fpath_batch_script}'

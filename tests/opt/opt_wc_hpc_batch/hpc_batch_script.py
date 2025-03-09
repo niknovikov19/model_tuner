@@ -35,6 +35,7 @@ sge_config = {
     'command': (
         'conda activate netpyne_batch \n'
         'export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH \n'
+        'export MKL_THREADING_LAYER=GNU \n'
         f'cd {dirpath_base} \n'
         'mpiexec -n $NSLOTS -hosts $(hostname) nrniv -python -mpi hpc_job_script.py'
     )

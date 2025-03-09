@@ -123,7 +123,8 @@ with SSHClient(
         ssh=ssh,
         fpath_batch_script=scripts_info['batch']['fpath_hpc'],
         batch_paths=hpc_paths,
-        conda_env='netpyne_batch'
+        conda_env='netpyne_batch',
+        res_filename_templ='{sim_label}.pkl'
     )
     
     # Create HPC folders
