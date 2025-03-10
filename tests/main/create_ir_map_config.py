@@ -5,11 +5,11 @@ import numpy as np
 
 from model_tuner.opt.map_funcs import MapFuncType, MapFitParams
 from model_tuner.data_proc import NetSpikesParams, NetRatesParams
-from model_tuner.main import IRMapFitParams
+from model_tuner.main import IRMapConfigRateFrom1DSim
 from model_tuner.utils import save_yaml, load_yaml, compare_yaml, yaml_diff
 
 
-par = IRMapFitParams()
+par = IRMapConfigRateFrom1DSim()
 par.pop_names = ('L2e', 'L2i', 'L4e', 'L4i')
 
 # Parameters of the batch experiment that probes a range of input values
@@ -57,7 +57,7 @@ par.map_fit_params = MapFitParams(
 
 dirpath_base = r'D:\WORK\Salvador\repo\model_tuner\test_data\main\create_ir_map_config'
 os.makedirs(dirpath_base, exist_ok=True)
-fpath_yaml = os.path.join(dirpath_base, 'config.yaml')
+fpath_yaml = os.path.join(dirpath_base, 'config_new.yaml')
 replace_old = False
 
 # Save to YAML
@@ -66,7 +66,7 @@ if not os.path.exists(fpath_yaml) or replace_old:
     print(f'Config saved to {fpath_yaml}')
 
 # Load from YAML
-par_loaded = load_yaml(fpath_yaml, data_class=IRMapFitParams)
+par_loaded = load_yaml(fpath_yaml, data_class=IRMapConfigRateFrom1DSim)
 
 # Compare original and loaded configs
 if compare_yaml(par, par_loaded):

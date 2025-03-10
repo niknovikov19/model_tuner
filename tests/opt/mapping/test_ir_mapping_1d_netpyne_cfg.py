@@ -11,7 +11,7 @@ from model_tuner.opt.ir_mappers import NetIREmpiricalMapper1D
 
 from model_tuner.data_proc import BatchMetricGetter1D
 
-from model_tuner.main import IRMapFitParams
+from model_tuner.main import IRMapConfigRateFrom1DSim
 from model_tuner.utils import load_yaml
 
 # Needed for unpickling files that were created with the old folder structure
@@ -72,7 +72,7 @@ os.makedirs(dirpath_base, exist_ok=True)
 fpath_yaml = os.path.join(dirpath_base, 'config.yaml')
 
 # Load from YAML
-par = load_yaml(fpath_yaml, data_class=IRMapFitParams)
+par = load_yaml(fpath_yaml, data_class=IRMapConfigRateFrom1DSim)
 
 proc_params = {
     'net_spikes': par.spikes_calc_params,
@@ -126,3 +126,4 @@ if need_plot:
         bmg, par.batch_param_name, net_ir_mapper,
         par.pop_names, par.inp_limits
     )
+    input('Press any key...')

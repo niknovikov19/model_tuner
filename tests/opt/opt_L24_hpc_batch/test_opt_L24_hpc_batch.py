@@ -25,10 +25,9 @@ from model_tuner.sim_manager import (
 from model_tuner.data_proc import DataKeeper
 
 from model_tuner.main import (
-    IRMapFitParams,
+    IRMapConfigRateFrom1DSim,
     UCMapFitParams,
     OptExperimentParams,
-    init_ir_mapper,
     init_uc_mapper,
     get_sim_rates,
     plot_opt_iteration
@@ -64,14 +63,14 @@ dirpath_base_local = Path(
 
 # Load config files
 configs = {
-    'ir_map_params': {'class': IRMapFitParams},
+    'ir_map_params': {'class': IRMapConfigRateFrom1DSim},
     'uc_map_params': {'class': UCMapFitParams},
     'ssh_params': {'class': None}
 }
 for config_name, config_info in configs.items():
     config_path = dirpath_base_local / f'{config_name}.yaml'
     config_info['data'] = load_yaml(config_path, data_class=config_info['class'])
-ir_map_params: IRMapFitParams = configs['ir_map_params']['data']
+ir_map_params: IRMapConfigRateFrom1DSim = configs['ir_map_params']['data']
 uc_map_params: UCMapFitParams = configs['uc_map_params']['data']
 ssh_params = configs['ssh_params']['data']
 
@@ -102,7 +101,7 @@ config_info['exp_params'] = {
     'data': exp_params
 }
 
-n_iter = 20
+n_iter = 5
 
 def _gen_exp_name(exp_params: OptExperimentParams) -> str:
     rr_str = 'exp_r0=({})'.format(
@@ -167,8 +166,8 @@ dk = DataKeeper(dirpath_dk)
 logging.basicConfig(level=logging.ERROR, force=True)
 
 # Initialize input-to-regime mapper: fit a pre-calculated batch sim result
-ir_mapper: NetIREmpiricalMapper1D = init_ir_mapper(
-    ir_map_params, need_plot=True
+ir_mapper: NetIREmpiricalMapper1D = (
+    ir_map_params.init_ir_mapper(need_plot=True)
 )
 
 # Initialize unconnected-to-connected regime mapper: set to identity
