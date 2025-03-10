@@ -26,7 +26,13 @@ class IRMapConfigRateFrom2DRateCVMats:
     batch_param_main: str = ''
 
     # Secondary batch parameter (the other one is batch_param_main)
-    batch_param_sec: str = field(init=False)
+    @property
+    def batch_param_sec(self) -> str:
+        return next(
+            (param for param in self.batch_param_names 
+            if param != self.batch_param_main),
+            None
+        )
 
     # Method of slicing the firing rate matrix to get 1-d data
     # 'batch_param_ratio' - slice along the line with a fixed ratio
@@ -66,18 +72,13 @@ class IRMapConfigRateFrom2DRateCVMats:
             raise ValueError(
                 'batch_param_main should be one of batch_param_names'
             )
-        # Secondary batch parameter (the other one is batch_param_main)
-        self.batch_param_sec = next(
-            param for param in self.batch_param_names 
-            if param != self.batch_param_main
-        )
     
     def init_ir_mapper(self, need_plot: bool = True) -> NetIREmpiricalMapper1D:
         return _init_ir_mapper(self, need_plot)
 
 
 def _init_ir_mapper(
-        par: IRMapConfigRateFrom1DSim,
+        par: IRMapConfigRateFrom2DRateCVMats,
         need_plot: bool = True
         ) -> NetIREmpiricalMapper1D:
     pass

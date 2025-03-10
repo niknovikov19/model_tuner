@@ -55,7 +55,10 @@ par.map_fit_params = MapFitParams(
     #return_first_guess=True
 )
 
-dirpath_base = r'D:\WORK\Salvador\repo\model_tuner\test_data\main\create_ir_map_config'
+dirpath_base = (
+    r'D:\WORK\Salvador\repo\model_tuner\test_data\main'
+    r'\create_ir_map_config_rate_from_1d_sim'
+)
 os.makedirs(dirpath_base, exist_ok=True)
 fpath_yaml = os.path.join(dirpath_base, 'config_new.yaml')
 replace_old = False
