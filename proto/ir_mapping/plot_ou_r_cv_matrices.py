@@ -72,6 +72,18 @@ for m, pop_name in enumerate(pop_names):
         # Get interpolated contour
         interpolator = RegularGridInterpolator((oustd_vec, ouamp_vec), X.values)
         xx_interp = interpolator((oustd_vec_, ouamp_vec_))
+
+        # Get interpolated contour (using xarray)
+        X_ = xr.DataArray(
+            X.values,
+            dims=('oustd', 'ouamp'),
+            coords=[('oustd', oustd_vec), ('ouamp', ouamp_vec)]
+        )
+        Q = {
+            'ouamp': xr.DataArray(ouamp_vec_, dims='points'),
+            'oustd': xr.DataArray(oustd_vec_, dims='points'),
+        }
+        xx_interp_xr = X_.interp(**Q, method='linear').values
         
         plt.subplot(2, 3, 3 * n + 1)
         par = {}
@@ -108,6 +120,7 @@ for m, pop_name in enumerate(pop_names):
         plt.subplot(2, 3, 3 * n + 3)
         plt.plot(ouamp_vec[ouamp_idx], xx, 'k', lw=2)
         plt.plot(ouamp_vec, xx_interp, 'k--', lw=2)
+        plt.plot(ouamp_vec, xx_interp_xr, 'r--', lw=2)
         if n == 1: plt.xlabel('ouamp * 100')
         plt.ylabel(xname)
         plt.title(f'{pop_name}: {xname}')
