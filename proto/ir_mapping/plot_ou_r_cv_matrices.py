@@ -3,7 +3,9 @@ import pickle
 
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy.interpolate import RegularGridInterpolator
 from skimage import measure
+import xarray as xr
 
 
 # Contour function: y = k * x
@@ -57,13 +59,21 @@ for m, pop_name in enumerate(pop_names):
     C, C_idx = find_contours(contour_func_const_ratio, ouamp_vec, oustd_vec, k=k)
     C, C_idx = C[0], C_idx[0]
 
-    plt.figure(111, figsize=(10, 8))
+    # Interpolated contour coords
+    ouamp_vec_ = ouamp_vec
+    oustd_vec_ = (ouamp_vec_ * k).clip(oustd_vec.min(), oustd_vec.max())
+
+    plt.figure(111, figsize=(16, 8))
     plt.clf()
     plt.ion()
 
     for n, (xname, X) in enumerate(Xvis.items()):
 
-        plt.subplot(2, 2, 2 * n + 1)
+        # Get interpolated contour
+        interpolator = RegularGridInterpolator((oustd_vec, ouamp_vec), X.values)
+        xx_interp = interpolator((oustd_vec_, ouamp_vec_))
+        
+        plt.subplot(2, 3, 3 * n + 1)
         par = {}
         if xname == 'CV':
             par |= {'vmin': 0, 'vmax': 2}
@@ -72,8 +82,8 @@ for m, pop_name in enumerate(pop_names):
         plt.colorbar()
         for k in range(0, len(oustd_vec), 4):
             plt.plot((ouamp_vec.min(), ouamp_vec.max()), (oustd_vec[k], oustd_vec[k]), '--')
-        #plt.plot(ouamp_vec, 0.4 * ouamp_vec, 'k--', label='std = 0.4 * amp')
-        plt.plot(C[:, 1], C[:, 0], 'k--', label=f'std = {k} * amp')
+        plt.plot(ouamp_vec_, oustd_vec_, 'k--')
+        plt.plot(C[:, 1], C[:, 0], 'k')
         #plt.legend()
         if n == 1:  plt.xlabel('ouamp * 100')
         plt.ylabel('oustd * 100')
@@ -81,7 +91,7 @@ for m, pop_name in enumerate(pop_names):
         plt.xlim(ouamp_vec[0], ouamp_vec[-1])
         plt.ylim(oustd_vec[0], oustd_vec[-1])
 
-        plt.subplot(2, 2, 2 * n + 2)
+        plt.subplot(2, 3, 3 * n + 2)
         for k in range(0, len(oustd_vec), 4):
             plt.plot(ouamp_vec, X.iloc[k, :], '--') #, label=f"std={oustd}")
         ouamp_idx = C_idx[:, 1]
@@ -89,6 +99,15 @@ for m, pop_name in enumerate(pop_names):
         xx = [X.iloc[oustd_idx[n], ouamp_idx[n]]
               for n in range(len(ouamp_idx))]
         plt.plot(ouamp_vec[ouamp_idx], xx, 'k', lw=2)
+        plt.plot(ouamp_vec, xx_interp, 'k--', lw=2)
+        if n == 1: plt.xlabel('ouamp * 100')
+        plt.ylabel(xname)
+        plt.title(f'{pop_name}: {xname}')
+        if n % 2 == 1:  plt.ylim(0, 2)
+
+        plt.subplot(2, 3, 3 * n + 3)
+        plt.plot(ouamp_vec[ouamp_idx], xx, 'k', lw=2)
+        plt.plot(ouamp_vec, xx_interp, 'k--', lw=2)
         if n == 1: plt.xlabel('ouamp * 100')
         plt.ylabel(xname)
         plt.title(f'{pop_name}: {xname}')
