@@ -9,7 +9,13 @@ from model_tuner.utils import save_yaml, load_yaml, compare_yaml, yaml_diff
 
 
 par = IRMapConfigRateFrom2DRateCVMats()
+
 par.pop_names = ('L2e', 'L2i', 'L4e', 'L4i')
+
+par.fpath_mats = (
+    r'D:\WORK\Salvador\repo\model_tuner\test_data\a1_ou_unconn'
+    r'\scott_2025_02_28\OUmapping_0228.pkl'
+)
 
 print(f'Secondary param: {par.batch_param_sec}')
 par.batch_param_names = ('ouamp', 'oustd')

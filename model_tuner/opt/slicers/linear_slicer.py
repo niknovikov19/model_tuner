@@ -10,10 +10,10 @@ class LinearSlicer(Slicer):
     """
     Takes 1-d slices of n-dimensional data along a linear subspace.
 
-    
+    The subspace is parameterized by one of the coordinates (coord_main).
+    Other coordinates of slice points linearly depend on the main coordinate.
 
     """
-
     def __init__(
             self,
             coord_names: List[str],

@@ -35,7 +35,7 @@ class MapFunc1DRichards(MapFunc1D):
         y_ = _clip_to_nan(y_, self._y_limits, need_copy=True)
         y_[(a / (y_ - c)) < 1] = np.nan
         x = b - np.log((a / (y_ - c)) ** (1/q) - 1) / k
-        x = y.clip(*self._x_limits)
+        x = x.clip(*self._x_limits)
         if _is_scalar(y):
             x = _to_scalar(x)
         return x
@@ -62,8 +62,8 @@ class MapFunc1DRichards(MapFunc1D):
         b0 = (x01 + x02) / 2
         
         # Corner points
-        x1, y1 = xx[0], yy[0]
-        x2, y2 = xx[-1], yy[-1]
+        x1, y1 = np.nanmin(xx), np.nanmin(yy)
+        x2, y2 = np.nanmax(xx), np.nanmax(yy)
         
         for _ in range(5):
             k0 = 4 * (y02 - y01) / (x02 - x01) / a0
