@@ -59,8 +59,8 @@ def _mix_tuples(x: Tuple, y: Tuple, alpha: float) -> Tuple:
 
 @dataclass
 class MapFitParams:
-    ftol: float = 1e-3
-    xtol: float = 1e-4
+    ftol: float = 1e-3  
+    xtol: float | None = 1e-4  
     verbose: bool = False
     method: str = 'trf'
     max_nfev: int = 1000

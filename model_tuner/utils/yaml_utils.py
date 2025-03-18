@@ -20,7 +20,8 @@ def _prepare_for_yaml(obj):
     elif isinstance(obj, list):
         return [_prepare_for_yaml(item) for item in obj]
     elif isinstance(obj, dict):
-        return {key: _prepare_for_yaml(value) for key, value in obj.items()}
+        return {key: _prepare_for_yaml(value)
+                for key, value in sorted(obj.items())}
     elif isinstance(obj, Enum):
         return obj.value  # Enum -> str
     else:
