@@ -5,6 +5,6 @@ from typing import Optional
 @dataclass
 class SSHParams:
     host: str
-    user: str
+    user: str | None = None
     port: Optional[int] = 22
     fpath_private_key: Optional[str] = None  # on the local machine

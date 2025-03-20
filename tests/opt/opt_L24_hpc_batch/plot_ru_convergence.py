@@ -8,10 +8,10 @@ import numpy as np
 
 dirpath_in = Path(
     r'D:\WORK\Salvador\repo\model_tuner\test_data\main\test_opt_L24_hpc_batch'
-    r'\exp_r0=(2_10_5_15)_pfr=(0.1_1.5_7)_wmult=0.25_alpha=0.25\old\info'
+    r'\exp_r0=(2_10_5_15)_pfr=(0.1_1.5_7)_wmult=0.25_alpha=0.25\info'
 )
 
-n_iter = 20
+n_iter = 5
 n_pop = 4
 n_pts = 7
 

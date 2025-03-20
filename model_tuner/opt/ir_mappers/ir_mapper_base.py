@@ -19,6 +19,10 @@ class NetIRMapper:
         
     def set_pop_mapper(self, pop_name: str, mapper: PopIRMapper):
         self.pop_IR_mappers[pop_name] = mapper
+    
+    @property
+    def pop_names(self):
+        return list(self.pop_IR_mappers.keys())
         
     def I_to_R(self, I: NetInput) -> NetRegime:
         R = NetRegime()
