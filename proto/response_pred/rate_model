@@ -1,0 +1,71 @@
+from typing import Tuple
+
+import numpy as np
+
+
+class RateModel:
+    def __init__(
+            self,
+            weights_mat: np.ndarray | None = None,  
+            gain_slope: float = 1,
+            gain_center: float = 10,
+            rmax: float = 100
+            ):
+        if not self.weights_mat:
+            npops = 10
+            weights_mat = np.random.rand((npops, npops))
+        self.weights_mat = weights_mat
+        self.gain_slope = gain_slope
+        self.gain_center = gain_center
+        self.rmax = rmax
+        self.npops = self.weights_mat.shape[0]
+    
+    def gain_func(self, x: float | np.ndarray) -> float | np.ndarray:
+        k, xc  = self.gain_slope, self.gain_center
+        return self.rmax / (1 + np.exp(-k * (x - xc)))
+    
+    def run(self,
+            h_input: np.ndarray,  # sz=(npops, 1)
+            r0: np.ndarray,  # initial state, sz=(npops, 1)
+            alpha: float = 1,
+            nsteps: int = 10,
+            ) -> Tuple[np.ndarray, np.ndarray]:
+        
+        # Convert to column vectors
+        r0 = r0.reshape(-1, 1)
+        h_input = h_input.reshape(-1, 1)
+
+        W = self.weights_mat
+
+        # The reult will be stored here
+        R = np.zeros((self.npops, nsteps))
+
+        # Initial state
+        R[:, 0] = r0
+
+        # Iterate to find the steady state
+        for n in range(1, nsteps):
+            r = R[:, n - 1]
+            r_new = self.gain_func(W @ r + h_input)
+            R[:, n] = (1 - alpha) * r + alpha * r_new
+        
+        return R[:, -1], R
+    
+    def run_1pop(self,
+            pop_num: int,
+            h_input: float,
+            r0: np.ndarray,
+            alpha: float = 1,
+            nsteps: int = 10,
+            ) -> Tuple[float, np.ndarray]:
+        r0 = r0.reshape(-1, 1)
+        W = self.weights_mat[pop_num, :]
+        R = np.zeros((1, nsteps))
+        R[0] = r0[pop_num]
+        r = r0.copy()
+        for n in range(1, nsteps):
+            rpop = R[n - 1]
+            r[pop_num] = rpop
+            rpop_new = self.gain_func(W @ r + h_input)
+            R[n] = (1 - alpha) * rpop + alpha * rpop_new
+        return R[-1], R
