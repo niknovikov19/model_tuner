@@ -1,3 +1,4 @@
+import json
 import os
 from pathlib import Path
 import pickle
@@ -244,12 +245,13 @@ pop_names = par.pop_names
 dirpath_base = Path(r"D:\WORK\Salvador\repo\model_tuner\test_data\test_ir_mapping_1d_slice_3")
 os.makedirs(dirpath_base, exist_ok=True)
 
-need_recalc = 1
-need_save_yaml = 1
-replace_old_yaml = 1
-need_save_csv = 1
-need_plot = 1
-need_save_plot = 1
+need_recalc = 0
+need_save_yaml = 0
+replace_old_yaml = 0
+need_save_csv = 0
+need_save_json = 1
+need_plot = 0
+need_save_plot = 0
 
 rvis_max = 250
 
@@ -359,6 +361,17 @@ if need_save_csv:
     df = pd.DataFrame(data)
     csv_path = dirpath_base / 'regime_target.csv'
     df.to_csv(csv_path, index=False)
+
+if need_save_json:
+    data = {'ou_inputs': {}}
+    for pop_name in pop_names:
+        data['ou_inputs'][pop_name] = {
+            'ou_mean': inp_target.pop_inputs[pop_name].vars['ou_mean'],
+            'ou_std': inp_target.pop_inputs[pop_name].vars['ou_std']
+        }
+    json_path = dirpath_base / 'regime_target.json'
+    with open(json_path, 'w') as file:
+        json.dump(data, file, indent=4)
 
 # Plot I-R mapping
 if need_plot:
