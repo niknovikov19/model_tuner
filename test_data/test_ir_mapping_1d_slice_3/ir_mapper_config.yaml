@@ -43,6 +43,9 @@ inp_limits:
   IT5B:
   - 0
   - 0.0175
+  IT6:
+  - 0
+  - 0.025
   ITP4:
   - 0
   - 0.015
@@ -70,6 +73,9 @@ inp_limits:
   NGF6:
   - 0
   - 0.03
+  PT5B:
+  - 0
+  - 0.035
   PV2:
   - 0
   - 0.03
@@ -180,10 +186,12 @@ pop_names:
 - VIP6
 - IT2
 - IT3
+- IT6
 - ITP4
 - ITS4
 - IT5A
 - IT5B
+- PT5B
 - CT5A
 - CT5B
 - CT6

@@ -63,7 +63,7 @@ def init_params() -> IRMapConfigRateFrom2DRateCVMats:
         'SOM': 2,
         'PV': 3,
         'VIP': 2,
-        'IT23': 2.5,
+        'IT236': 2.5,
         'ITP4': 1.5,
         'ITS4': 1,
         'IT5A': 2,
@@ -79,11 +79,12 @@ def init_params() -> IRMapConfigRateFrom2DRateCVMats:
     par.inp_limits |= {f'SOM{layer}': (0, inp_max['SOM']) for layer in layers_2_6}
     par.inp_limits |= {f'PV{layer}': (0, inp_max['PV']) for layer in layers_2_6}
     par.inp_limits |= {f'VIP{layer}': (0, inp_max['VIP']) for layer in layers_2_6}
-    par.inp_limits |= {f'IT{layer}': (0, inp_max['IT23']) for layer in ['2', '3']}
+    par.inp_limits |= {f'IT{layer}': (0, inp_max['IT236']) for layer in ['2', '3', '6']}
     par.inp_limits |= {'ITP4': (0, inp_max['ITP4'])}
     par.inp_limits |= {'ITS4': (0, inp_max['ITS4'])}
     par.inp_limits |= {'IT5A': (0, inp_max['IT5A'])}
     par.inp_limits |= {'IT5B': (0, inp_max['IT5B'])}
+    par.inp_limits |= {'PT5B': (0, inp_max['PT5B'])}
     par.inp_limits |= {f'CT{layer}': (0, inp_max['CT56']) for layer in ['5A', '5B', '6']}
     thal_pops = ['TC', 'TCM', 'HTC', 'IRE', 'IREM', 'TI', 'TIM']
     par.inp_limits |= {pop: (0, inp_max['thal']) for pop in thal_pops}
@@ -185,6 +186,9 @@ def plot_ir_mapping(
         plt.xlabel('OU mean * 100')
         plt.ylabel('Rate')
 
+        plt.xlim(0, 1)
+        plt.ylim(0, 50)
+
         """ plt.subplot(1, 2, 2)
         plt.plot(ou_mean_vec_hat, ou_std_vec_hat, '.-')
         plt.title(pop_name)
@@ -245,13 +249,13 @@ pop_names = par.pop_names
 dirpath_base = Path(r"D:\WORK\Salvador\repo\model_tuner\test_data\test_ir_mapping_1d_slice_3")
 os.makedirs(dirpath_base, exist_ok=True)
 
-need_recalc = 0
-need_save_yaml = 0
-replace_old_yaml = 0
-need_save_csv = 0
+need_recalc = 1
+need_save_yaml = 1
+replace_old_yaml = 1
+need_save_csv = 1
 need_save_json = 1
-need_plot = 0
-need_save_plot = 0
+need_plot = 1
+need_save_plot = 1
 
 rvis_max = 250
 
@@ -369,13 +373,13 @@ if need_save_json:
             'ou_mean': inp_target.pop_inputs[pop_name].vars['ou_mean'],
             'ou_std': inp_target.pop_inputs[pop_name].vars['ou_std']
         }
-    json_path = dirpath_base / 'regime_target.json'
+    json_path = dirpath_base / 'ou_inputs.json'
     with open(json_path, 'w') as file:
         json.dump(data, file, indent=4)
 
 # Plot I-R mapping
 if need_plot:
-    dirpath_plots = dirpath_base / 'plots'
+    dirpath_plots = dirpath_base / 'plots_2'
     os.makedirs(dirpath_plots, exist_ok=True)
     plot_ir_mapping(
         net_ir_mapper, R, slicer, par.inp_limits,
