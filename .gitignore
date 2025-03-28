@@ -7,4 +7,5 @@ _old
 *.zip
 *x86_64*
 *ray*
-/models/A1_OUinp/A1_OUinp/
+/models/A1_OUinp/
+*.joblib

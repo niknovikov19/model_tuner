@@ -1,6 +1,7 @@
 from .utils import from_dict_or_dataclass
 from .json_encoders import CustomEncoder
 from .yaml_utils import save_yaml, load_yaml, compare_yaml, yaml_diff
+from .plot_utils import plot_xr
 
 __all__ = [
     'from_dict_or_dataclass',
@@ -8,5 +9,6 @@ __all__ = [
     'save_yaml',
     'load_yaml',
     'compare_yaml',
-    'yaml_diff'
+    'yaml_diff',
+    'plot_xr'
 ]

@@ -1,6 +1,7 @@
 from typing import Dict, List, Tuple
 
 import numpy as np
+from scipy.interpolate import griddata
 import xarray as xr
 
 from .slicer_base import Slicer
@@ -54,10 +55,31 @@ class LinearSlicer(Slicer):
         
         # Get n-dimensional coordinates of the slice points
         coords = self.project_1d_coords_to_nd(main_coord_vals)
-        coords = {
-            name: xr.DataArray(cc, dims='points')  # to get 1-d array instead of grid
-            for name, cc in coords.items()
-        }
+        #coords = {
+        #    name: xr.DataArray(cc, dims='points')  # to get 1-d array instead of grid
+        #    for name, cc in coords.items()
+        #}
+        coords = tuple(coords[name] for name in X.dims)
 
         # Get the slice
-        return X.interp(**coords, method='linear').values
+        #return X.interp(**coords, method='linear').values
+
+        if X.ndim != 2:
+            raise ValueError('Only 2D xarrays are currently supported')
+        
+        # Extract coords and values from a 2D xarray, ignoring NaNs
+        mask = ~np.isnan(X.values)
+        y, x = X[X.dims[0]], X[X.dims[1]]
+        yy, xx = np.meshgrid(y, x, indexing='ij')
+        yy = yy[mask]
+        xx = xx[mask]
+        vv = X.values[mask]
+
+        # Interpolate the values at the target points
+        vv_slice = griddata(
+            (yy, xx),        # known coordinates
+            vv,              # known values
+            coords,          # target points
+            method='cubic'
+        )
+        return vv_slice

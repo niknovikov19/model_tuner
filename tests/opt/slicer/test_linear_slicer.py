@@ -6,14 +6,17 @@ import numpy as np
 import xarray as xr
 
 from model_tuner.opt.slicers import LinearSlicer
+from model_tuner.utils.plot_utils import plot_xr
 
 
 # Path to pre-calculated rate and CV matrices (oustd x ouamp)
-dirpath_in = Path('D:\\WORK\\Salvador\\repo\\model_tuner\\test_data\\a1_ou_unconn\\scott_2025_02_28')
-fpath_in = dirpath_in / 'OUmapping_0228.pkl'
+#dirpath_in = Path('D:\\WORK\\Salvador\\repo\\model_tuner\\test_data\\a1_ou_unconn\\scott_2025_02_28')
+#fpath_in = dirpath_in / 'OUmapping_0228.pkl'
+dirpath_base = Path('D:\\WORK\\Salvador\\repo\\model_tuner\\test_data\\a1_ou_unconn\\scott_2025_03_13')
+fpath_in = dirpath_base / 'OUmapping_master_compat.pkl'
 
 # Output folder for plots
-dirpath_out = Path(r'D:\WORK\Salvador\repo\model_tuner\test_data\main\test_linear_slicer')
+dirpath_out = Path(r'D:\WORK\Salvador\repo\model_tuner\test_data\main\test_linear_slicer_irreg')
 dirpath_out.mkdir(exist_ok=True)
 
 # Load rate and CV matrices
@@ -78,11 +81,7 @@ for m, pop_name in enumerate(pop_names):
         par = {}
         if xname == 'CV':
             par |= {'vmin': 0, 'vmax': 2}
-        ext = (ou_mean_vec[0], ou_mean_vec[-1],
-               ou_std_vec[0], ou_std_vec[-1])
-        plt.imshow(X, aspect='auto', cmap='viridis', origin='lower',
-                   extent=ext, **par)
-        plt.colorbar()
+        plot_xr(X_, show_ax_names=False, **par)
         plt.plot(ou_mean_slice, ou_std_slice, 'k--')
         if n == 1:  plt.xlabel('ouamp * 100')
         plt.ylabel('oustd * 100')
