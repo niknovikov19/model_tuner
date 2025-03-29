@@ -35,7 +35,7 @@ def init_params() -> IRMapConfigRateFrom2DRateCVMats:
 
     par.fpath_mats = (
         r'D:\WORK\Salvador\repo\model_tuner\test_data\a1_ou_unconn'
-        r'\scott_2025_02_28\OUmapping_0228.pkl'
+        r'\scott_2025_03_13\OUmapping_master_compat.pkl'
     )
 
     par.batch_param_names = ('ou_mean', 'ou_std')
@@ -53,24 +53,27 @@ def init_params() -> IRMapConfigRateFrom2DRateCVMats:
 
     # Fitting bounds for I-R mapping parameters
     par.fit_param_bounds = {
-        'q': (1, 30)  # asymmetry coefficient of RICHARDS_1D mapping
+        'q': (1, 30),    # asymmetry coefficient of RICHARDS_1D mapping
+        'a': (0, np.inf)
     }
 
     # Limits for the input values used for fitting
     par.inp_limits = {}
     inp_max = {
-        'NGF': 3,
-        'SOM': 2,
-        'PV': 3,
-        'VIP': 2,
-        'IT236': 2.5,
+        'NGF': 1,
+        'SOM': 0.6,
+        'PV': 2.2,
+        'VIP': 1,
+        'IT236': 1.8,
         'ITP4': 1.5,
-        'ITS4': 1,
-        'IT5A': 2,
-        'IT5B': 1.75,
-        'CT56': 1.75,
-        'PT5B': 3.5,
-        'thal': 3
+        'ITS4': 0.7,
+        'IT5A': 1.5,
+        'IT5B': 1.3,
+        'CT56': 1.7,
+        'PT5B': 3,
+        'TC': 0.7,
+        'IRE': 0.4,
+        'TI': 0.5
     }
     inp_max = {pop: val / 100 for pop, val in inp_max.items()}
     layers_2_6 = ['2', '3', '4', '5A', '5B', '6']
@@ -86,20 +89,21 @@ def init_params() -> IRMapConfigRateFrom2DRateCVMats:
     par.inp_limits |= {'IT5B': (0, inp_max['IT5B'])}
     par.inp_limits |= {'PT5B': (0, inp_max['PT5B'])}
     par.inp_limits |= {f'CT{layer}': (0, inp_max['CT56']) for layer in ['5A', '5B', '6']}
-    thal_pops = ['TC', 'TCM', 'HTC', 'IRE', 'IREM', 'TI', 'TIM']
-    par.inp_limits |= {pop: (0, inp_max['thal']) for pop in thal_pops}
+    par.inp_limits |= {pop: (0, inp_max['TC']) for pop in ['TC', 'TCM', 'HTC']}
+    par.inp_limits |= {pop: (0.0002, inp_max['IRE']) for pop in ['IRE', 'IREM']}
+    par.inp_limits |= {pop: (0, inp_max['TI']) for pop in ['TI', 'TIM']}
 
     # Populations used for fitting
     par.pop_names = list(par.inp_limits.keys())
                     
     # Parameters of the formula that determines the fitting weights
     par.use_fit_weights = True
-    par.fit_weight_pow = 0.5
-    par.fit_weight_limits = (0.1, 10)
+    par.fit_weight_pow = 0.6
+    par.fit_weight_limits = (0.1, 20)
 
     # Parameters of the fitting algorithm
     par.map_fit_params = MapFitParams(
-        #return_first_guess=False,
+        #return_first_guess=True,
         #verbose = True,
         xtol=None,
         ftol=1e-4,
@@ -113,7 +117,8 @@ def plot_ir_mapping(
         rate_mats: Dict[str, xr.DataArray],
         slicer: LinearSlicer,
         inp_limits: Dict[str, Tuple[float, float]],
-        rvis_max: float = 100,
+        r_vis_max: float = 100,
+        inp_vis_max: float = 5,
         npts: int = 100,
         dirpath_plots: Path | str | None = None,
         need_save: bool = True,
@@ -126,7 +131,8 @@ def plot_ir_mapping(
     npops = len(pop_names)
 
     # Generate a range of output rates
-    rates_out_vec = np.geomspace(1, rvis_max, npts) - 1
+    rmax = 100
+    rates_out_vec = np.geomspace(1, rmax, npts) - 1
 
     rates_out_mat = np.tile(rates_out_vec, (npops, 1))
 
@@ -179,15 +185,14 @@ def plot_ir_mapping(
                  regime_target.get_pop_regime_val(pop_name), 'r.', markersize=10)
         #plt.xlim(ou_mean_vec.min(), ou_mean_vec.max())
         #plt.xlim(ou_mean_vec_hat.min(), ou_mean_vec_hat.max())
-        plt.xlim(0, np.nanmax(ou_mean_vec))
-        plt.ylim(0, np.nanmax(rr_vec))
-        #plt.ylim(0, rvis_max)
+        #plt.xlim(0, np.nanmax(ou_mean_vec))
+        #plt.ylim(0, np.nanmax(rr_vec))
         plt.title(pop_name)
         plt.xlabel('OU mean * 100')
         plt.ylabel('Rate')
 
-        plt.xlim(0, 1)
-        plt.ylim(0, 50)
+        plt.xlim(0, inp_vis_max)
+        plt.ylim(0, r_vis_max)
 
         """ plt.subplot(1, 2, 2)
         plt.plot(ou_mean_vec_hat, ou_std_vec_hat, '.-')
@@ -244,9 +249,15 @@ with open(par.fpath_mats, 'rb') as file:
     mats = pickle.load(file)
 
 pop_names = par.pop_names
-#pop_names = ['IT5B']
+#pop_names = ['SOM3']
 
-dirpath_base = Path(r"D:\WORK\Salvador\repo\model_tuner\test_data\test_ir_mapping_1d_slice_3")
+r_vis_max = 30
+inp_vis_max = 3
+
+dirpath_base = Path(
+    r'D:\WORK\Salvador\repo\model_tuner\test_data\test_ir_mapping'
+    fr'\test_ir_mapping_1d_slice_irreg_rmax={r_vis_max}_imax={inp_vis_max}_3'
+)
 os.makedirs(dirpath_base, exist_ok=True)
 
 need_recalc = 1
@@ -256,8 +267,6 @@ need_save_csv = 1
 need_save_json = 1
 need_plot = 1
 need_save_plot = 1
-
-rvis_max = 250
 
 fpath_ir_mapper = dirpath_base / 'ir_mapper.pkl'
 
@@ -275,6 +284,7 @@ for pop_name in pop_names:
 
 def weight_func(x: np.ndarray, par_) -> np.ndarray:
     if not par_.use_fit_weights: return None
+    x = np.clip(x, 0, np.inf)
     return np.clip(x ** par_.fit_weight_pow, *par_.fit_weight_limits)
 
 # Object that takes 1-d slices of the firing rate matrices
@@ -379,11 +389,13 @@ if need_save_json:
 
 # Plot I-R mapping
 if need_plot:
-    dirpath_plots = dirpath_base / 'plots_2'
+    dirpath_plots = dirpath_base / 'plots'
     os.makedirs(dirpath_plots, exist_ok=True)
     plot_ir_mapping(
         net_ir_mapper, R, slicer, par.inp_limits,
-        rvis_max=rvis_max, npts=250,
+        r_vis_max=r_vis_max,
+        inp_vis_max=inp_vis_max,
+        npts=250,
         dirpath_plots=dirpath_plots, need_save=need_save_plot,
         regime_target=regime_target, inp_target=inp_target
     )
