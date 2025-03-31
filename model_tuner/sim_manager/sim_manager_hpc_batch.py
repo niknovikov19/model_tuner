@@ -18,10 +18,21 @@ def _get_parent_dir_hpc(fpath):
 
 @dataclass
 class SimBatchPaths:
+    # Base folder, to which other paths are relative
+    # (passed to the batch script as a command line argument)
     base_dir: str
+
+    # JSON file with parameters of every requested simulation (e.g. input values)
     requests_file: str
+
+    # Directory for saving results of the simulations and other batchtools outputs
+    # (e.g. checkpoint files, logs)
     results_dir: str
+
+    # Log file: batch script output is redirected here
     log_file: str
+
+    # Directory for batchtools internal stuff
     batchtools_dir: str
     
     FILE_FIELDS: ClassVar[List[str]] = [
