@@ -1,38 +1,45 @@
-import importlib.util
+import argparse
 import json
 from pathlib import Path
-import sys
 
 import matplotlib
 matplotlib.use('Agg')  # to avoid graphics error on servers
 
-from netpyne.batchtools import comm
+from netpyne.batchtools import comm, specs
 from netpyne import sim
 
 from create_base_cfg import create_base_cfg
 from create_net_params import create_net_params
+from load_module import load_module
 
 
-def _load_module(fpath_mod):
-    mod_spec = importlib.util.spec_from_file_location(
-        'module.name', fpath_mod)
-    mod = importlib.util.module_from_spec(mod_spec)
-    sys.modules['module.name'] = mod
-    mod_spec.loader.exec_module(mod)
-    return mod
+# Folder names for experiment configs and results (relative to this script)
+DIRNAME_EXP_CONFIGS = 'exp_configs'
+DIRNAME_EXP_RESULTS = 'exp_results'
 
+# Take batch flag from command line arguments, default to False
+parser = argparse.ArgumentParser(description="Run experiment script.")
+parser.add_argument('--batch', action='store_true', help="Run in batch mode.")
+args = parser.parse_args()
+is_batch = args.batch
 
-exp_name = 'test_wmult_0.1'
-
-is_batch = False
 need_run = True
+
+# Experiment name (define the folder name in exp_configs and exp_results)
+if not is_batch:
+    exp_name = 'test_wmult_0.1'
 
 
 dirpath_self = Path(__file__).resolve().parent
 
+if is_batch:
+    # Preliminary: get cfg from batchtools to identify exp_name (simLabel),
+    # which is then used to  generate the path to exp_cfg.py
+    exp_name = specs.mappings['simLabel'][:-6]  # cut away job id
+
 # Import experiment-specific config py-file
-fpath_exp_cfg = dirpath_self / 'exp_configs' / exp_name / 'exp_cfg.py'
-cfg_mod = _load_module(fpath_exp_cfg)
+fpath_exp_cfg = dirpath_self / DIRNAME_EXP_CONFIGS / exp_name / 'exp_cfg.py'
+cfg_mod = load_module(fpath_exp_cfg)
 
 # Initialize config object, common for every experiment of the model
 cfg = create_base_cfg()
@@ -41,8 +48,9 @@ cfg = create_base_cfg()
 cfg_mod.apply_exp_cfg(cfg)
 
 # Automatically set the experiment name in config
-cfg.simLabel = exp_name
-cfg.saveFolder = str(dirpath_self / 'exp_results' / exp_name)
+if not is_batch:
+    cfg.simLabel = exp_name
+    cfg.saveFolder = str(dirpath_self / DIRNAME_EXP_RESULTS / exp_name)
 
 # Update config by batchtools (if applicable)
 cfg.update_cfg()
@@ -79,7 +87,7 @@ if need_run:
     sim.analysis.plotData()         			# plot spike raster etc
 
 # Close the communication with the batchtools master process
-if is_batch and comm.is_host():
+if comm.is_host():
    out_json = json.dumps({'loss': 0})
    comm.send(out_json)
    comm.close()
