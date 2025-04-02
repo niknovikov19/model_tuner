@@ -20,14 +20,14 @@ DIRNAME_EXP_RESULTS = 'exp_results'
 # Take batch flag from command line arguments, default to False
 parser = argparse.ArgumentParser(description="Run experiment script.")
 parser.add_argument('--batch', action='store_true', help="Run in batch mode.")
-args = parser.parse_args()
+args, _ = parser.parse_known_args()
 is_batch = args.batch
 
 need_run = True
 
 # Experiment name (define the folder name in exp_configs and exp_results)
 if not is_batch:
-    exp_name = 'test_wmult_0.1'
+    exp_name = 'test_run_2'
 
 
 dirpath_self = Path(__file__).resolve().parent
@@ -54,6 +54,11 @@ if not is_batch:
 
 # Update config by batchtools (if applicable)
 cfg.update_cfg()
+
+# Apply experiment-specific post-update config modifications
+# (derive other params from the ones set by batchtools in update_cfg)
+if hasattr(cfg_mod, 'post_update'):
+    cfg_mod.post_update(cfg)
 
 # Create netParams based on the config
 netParams = create_net_params(cfg)
