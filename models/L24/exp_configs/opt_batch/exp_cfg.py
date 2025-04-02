@@ -3,7 +3,7 @@ def apply_exp_cfg(cfg):
     
     cfg.duration = 3 * 1e3
     
-    # Unconnected network with the same external input rate for every pop.
+    # Connected network with individual external inputs
     cfg.connected = True
     cfg.equal_inputs = False
     

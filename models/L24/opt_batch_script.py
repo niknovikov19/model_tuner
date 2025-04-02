@@ -37,13 +37,14 @@ sge_config = {
     'command': (
         'conda activate netpyne_batch \n'
         'export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH \n'
+        'export MKL_THREADING_LAYER=GNU \n'
         'mpiexec -n $NSLOTS -hosts $(hostname) nrniv -python -mpi opt_job_script.py'
     )
 }
 
 search(job_type = 'sge',
        comm_type = 'socket',
-       label = 'sim_manager_batch',
+       label = 'SIM_MANAGER_BATCH',
        params = batch_params,
        output_path = paths.results_dir,
        checkpoint_path = paths.batchtools_dir,

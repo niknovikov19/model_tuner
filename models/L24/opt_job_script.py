@@ -18,10 +18,6 @@ from create_net_params import create_net_params
 
 sys.path.append('/ddn/niknovikov19/repo/model_tuner')
 
-from model_tuner.opt.inputs import NetInputWC
-from model_tuner.opt.regimes import NetRegimeWC  
-from model_tuner.opt.wc import ModelDescWC, run_wc_model
-
 
 def _load_module(fpath_mod):
     mod_spec = importlib.util.spec_from_file_location(

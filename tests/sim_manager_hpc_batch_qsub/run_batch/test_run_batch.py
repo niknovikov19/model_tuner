@@ -10,8 +10,10 @@ sys.path.append(str(Path(__file__).resolve().parents[3]))
 from fs.permissions import Permissions
 
 from model_tuner.sim_manager import (
-    SimManagerHPCBatchQsub, SimBatchPaths,
-    SimStatus, HPCJobSubmitParams
+    SimManagerHPCBatchQsub,
+    SimBatchPaths,
+    SimStatus,
+    HPCJobSubmitParams
 )
 from model_tuner.ssh import SSHParams, SSHClient
 
