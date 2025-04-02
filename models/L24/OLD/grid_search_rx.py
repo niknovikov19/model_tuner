@@ -26,7 +26,7 @@ params = batch_params_mod.get_batch_params()
 sge_config = {
     'queue': 'cpu.q',
     'cores': 30,
-    'vmem': '128',
+    'vmem': '128G',
     'realtime': '1:00:00',
     'command': (
         'conda activate netpyne_batch \n'

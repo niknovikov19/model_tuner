@@ -19,15 +19,22 @@ DIRNAME_EXP_RESULTS = 'exp_results'
 
 # Take batch flag from command line arguments, default to False
 parser = argparse.ArgumentParser(description="Run experiment script.")
-parser.add_argument('--batch', action='store_true', help="Run in batch mode.")
+parser.add_argument('--batch', action='store_true',
+                    help="Run in batch mode.")
+parser.add_argument('--name', type=str,
+                    help="Experiment name (required if not in batch mode).")
 args, _ = parser.parse_known_args()
 is_batch = args.batch
+
+if not args.batch and args.name is None:
+    raise ValueError("Either --name or --batch is requred")
 
 need_run = True
 
 # Experiment name (define the folder name in exp_configs and exp_results)
 if not is_batch:
-    exp_name = 'test_run_2'
+    #exp_name = 'test_run_2'
+    exp_name = args.name
 
 
 dirpath_self = Path(__file__).resolve().parent
@@ -37,15 +44,20 @@ if is_batch:
     # which is then used to  generate the path to exp_cfg.py
     exp_name = specs.mappings['simLabel'][:-6]  # cut away job id
 
+print(f'Experiment name: {exp_name}, batch={is_batch}')
+
 # Import experiment-specific config py-file
 fpath_exp_cfg = dirpath_self / DIRNAME_EXP_CONFIGS / exp_name / 'exp_cfg.py'
+print(f'Experiment config: {fpath_exp_cfg}')
 cfg_mod = load_module(fpath_exp_cfg)
 
 # Initialize config object, common for every experiment of the model
 cfg = create_base_cfg()
 
 # Apply experiment-specific config modifications
+print(f'>>>> Before: {cfg.equal_inputs}')
 cfg_mod.apply_exp_cfg(cfg)
+print(f'>>>> After: {cfg.equal_inputs}')
 
 # Automatically set the experiment name in config
 if not is_batch:

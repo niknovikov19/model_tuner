@@ -1,0 +1,11 @@
+,data,loss,timestamp,checkpoint_dir_name,done,training_iteration,trial_id,date,time_this_iter_s,time_total_s,pid,hostname,node_ip,time_since_restore,iterations_since_restore,config/sim_manager.sim_label,config/sim_manager.requests_file,config/saveFolder,config/simLabel,logdir
+0,"loss    0.0
+dtype: float64",0.0,1743557641,,False,1,882ca_00000,2025-04-01_21-34-01,6.875521183013916,6.875521183013916,288237,node15,10.0.0.15,6.875521183013916,1,req0,/ddn/niknovikov19/test/model_tuner/test_run_batch_qsub/requests/requests.json,/ddn/niknovikov19/test/model_tuner/test_run_batch_qsub/results,sim_manager_batch_00000,882ca_00000
+1,"loss    0.0
+dtype: float64",0.0,1743557641,,False,1,882ca_00001,2025-04-01_21-34-01,6.872075796127319,6.872075796127319,288234,node15,10.0.0.15,6.872075796127319,1,req1,/ddn/niknovikov19/test/model_tuner/test_run_batch_qsub/requests/requests.json,/ddn/niknovikov19/test/model_tuner/test_run_batch_qsub/results,sim_manager_batch_00001,882ca_00001
+2,"loss    0.0
+dtype: float64",0.0,1743557641,,False,1,882ca_00002,2025-04-01_21-34-01,6.864150524139404,6.864150524139404,288235,node15,10.0.0.15,6.864150524139404,1,req2,/ddn/niknovikov19/test/model_tuner/test_run_batch_qsub/requests/requests.json,/ddn/niknovikov19/test/model_tuner/test_run_batch_qsub/results,sim_manager_batch_00002,882ca_00002
+3,"loss    0.0
+dtype: float64",0.0,1743557641,,False,1,882ca_00003,2025-04-01_21-34-01,6.873699903488159,6.873699903488159,288238,node15,10.0.0.15,6.873699903488159,1,req3,/ddn/niknovikov19/test/model_tuner/test_run_batch_qsub/requests/requests.json,/ddn/niknovikov19/test/model_tuner/test_run_batch_qsub/results,sim_manager_batch_00003,882ca_00003
+4,"loss    0.0
+dtype: float64",0.0,1743557641,,False,1,882ca_00004,2025-04-01_21-34-01,6.86265230178833,6.86265230178833,288236,node15,10.0.0.15,6.86265230178833,1,req4,/ddn/niknovikov19/test/model_tuner/test_run_batch_qsub/requests/requests.json,/ddn/niknovikov19/test/model_tuner/test_run_batch_qsub/results,sim_manager_batch_00004,882ca_00004

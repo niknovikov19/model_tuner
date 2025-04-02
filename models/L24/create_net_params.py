@@ -189,8 +189,10 @@ def create_net_params(cfg):
         
         if cfg.equal_inputs:
             inp_rate = cfg.ext_inp_rate_common
+            print(f'Input to {pop_name} (common): {inp_rate}')
         else:
             inp_rate = cfg.ext_input_rates[pop_name]
+            print(f'Input to {pop_name} (individual): {inp_rate}')
         
         netParams.popParams['poiss' + pop_name] = {
             'numCells': N_[r], 
