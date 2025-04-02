@@ -46,10 +46,13 @@ if is_batch:
 
 print(f'Experiment name: {exp_name}, batch={is_batch}')
 
-# Import experiment-specific config py-file
+# Import experiment-specific config and batch py-files
 fpath_exp_cfg = dirpath_self / DIRNAME_EXP_CONFIGS / exp_name / 'exp_cfg.py'
-print(f'Experiment config: {fpath_exp_cfg}')
+fpath_exp_batch = dirpath_self / DIRNAME_EXP_CONFIGS / exp_name / 'batch_params.py'
+#print(f'Experiment config: {fpath_exp_cfg}')
 cfg_mod = load_module(fpath_exp_cfg)
+if is_batch:
+    batch_mod = load_module(fpath_exp_batch)
 
 # Initialize config object, common for every experiment of the model
 cfg = create_base_cfg()
@@ -69,8 +72,8 @@ cfg.update_cfg()
 
 # Apply experiment-specific post-update config modifications
 # (derive other params from the ones set by batchtools in update_cfg)
-if hasattr(cfg_mod, 'post_update'):
-    cfg_mod.post_update(cfg)
+if is_batch and hasattr(batch_mod, 'post_update'):
+    batch_mod.post_update(cfg)
 
 # Create netParams based on the config
 netParams = create_net_params(cfg)
@@ -78,7 +81,7 @@ netParams = create_net_params(cfg)
 comm.initialize()
 
 # Save the config into the output folder
-if comm.is_host() or not is_batch:
+if comm.is_host():
     cfg.save("{}/{}_cfg.json".format(cfg.saveFolder, cfg.simLabel))
     netParams.save('{}/{}_netParams.json'.format(cfg.saveFolder, cfg.simLabel))
 
@@ -103,7 +106,7 @@ if need_run:
     # Plot the result
     sim.analysis.plotData()         			# plot spike raster etc
 
-# Close the communication with the batchtools master process
+# Finalize
 if comm.is_host():
    out_json = json.dumps({'loss': 0})
    comm.send(out_json)
