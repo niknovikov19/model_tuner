@@ -34,8 +34,8 @@ class NetInputND(NetInput):
             pop_inp.vars[var_name] for pop_inp in self.pop_inputs.values()
         ])
     
-"""     def to_values_dict(self) -> Dict[str, float]:
+    def to_values_dict(self) -> Dict[str, Dict[str, float]]:
         vd = {}
         for pop_name, pop_inp in self.pop_inputs.items():
-            vd[pop_name] = pop_inp.value
-        return vd """
+            vd[pop_name] = pop_inp.vars
+        return vd

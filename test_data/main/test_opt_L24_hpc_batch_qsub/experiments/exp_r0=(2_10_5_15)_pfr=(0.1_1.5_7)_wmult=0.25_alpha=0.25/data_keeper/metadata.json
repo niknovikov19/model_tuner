@@ -1,0 +1,4272 @@
+{
+    "net_spikes_req_0_0_f1cbc334ac70e45aed020f6b1a273541": {
+        "name": "net_spikes_req_0_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_0_0_data.pkl"
+                },
+                "net_spikes_req_0_0": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_0_0\\net_spikes_req_0_0_f1cbc334ac70e45aed020f6b1a273541.pkl"
+    },
+    "net_rates_req_0_0_537bd79a9461641bc9e62a02725c9147": {
+        "name": "net_rates_req_0_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_0_0_data.pkl"
+                },
+                "net_spikes_req_0_0": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_0_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_0_0\\net_rates_req_0_0_537bd79a9461641bc9e62a02725c9147.pkl"
+    },
+    "net_spikes_req_0_1_0c5e31860fb9fa996d26a5164a154558": {
+        "name": "net_spikes_req_0_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_0_1_data.pkl"
+                },
+                "net_spikes_req_0_1": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_0_1\\net_spikes_req_0_1_0c5e31860fb9fa996d26a5164a154558.pkl"
+    },
+    "net_rates_req_0_1_5e377d357c3a8815d091ba253c7802ce": {
+        "name": "net_rates_req_0_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_0_1_data.pkl"
+                },
+                "net_spikes_req_0_1": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_0_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_0_1\\net_rates_req_0_1_5e377d357c3a8815d091ba253c7802ce.pkl"
+    },
+    "net_spikes_req_0_2_c7bec290db9163e4378822b7ed1fbd31": {
+        "name": "net_spikes_req_0_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_0_2_data.pkl"
+                },
+                "net_spikes_req_0_2": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_0_2\\net_spikes_req_0_2_c7bec290db9163e4378822b7ed1fbd31.pkl"
+    },
+    "net_rates_req_0_2_e053d4e23ee838b4c76d1050c1e6c7d4": {
+        "name": "net_rates_req_0_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_0_2_data.pkl"
+                },
+                "net_spikes_req_0_2": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_0_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_0_2\\net_rates_req_0_2_e053d4e23ee838b4c76d1050c1e6c7d4.pkl"
+    },
+    "net_spikes_req_0_3_e214b775a561a3edb30152fa56fcb4fa": {
+        "name": "net_spikes_req_0_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_0_3_data.pkl"
+                },
+                "net_spikes_req_0_3": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_0_3\\net_spikes_req_0_3_e214b775a561a3edb30152fa56fcb4fa.pkl"
+    },
+    "net_rates_req_0_3_81ac308b2662d7e198dc35d9fbb9c975": {
+        "name": "net_rates_req_0_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_0_3_data.pkl"
+                },
+                "net_spikes_req_0_3": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_0_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_0_3\\net_rates_req_0_3_81ac308b2662d7e198dc35d9fbb9c975.pkl"
+    },
+    "net_spikes_req_0_4_e82ddab19cb67fb49b490abdce214ae7": {
+        "name": "net_spikes_req_0_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_0_4_data.pkl"
+                },
+                "net_spikes_req_0_4": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_0_4\\net_spikes_req_0_4_e82ddab19cb67fb49b490abdce214ae7.pkl"
+    },
+    "net_rates_req_0_4_effbdcaa3c94667282195cfb595658e7": {
+        "name": "net_rates_req_0_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_0_4_data.pkl"
+                },
+                "net_spikes_req_0_4": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_0_4": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_0_4\\net_rates_req_0_4_effbdcaa3c94667282195cfb595658e7.pkl"
+    },
+    "net_spikes_req_0_5_bfc49a21fce8024103470bf128908d74": {
+        "name": "net_spikes_req_0_5",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_0_5_data.pkl"
+                },
+                "net_spikes_req_0_5": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_0_5\\net_spikes_req_0_5_bfc49a21fce8024103470bf128908d74.pkl"
+    },
+    "net_rates_req_0_5_62282e4a107b5396cca77bb73e13e697": {
+        "name": "net_rates_req_0_5",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_0_5_data.pkl"
+                },
+                "net_spikes_req_0_5": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_0_5": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_0_5\\net_rates_req_0_5_62282e4a107b5396cca77bb73e13e697.pkl"
+    },
+    "net_spikes_req_0_6_1cd5a5e006e40e0404e021f723a5c649": {
+        "name": "net_spikes_req_0_6",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_0_6_data.pkl"
+                },
+                "net_spikes_req_0_6": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_0_6\\net_spikes_req_0_6_1cd5a5e006e40e0404e021f723a5c649.pkl"
+    },
+    "net_rates_req_0_6_bd7b08c32fa2b0e8c4afacfbb9fb096e": {
+        "name": "net_rates_req_0_6",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_0_6_data.pkl"
+                },
+                "net_spikes_req_0_6": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_0_6": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_0_6\\net_rates_req_0_6_bd7b08c32fa2b0e8c4afacfbb9fb096e.pkl"
+    },
+    "net_spikes_req_1_0_b56c8bc457deeb59db64eb200b2b5c8a": {
+        "name": "net_spikes_req_1_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_1_0_data.pkl"
+                },
+                "net_spikes_req_1_0": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_1_0\\net_spikes_req_1_0_b56c8bc457deeb59db64eb200b2b5c8a.pkl"
+    },
+    "net_rates_req_1_0_4eea10582da9bc5f41421a4ccb64f8ce": {
+        "name": "net_rates_req_1_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_1_0_data.pkl"
+                },
+                "net_spikes_req_1_0": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_1_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_1_0\\net_rates_req_1_0_4eea10582da9bc5f41421a4ccb64f8ce.pkl"
+    },
+    "net_spikes_req_1_1_fc3d1869dc8bedfa5fa8a3a616728bc9": {
+        "name": "net_spikes_req_1_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_1_1_data.pkl"
+                },
+                "net_spikes_req_1_1": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_1_1\\net_spikes_req_1_1_fc3d1869dc8bedfa5fa8a3a616728bc9.pkl"
+    },
+    "net_rates_req_1_1_ddab0efc97b771026ac7c6d487adb527": {
+        "name": "net_rates_req_1_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_1_1_data.pkl"
+                },
+                "net_spikes_req_1_1": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_1_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_1_1\\net_rates_req_1_1_ddab0efc97b771026ac7c6d487adb527.pkl"
+    },
+    "net_spikes_req_1_2_811f5f9ef5eb9cb023df65d8c2a914a6": {
+        "name": "net_spikes_req_1_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_1_2_data.pkl"
+                },
+                "net_spikes_req_1_2": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_1_2\\net_spikes_req_1_2_811f5f9ef5eb9cb023df65d8c2a914a6.pkl"
+    },
+    "net_rates_req_1_2_6626a203f792ed2280ac5541510284c4": {
+        "name": "net_rates_req_1_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_1_2_data.pkl"
+                },
+                "net_spikes_req_1_2": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_1_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_1_2\\net_rates_req_1_2_6626a203f792ed2280ac5541510284c4.pkl"
+    },
+    "net_spikes_req_1_3_60e8405f1753933ad91198d95e1e6294": {
+        "name": "net_spikes_req_1_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_1_3_data.pkl"
+                },
+                "net_spikes_req_1_3": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_1_3\\net_spikes_req_1_3_60e8405f1753933ad91198d95e1e6294.pkl"
+    },
+    "net_rates_req_1_3_8e3cf39c07e29100d72a415cd20d40d1": {
+        "name": "net_rates_req_1_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_1_3_data.pkl"
+                },
+                "net_spikes_req_1_3": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_1_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_1_3\\net_rates_req_1_3_8e3cf39c07e29100d72a415cd20d40d1.pkl"
+    },
+    "net_spikes_req_1_4_be5d9d29e53f226b0c86914a549bbe1a": {
+        "name": "net_spikes_req_1_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_1_4_data.pkl"
+                },
+                "net_spikes_req_1_4": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_1_4\\net_spikes_req_1_4_be5d9d29e53f226b0c86914a549bbe1a.pkl"
+    },
+    "net_rates_req_1_4_6c391eb63de6b127b7c32ac741900e1c": {
+        "name": "net_rates_req_1_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_1_4_data.pkl"
+                },
+                "net_spikes_req_1_4": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_1_4": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_1_4\\net_rates_req_1_4_6c391eb63de6b127b7c32ac741900e1c.pkl"
+    },
+    "net_spikes_req_1_5_4e4ace5d7eb3bc7a34c0d3bebfd4469e": {
+        "name": "net_spikes_req_1_5",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_1_5_data.pkl"
+                },
+                "net_spikes_req_1_5": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_1_5\\net_spikes_req_1_5_4e4ace5d7eb3bc7a34c0d3bebfd4469e.pkl"
+    },
+    "net_rates_req_1_5_6fc7e30e50d4aeb2eb9e6a53601d9091": {
+        "name": "net_rates_req_1_5",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_1_5_data.pkl"
+                },
+                "net_spikes_req_1_5": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_1_5": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_1_5\\net_rates_req_1_5_6fc7e30e50d4aeb2eb9e6a53601d9091.pkl"
+    },
+    "net_spikes_req_1_6_c3a7cfdd728556996bdd043c100ee9cb": {
+        "name": "net_spikes_req_1_6",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_1_6_data.pkl"
+                },
+                "net_spikes_req_1_6": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_1_6\\net_spikes_req_1_6_c3a7cfdd728556996bdd043c100ee9cb.pkl"
+    },
+    "net_rates_req_1_6_b302008c8285d04b46fc048bc4300f25": {
+        "name": "net_rates_req_1_6",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_1_6_data.pkl"
+                },
+                "net_spikes_req_1_6": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_1_6": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_1_6\\net_rates_req_1_6_b302008c8285d04b46fc048bc4300f25.pkl"
+    },
+    "net_spikes_req_2_0_aebcda32724bf049ee200e67fe3e9aab": {
+        "name": "net_spikes_req_2_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_2_0_data.pkl"
+                },
+                "net_spikes_req_2_0": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_2_0\\net_spikes_req_2_0_aebcda32724bf049ee200e67fe3e9aab.pkl"
+    },
+    "net_rates_req_2_0_fc05d1327f8a46bcd72676e30369b968": {
+        "name": "net_rates_req_2_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_2_0_data.pkl"
+                },
+                "net_spikes_req_2_0": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_2_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_2_0\\net_rates_req_2_0_fc05d1327f8a46bcd72676e30369b968.pkl"
+    },
+    "net_spikes_req_2_1_0b99f5ae44a2c83ed2da34e149cbfa00": {
+        "name": "net_spikes_req_2_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_2_1_data.pkl"
+                },
+                "net_spikes_req_2_1": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_2_1\\net_spikes_req_2_1_0b99f5ae44a2c83ed2da34e149cbfa00.pkl"
+    },
+    "net_rates_req_2_1_e9d9d898d84906fa63befdb2ae13fd5a": {
+        "name": "net_rates_req_2_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_2_1_data.pkl"
+                },
+                "net_spikes_req_2_1": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_2_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_2_1\\net_rates_req_2_1_e9d9d898d84906fa63befdb2ae13fd5a.pkl"
+    },
+    "net_spikes_req_2_2_a56c6cee26d2780dec88ca6ed7623f15": {
+        "name": "net_spikes_req_2_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_2_2_data.pkl"
+                },
+                "net_spikes_req_2_2": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_2_2\\net_spikes_req_2_2_a56c6cee26d2780dec88ca6ed7623f15.pkl"
+    },
+    "net_rates_req_2_2_e2bbe26f117993b3ec2050b839049d3d": {
+        "name": "net_rates_req_2_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_2_2_data.pkl"
+                },
+                "net_spikes_req_2_2": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_2_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_2_2\\net_rates_req_2_2_e2bbe26f117993b3ec2050b839049d3d.pkl"
+    },
+    "net_spikes_req_2_3_3190a5381a164a3c35c53b348bad0c39": {
+        "name": "net_spikes_req_2_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_2_3_data.pkl"
+                },
+                "net_spikes_req_2_3": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_2_3\\net_spikes_req_2_3_3190a5381a164a3c35c53b348bad0c39.pkl"
+    },
+    "net_rates_req_2_3_9d5d8b862f76c4ed303fb7ac24431a48": {
+        "name": "net_rates_req_2_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_2_3_data.pkl"
+                },
+                "net_spikes_req_2_3": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_2_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_2_3\\net_rates_req_2_3_9d5d8b862f76c4ed303fb7ac24431a48.pkl"
+    },
+    "net_spikes_req_2_4_0d261ac8882bb927c4e1750ab999057e": {
+        "name": "net_spikes_req_2_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_2_4_data.pkl"
+                },
+                "net_spikes_req_2_4": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_2_4\\net_spikes_req_2_4_0d261ac8882bb927c4e1750ab999057e.pkl"
+    },
+    "net_rates_req_2_4_096633a777f2f7bdf7774a9ae13b075f": {
+        "name": "net_rates_req_2_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_2_4_data.pkl"
+                },
+                "net_spikes_req_2_4": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_2_4": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_2_4\\net_rates_req_2_4_096633a777f2f7bdf7774a9ae13b075f.pkl"
+    },
+    "net_spikes_req_2_5_8c620cb5eb543c78adb0d564247f4d22": {
+        "name": "net_spikes_req_2_5",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_2_5_data.pkl"
+                },
+                "net_spikes_req_2_5": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_2_5\\net_spikes_req_2_5_8c620cb5eb543c78adb0d564247f4d22.pkl"
+    },
+    "net_rates_req_2_5_e48057b9ee358cd932150cd2a8f7a2de": {
+        "name": "net_rates_req_2_5",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_2_5_data.pkl"
+                },
+                "net_spikes_req_2_5": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_2_5": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_2_5\\net_rates_req_2_5_e48057b9ee358cd932150cd2a8f7a2de.pkl"
+    },
+    "net_spikes_req_2_6_328c8fcb93853618edf8ceab8a994ad3": {
+        "name": "net_spikes_req_2_6",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_2_6_data.pkl"
+                },
+                "net_spikes_req_2_6": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_2_6\\net_spikes_req_2_6_328c8fcb93853618edf8ceab8a994ad3.pkl"
+    },
+    "net_rates_req_2_6_2e3ed06d420d80cdd7353bb77fa44390": {
+        "name": "net_rates_req_2_6",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_2_6_data.pkl"
+                },
+                "net_spikes_req_2_6": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_2_6": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_2_6\\net_rates_req_2_6_2e3ed06d420d80cdd7353bb77fa44390.pkl"
+    },
+    "net_spikes_req_3_0_08145999c4d2f1becdcf4e2170739392": {
+        "name": "net_spikes_req_3_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_3_0_data.pkl"
+                },
+                "net_spikes_req_3_0": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_3_0\\net_spikes_req_3_0_08145999c4d2f1becdcf4e2170739392.pkl"
+    },
+    "net_rates_req_3_0_d342bd3d6c70be3751609d0f94dff823": {
+        "name": "net_rates_req_3_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_3_0_data.pkl"
+                },
+                "net_spikes_req_3_0": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_3_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_3_0\\net_rates_req_3_0_d342bd3d6c70be3751609d0f94dff823.pkl"
+    },
+    "net_spikes_req_3_1_b314f4ecfb96fa224942beca6844d58b": {
+        "name": "net_spikes_req_3_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_3_1_data.pkl"
+                },
+                "net_spikes_req_3_1": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_3_1\\net_spikes_req_3_1_b314f4ecfb96fa224942beca6844d58b.pkl"
+    },
+    "net_rates_req_3_1_b8d86759d014f5d4164f9877ad985f85": {
+        "name": "net_rates_req_3_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_3_1_data.pkl"
+                },
+                "net_spikes_req_3_1": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_3_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_3_1\\net_rates_req_3_1_b8d86759d014f5d4164f9877ad985f85.pkl"
+    },
+    "net_spikes_req_3_2_23791800d4c1802569df7b0ef0df98ff": {
+        "name": "net_spikes_req_3_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_3_2_data.pkl"
+                },
+                "net_spikes_req_3_2": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_3_2\\net_spikes_req_3_2_23791800d4c1802569df7b0ef0df98ff.pkl"
+    },
+    "net_rates_req_3_2_fb1abc714f4c6f477c55eb4eb8818d56": {
+        "name": "net_rates_req_3_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_3_2_data.pkl"
+                },
+                "net_spikes_req_3_2": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_3_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_3_2\\net_rates_req_3_2_fb1abc714f4c6f477c55eb4eb8818d56.pkl"
+    },
+    "net_spikes_req_3_3_76feb49b355d1a7f49ff56a7fa89facf": {
+        "name": "net_spikes_req_3_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_3_3_data.pkl"
+                },
+                "net_spikes_req_3_3": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_3_3\\net_spikes_req_3_3_76feb49b355d1a7f49ff56a7fa89facf.pkl"
+    },
+    "net_rates_req_3_3_45ca30ada6db808c6ac98071ea413eec": {
+        "name": "net_rates_req_3_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_3_3_data.pkl"
+                },
+                "net_spikes_req_3_3": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_3_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_3_3\\net_rates_req_3_3_45ca30ada6db808c6ac98071ea413eec.pkl"
+    },
+    "net_spikes_req_3_4_5e696ceaa653eb7cf489272c2a1bb5eb": {
+        "name": "net_spikes_req_3_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_3_4_data.pkl"
+                },
+                "net_spikes_req_3_4": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_3_4\\net_spikes_req_3_4_5e696ceaa653eb7cf489272c2a1bb5eb.pkl"
+    },
+    "net_rates_req_3_4_7732160b39374fdb2f9802057fc76380": {
+        "name": "net_rates_req_3_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_3_4_data.pkl"
+                },
+                "net_spikes_req_3_4": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_3_4": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_3_4\\net_rates_req_3_4_7732160b39374fdb2f9802057fc76380.pkl"
+    },
+    "net_spikes_req_3_5_7cf71dc844fb9b36c37e9091a967287b": {
+        "name": "net_spikes_req_3_5",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_3_5_data.pkl"
+                },
+                "net_spikes_req_3_5": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_3_5\\net_spikes_req_3_5_7cf71dc844fb9b36c37e9091a967287b.pkl"
+    },
+    "net_rates_req_3_5_fec48ebc17a0cc88afbe0dfe3f5f5b7c": {
+        "name": "net_rates_req_3_5",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_3_5_data.pkl"
+                },
+                "net_spikes_req_3_5": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_3_5": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_3_5\\net_rates_req_3_5_fec48ebc17a0cc88afbe0dfe3f5f5b7c.pkl"
+    },
+    "net_spikes_req_3_6_c5d78bee1fd3fb7e3be375abc40da92d": {
+        "name": "net_spikes_req_3_6",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_3_6_data.pkl"
+                },
+                "net_spikes_req_3_6": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_3_6\\net_spikes_req_3_6_c5d78bee1fd3fb7e3be375abc40da92d.pkl"
+    },
+    "net_rates_req_3_6_5a8e5a521c29c58cb675b4698690acd4": {
+        "name": "net_rates_req_3_6",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_3_6_data.pkl"
+                },
+                "net_spikes_req_3_6": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_3_6": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_3_6\\net_rates_req_3_6_5a8e5a521c29c58cb675b4698690acd4.pkl"
+    },
+    "net_spikes_req_4_0_8e941a166fa6920c5976c70ec7b01c08": {
+        "name": "net_spikes_req_4_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_4_0_data.pkl"
+                },
+                "net_spikes_req_4_0": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_4_0\\net_spikes_req_4_0_8e941a166fa6920c5976c70ec7b01c08.pkl"
+    },
+    "net_rates_req_4_0_918369af5010fe94a49728c913fb57c5": {
+        "name": "net_rates_req_4_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_4_0_data.pkl"
+                },
+                "net_spikes_req_4_0": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_4_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_4_0\\net_rates_req_4_0_918369af5010fe94a49728c913fb57c5.pkl"
+    },
+    "net_spikes_req_4_1_e17612bcc58d0dd7cc4166b44bd2ff76": {
+        "name": "net_spikes_req_4_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_4_1_data.pkl"
+                },
+                "net_spikes_req_4_1": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_4_1\\net_spikes_req_4_1_e17612bcc58d0dd7cc4166b44bd2ff76.pkl"
+    },
+    "net_rates_req_4_1_5227fcb24ba46f22891f281a7b892a3e": {
+        "name": "net_rates_req_4_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_4_1_data.pkl"
+                },
+                "net_spikes_req_4_1": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_4_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_4_1\\net_rates_req_4_1_5227fcb24ba46f22891f281a7b892a3e.pkl"
+    },
+    "net_spikes_req_4_2_f3320ba93a70fc1246cdf47b408edaf2": {
+        "name": "net_spikes_req_4_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_4_2_data.pkl"
+                },
+                "net_spikes_req_4_2": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_4_2\\net_spikes_req_4_2_f3320ba93a70fc1246cdf47b408edaf2.pkl"
+    },
+    "net_rates_req_4_2_142122db53b09a448d389facac00104e": {
+        "name": "net_rates_req_4_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_4_2_data.pkl"
+                },
+                "net_spikes_req_4_2": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_4_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_4_2\\net_rates_req_4_2_142122db53b09a448d389facac00104e.pkl"
+    },
+    "net_spikes_req_4_3_333df8ac82d3305f8ef82e535a20df98": {
+        "name": "net_spikes_req_4_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_4_3_data.pkl"
+                },
+                "net_spikes_req_4_3": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_4_3\\net_spikes_req_4_3_333df8ac82d3305f8ef82e535a20df98.pkl"
+    },
+    "net_rates_req_4_3_99f8fc14245a9c1fc768c194e1c20d62": {
+        "name": "net_rates_req_4_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_4_3_data.pkl"
+                },
+                "net_spikes_req_4_3": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_4_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_4_3\\net_rates_req_4_3_99f8fc14245a9c1fc768c194e1c20d62.pkl"
+    },
+    "net_spikes_req_4_4_043b9748f5aaf222a7d1134b06f6df16": {
+        "name": "net_spikes_req_4_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_4_4_data.pkl"
+                },
+                "net_spikes_req_4_4": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_4_4\\net_spikes_req_4_4_043b9748f5aaf222a7d1134b06f6df16.pkl"
+    },
+    "net_rates_req_4_4_5eccfc5e993f84a0189009965851001b": {
+        "name": "net_rates_req_4_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_4_4_data.pkl"
+                },
+                "net_spikes_req_4_4": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_4_4": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_4_4\\net_rates_req_4_4_5eccfc5e993f84a0189009965851001b.pkl"
+    },
+    "net_spikes_req_4_5_1edec4dcc3b172b69cf55b4b69929f44": {
+        "name": "net_spikes_req_4_5",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_4_5_data.pkl"
+                },
+                "net_spikes_req_4_5": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_4_5\\net_spikes_req_4_5_1edec4dcc3b172b69cf55b4b69929f44.pkl"
+    },
+    "net_rates_req_4_5_bdc90a30e3e8dcbba41633f610478ec0": {
+        "name": "net_rates_req_4_5",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_4_5_data.pkl"
+                },
+                "net_spikes_req_4_5": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_4_5": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_4_5\\net_rates_req_4_5_bdc90a30e3e8dcbba41633f610478ec0.pkl"
+    },
+    "net_spikes_req_4_6_288f797beb61c8fb35c87312de7f0583": {
+        "name": "net_spikes_req_4_6",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_4_6_data.pkl"
+                },
+                "net_spikes_req_4_6": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_4_6\\net_spikes_req_4_6_288f797beb61c8fb35c87312de7f0583.pkl"
+    },
+    "net_rates_req_4_6_06bd6e0e25dc191d8f97b2d154d7b9c8": {
+        "name": "net_rates_req_4_6",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_4_6_data.pkl"
+                },
+                "net_spikes_req_4_6": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_4_6": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_4_6\\net_rates_req_4_6_06bd6e0e25dc191d8f97b2d154d7b9c8.pkl"
+    },
+    "net_spikes_req_5_0_49f3782a4375bbb7265f41fe3202faaf": {
+        "name": "net_spikes_req_5_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_5_0_data.pkl"
+                },
+                "net_spikes_req_5_0": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_5_0\\net_spikes_req_5_0_49f3782a4375bbb7265f41fe3202faaf.pkl"
+    },
+    "net_rates_req_5_0_598bb442a0fe3aeed59f45b62c54d090": {
+        "name": "net_rates_req_5_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_5_0_data.pkl"
+                },
+                "net_spikes_req_5_0": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_5_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_5_0\\net_rates_req_5_0_598bb442a0fe3aeed59f45b62c54d090.pkl"
+    },
+    "net_spikes_req_5_1_18b87c14fdebedaf960426f0c7dd0d7c": {
+        "name": "net_spikes_req_5_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_5_1_data.pkl"
+                },
+                "net_spikes_req_5_1": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_5_1\\net_spikes_req_5_1_18b87c14fdebedaf960426f0c7dd0d7c.pkl"
+    },
+    "net_rates_req_5_1_76bcfb0ed1fedddaf36940b3f67707db": {
+        "name": "net_rates_req_5_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_5_1_data.pkl"
+                },
+                "net_spikes_req_5_1": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_5_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_5_1\\net_rates_req_5_1_76bcfb0ed1fedddaf36940b3f67707db.pkl"
+    },
+    "net_spikes_req_5_2_dbf6441210dcf492c3e158bd9d9cebe9": {
+        "name": "net_spikes_req_5_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_5_2_data.pkl"
+                },
+                "net_spikes_req_5_2": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_5_2\\net_spikes_req_5_2_dbf6441210dcf492c3e158bd9d9cebe9.pkl"
+    },
+    "net_rates_req_5_2_01ec7ce68d45bed48724a2833a7d88ac": {
+        "name": "net_rates_req_5_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_5_2_data.pkl"
+                },
+                "net_spikes_req_5_2": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_5_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_5_2\\net_rates_req_5_2_01ec7ce68d45bed48724a2833a7d88ac.pkl"
+    },
+    "net_spikes_req_5_3_b1db0b2fef261621be69731adcc5e76e": {
+        "name": "net_spikes_req_5_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_5_3_data.pkl"
+                },
+                "net_spikes_req_5_3": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_5_3\\net_spikes_req_5_3_b1db0b2fef261621be69731adcc5e76e.pkl"
+    },
+    "net_rates_req_5_3_7c345ad5f045b8e579ed130230f39be6": {
+        "name": "net_rates_req_5_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_5_3_data.pkl"
+                },
+                "net_spikes_req_5_3": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_5_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_5_3\\net_rates_req_5_3_7c345ad5f045b8e579ed130230f39be6.pkl"
+    },
+    "net_spikes_req_5_4_a35739fdc5f1e7fadb2c7c0272ff009a": {
+        "name": "net_spikes_req_5_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_5_4_data.pkl"
+                },
+                "net_spikes_req_5_4": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_5_4\\net_spikes_req_5_4_a35739fdc5f1e7fadb2c7c0272ff009a.pkl"
+    },
+    "net_rates_req_5_4_379f4a22d9bc34ebac6b2ac84d13d39b": {
+        "name": "net_rates_req_5_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_5_4_data.pkl"
+                },
+                "net_spikes_req_5_4": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_5_4": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_5_4\\net_rates_req_5_4_379f4a22d9bc34ebac6b2ac84d13d39b.pkl"
+    },
+    "net_spikes_req_5_5_ffdc469291ad69bb3159c90832c8dd08": {
+        "name": "net_spikes_req_5_5",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_5_5_data.pkl"
+                },
+                "net_spikes_req_5_5": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_5_5\\net_spikes_req_5_5_ffdc469291ad69bb3159c90832c8dd08.pkl"
+    },
+    "net_rates_req_5_5_510008c82645894fe5a63c507798e547": {
+        "name": "net_rates_req_5_5",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_5_5_data.pkl"
+                },
+                "net_spikes_req_5_5": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_5_5": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_5_5\\net_rates_req_5_5_510008c82645894fe5a63c507798e547.pkl"
+    },
+    "net_spikes_req_5_6_16604cabca234490f723edd591d0ade7": {
+        "name": "net_spikes_req_5_6",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_5_6_data.pkl"
+                },
+                "net_spikes_req_5_6": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_5_6\\net_spikes_req_5_6_16604cabca234490f723edd591d0ade7.pkl"
+    },
+    "net_rates_req_5_6_5b03371ff0b09bbd7fc6675f43004e96": {
+        "name": "net_rates_req_5_6",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_5_6_data.pkl"
+                },
+                "net_spikes_req_5_6": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_5_6": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_5_6\\net_rates_req_5_6_5b03371ff0b09bbd7fc6675f43004e96.pkl"
+    },
+    "net_spikes_req_6_0_73da693d28ba20e4cb732aae2fb9e6a2": {
+        "name": "net_spikes_req_6_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_6_0_data.pkl"
+                },
+                "net_spikes_req_6_0": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_6_0\\net_spikes_req_6_0_73da693d28ba20e4cb732aae2fb9e6a2.pkl"
+    },
+    "net_rates_req_6_0_38061b5bf107f1fdebac7c07b074b6fa": {
+        "name": "net_rates_req_6_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_6_0_data.pkl"
+                },
+                "net_spikes_req_6_0": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_6_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_6_0\\net_rates_req_6_0_38061b5bf107f1fdebac7c07b074b6fa.pkl"
+    },
+    "net_spikes_req_6_1_67b2de20f5420180609946ce5f9de695": {
+        "name": "net_spikes_req_6_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_6_1_data.pkl"
+                },
+                "net_spikes_req_6_1": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_6_1\\net_spikes_req_6_1_67b2de20f5420180609946ce5f9de695.pkl"
+    },
+    "net_rates_req_6_1_d9f70f3ff98d086c7564f11510c15218": {
+        "name": "net_rates_req_6_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_6_1_data.pkl"
+                },
+                "net_spikes_req_6_1": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_6_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_6_1\\net_rates_req_6_1_d9f70f3ff98d086c7564f11510c15218.pkl"
+    },
+    "net_spikes_req_6_2_e26d5c32dec7d31cdb90f0936aac0ed0": {
+        "name": "net_spikes_req_6_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_6_2_data.pkl"
+                },
+                "net_spikes_req_6_2": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_6_2\\net_spikes_req_6_2_e26d5c32dec7d31cdb90f0936aac0ed0.pkl"
+    },
+    "net_rates_req_6_2_10d26582e6eb3a6cf7a11de9a8fc892c": {
+        "name": "net_rates_req_6_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_6_2_data.pkl"
+                },
+                "net_spikes_req_6_2": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_6_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_6_2\\net_rates_req_6_2_10d26582e6eb3a6cf7a11de9a8fc892c.pkl"
+    },
+    "net_spikes_req_6_3_08475be93650d6120862d2be232a8a02": {
+        "name": "net_spikes_req_6_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_6_3_data.pkl"
+                },
+                "net_spikes_req_6_3": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_6_3\\net_spikes_req_6_3_08475be93650d6120862d2be232a8a02.pkl"
+    },
+    "net_rates_req_6_3_3ae0069162f8b7bac7a48c3de5e44b26": {
+        "name": "net_rates_req_6_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_6_3_data.pkl"
+                },
+                "net_spikes_req_6_3": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_6_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_6_3\\net_rates_req_6_3_3ae0069162f8b7bac7a48c3de5e44b26.pkl"
+    },
+    "net_spikes_req_6_4_1933c3c578a1a3c0172d9c7c26474f65": {
+        "name": "net_spikes_req_6_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_6_4_data.pkl"
+                },
+                "net_spikes_req_6_4": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_6_4\\net_spikes_req_6_4_1933c3c578a1a3c0172d9c7c26474f65.pkl"
+    },
+    "net_rates_req_6_4_219b0a7b3d8964231cd97481dba8b8f7": {
+        "name": "net_rates_req_6_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_6_4_data.pkl"
+                },
+                "net_spikes_req_6_4": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_6_4": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_6_4\\net_rates_req_6_4_219b0a7b3d8964231cd97481dba8b8f7.pkl"
+    },
+    "net_spikes_req_6_5_9b232bdee552e3469e3e1d079419d710": {
+        "name": "net_spikes_req_6_5",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_6_5_data.pkl"
+                },
+                "net_spikes_req_6_5": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_6_5\\net_spikes_req_6_5_9b232bdee552e3469e3e1d079419d710.pkl"
+    },
+    "net_rates_req_6_5_6aa87d7e19fcbae6a51e55142bf24c82": {
+        "name": "net_rates_req_6_5",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_6_5_data.pkl"
+                },
+                "net_spikes_req_6_5": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_6_5": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_6_5\\net_rates_req_6_5_6aa87d7e19fcbae6a51e55142bf24c82.pkl"
+    },
+    "net_spikes_req_6_6_8be182d631dca482ea5e78ae27e032fe": {
+        "name": "net_spikes_req_6_6",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_6_6_data.pkl"
+                },
+                "net_spikes_req_6_6": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_6_6\\net_spikes_req_6_6_8be182d631dca482ea5e78ae27e032fe.pkl"
+    },
+    "net_rates_req_6_6_e59feed14198297b03258f274abea580": {
+        "name": "net_rates_req_6_6",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_6_6_data.pkl"
+                },
+                "net_spikes_req_6_6": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_6_6": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_6_6\\net_rates_req_6_6_e59feed14198297b03258f274abea580.pkl"
+    },
+    "net_spikes_req_7_0_3caa1bb7847c40becaf664a37773c806": {
+        "name": "net_spikes_req_7_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_7_0_data.pkl"
+                },
+                "net_spikes_req_7_0": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_7_0\\net_spikes_req_7_0_3caa1bb7847c40becaf664a37773c806.pkl"
+    },
+    "net_rates_req_7_0_faa782283efb1c1b70de7ae1aaf84c15": {
+        "name": "net_rates_req_7_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_7_0_data.pkl"
+                },
+                "net_spikes_req_7_0": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_7_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_7_0\\net_rates_req_7_0_faa782283efb1c1b70de7ae1aaf84c15.pkl"
+    },
+    "net_spikes_req_7_1_6833ec7c58ef42c07266a35d432d9c43": {
+        "name": "net_spikes_req_7_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_7_1_data.pkl"
+                },
+                "net_spikes_req_7_1": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_7_1\\net_spikes_req_7_1_6833ec7c58ef42c07266a35d432d9c43.pkl"
+    },
+    "net_rates_req_7_1_ec8e7ebec47915764852a8cf1c2e9f7b": {
+        "name": "net_rates_req_7_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_7_1_data.pkl"
+                },
+                "net_spikes_req_7_1": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_7_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_7_1\\net_rates_req_7_1_ec8e7ebec47915764852a8cf1c2e9f7b.pkl"
+    },
+    "net_spikes_req_7_2_cd7fc1ca3bd099e45147a5b8538b4be4": {
+        "name": "net_spikes_req_7_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_7_2_data.pkl"
+                },
+                "net_spikes_req_7_2": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_7_2\\net_spikes_req_7_2_cd7fc1ca3bd099e45147a5b8538b4be4.pkl"
+    },
+    "net_rates_req_7_2_0d5f1ad551fa933d533dc9e66b44b6bd": {
+        "name": "net_rates_req_7_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_7_2_data.pkl"
+                },
+                "net_spikes_req_7_2": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_7_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_7_2\\net_rates_req_7_2_0d5f1ad551fa933d533dc9e66b44b6bd.pkl"
+    },
+    "net_spikes_req_7_3_dd38792ca99efd6179ba3adca06c941e": {
+        "name": "net_spikes_req_7_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_7_3_data.pkl"
+                },
+                "net_spikes_req_7_3": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_7_3\\net_spikes_req_7_3_dd38792ca99efd6179ba3adca06c941e.pkl"
+    },
+    "net_rates_req_7_3_79f40f7686d5e191c939438f48ccb5c4": {
+        "name": "net_rates_req_7_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_7_3_data.pkl"
+                },
+                "net_spikes_req_7_3": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_7_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_7_3\\net_rates_req_7_3_79f40f7686d5e191c939438f48ccb5c4.pkl"
+    },
+    "net_spikes_req_7_4_7f4286d6d940493b7a3f851f5ab9a95f": {
+        "name": "net_spikes_req_7_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_7_4_data.pkl"
+                },
+                "net_spikes_req_7_4": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_7_4\\net_spikes_req_7_4_7f4286d6d940493b7a3f851f5ab9a95f.pkl"
+    },
+    "net_rates_req_7_4_bfd0840e2b31f719d94085a97fbcc209": {
+        "name": "net_rates_req_7_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_7_4_data.pkl"
+                },
+                "net_spikes_req_7_4": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_7_4": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_7_4\\net_rates_req_7_4_bfd0840e2b31f719d94085a97fbcc209.pkl"
+    },
+    "net_spikes_req_7_5_67edeb79a36cc80bf54640e2fe4b80e1": {
+        "name": "net_spikes_req_7_5",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_7_5_data.pkl"
+                },
+                "net_spikes_req_7_5": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_7_5\\net_spikes_req_7_5_67edeb79a36cc80bf54640e2fe4b80e1.pkl"
+    },
+    "net_rates_req_7_5_a75559705051b143277f21b3ee26e2df": {
+        "name": "net_rates_req_7_5",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_7_5_data.pkl"
+                },
+                "net_spikes_req_7_5": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_7_5": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_7_5\\net_rates_req_7_5_a75559705051b143277f21b3ee26e2df.pkl"
+    },
+    "net_spikes_req_7_6_2536aeb588175a96643e9bed6c9d63e3": {
+        "name": "net_spikes_req_7_6",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_7_6_data.pkl"
+                },
+                "net_spikes_req_7_6": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_7_6\\net_spikes_req_7_6_2536aeb588175a96643e9bed6c9d63e3.pkl"
+    },
+    "net_rates_req_7_6_30dfe8b149f757995260ced688d21bdf": {
+        "name": "net_rates_req_7_6",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_7_6_data.pkl"
+                },
+                "net_spikes_req_7_6": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_7_6": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_7_6\\net_rates_req_7_6_30dfe8b149f757995260ced688d21bdf.pkl"
+    },
+    "net_spikes_req_8_0_e373cafed76dd12824830d0f670b548e": {
+        "name": "net_spikes_req_8_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_8_0_data.pkl"
+                },
+                "net_spikes_req_8_0": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_8_0\\net_spikes_req_8_0_e373cafed76dd12824830d0f670b548e.pkl"
+    },
+    "net_rates_req_8_0_65f42964c1f8cc5a0349886407aee809": {
+        "name": "net_rates_req_8_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_8_0_data.pkl"
+                },
+                "net_spikes_req_8_0": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_8_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_8_0\\net_rates_req_8_0_65f42964c1f8cc5a0349886407aee809.pkl"
+    },
+    "net_spikes_req_8_1_2f4da9bf90ecc056fd4cd551c6ab6d94": {
+        "name": "net_spikes_req_8_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_8_1_data.pkl"
+                },
+                "net_spikes_req_8_1": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_8_1\\net_spikes_req_8_1_2f4da9bf90ecc056fd4cd551c6ab6d94.pkl"
+    },
+    "net_rates_req_8_1_d3bb3653547dd6169e6ac51da4562b0d": {
+        "name": "net_rates_req_8_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_8_1_data.pkl"
+                },
+                "net_spikes_req_8_1": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_8_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_8_1\\net_rates_req_8_1_d3bb3653547dd6169e6ac51da4562b0d.pkl"
+    },
+    "net_spikes_req_8_2_7a8de013c07dbf3fcd02ca69c34e4e42": {
+        "name": "net_spikes_req_8_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_8_2_data.pkl"
+                },
+                "net_spikes_req_8_2": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_8_2\\net_spikes_req_8_2_7a8de013c07dbf3fcd02ca69c34e4e42.pkl"
+    },
+    "net_rates_req_8_2_b70dbfd44df3449f8a7c99e3d6aeb281": {
+        "name": "net_rates_req_8_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_8_2_data.pkl"
+                },
+                "net_spikes_req_8_2": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_8_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_8_2\\net_rates_req_8_2_b70dbfd44df3449f8a7c99e3d6aeb281.pkl"
+    },
+    "net_spikes_req_8_3_5a03ea9082ab57ed20be333812421ed1": {
+        "name": "net_spikes_req_8_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_8_3_data.pkl"
+                },
+                "net_spikes_req_8_3": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_8_3\\net_spikes_req_8_3_5a03ea9082ab57ed20be333812421ed1.pkl"
+    },
+    "net_rates_req_8_3_827c968491dfc6b455476df7c6910da8": {
+        "name": "net_rates_req_8_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_8_3_data.pkl"
+                },
+                "net_spikes_req_8_3": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_8_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_8_3\\net_rates_req_8_3_827c968491dfc6b455476df7c6910da8.pkl"
+    },
+    "net_spikes_req_8_4_88149f1a78ac5ab3087e5f5949408a04": {
+        "name": "net_spikes_req_8_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_8_4_data.pkl"
+                },
+                "net_spikes_req_8_4": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_8_4\\net_spikes_req_8_4_88149f1a78ac5ab3087e5f5949408a04.pkl"
+    },
+    "net_rates_req_8_4_4ca326e2b4e63923887a6aac4b7c47bd": {
+        "name": "net_rates_req_8_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_8_4_data.pkl"
+                },
+                "net_spikes_req_8_4": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_8_4": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_8_4\\net_rates_req_8_4_4ca326e2b4e63923887a6aac4b7c47bd.pkl"
+    },
+    "net_spikes_req_8_5_a10c7fd297d492ab1b8dc1a91d3b67c7": {
+        "name": "net_spikes_req_8_5",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_8_5_data.pkl"
+                },
+                "net_spikes_req_8_5": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_8_5\\net_spikes_req_8_5_a10c7fd297d492ab1b8dc1a91d3b67c7.pkl"
+    },
+    "net_rates_req_8_5_b7014f3761a8e2c77b2d97c9b1eeed53": {
+        "name": "net_rates_req_8_5",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_8_5_data.pkl"
+                },
+                "net_spikes_req_8_5": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_8_5": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_8_5\\net_rates_req_8_5_b7014f3761a8e2c77b2d97c9b1eeed53.pkl"
+    },
+    "net_spikes_req_8_6_f54641f6e1cb982133dbf4c850e54558": {
+        "name": "net_spikes_req_8_6",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_8_6_data.pkl"
+                },
+                "net_spikes_req_8_6": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_8_6\\net_spikes_req_8_6_f54641f6e1cb982133dbf4c850e54558.pkl"
+    },
+    "net_rates_req_8_6_a1ddbb1d29503aa328c19eef461bcb61": {
+        "name": "net_rates_req_8_6",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_8_6_data.pkl"
+                },
+                "net_spikes_req_8_6": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_8_6": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_8_6\\net_rates_req_8_6_a1ddbb1d29503aa328c19eef461bcb61.pkl"
+    },
+    "net_spikes_req_9_0_975197f05b889c2548319d3f567fe218": {
+        "name": "net_spikes_req_9_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_9_0_data.pkl"
+                },
+                "net_spikes_req_9_0": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_9_0\\net_spikes_req_9_0_975197f05b889c2548319d3f567fe218.pkl"
+    },
+    "net_rates_req_9_0_1a448f6a86a8a2eaaf5c92a493b937db": {
+        "name": "net_rates_req_9_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_9_0_data.pkl"
+                },
+                "net_spikes_req_9_0": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_9_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_9_0\\net_rates_req_9_0_1a448f6a86a8a2eaaf5c92a493b937db.pkl"
+    },
+    "net_spikes_req_9_1_ca9f52443f0a718754974b7a41db8375": {
+        "name": "net_spikes_req_9_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_9_1_data.pkl"
+                },
+                "net_spikes_req_9_1": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_9_1\\net_spikes_req_9_1_ca9f52443f0a718754974b7a41db8375.pkl"
+    },
+    "net_rates_req_9_1_37e68268b5cce8b167bae76c606594d7": {
+        "name": "net_rates_req_9_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_9_1_data.pkl"
+                },
+                "net_spikes_req_9_1": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_9_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_9_1\\net_rates_req_9_1_37e68268b5cce8b167bae76c606594d7.pkl"
+    },
+    "net_spikes_req_9_2_ed50ac950ff5fa4c5a5e70ef224d771c": {
+        "name": "net_spikes_req_9_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_9_2_data.pkl"
+                },
+                "net_spikes_req_9_2": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_9_2\\net_spikes_req_9_2_ed50ac950ff5fa4c5a5e70ef224d771c.pkl"
+    },
+    "net_rates_req_9_2_d0c8f6b9eb59ee6ed3f3e60d631b535c": {
+        "name": "net_rates_req_9_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_9_2_data.pkl"
+                },
+                "net_spikes_req_9_2": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_9_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_9_2\\net_rates_req_9_2_d0c8f6b9eb59ee6ed3f3e60d631b535c.pkl"
+    },
+    "net_spikes_req_9_3_6564b8d450453322c7af54746dc1d3d6": {
+        "name": "net_spikes_req_9_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_9_3_data.pkl"
+                },
+                "net_spikes_req_9_3": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_9_3\\net_spikes_req_9_3_6564b8d450453322c7af54746dc1d3d6.pkl"
+    },
+    "net_rates_req_9_3_30d315f4e873f1f47eb9fd6dd0e3c775": {
+        "name": "net_rates_req_9_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_9_3_data.pkl"
+                },
+                "net_spikes_req_9_3": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_9_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_9_3\\net_rates_req_9_3_30d315f4e873f1f47eb9fd6dd0e3c775.pkl"
+    },
+    "net_spikes_req_9_4_b712d41551eae6df3a02c2aec5aa59a6": {
+        "name": "net_spikes_req_9_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_9_4_data.pkl"
+                },
+                "net_spikes_req_9_4": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_9_4\\net_spikes_req_9_4_b712d41551eae6df3a02c2aec5aa59a6.pkl"
+    },
+    "net_rates_req_9_4_739b69f8385f08e49fd1a395374f2e58": {
+        "name": "net_rates_req_9_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_9_4_data.pkl"
+                },
+                "net_spikes_req_9_4": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_9_4": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_9_4\\net_rates_req_9_4_739b69f8385f08e49fd1a395374f2e58.pkl"
+    },
+    "net_spikes_req_9_5_9ef50c82f7eda71def952c3049570cc6": {
+        "name": "net_spikes_req_9_5",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_9_5_data.pkl"
+                },
+                "net_spikes_req_9_5": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_9_5\\net_spikes_req_9_5_9ef50c82f7eda71def952c3049570cc6.pkl"
+    },
+    "net_rates_req_9_5_dc0df7a6942b3cdaa8cb568e88931ecf": {
+        "name": "net_rates_req_9_5",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_9_5_data.pkl"
+                },
+                "net_spikes_req_9_5": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_9_5": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_9_5\\net_rates_req_9_5_dc0df7a6942b3cdaa8cb568e88931ecf.pkl"
+    },
+    "net_spikes_req_9_6_be500e902bd6573276402dabe9940e5a": {
+        "name": "net_spikes_req_9_6",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_9_6_data.pkl"
+                },
+                "net_spikes_req_9_6": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_9_6\\net_spikes_req_9_6_be500e902bd6573276402dabe9940e5a.pkl"
+    },
+    "net_rates_req_9_6_56e92f001d5414cdec5a18b8d3695aa4": {
+        "name": "net_rates_req_9_6",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_L24_batch_qsub\\exp_r0_2_10_5_15_pfr_0.1_1.5_7_wmult_0.25_alpha_0.25\\results\\req_9_6_data.pkl"
+                },
+                "net_spikes_req_9_6": {
+                    "pop_names": [
+                        "L2e",
+                        "L2i",
+                        "L4e",
+                        "L4i"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_9_6": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_9_6\\net_rates_req_9_6_56e92f001d5414cdec5a18b8d3695aa4.pkl"
+    }
+}

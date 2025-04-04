@@ -1,10 +1,13 @@
 from dataclasses import dataclass, field
-from typing import Tuple, Dict
+from typing import Any, Tuple, Dict
 import numpy as np
 
 
 @dataclass
 class OptExperimentParams:
+    
+    # Experiment name
+    exp_name: str = 'OPT_EXP'
 
     # Batchtools script to run
     fpath_batch_script_hpc: str = ''
@@ -28,4 +31,8 @@ class OptExperimentParams:
     uc_alpha: float = 0.25
 
     # Global weight multiplier
+    # keep it outside model_cfg for compatibility
     wmult: float = 0.25
+    
+    # Parameters to override in the cfg of the model
+    model_cfg: Dict[str, Any] = {}

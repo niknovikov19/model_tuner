@@ -8,10 +8,11 @@ import numpy as np
 
 dirpath_in = Path(
     r'D:\WORK\Salvador\repo\model_tuner\test_data\main\test_opt_L24_hpc_batch_qsub'
+    r'\experiments'
     r'\exp_r0=(2_10_5_15)_pfr=(0.1_1.5_7)_wmult=0.25_alpha=0.25\info'
 )
 
-n_iter = 5
+n_iter = 10
 n_pop = 4
 n_pts = 7
 
@@ -21,7 +22,11 @@ Ru = np.full((n_pop, n_pts, n_iter), np.nan)
 
 for n in range(n_iter):
     fpath_mask = str(dirpath_in / f'Ru_Rc_req_{n}_*.pkl')
-    fpath_in = glob(fpath_mask)[0]
+    fpaths = glob(fpath_mask)
+    #print(f'Files: {fpaths}')
+    if len(fpaths) == 0:
+        raise RuntimeError(f'No files matching: {fpath_mask}')
+    fpath_in = fpaths[0]
     with open(fpath_in, 'rb') as fid:
         res = pickle.load(fid)
     n_pts_ = res['Ru'].shape[1]

@@ -260,13 +260,14 @@ dirpath_base = Path(
 )
 os.makedirs(dirpath_base, exist_ok=True)
 
-need_recalc = 1
-need_save_yaml = 1
-replace_old_yaml = 1
-need_save_csv = 1
-need_save_json = 1
-need_plot = 1
-need_save_plot = 1
+need_recalc = 0
+need_save_yaml = 0
+replace_old_yaml = 0
+need_save_csv = 0
+need_save_json = 0
+need_plot = 0
+need_save_plot = 0
+need_save_target = 1
 
 fpath_ir_mapper = dirpath_base / 'ir_mapper.pkl'
 
@@ -283,6 +284,7 @@ for pop_name in pop_names:
     )
 
 def weight_func(x: np.ndarray, par_) -> np.ndarray:
+    """Calculate weights for fitting based on the firing rates. """
     if not par_.use_fit_weights: return None
     x = np.clip(x, 0, np.inf)
     return np.clip(x ** par_.fit_weight_pow, *par_.fit_weight_limits)
@@ -340,6 +342,16 @@ else:
 # Define target regime
 target_rates = define_target_rates(pop_names)
 regime_target = NetRegime1D.from_dict(target_rates)
+
+# Save target regime to csv
+if need_save_target:
+    data = {
+        'pop_name': list(target_rates.keys()),
+        'target_rate': list(target_rates.values())
+    }
+    df = pd.DataFrame(data)
+    csv_path = dirpath_base / 'target_rates.csv'
+    df.to_csv(csv_path, index=False)
 
 # Apply I-R mapping to the target regime
 inp_target = net_ir_mapper.R_to_I(regime_target)

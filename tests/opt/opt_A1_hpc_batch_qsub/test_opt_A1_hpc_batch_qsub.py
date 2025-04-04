@@ -13,10 +13,11 @@ import matplotlib
 matplotlib.use('Qt5Agg')
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 
 from model_tuner.opt.regimes import NetRegime1D, NetRegime1DList
+from model_tuner.opt.ir_mappers import NetIRMapper1DSlice
 from model_tuner.opt.uc_mappers import NetUCMapper1D
-from model_tuner.opt.ir_mappers import NetIREmpiricalMapper1D
 
 from model_tuner.ssh import SSHParams, SSHClient
 from model_tuner.sim_manager import (
@@ -30,7 +31,7 @@ from model_tuner.sim_manager import (
 from model_tuner.data_proc import DataKeeper
 
 from model_tuner.main import (
-    IRMapConfigRateFrom1DSim,
+    IRMapConfigRateFrom2DRateCVMats,
     UCMapFitParams,
     OptExperimentParams,
     init_uc_mapper,
@@ -71,42 +72,48 @@ def set_qt_backend():
 
 # Local base folder (configs in the root, results in subfolders)
 dirpath_base_local = Path(
-    r'D:\WORK\Salvador\repo\model_tuner\test_data\main\test_opt_L24_hpc_batch_qsub'
+    r'D:\WORK\Salvador\repo\model_tuner\test_data\main\test_opt_A1_hpc_batch_qsub'
 )
 
 # Load config files
 configs = {
-    'ir_map_params': {'class': IRMapConfigRateFrom1DSim},
+    'ir_map_params': {'class': IRMapConfigRateFrom2DRateCVMats},
     'uc_map_params': {'class': UCMapFitParams},
     'ssh_params': {'class': None}
 }
 for config_name, config_info in configs.items():
     config_path = dirpath_base_local / f'{config_name}.yaml'
     config_info['data'] = load_yaml(config_path, data_class=config_info['class'])
-ir_map_params: IRMapConfigRateFrom1DSim = configs['ir_map_params']['data']
+
+ir_map_params: IRMapConfigRateFrom2DRateCVMats = configs['ir_map_params']['data']
 uc_map_params: UCMapFitParams = configs['uc_map_params']['data']
 ssh_params = configs['ssh_params']['data']
 
 ssh_par_lethe = SSHParams(**ssh_params['lethe'])
 ssh_par_grid = SSHParams(**ssh_params['grid'])
 
+# Load target firing rates
+fpath_target_rates = dirpath_base_local / 'target_rates.csv'
+df_target_rates = pd.read_csv(fpath_target_rates)
+target_rates = dict(zip(df_target_rates['pop_name'],
+                        df_target_rates['target_rate']))
+
 # Parameters of the model tuning experiment
 exp_params = OptExperimentParams(
+    exp_name='test_1',
     fpath_batch_script_hpc = (
-        '/ddn/niknovikov19/repo/model_tuner/models/L24/opt_batch_script.py'
+        '/ddn/niknovikov19/repo/A1_OUinp/L24/opt_batch_script.py'
     ),
-    dirpath_hpc_base = '/ddn/niknovikov19/test/model_tuner/test_opt_L24_batch_qsub',
+    dirpath_hpc_base = '/ddn/niknovikov19/test/model_tuner/test_opt_A1_batch_qsub',
     conda_env='netpyne_batch',
-    pop_names=('L2e', 'L2i', 'L4e', 'L4i'),
-    rr_base={
-        'L2e': 2.,
-        'L2i': 10.,
-        'L4e': 5.,
-        'L4i': 15.
-    },
+    pop_names=list(target_rates.keys()),
+    rr_base=target_rates,
     pfr_vec=np.linspace(0.1, 1.5, 7),
     uc_alpha=0.25,
-    wmult=0.25
+    model_cfg={
+        'connected': 0,
+        'wmult': 0.01
+    }
 )
 
 config_info['exp_params'] = {
@@ -116,22 +123,20 @@ config_info['exp_params'] = {
 
 # Number of iterations
 # (don't put it to config, so it can be increased later)
-n_iter = 10
+n_iter = 2
 
 def _gen_exp_name(exp_params: OptExperimentParams) -> str:
-    rr_str = 'exp_r0=({})'.format(
-        '_'.join([str(int(r)) for r in exp_params.rr_base.values()])
-    )
     pfr_str = 'pfr=({}_{}_{})'.format(
         exp_params.pfr_vec.min(),
         exp_params.pfr_vec.max(),
         len(exp_params.pfr_vec)
     )
-    param_str = 'wmult={}_alpha={}'.format(
-        exp_params.wmult,
-        exp_params.uc_alpha
-    )
-    return f'{rr_str}_{pfr_str}_{param_str}'
+    if exp_params.model_cfg['connected']:
+        params_str = f'wmult={exp_params.model_cfg["wmult"]}'
+    else:
+        params_str = 'unconn'
+    params_str += f'_alpha={exp_params.uc_alpha}'
+    return f'{exp_params.exp_name}_{pfr_str}_{params_str}'
 
 exp_name = _gen_exp_name(exp_params)
 #print(exp_name)
@@ -154,11 +159,27 @@ for config_name, config_info in configs.items():
             )
             print(err_str)
             pprint(yaml_diff(config_info['data'], cfg_prev))
-            raise Exception(err_str)
+            raise ValueError(err_str)
     else:
         # Copy the original config file to the experiment folder
         fpath_cfg_base = dirpath_base_local / f'{config_name}.yaml'
         shutil.copy(fpath_cfg_base, fpath_cfg_exp)
+
+# Copy target rates to the experiment folder
+fpath_target_rates_exp = dirpath_res_local / 'target_rates.csv'
+if fpath_target_rates_exp.exists():
+    # If a target rates file already exists in the experiment folder,
+    # it should match the original file from the base folder
+    df_prev = pd.read_csv(fpath_target_rates_exp)
+    if not df_target_rates.equals(df_prev):
+        err_str = (
+            'Target rates file from the experiment folder does not match'
+            'the original file from the base folder.'
+        )
+        print(err_str)
+        raise ValueError(err_str)
+else:
+    shutil.copy(fpath_target_rates, fpath_target_rates_exp)
 
 # Local folder to store intermediate optimization plots
 dirpath_figs_local = dirpath_res_local / 'opt_figs'
@@ -180,9 +201,21 @@ dk = DataKeeper(dirpath_dk)
 
 logging.basicConfig(level=logging.ERROR, force=True)
 
+need_delete_prev_results = 0
+need_plot_ir = 1
+need_plot_iter = 1
+need_plot_res = 1
+
+# Create folder for I-R mapping plots
+if need_plot_ir:
+    dirpath_ir_plots = dirpath_res_local / 'ir_plots'
+    os.makedirs(dirpath_ir_plots, exist_ok=True)
+else:
+    dirpath_ir_plots = None
+
 # Initialize input-to-regime mapper: fit a pre-calculated batch sim result
-ir_mapper: NetIREmpiricalMapper1D = (
-    ir_map_params.init_ir_mapper(need_plot=True)
+ir_mapper: NetIRMapper1DSlice = (
+    ir_map_params.init_ir_mapper(dirpath_ir_plots),
 )
 
 # Initialize unconnected-to-connected regime mapper: set to identity
@@ -201,10 +234,6 @@ def gen_target_regimes_list(
         )
     return NetRegime1DList(Rc0_lst_)
 Rc0_lst = gen_target_regimes_list(exp_params)
-
-need_delete_prev_results = 0
-need_plot_iter = 1
-need_plot_res = 1
 
 with SSHClient(
         ssh_par_fs=ssh_par_lethe,
