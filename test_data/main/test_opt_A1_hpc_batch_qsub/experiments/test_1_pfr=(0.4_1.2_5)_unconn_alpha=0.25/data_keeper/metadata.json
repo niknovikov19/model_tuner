@@ -1,0 +1,2087 @@
+{
+    "net_spikes_req_0_0_b02539afa4bbc0e10f918c599c98707b": {
+        "name": "net_spikes_req_0_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_0_0_data.pkl"
+                },
+                "net_spikes_req_0_0": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_0_0\\net_spikes_req_0_0_b02539afa4bbc0e10f918c599c98707b.pkl"
+    },
+    "net_rates_req_0_0_95a8dbb053af2a2c3a55aa6abfbebc00": {
+        "name": "net_rates_req_0_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_0_0_data.pkl"
+                },
+                "net_spikes_req_0_0": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_0_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_0_0\\net_rates_req_0_0_95a8dbb053af2a2c3a55aa6abfbebc00.pkl"
+    },
+    "net_spikes_req_0_1_34e6ff8c2ed089a0547896cfd2248869": {
+        "name": "net_spikes_req_0_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_0_1_data.pkl"
+                },
+                "net_spikes_req_0_1": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_0_1\\net_spikes_req_0_1_34e6ff8c2ed089a0547896cfd2248869.pkl"
+    },
+    "net_rates_req_0_1_e8ee658cbe174da8e12fc69dffb875c6": {
+        "name": "net_rates_req_0_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_0_1_data.pkl"
+                },
+                "net_spikes_req_0_1": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_0_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_0_1\\net_rates_req_0_1_e8ee658cbe174da8e12fc69dffb875c6.pkl"
+    },
+    "net_spikes_req_0_2_c946284b42999e43d78acf8097ef31e3": {
+        "name": "net_spikes_req_0_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_0_2_data.pkl"
+                },
+                "net_spikes_req_0_2": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_0_2\\net_spikes_req_0_2_c946284b42999e43d78acf8097ef31e3.pkl"
+    },
+    "net_rates_req_0_2_905103afe45d32f19cf6ea53923a4a37": {
+        "name": "net_rates_req_0_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_0_2_data.pkl"
+                },
+                "net_spikes_req_0_2": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_0_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_0_2\\net_rates_req_0_2_905103afe45d32f19cf6ea53923a4a37.pkl"
+    },
+    "net_spikes_req_0_3_5b7f41196493e1eae529b92980d97708": {
+        "name": "net_spikes_req_0_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_0_3_data.pkl"
+                },
+                "net_spikes_req_0_3": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_0_3\\net_spikes_req_0_3_5b7f41196493e1eae529b92980d97708.pkl"
+    },
+    "net_rates_req_0_3_1718b8b08b8e074ab73bf98e29056d98": {
+        "name": "net_rates_req_0_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_0_3_data.pkl"
+                },
+                "net_spikes_req_0_3": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_0_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_0_3\\net_rates_req_0_3_1718b8b08b8e074ab73bf98e29056d98.pkl"
+    },
+    "net_spikes_req_0_4_84d2a661cea499e7b5d4196f855a3e11": {
+        "name": "net_spikes_req_0_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_0_4_data.pkl"
+                },
+                "net_spikes_req_0_4": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_0_4\\net_spikes_req_0_4_84d2a661cea499e7b5d4196f855a3e11.pkl"
+    },
+    "net_rates_req_0_4_fd74f34e681d1364838205c14b8e7b97": {
+        "name": "net_rates_req_0_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_0_4_data.pkl"
+                },
+                "net_spikes_req_0_4": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_0_4": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_0_4\\net_rates_req_0_4_fd74f34e681d1364838205c14b8e7b97.pkl"
+    },
+    "net_spikes_req_1_0_3938c8ee16d78ee646a900fbc2f74d18": {
+        "name": "net_spikes_req_1_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_1_0_data.pkl"
+                },
+                "net_spikes_req_1_0": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_1_0\\net_spikes_req_1_0_3938c8ee16d78ee646a900fbc2f74d18.pkl"
+    },
+    "net_rates_req_1_0_23f47172d79572caf090e224e21341e6": {
+        "name": "net_rates_req_1_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_1_0_data.pkl"
+                },
+                "net_spikes_req_1_0": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_1_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_1_0\\net_rates_req_1_0_23f47172d79572caf090e224e21341e6.pkl"
+    },
+    "net_spikes_req_1_1_40b8c04af510cafc069d1fe7b608bbf9": {
+        "name": "net_spikes_req_1_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_1_1_data.pkl"
+                },
+                "net_spikes_req_1_1": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_1_1\\net_spikes_req_1_1_40b8c04af510cafc069d1fe7b608bbf9.pkl"
+    },
+    "net_rates_req_1_1_4b5e7f7375a427318b312a72905686ff": {
+        "name": "net_rates_req_1_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_1_1_data.pkl"
+                },
+                "net_spikes_req_1_1": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_1_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_1_1\\net_rates_req_1_1_4b5e7f7375a427318b312a72905686ff.pkl"
+    },
+    "net_spikes_req_1_2_94e92e4f81373c67212c0fda86aca142": {
+        "name": "net_spikes_req_1_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_1_2_data.pkl"
+                },
+                "net_spikes_req_1_2": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_1_2\\net_spikes_req_1_2_94e92e4f81373c67212c0fda86aca142.pkl"
+    },
+    "net_rates_req_1_2_9473030e6557a9c95b8c37f8e1f27bf5": {
+        "name": "net_rates_req_1_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_1_2_data.pkl"
+                },
+                "net_spikes_req_1_2": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_1_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_1_2\\net_rates_req_1_2_9473030e6557a9c95b8c37f8e1f27bf5.pkl"
+    },
+    "net_spikes_req_1_3_fb1ce553852ab507ae25488b2afd0b79": {
+        "name": "net_spikes_req_1_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_1_3_data.pkl"
+                },
+                "net_spikes_req_1_3": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_1_3\\net_spikes_req_1_3_fb1ce553852ab507ae25488b2afd0b79.pkl"
+    },
+    "net_rates_req_1_3_730de70e27d3988cd7fddeb62f225b61": {
+        "name": "net_rates_req_1_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_1_3_data.pkl"
+                },
+                "net_spikes_req_1_3": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_1_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_1_3\\net_rates_req_1_3_730de70e27d3988cd7fddeb62f225b61.pkl"
+    },
+    "net_spikes_req_1_4_0adca86f5ffb66fe6348b85e81f248ae": {
+        "name": "net_spikes_req_1_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_1_4_data.pkl"
+                },
+                "net_spikes_req_1_4": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_1_4\\net_spikes_req_1_4_0adca86f5ffb66fe6348b85e81f248ae.pkl"
+    },
+    "net_rates_req_1_4_b92ded5de1e3370b4c140a2f840034f4": {
+        "name": "net_rates_req_1_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_1_4_data.pkl"
+                },
+                "net_spikes_req_1_4": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_1_4": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_1_4\\net_rates_req_1_4_b92ded5de1e3370b4c140a2f840034f4.pkl"
+    },
+    "net_spikes_req_2_0_510a4ef0e73d42a0ded2b37d9b78392a": {
+        "name": "net_spikes_req_2_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_2_0_data.pkl"
+                },
+                "net_spikes_req_2_0": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_2_0\\net_spikes_req_2_0_510a4ef0e73d42a0ded2b37d9b78392a.pkl"
+    },
+    "net_rates_req_2_0_293e5ff604346f88f860fe9854268af8": {
+        "name": "net_rates_req_2_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_2_0_data.pkl"
+                },
+                "net_spikes_req_2_0": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_2_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_2_0\\net_rates_req_2_0_293e5ff604346f88f860fe9854268af8.pkl"
+    },
+    "net_spikes_req_2_1_63a3cf7ddc8e21484ef88fdc8696fdd3": {
+        "name": "net_spikes_req_2_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_2_1_data.pkl"
+                },
+                "net_spikes_req_2_1": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_2_1\\net_spikes_req_2_1_63a3cf7ddc8e21484ef88fdc8696fdd3.pkl"
+    },
+    "net_rates_req_2_1_6158eb8ac5d5d2db634462085dfbe81f": {
+        "name": "net_rates_req_2_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_2_1_data.pkl"
+                },
+                "net_spikes_req_2_1": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_2_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_2_1\\net_rates_req_2_1_6158eb8ac5d5d2db634462085dfbe81f.pkl"
+    },
+    "net_spikes_req_2_2_afdf2de6f4a613af5883834012de92ef": {
+        "name": "net_spikes_req_2_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_2_2_data.pkl"
+                },
+                "net_spikes_req_2_2": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_2_2\\net_spikes_req_2_2_afdf2de6f4a613af5883834012de92ef.pkl"
+    },
+    "net_rates_req_2_2_36ef6da1fb55b9b993609916bcc0577b": {
+        "name": "net_rates_req_2_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_2_2_data.pkl"
+                },
+                "net_spikes_req_2_2": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_2_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_2_2\\net_rates_req_2_2_36ef6da1fb55b9b993609916bcc0577b.pkl"
+    },
+    "net_spikes_req_2_3_6c6e0277ffc44672cefaf66d3e8cf17c": {
+        "name": "net_spikes_req_2_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_2_3_data.pkl"
+                },
+                "net_spikes_req_2_3": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_2_3\\net_spikes_req_2_3_6c6e0277ffc44672cefaf66d3e8cf17c.pkl"
+    },
+    "net_rates_req_2_3_c7764d810ee50348951a87aaa0756f7b": {
+        "name": "net_rates_req_2_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_2_3_data.pkl"
+                },
+                "net_spikes_req_2_3": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_2_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_2_3\\net_rates_req_2_3_c7764d810ee50348951a87aaa0756f7b.pkl"
+    },
+    "net_spikes_req_2_4_70ae95f614e513d44b9c691fb2bbd274": {
+        "name": "net_spikes_req_2_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_2_4_data.pkl"
+                },
+                "net_spikes_req_2_4": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_2_4\\net_spikes_req_2_4_70ae95f614e513d44b9c691fb2bbd274.pkl"
+    },
+    "net_rates_req_2_4_5d03fc740f7ee468f2fdec627c5dd699": {
+        "name": "net_rates_req_2_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\test\\model_tuner\\test_opt_A1_batch_qsub\\test_1_pfr_0.4_1.2_5_unconn_alpha_0.25\\results\\req_2_4_data.pkl"
+                },
+                "net_spikes_req_2_4": {
+                    "pop_names": [
+                        "NGF1",
+                        "NGF2",
+                        "NGF3",
+                        "NGF4",
+                        "NGF5A",
+                        "NGF5B",
+                        "NGF6",
+                        "SOM2",
+                        "SOM3",
+                        "SOM4",
+                        "SOM5A",
+                        "SOM5B",
+                        "SOM6",
+                        "PV2",
+                        "PV3",
+                        "PV4",
+                        "PV5A",
+                        "PV5B",
+                        "PV6",
+                        "VIP2",
+                        "VIP3",
+                        "VIP4",
+                        "VIP5A",
+                        "VIP5B",
+                        "VIP6",
+                        "IT2",
+                        "IT3",
+                        "IT6",
+                        "ITP4",
+                        "ITS4",
+                        "IT5A",
+                        "IT5B",
+                        "PT5B",
+                        "CT5A",
+                        "CT5B",
+                        "CT6",
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "IRE",
+                        "IREM",
+                        "TI",
+                        "TIM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_2_4": {
+                    "pop_names": null,
+                    "time_limits": [
+                        0.5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_2_4\\net_rates_req_2_4_5d03fc740f7ee468f2fdec627c5dd699.pkl"
+    }
+}

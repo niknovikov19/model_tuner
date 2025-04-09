@@ -36,10 +36,10 @@ from model_tuner.main import (
     OptExperimentParams,
     init_uc_mapper,
     get_sim_rates,
-    plot_opt_iteration
+    plot_opt_iteration_pop
 )
 
-from model_tuner.utils import load_yaml, compare_yaml, yaml_diff
+from model_tuner.utils import load_yaml, save_yaml, compare_yaml, yaml_diff
 
 # Needed for unpickling files that were created with the old folder structure
 import sys
@@ -70,10 +70,17 @@ def set_qt_backend():
     plt = plt_
 
 
+run_on_hpc = 1
+
 # Local base folder (configs in the root, results in subfolders)
-dirpath_base_local = Path(
-    r'D:\WORK\Salvador\repo\model_tuner\test_data\main\test_opt_A1_hpc_batch_qsub'
-)
+if run_on_hpc:
+    dirpath_base_local = Path(
+        '/ddn/niknovikov19/repo/model_tuner/test_data/main/test_opt_A1_hpc_batch_qsub'
+    )
+else:
+    dirpath_base_local = Path(
+        r'D:\WORK\Salvador\repo\model_tuner\test_data\main\test_opt_A1_hpc_batch_qsub'
+    )
 
 # Load config files
 configs = {
@@ -95,35 +102,36 @@ ssh_par_grid = SSHParams(**ssh_params['grid'])
 # Load target firing rates
 fpath_target_rates = dirpath_base_local / 'target_rates.csv'
 df_target_rates = pd.read_csv(fpath_target_rates)
-target_rates = dict(zip(df_target_rates['pop_name'],
-                        df_target_rates['target_rate']))
+target_rates_ = dict(zip(df_target_rates['pop_name'],
+                         df_target_rates['target_rate']))
+target_rates = {pop: target_rates_[pop] for pop in ir_map_params.pop_names} 
 
 # Parameters of the model tuning experiment
 exp_params = OptExperimentParams(
     exp_name='test_1',
     fpath_batch_script_hpc = (
-        '/ddn/niknovikov19/repo/A1_OUinp/L24/opt_batch_script.py'
+        '/ddn/niknovikov19/repo/A1_OUinp/opt_batch_script.py'
     ),
     dirpath_hpc_base = '/ddn/niknovikov19/test/model_tuner/test_opt_A1_batch_qsub',
     conda_env='netpyne_batch',
     pop_names=list(target_rates.keys()),
     rr_base=target_rates,
-    pfr_vec=np.linspace(0.1, 1.5, 7),
-    uc_alpha=0.25,
+    pfr_vec=np.array([0.4, 0.6, 0.8, 1, 1.2]),
+    uc_alpha=0.5,
     model_cfg={
         'connected': 0,
-        'wmult': 0.01
+        'wmult': 0.005
     }
 )
 
-config_info['exp_params'] = {
+configs['exp_params'] = {
     'class': OptExperimentParams,
     'data': exp_params
 }
 
 # Number of iterations
 # (don't put it to config, so it can be increased later)
-n_iter = 2
+n_iter = 3
 
 def _gen_exp_name(exp_params: OptExperimentParams) -> str:
     pfr_str = 'pfr=({}_{}_{})'.format(
@@ -163,7 +171,10 @@ for config_name, config_info in configs.items():
     else:
         # Copy the original config file to the experiment folder
         fpath_cfg_base = dirpath_base_local / f'{config_name}.yaml'
-        shutil.copy(fpath_cfg_base, fpath_cfg_exp)
+        if os.path.exists(fpath_cfg_base):
+            shutil.copy(fpath_cfg_base, fpath_cfg_exp)
+        else:
+            save_yaml(config_info['data'], fpath_cfg_exp)
 
 # Copy target rates to the experiment folder
 fpath_target_rates_exp = dirpath_res_local / 'target_rates.csv'
@@ -202,9 +213,9 @@ dk = DataKeeper(dirpath_dk)
 logging.basicConfig(level=logging.ERROR, force=True)
 
 need_delete_prev_results = 0
-need_plot_ir = 1
-need_plot_iter = 1
-need_plot_res = 1
+need_plot_ir = 0
+need_plot_iter = 0
+need_plot_res = 0
 
 # Create folder for I-R mapping plots
 if need_plot_ir:
@@ -215,7 +226,7 @@ else:
 
 # Initialize input-to-regime mapper: fit a pre-calculated batch sim result
 ir_mapper: NetIRMapper1DSlice = (
-    ir_map_params.init_ir_mapper(dirpath_ir_plots),
+    ir_map_params.init_ir_mapper(dirpath_ir_plots)
 )
 
 # Initialize unconnected-to-connected regime mapper: set to identity
@@ -235,10 +246,14 @@ def gen_target_regimes_list(
     return NetRegime1DList(Rc0_lst_)
 Rc0_lst = gen_target_regimes_list(exp_params)
 
-with SSHClient(
-        ssh_par_fs=ssh_par_lethe,
-        ssh_par_conn=[ssh_par_lethe, ssh_par_grid]
-        ) as ssh:
+if run_on_hpc:
+    ssh_par_fs=ssh_par_grid
+    ssh_par_conn=ssh_par_grid
+else:
+    ssh_par_fs=ssh_par_lethe
+    ssh_par_conn=[ssh_par_lethe, ssh_par_grid]
+
+with SSHClient(ssh_par_fs=ssh_par_fs, ssh_par_conn=ssh_par_conn) as ssh:
     
     # Object that maps sim labels to sim result files
     sim_res_locator = SimResultLocator(hpc_paths.results_dir, ssh.fs)
@@ -321,7 +336,8 @@ with SSHClient(
             # Add a request for simulation with the input Iu (non-blocking)
             sim_request = {
                 'input': Iu.to_values_dict(),
-                'wmult': exp_params.wmult
+                'connected': exp_params.model_cfg['connected'],
+                'wmult': exp_params.model_cfg['wmult']
             }            
             sim_manager.add_sim_request(sim_label, sim_request)
             print(f'Add request: {sim_request["input"]}')
@@ -358,27 +374,43 @@ with SSHClient(
         # Save info about the current state of the optimization process
         Ru_mat = Ru_lst.get_pop_regimes_mat()
         Rc_mat = Rc_lst.get_pop_regimes_mat()
-        info = {'Ru': Ru_mat, 'Rc': Rc_mat}
+        info = {
+            'pop_names': exp_params.pop_names,
+            'Ru': Ru_mat,
+            'Rc': Rc_mat,
+            'pfr': exp_params.pfr_vec[valid_points],
+        }
         fpath_info = dirpath_info / f'Ru_Rc_{sim_label}.pkl'
         with open(fpath_info, 'wb') as fid:
             pickle.dump(info, fid)        
                 
         # Re-estimate the Ru->Rc mapping based on the simulations' results
-        uc_fit_res = uc_mapper.fit_from_data(Ru_lst, Rc_lst)
+        uc_fit_res = uc_mapper.fit_from_data(
+            Ru_lst, Rc_lst,
+            uc_map_params.map_fit_params
+        )
         
         # Visualize the iteration result
         if need_plot_iter or (need_plot_res and (iter_num == (n_iter - 1))):
             set_qt_backend()
             plt.ion()
-            plt.figure(111)
-            plot_opt_iteration(
-                exp_params.pop_names, ir_mapper, uc_mapper,
-                Ru_lst, Rc_lst, Rc_prev_lst, Rc0_lst
-            )
-            plt.get_current_fig_manager().window.showMaximized()
-            plt.draw()
-            plt.show()
-            plt.savefig(dirpath_figs_local / f'opt_iter={iter_num}.png')
+            
+            dirpath_figs_iter = dirpath_figs_local / f'iter_{iter_num}'
+            os.makedirs(dirpath_figs_iter, exist_ok=True)
+            
+            for pop_name in exp_params.pop_names:
+                plt.figure(111)
+                plt.clf()
+                
+                plot_opt_iteration_pop(
+                    exp_params.pop_names, pop_name, uc_mapper,
+                    Ru_lst, Rc_lst, Rc_prev_lst, Rc0_lst
+                )
+                
+                plt.get_current_fig_manager().window.showMaximized()
+                plt.draw()
+                plt.show()
+                plt.savefig(dirpath_figs_iter / f'{pop_name}.png')
 
         if not uc_fit_res:
             print('U-C map fitting failed - stop')

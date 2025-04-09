@@ -18,7 +18,15 @@ n_pts = 7
 
 pop_names = ['L2e', 'L2i', 'L4e', 'L4i']
 
+rr_base={
+    'L2e': 2.,
+    'L2i': 10.,
+    'L4e': 5.,
+    'L4i': 15.
+}
+
 Ru = np.full((n_pop, n_pts, n_iter), np.nan)
+Rc = np.full((n_pop, n_pts, n_iter), np.nan)
 
 for n in range(n_iter):
     fpath_mask = str(dirpath_in / f'Ru_Rc_req_{n}_*.pkl')
@@ -31,16 +39,31 @@ for n in range(n_iter):
         res = pickle.load(fid)
     n_pts_ = res['Ru'].shape[1]
     Ru[:, :n_pts_, n] = res['Ru']
+    Rc[:, :n_pts_, n] = res['Rc']
 
 plt.ion()
 plt.figure()
-for pop_num in range(n_pop):
+for pop_num, pop_name in enumerate(pop_names):
     plt.subplot(2, 2, pop_num + 1)
     for n in range(n_pts):
-        rr = Ru[pop_num, n, :]
+        rr = Rc[pop_num, n, :]
         plt.plot(rr, '.-')
-        plt.title(pop_names[pop_num])
+    plt.plot([0, n_iter], [rr_base[pop_name]] * 2, 'k--')
+    plt.title(pop_name)
 
+plt.figure()
+for pop_num, pop_name in enumerate(pop_names):
+    plt.subplot(2, 2, pop_num + 1)
+    rmax = Ru[pop_num, :, :].ravel().max()
+    plt.plot([0, rmax], [rr_base[pop_name]] * 2, 'k--')
+    plt.plot(Ru[pop_num, -3, :], Rc[pop_num, -3, :], 'k-')
+    for n in range(n_iter):
+        ru = Ru[pop_num, :, n]
+        rc = Rc[pop_num, :, n]
+        plt.plot(ru, rc, '.-')
+    plt.xlabel('Ru')
+    plt.ylabel('Rc')
+    plt.title(pop_name)
 
 input('Press Enter to exit')
     

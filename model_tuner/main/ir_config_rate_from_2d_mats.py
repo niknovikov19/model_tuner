@@ -132,7 +132,7 @@ def _init_ir_mapper(
     # Network I-R mapper
     net_ir_mapper = NetIRMapper1DSlice()
 
-    for pop_name in pop_names():
+    for pop_name in pop_names:
         print(f'Fitting I-R mapper for {pop_name}...')
         
         # Firing rate matrix of a population (ou_std x ou_mean)
@@ -242,8 +242,9 @@ def _plot_ir_mapping(
         plt.xlim(0, inp_vis_max)
         plt.ylim(0, r_vis_max)
 
-        plt.show()
-        plt.draw()
+        #plt.show()
+        #plt.draw()
 
+        #print('Saving figure...')
         fpath_fig = dirpath_out / f'{n}_{pop_name}.png'
         plt.savefig(fpath_fig)

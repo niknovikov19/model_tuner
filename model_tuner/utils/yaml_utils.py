@@ -1,9 +1,11 @@
 from dataclasses import asdict, is_dataclass
 from enum import Enum
+from pathlib import Path
 from typing import Any, Protocol
 
 import dacite
 from deepdiff import DeepDiff
+import numpy as np
 import yaml
 
 
@@ -19,6 +21,8 @@ def _prepare_for_yaml(obj):
         return [_prepare_for_yaml(item) for item in obj]  # tuple -> list
     elif isinstance(obj, list):
         return [_prepare_for_yaml(item) for item in obj]
+    elif isinstance(obj, np.ndarray):
+        return [_prepare_for_yaml(item) for item in obj.tolist()]
     elif isinstance(obj, dict):
         return {key: _prepare_for_yaml(value)
                 for key, value in sorted(obj.items())}
@@ -27,8 +31,10 @@ def _prepare_for_yaml(obj):
     else:
         return obj
 
-def save_yaml(obj: Any, fpath_yaml: str) -> None:
+def save_yaml(obj: Any, fpath_yaml: str | Path) -> None:
     """Save an object to YAML. """
+    if isinstance(fpath_yaml, Path):
+        fpath_yaml = str(fpath_yaml)
     obj = _prepare_for_yaml(obj)
     with open(fpath_yaml, 'w') as fid:
         yaml.dump(obj, fid, default_flow_style=False)
@@ -46,7 +52,10 @@ def load_yaml(
         obj = dacite.from_dict(
             data_class=data_class,
             data=obj,
-            config=dacite.Config(cast=[tuple, Enum])
+            config=dacite.Config(
+                type_hooks={np.ndarray: lambda x: np.array(x)},
+                cast=[tuple, Enum]
+            )
         )
     return obj
 

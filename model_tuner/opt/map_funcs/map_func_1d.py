@@ -61,7 +61,7 @@ def _mix_tuples(x: Tuple, y: Tuple, alpha: float) -> Tuple:
 class MapFitParams:
     ftol: float = 1e-3  
     xtol: float | None = 1e-4  
-    verbose: bool = False
+    verbose: int = False
     method: str = 'trf'
     max_nfev: int = 1000
     par0_kprev: float = 0  # proportion of the previous fit in the initial guess

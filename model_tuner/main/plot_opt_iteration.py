@@ -26,23 +26,23 @@ def plot_opt_iteration(
 
     npops = len(pop_names)
 
-    iu_mat = np.full_like(ru_mat, np.nan)            
+    """ iu_mat = np.full_like(ru_mat, np.nan)            
     for m in range(ru_mat.shape[1]):
         Ru_ = NetRegime1D.from_values(pop_names, ru_mat[:, m])
-        iu_mat[:, m] = ir_mapper.R_to_I(Ru_).get_pop_inputs_vec()
+        iu_mat[:, m] = ir_mapper.R_to_I(Ru_).get_pop_inputs_vec() """
         
     for n, pop in enumerate(pop_names):
         rr_u = ru_mat[n, :]
         rr_c = rc_mat[n, :]
         rr_c_prev = rc_prev_mat[n, :]
         rr_c0 = rc0_mat[n, :]
-        ii_u = iu_mat[n, :]
+        #ii_u = iu_mat[n, :]
 
-        plt.subplot(2, npops, n + 1)
+        """ plt.subplot(2, npops, n + 1)
         plt.plot(ii_u, rr_u, '.')
         plt.xlabel('Iu')
         plt.ylabel('Ru')
-        plt.title(f'pop = {pop}')
+        plt.title(f'pop = {pop}') """
         
         plt.subplot(2, npops, npops + n + 1)
         plt.plot(rr_u, rr_c, '.')

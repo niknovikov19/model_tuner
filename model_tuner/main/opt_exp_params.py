@@ -32,7 +32,7 @@ class OptExperimentParams:
 
     # Global weight multiplier
     # keep it outside model_cfg for compatibility
-    wmult: float = 0.25
+    #wmult: float = 0.25
     
     # Parameters to override in the cfg of the model
-    model_cfg: Dict[str, Any] = {}
+    model_cfg: Dict[str, Any] = field(default_factory=dict)
