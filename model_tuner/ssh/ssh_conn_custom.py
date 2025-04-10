@@ -32,7 +32,7 @@ class SSHConnCustom(Connection):
             host=ssh_par_final.host,
             user=ssh_par_final.user,
             port=ssh_par_final.port,
-            connect_kwargs={"key_filename": ssh_par_final.fpath_private_key},
+            #connect_kwargs={"key_filename": ssh_par_final.fpath_private_key},
             gateway=gateway
         )
         print(f'Opened: {self}')
