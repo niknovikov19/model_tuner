@@ -24,7 +24,7 @@ from model_tuner.sim_manager import (
     SimManagerHPCBatchQsub,
     SimBatchPaths,
     SimResultLocator,
-    SimStatus,
+    SimStatus,  
     HPCJobSubmitParams
 )
 
@@ -116,10 +116,10 @@ exp_params = OptExperimentParams(
     conda_env='netpyne_batch',
     pop_names=list(target_rates.keys()),
     rr_base=target_rates,
-    pfr_vec=np.array([0.4, 0.6, 0.8, 1, 1.2]),
-    uc_alpha=0.5,
+    pfr_vec=np.array([0.4, 0.6, 0.8, 1]),
+    uc_alpha=0.1,
     model_cfg={
-        'connected': 0,
+        'connected': 1,
         'wmult': 0.005
     }
 )
@@ -131,7 +131,7 @@ configs['exp_params'] = {
 
 # Number of iterations
 # (don't put it to config, so it can be increased later)
-n_iter = 3
+n_iter = 10
 
 def _gen_exp_name(exp_params: OptExperimentParams) -> str:
     pfr_str = 'pfr=({}_{}_{})'.format(

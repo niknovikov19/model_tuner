@@ -128,6 +128,12 @@ class MapFunc1D(ABC):
             if not _is_1d_array(ww):
                 raise ValueError('ww should be effectively 1-dimensional')
             ww = ww.ravel()
+
+        if ww is not None:
+            mask = ~np.isnan(ww)
+            xx = xx[mask]
+            yy = yy[mask]
+            ww = ww[mask]
         
         # Initial guess
         par0 = self._get_first_fit_guess(xx, yy)  # default first guess (from a subclass)
@@ -162,4 +168,8 @@ class MapFunc1D(ABC):
             }
         except Exception as e:
             print(f'Fitting failed ({e})')
+            #print(xx.shape)
+            #print(yy.shape)
+            #print(ww.shape)
+            print(ww)
             self.par = {name: np.nan for name in self.get_par_names()}
