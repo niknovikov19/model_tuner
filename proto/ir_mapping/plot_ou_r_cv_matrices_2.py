@@ -111,16 +111,13 @@ fpath_in = dirpath_base / 'OUmapping_v45_batch21.pkl'
 ouamp_max = 3
 r_max = 50
 
-cv_mode=1
-
-dirpath_out = dirpath_base / f'plots_new_xmax={ouamp_max}_rmax={r_max}_cvmode={cv_mode}'
+dirpath_out = dirpath_base / f'plots_2d_xmax={ouamp_max}_rmax={r_max}_cvmode=1'
 dirpath_out.mkdir(exist_ok=True)
 
 with open(fpath_in, 'rb') as file:
     data = pickle.load(file)
 
 pop_names = list(data['rate'].keys())
-
 #pop_names = ['IT3']
 
 for m, pop_name in enumerate(pop_names):
@@ -130,25 +127,12 @@ for m, pop_name in enumerate(pop_names):
     R = data['rate'][pop_name]
     CV = data['isicv'][pop_name]
 
-    Xvis = {'Firing rate': R, 'CV': CV}
+    Xvis = {'Rate': R, 'CV': CV}
 
     # Coordinates
     ouamp_vec = R.columns.values * 100
     oustd_vec = R.index.values * 100
-
-    # Find contour: oustd / ouamp = const
-    k = 0.4
-    C, C_idx = find_contours(contour_func_const_ratio, ouamp_vec, oustd_vec, k=k)
-    C, C_idx = C[0], C_idx[0]
-
-    # Interpolated contour coords
-    ouamp_vec_ = ouamp_vec
-    oustd_vec_ = (ouamp_vec_ * k).clip(oustd_vec.min(), oustd_vec.max())
-
-    plt.figure(111, figsize=(16, 8))
-    plt.clf()
-    plt.ion()
-    
+        
     # Pandas -> xarray
     Xfilled = {}
     for xname, X in Xvis.items():
@@ -164,85 +148,47 @@ for m, pop_name in enumerate(pop_names):
             Xfilled[xname] = xr.full_like(X0_, np.nan)
             continue
     
-    for n, (xname, X) in enumerate(Xvis.items()):
+    plt.ion()
+    plt.figure(111)
+    plt.clf()
+    
+    for n, (xname, X) in enumerate(Xvis.items()):       
+        X_ = Xfilled[xname]        
+        plt.subplot(1, 2, n + 1)
         
-        X_ = Xfilled[xname]
-
-        # Get interpolated contour (using xarray)        
-        """ Q = {
-            'ouamp': xr.DataArray(ouamp_vec_, dims='points'),
-            'oustd': xr.DataArray(oustd_vec_, dims='points'),
-        } """
-        #xx_interp_xr = X_.interp(**Q, method='linear').values
-        try:
-            xx_interp_xr = interp_from_2d_xr(X0_, oustd_vec_, ouamp_vec_)
-            xx_interp_xr_2 = interp_from_2d_xr(X_, oustd_vec_, ouamp_vec_)
-        except Exception as e:
-            print(f'Exception in interp_from_2d_xr(): {e}')
-            continue
-
-        std_slice_step = 15
-        
-        plt.subplot(2, 3, 3 * n + 1)
         par = {}
         if xname == 'CV':
             par |= {'vmin': 0, 'vmax': 2}
-        #ext = (ouamp_vec[0], ouamp_vec[-1], oustd_vec[0], oustd_vec[-1])
-        #plt.imshow(X, aspect='auto', cmap='viridis', origin='lower', extent=ext, **par)
         plot_xr(X_, show_ax_names=False, **par)
-        if cv_mode:
-            plt.contour(ouamp_vec, oustd_vec, Xfilled['CV'],
-                        levels=[0.5, 1, 1.5],
-                        colors=['r', 'k', 'm'], linestyles='--')
-            plt.contour(ouamp_vec, oustd_vec, Xfilled['Firing rate'],
-                        levels=[5, 10],
-                        colors=['r', 'k'], linestyles='-')
-        else:
-            for k in range(0, len(oustd_vec), std_slice_step):
-                plt.plot((ouamp_vec.min(), ouamp_vec.max()), (oustd_vec[k], oustd_vec[k]), '--')
-            plt.plot(ouamp_vec_, oustd_vec_, 'k--')
-        #plt.plot(C[:, 1], C[:, 0], 'k')
+        
+        def contour_fmt_r(x):
+            if x == int(x): return f'r={int(x)}'
+            else: return f'r={x:.1f}'
+        def contour_fmt_cv(x):
+            if x == int(x): return f'CV={int(x)}'
+            else: return f'CV={x:.1f}'
+        
+        contours_cv = plt.contour(
+            ouamp_vec, oustd_vec, Xfilled['CV'], linestyles='--',
+            #levels=[0.5, 1, 1.5], colors=['r', 'k', 'm']
+            levels=[0.5, 1], colors=['r', 'k']
+        )
+        plt.clabel(contours_cv, inline=True, fontsize=8, fmt=contour_fmt_cv, rightside_up=True)
+        
+        contours_r = plt.contour(
+            ouamp_vec, oustd_vec, Xfilled['Rate'], levels=[5, 10],
+            colors=['k', 'r'], linestyles='-')
+        plt.clabel(contours_r, inline=True, fontsize=8, fmt=contour_fmt_r, rightside_up=True)
+        
         #plt.legend()
-        if n == 1:  plt.xlabel('ouamp * 100')
+        plt.xlabel('ouamp * 100')
         plt.ylabel('oustd * 100')
         plt.title(f'{pop_name}: {xname}')
         plt.xlim(ouamp_vec[0], ouamp_vec[-1])
         plt.ylim(oustd_vec[0], oustd_vec[-1])
 
-        plt.subplot(2, 3, 3 * n + 2)
-        for k in range(0, len(oustd_vec), std_slice_step):
-            plt.plot(ouamp_vec, X_[k, :], '--') #, label=f"std={oustd}")
-        """ ouamp_idx = C_idx[:, 1]
-        oustd_idx = C_idx[:, 0]
-        xx = [X.iloc[oustd_idx[n], ouamp_idx[n]]
-              for n in range(len(ouamp_idx))]
-        plt.plot(ouamp_vec[ouamp_idx], xx, 'k', lw=2) """
-        plt.plot(ouamp_vec, xx_interp_xr, 'k-', lw=2)
-        if n == 1: plt.xlabel('ouamp * 100')
-        plt.ylabel(xname)
-        plt.title(f'{pop_name}: {xname}')
-        if n % 2 == 1:
-            plt.ylim(0, 2)
-        else:
-            plt.ylim(0, r_max)
-        plt.xlim(0, ouamp_max)
-
-        plt.subplot(2, 3, 3 * n + 3)
-        #plt.plot(ouamp_vec[ouamp_idx], xx, 'k', lw=2)
-        #plt.plot(ouamp_vec, xx_interp, 'k--', lw=2)
-        plt.plot(ouamp_vec, xx_interp_xr_2, 'k--', lw=2)
-        plt.plot(ouamp_vec, xx_interp_xr, 'k-', lw=1)
-        if n == 1: plt.xlabel('ouamp * 100')
-        plt.ylabel(xname)
-        plt.title(f'{pop_name}: {xname}')
-        if n % 2 == 1:
-            plt.ylim(0, 2)
-        else:
-            plt.ylim(0, r_max)
-        plt.xlim(0, ouamp_max)
-
-    plt.draw()
-    plt.show()
+    #plt.draw()
+    #plt.show()
 
     fpath_out = dirpath_out / f'{m}_{pop_name}.png'
     plt.savefig(fpath_out, dpi=300)

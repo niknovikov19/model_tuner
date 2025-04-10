@@ -35,7 +35,8 @@ def init_params() -> IRMapConfigRateFrom2DRateCVMats:
 
     par.fpath_mats = (
         r'D:\WORK\Salvador\repo\model_tuner\test_data\a1_ou_unconn'
-        r'\scott_2025_03_13\OUmapping_master_compat.pkl'
+        #r'\scott_2025_03_13\OUmapping_master_compat.pkl'
+        r'\scott_2025_03_26\OUmapping_v45_batch21.pkl'
     )
 
     par.batch_param_names = ('ou_mean', 'ou_std')
@@ -92,9 +93,12 @@ def init_params() -> IRMapConfigRateFrom2DRateCVMats:
     par.inp_limits |= {pop: (0, inp_max['TC']) for pop in ['TC', 'TCM', 'HTC']}
     par.inp_limits |= {pop: (0.0002, inp_max['IRE']) for pop in ['IRE', 'IREM']}
     par.inp_limits |= {pop: (0, inp_max['TI']) for pop in ['TI', 'TIM']}
+    
+    # Disable all limits
+    par.inp_limits = {pop: (0, np.inf) for pop in par.inp_limits.keys()}
 
     # Populations used for fitting
-    par.pop_names = list(par.inp_limits.keys())
+    par.pop_names = None  #list(par.inp_limits.keys())
                     
     # Parameters of the formula that determines the fitting weights
     par.use_fit_weights = True
@@ -247,6 +251,7 @@ par = init_params()
 # Load rate and CV matrices
 with open(par.fpath_mats, 'rb') as file:
     mats = pickle.load(file)
+par.pop_names = list(mats['rate'].keys())
 
 pop_names = par.pop_names
 #pop_names = ['SOM3']
@@ -256,17 +261,18 @@ inp_vis_max = 3
 
 dirpath_base = Path(
     r'D:\WORK\Salvador\repo\model_tuner\test_data\test_ir_mapping'
-    fr'\test_ir_mapping_1d_slice_irreg_rmax={r_vis_max}_imax={inp_vis_max}_3'
+    r'\scott_2025_03_26'
+    fr'\test_ir_mapping_1d_slice_irreg_rmax={r_vis_max}_imax={inp_vis_max}'
 )
 os.makedirs(dirpath_base, exist_ok=True)
 
-need_recalc = 0
-need_save_yaml = 0
-replace_old_yaml = 0
-need_save_csv = 0
-need_save_json = 0
-need_plot = 0
-need_save_plot = 0
+need_recalc = 1
+need_save_yaml = 1
+replace_old_yaml = 1
+need_save_csv = 1
+need_save_json = 1
+need_plot = 1
+need_save_plot = 1
 need_save_target = 1
 
 fpath_ir_mapper = dirpath_base / 'ir_mapper.pkl'

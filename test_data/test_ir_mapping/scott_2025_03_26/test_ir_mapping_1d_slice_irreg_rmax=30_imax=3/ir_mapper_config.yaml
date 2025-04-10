@@ -1,0 +1,186 @@
+batch_param_main: ou_mean
+batch_param_names:
+- ou_mean
+- ou_std
+batch_param_ratio: 0.4
+fit_param_bounds:
+  a:
+  - 0
+  - .inf
+  q:
+  - 1
+  - 30
+fit_weight_limits:
+- 0.1
+- 20
+fit_weight_pow: 0.6
+fpath_mats: D:\WORK\Salvador\repo\model_tuner\test_data\a1_ou_unconn\scott_2025_03_26\OUmapping_v45_batch21.pkl
+inp_limits:
+  CT5A:
+  - 0
+  - .inf
+  CT5B:
+  - 0
+  - .inf
+  CT6:
+  - 0
+  - .inf
+  HTC:
+  - 0
+  - .inf
+  IRE:
+  - 0
+  - .inf
+  IREM:
+  - 0
+  - .inf
+  IT2:
+  - 0
+  - .inf
+  IT3:
+  - 0
+  - .inf
+  IT5A:
+  - 0
+  - .inf
+  IT5B:
+  - 0
+  - .inf
+  IT6:
+  - 0
+  - .inf
+  ITP4:
+  - 0
+  - .inf
+  ITS4:
+  - 0
+  - .inf
+  NGF1:
+  - 0
+  - .inf
+  NGF2:
+  - 0
+  - .inf
+  NGF3:
+  - 0
+  - .inf
+  NGF4:
+  - 0
+  - .inf
+  NGF5A:
+  - 0
+  - .inf
+  NGF5B:
+  - 0
+  - .inf
+  NGF6:
+  - 0
+  - .inf
+  PT5B:
+  - 0
+  - .inf
+  PV2:
+  - 0
+  - .inf
+  PV3:
+  - 0
+  - .inf
+  PV4:
+  - 0
+  - .inf
+  PV5A:
+  - 0
+  - .inf
+  PV5B:
+  - 0
+  - .inf
+  PV6:
+  - 0
+  - .inf
+  SOM2:
+  - 0
+  - .inf
+  SOM3:
+  - 0
+  - .inf
+  SOM4:
+  - 0
+  - .inf
+  SOM5A:
+  - 0
+  - .inf
+  SOM5B:
+  - 0
+  - .inf
+  SOM6:
+  - 0
+  - .inf
+  TC:
+  - 0
+  - .inf
+  TCM:
+  - 0
+  - .inf
+  TI:
+  - 0
+  - .inf
+  TIM:
+  - 0
+  - .inf
+  VIP2:
+  - 0
+  - .inf
+  VIP3:
+  - 0
+  - .inf
+  VIP4:
+  - 0
+  - .inf
+  VIP5A:
+  - 0
+  - .inf
+  VIP5B:
+  - 0
+  - .inf
+  VIP6:
+  - 0
+  - .inf
+map_fit_params:
+  ftol: 0.0001
+  max_nfev: 2000
+  method: trf
+  par0_kprev: 0
+  return_first_guess: false
+  verbose: false
+  xtol: null
+map_params:
+  x_limits:
+  - 0
+  - .inf
+  y_limits:
+  - 0
+  - .inf
+map_type: richards_1d
+pop_names:
+- SOM2
+- VIP2
+- SOM3
+- VIP3
+- ITS4
+- SOM4
+- VIP4
+- SOM5A
+- VIP5A
+- SOM5B
+- VIP5B
+- SOM6
+- VIP6
+- TC
+- TCM
+- HTC
+- IRE
+- IREM
+- TI
+- TIM
+slice_method: batch_param_ratio
+use_fit_weights: true

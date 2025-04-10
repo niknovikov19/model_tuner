@@ -1,0 +1,1 @@
+Inhibitory current added to some of the populations
