@@ -116,7 +116,7 @@ config_info['exp_params'] = {
 
 # Number of iterations
 # (don't put it to config, so it can be increased later)
-n_iter = 10
+n_iter = 15
 
 def _gen_exp_name(exp_params: OptExperimentParams) -> str:
     rr_str = 'exp_r0=({})'.format(

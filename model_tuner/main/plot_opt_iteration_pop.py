@@ -33,10 +33,14 @@ def plot_opt_iteration_pop(
     rr_c0 = rc0_mat[n, :]
 
     plt.plot(rr_u, rr_c, 'k.', markersize=8)
-    rr_u_ = np.linspace(np.nanmin(rr_u), np.nanmax(rr_u), 200)
-    plt.plot(rr_u_, uc_mapper._map_funcs[pop_name_vis].apply(rr_u_))
+
+    if uc_mapper:
+        rr_u_ = np.linspace(np.nanmin(rr_u), np.nanmax(rr_u), 200)
+        plt.plot(rr_u_, uc_mapper._map_funcs[pop_name_vis].apply(rr_u_))
+
     if Rc_prev_lst:
         plt.plot(rr_u, rr_c_prev, 'kx')
+
     plt.xlabel('Ru')
     plt.ylabel('Rc')
     #plt.xlim(0, rr_c0.max() * 2)

@@ -66,6 +66,7 @@ class NetUCMapper1D(NetUCMapper):
         rr_c_mat = Rc.get_pop_attr_mat('value')
         
         for n, pop in enumerate(self._pop_names):
+            print(f'Fitting U-C for {pop}...')
             self._map_funcs[pop].fit(rr_u_mat[n, :], rr_c_mat[n, :], opt_par=fit_params)
             
         self._is_identity = False

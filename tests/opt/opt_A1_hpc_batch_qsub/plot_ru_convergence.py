@@ -41,12 +41,12 @@ dirpath_figs_ucfit = dirpath_base / 'uc_fit_figs'
 os.makedirs(dirpath_figs_conv, exist_ok=True)
 os.makedirs(dirpath_figs_ucfit, exist_ok=True)
 
-n_iter = 10
+n_iter = 22
 n_pop = len(pop_names)
 n_pfr = len(pfr_vec)
 
 need_plot_conv = 1
-need_plot_ucfit = 0
+need_plot_ucfit = 1
 
 # Create xarray dataset to store Ru and Rc matrices
 X = xr.Dataset(

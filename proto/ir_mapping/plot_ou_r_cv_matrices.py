@@ -103,15 +103,15 @@ def interp_from_2d_xr(
 
 #dirpath_base = Path('D:\\WORK\\Salvador\\repo\\model_tuner\\test_data\\a1_ou_unconn\\scott_2025_02_28')
 #fpath_in = dirpath_base / 'OUmapping_0228.pkl'
-#dirpath_base = Path('D:\\WORK\\Salvador\\repo\\model_tuner\\test_data\\a1_ou_unconn\\scott_2025_03_13')
-#fpath_in = dirpath_base / 'OUmapping_master_compat.pkl'
-dirpath_base = Path('D:\\WORK\\Salvador\\repo\\model_tuner\\test_data\\a1_ou_unconn\\scott_2025_03_26')
-fpath_in = dirpath_base / 'OUmapping_v45_batch21.pkl'
+dirpath_base = Path('D:\\WORK\\Salvador\\repo\\model_tuner\\test_data\\a1_ou_unconn\\scott_2025_03_13')
+fpath_in = dirpath_base / 'OUmapping_master_compat.pkl'
+#dirpath_base = Path('D:\\WORK\\Salvador\\repo\\model_tuner\\test_data\\a1_ou_unconn\\scott_2025_03_26')
+#fpath_in = dirpath_base / 'OUmapping_v45_batch21.pkl'
 
-ouamp_max = 3
-r_max = 50
+ouamp_max = 5
+r_max = 100
 
-cv_mode=1
+cv_mode = 0
 
 dirpath_out = dirpath_base / f'plots_new_xmax={ouamp_max}_rmax={r_max}_cvmode={cv_mode}'
 dirpath_out.mkdir(exist_ok=True)
@@ -120,7 +120,6 @@ with open(fpath_in, 'rb') as file:
     data = pickle.load(file)
 
 pop_names = list(data['rate'].keys())
-
 #pop_names = ['IT3']
 
 for m, pop_name in enumerate(pop_names):
