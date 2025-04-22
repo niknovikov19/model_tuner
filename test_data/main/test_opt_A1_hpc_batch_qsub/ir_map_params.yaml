@@ -1,6 +1,7 @@
 
 # Path to the file with the matrices of firing rates and CVs
-fpath_mats: '/ddn/niknovikov19/repo/model_tuner/test_data/a1_ou_unconn/scott_2025_03_13/OUmapping_master_compat.pkl'
+#fpath_mats: '/ddn/niknovikov19/repo/model_tuner/test_data/a1_ou_unconn/scott_2025_03_13/OUmapping_master_compat.pkl'
+fpath_mats: 'D:\WORK\Salvador\repo\model_tuner\test_data\a1_ou_unconn\scott_2025_03_13\OUmapping_master_compat.pkl'
 
 # Names of the parameters that vary in the batch
 batch_param_names:
