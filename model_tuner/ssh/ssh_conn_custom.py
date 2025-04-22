@@ -28,11 +28,14 @@ class SSHConnCustom(Connection):
         # Create the final ssh connection (self)
         # NOTE: all keys should be in the local filesystem
         ssh_par_final = ssh_par[-1]
+        connect_kwargs = {}
+        if ssh_par_final.fpath_private_key:
+            connect_kwargs |= {"key_filename": ssh_par_final.fpath_private_key}
         super().__init__(
             host=ssh_par_final.host,
             user=ssh_par_final.user,
             port=ssh_par_final.port,
-            #connect_kwargs={"key_filename": ssh_par_final.fpath_private_key},
+            connect_kwargs=connect_kwargs,
             gateway=gateway
         )
         print(f'Opened: {self}')
@@ -47,11 +50,14 @@ class SSHConnCustom(Connection):
         proxy_chain = []
         gateway = None
         for idx, par in enumerate(ssh_par_list):
+            connect_kwargs = {}
+            if par.fpath_private_key:
+                connect_kwargs |= {"key_filename": par.fpath_private_key}
             conn = Connection(
                 host=par.host,
                 user=par.user,
                 port=par.port,
-                connect_kwargs={"key_filename": par.fpath_private_key},
+                connect_kwargs=connect_kwargs,
                 gateway=gateway
             )
             print(f'Opened: {conn}')
