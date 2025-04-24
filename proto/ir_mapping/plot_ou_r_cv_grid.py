@@ -9,7 +9,7 @@ from skimage import measure
 import xarray as xr
 
 from model_tuner.utils import plot_xr, interpolate_to_xr
-from read_batch_res_table import read_batch_res_table
+from model_tuner.main import read_batch_res_table
 
 
 # Contour function: y = k * x
@@ -34,7 +34,7 @@ def find_contours(func, x, y, level=0, **kwargs):
 
 dirpath_base = Path('D:\\WORK\\Salvador\\repo\\A1_OUinp\\exp_results')
 
-exp_name = 'batch_ougrid_vip_0'
+exp_name = 'batch_ougrid_pyr_20x20'
 
 grid_sz = 150
 margin = 0.05
@@ -44,7 +44,7 @@ mode = 'slices'
 #mode = 'contours'
 
 # Slices: (k, c), such that ou_std = ou_mean * k + c
-slices = [(0.4, c) for c in [0, 1, 2]]
+slices = [(0.4, c) for c in [0, 0.5, 1, 1.5, 2]]
 
 
 # Experiment results fodler

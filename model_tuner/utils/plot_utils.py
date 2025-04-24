@@ -1,3 +1,5 @@
+from typing import List
+
 import matplotlib.pyplot as plt
 import numpy as np
 import xarray as xr
@@ -39,3 +41,28 @@ def plot_xr(
     
     if colorbar:
         plt.colorbar(mesh, ax=ax)
+
+
+def plot_xr_contour(
+        Z: xr.DataArray,
+        name: str,
+        levels: List[float],
+        colors: List[str] | None = None,
+        style: str = '-',
+        xmult: int = 1,
+        ymult: int = 1
+        ) -> None:
+
+    def fmt_func(x):
+        if x == int(x): return f'{name}={int(x)}'
+        else: return f'{name}={x:.1f}'
+    
+    x = Z.coords[Z.dims[1]] * xmult
+    y = Z.coords[Z.dims[0]] * ymult
+
+    contours = plt.contour(
+        x, y, Z.values, linestyles=style,
+        levels=levels, colors=colors
+    )
+    plt.clabel(contours, inline=True, fontsize=8, 
+               fmt=fmt_func, rightside_up=True)

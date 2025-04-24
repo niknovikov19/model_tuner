@@ -9,6 +9,12 @@ from scipy.interpolate import griddata, RegularGridInterpolator
 from skimage import measure
 import xarray as xr
 
+from model_tuner.utils import (
+    plot_xr,
+    extract_2d_points_from_xr,
+    interp_points_from_2d_xr
+)
+
 
 # Contour function: y = k * x
 def contour_func_const_ratio(x, y, k):
@@ -29,51 +35,11 @@ def find_contours(func, x, y, level=0, **kwargs):
         C_idx[n] = c_idx
     return C, C_idx
 
-def get_wrapped_cmap(base_cmap='hsv', cycles=3):
-    # Repeat a base colormap multiple times
-    base = plt.get_cmap(base_cmap)
-    colors = base(np.linspace(0, 1, 256))
-    repeated = np.tile(colors, (cycles, 1))
-    return mcolors.ListedColormap(repeated)
-
-def plot_xr(Z, vmin=None, vmax=None, cmap='viridis', show_ax_names=True):
-    # Plot 2D xarray
-    y, x = Z[Z.dims[0]], Z[Z.dims[1]]
-    xx, yy = np.meshgrid(x, y)
-    z = Z.values
-    vmin = vmin or np.nanmin(z)
-    vmax = vmax or np.nanmax(z)
-    if cmap == 'wrapped':
-        cmap = get_wrapped_cmap()
-    ax = plt.gca()
-    mesh = ax.pcolormesh(xx, yy, z, shading='auto', cmap=cmap, vmin=vmin, vmax=vmax)
-    if show_ax_names:
-        ax.set_xlabel(Z.dims[1])
-        ax.set_ylabel(Z.dims[0])
-    plt.colorbar(mesh, ax=ax)
-
-def extract_2d_points_from_xr(
-        Z: xr.DataArray,
-        drop_nan: bool = True
-        ) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
-    # Extract coords and values from a 2D xarray
-    if X.ndim != 2:
-        raise ValueError('Input xarray must be 2D')
-    mask = ~np.isnan(Z.values)
-    y, x = Z[Z.dims[0]], Z[Z.dims[1]]
-    yy, xx = np.meshgrid(y, x, indexing='ij')
-    zz = Z.values
-    if drop_nan:
-        yy = yy[mask]
-        xx = xx[mask]
-        zz = zz[mask]
-    return yy, xx, zz
-
 def fill_2d_xr(
         Z: xr.DataArray,
         method: str = 'cubic'
         ) -> xr.DataArray:
-    # Fill 2D xarray using SciPy's griddata
+    """Interpolate missing points in xr.Dataarray. """
     yy, xx, zz = extract_2d_points_from_xr(Z, drop_nan=True)
     yy_, xx_, _ = extract_2d_points_from_xr(Z, drop_nan=False)
     zz_ = griddata(
@@ -83,22 +49,6 @@ def fill_2d_xr(
         method=method
     )
     return xr.DataArray(zz_, coords=Z.coords, dims=Z.dims)
-
-def interp_from_2d_xr(
-        Z: xr.DataArray,
-        y: np.ndarray,
-        x: np.ndarray,
-        method: str = 'cubic'
-        ) -> np.ndarray:
-    # Interpolate 2D xarray at given points
-    yy, xx, zz = extract_2d_points_from_xr(Z, drop_nan=True)
-    zz_ = griddata(
-        (yy, xx),        # known coordinates
-        zz,              # known values
-        (y, x),          # target points
-        method=method
-    )
-    return zz_
 
 
 #dirpath_base = Path('D:\\WORK\\Salvador\\repo\\model_tuner\\test_data\\a1_ou_unconn\\scott_2025_02_28')
@@ -174,8 +124,8 @@ for m, pop_name in enumerate(pop_names):
         } """
         #xx_interp_xr = X_.interp(**Q, method='linear').values
         try:
-            xx_interp_xr = interp_from_2d_xr(X0_, oustd_vec_, ouamp_vec_)
-            xx_interp_xr_2 = interp_from_2d_xr(X_, oustd_vec_, ouamp_vec_)
+            xx_interp_xr = interp_points_from_2d_xr(X0_, oustd_vec_, ouamp_vec_)
+            xx_interp_xr_2 = interp_points_from_2d_xr(X_, oustd_vec_, ouamp_vec_)
         except Exception as e:
             print(f'Exception in interp_from_2d_xr(): {e}')
             continue
