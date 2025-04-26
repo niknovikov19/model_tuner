@@ -21,9 +21,15 @@ from model_tuner.utils import load_yaml
 dirpath_base = Path(
     r'D:\WORK\Salvador\repo\model_tuner\test_data\main'
     r'\test_opt_A1_hpc_batch_qsub\experiments'
-    r'\test_1_pfr=(0.4_1.0_4)_wmult=0.005_alpha=0.1'
+    #r'\test_1_pfr=(0.4_1.0_4)_wmult=0.005_alpha=0.1'
+    r'\test_2_pfr=(0.4_1.0_4)_wmult=0.005_alpha=0.2'
 )
 dirpath_info = dirpath_base / 'info'
+
+pop_name_vis = 'HTC'
+
+step_num = -1
+
 
 # Load Ru and Rc data
 iter_data = []
@@ -40,7 +46,8 @@ uc_map_params: UCMapFitParams = load_yaml(
     data_class=UCMapFitParams
 )
 
-step_num = n_iter - 1
+if step_num < 0:
+    step_num = n_iter + step_num
 
 # Extract data
 Ru_prev_mat = iter_data[step_num - 1]['Ru']
@@ -56,7 +63,7 @@ Ru_lst = NetRegime1DList.from_regimes_mat(pop_names, Ru_mat)
 Rc_lst = NetRegime1DList.from_regimes_mat(pop_names, Rc_mat)
 
 #uc_map_params.map_fit_params.verbose = 1
-uc_map_params.map_fit_params.ftol = 0.01
+#uc_map_params.map_fit_params.ftol = 0.01
 
 # Fit uc mapper
 try:
@@ -70,8 +77,6 @@ except Exception as e:
 # Map Rc to Ru
 Ru_lst_hat = uc_mapper.Rc_to_Ru(Rc_lst)
 Ru_mat_hat = Ru_lst_hat.get_pop_attr_mat('value')
-
-pop_name_vis = 'CT5A'
 
 plt.ion()
 plt.figure()

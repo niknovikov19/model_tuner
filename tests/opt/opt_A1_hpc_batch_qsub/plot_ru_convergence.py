@@ -17,8 +17,13 @@ dirpath_base = Path(
     r'\test_opt_A1_hpc_batch_qsub\experiments'
     #r'\test_1_pfr=(0.4_1.2_5)_unconn_alpha=0.25'
     #r'\test_1_pfr=(0.4_1.2_5)_wmult=0.01_alpha=0.25'
-    r'\test_1_pfr=(0.4_1.0_4)_wmult=0.005_alpha=0.1'
+    r'\test_2_pfr=(0.4_1.0_4)_wmult=0.005_alpha=0.2'
 )
+
+n_iter = 20
+
+need_plot_conv = 1
+need_plot_ucfit = 1
 
 # Load experiment params
 fpath_exp_params = dirpath_base / 'exp_params.yaml'
@@ -41,12 +46,8 @@ dirpath_figs_ucfit = dirpath_base / 'uc_fit_figs'
 os.makedirs(dirpath_figs_conv, exist_ok=True)
 os.makedirs(dirpath_figs_ucfit, exist_ok=True)
 
-n_iter = 22
 n_pop = len(pop_names)
 n_pfr = len(pfr_vec)
-
-need_plot_conv = 1
-need_plot_ucfit = 1
 
 # Create xarray dataset to store Ru and Rc matrices
 X = xr.Dataset(

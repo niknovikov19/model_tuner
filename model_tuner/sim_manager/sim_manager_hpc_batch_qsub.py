@@ -63,6 +63,7 @@ class SimManagerHPCBatchQsub(SimManagerHPCBatch):
     """
 
     BATCH_JOB_NAME: ClassVar[str] = 'BATCH_MAIN'
+    BATCH_NODE: str = 'node08'
     
     def __init__(
             self,
@@ -95,7 +96,8 @@ class SimManagerHPCBatchQsub(SimManagerHPCBatch):
                         job_params: HPCJobSubmitParams,
                         fpath_log: str,
                         fpath_err: str | None = None,
-                        cmd_args: str | List[str] = field(default_factory=list)
+                        cmd_args: str | List[str] = field(default_factory=list),
+                        node: str | None = None
                         ) -> None:
         """Create sh-file that runs the script and submit it via qsub. """
 
@@ -129,10 +131,11 @@ class SimManagerHPCBatchQsub(SimManagerHPCBatch):
             fid.write(sh_header + '\n\n' + sh_body)
 
         # Submit the script
+        node_str = f'-l hostname={node}' if node else ''
         cmd = f"""
             bash -l -c '(
                 cd {dirpath_script}
-                qsub {fpath_sh}
+                qsub {node_str} {fpath_sh}
             )'
         """
         #print(f'COMMAND: \n {cmd}')
@@ -158,7 +161,8 @@ class SimManagerHPCBatchQsub(SimManagerHPCBatch):
             job_params=self._batch_script_job_params,
             fpath_log=self._paths.log_file,
             fpath_err=self._paths.log_file.replace('.out', '.err'),
-            cmd_args=[self._paths.base_dir]
+            cmd_args=[self._paths.base_dir],
+            node=self.BATCH_NODE
         )
 
         # Pause for a while to let the batch job be submitted
