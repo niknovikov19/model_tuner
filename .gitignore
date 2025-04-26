@@ -9,3 +9,5 @@ _old
 *ray*
 /models/A1_OUinp/
 *.joblib
+*.dot
+*.puml

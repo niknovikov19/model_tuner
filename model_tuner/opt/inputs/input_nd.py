@@ -24,6 +24,9 @@ class PopInputND(PopInput):
             var_names: List[str]
             ) -> 'PopInputND':
         return cls(vars={vn: v for vn, v in zip(var_names, arr)})
+    
+    def __getitem__(self, var_name):
+        return self.vars[var_name]
 
 
 @dataclass

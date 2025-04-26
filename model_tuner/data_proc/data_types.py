@@ -1,8 +1,9 @@
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List, Tuple, Optional, Union
 
 import numpy as np
+from numpy import ndarray
 
 from .proc_params import ProcStepParams, ProcParamsChain
 from .proc_params import NetSpikesParams, NetRatesParams

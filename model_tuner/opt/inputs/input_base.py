@@ -18,3 +18,6 @@ class NetInput:
     
     def get_pop_attr_vec(self, attr: str) -> np.ndarray:
         return np.array([getattr(I, attr) for I in self.pop_inputs.values()])
+    
+    def __getitem__(self, pop_name):
+        return self.pop_inputs[pop_name]

@@ -95,9 +95,9 @@ class IRMapConfigRateFrom2DBatchResLists:
     
     def init_ir_mapper(
             self,
-            dirpath_plots_out: Path | str | None = None
-            ) -> NetIRMapper1DSlice:
-        return _init_ir_mapper(self, dirpath_plots_out)
+            ) -> Tuple[NetIRMapper1DSlice,
+                       Dict[str, xr.DataArray]]:
+        return _init_ir_mapper(self)
 
 
 def _weight_func(
@@ -112,8 +112,8 @@ def _weight_func(
 
 def _init_ir_mapper(
         par: IRMapConfigRateFrom2DBatchResLists,
-        dirpath_plots_out: Path | str | None = None
-        ) -> NetIRMapper1DSlice:
+        ) -> Tuple[NetIRMapper1DSlice,
+                   Dict[str, xr.DataArray]]:
 
     # Load simulation results:
     # accumulate (ou_mean, ou_std, rate, CV) points for each population
@@ -194,94 +194,5 @@ def _init_ir_mapper(
 
         # Add population I-R mapper to the network I-R mapper
         net_ir_mapper.set_pop_mapper(pop_name, pop_ir_mapper)
-
-    if dirpath_plots_out:
-        _plot_ir_mapping(
-            net_ir_mapper, R, par.inp_limits,
-            dirpath_out=dirpath_plots_out
-        )
     
-    return net_ir_mapper
-
-
-def _plot_ir_mapping(
-        net_ir_mapper: NetIRMapper1DSlice,
-        rate_mats: Dict[str, xr.DataArray],
-        inp_limits: Dict[str, Tuple[float, float]],
-        dirpath_out: Path | str,
-        r_vis_max: float = 100,
-        inp_vis_max: float = 5,
-        npts: int = 200
-        ) -> None:
-    
-    pop_names = net_ir_mapper.pop_names
-    npops = len(pop_names)
-    
-    # Create output folder
-    if isinstance(dirpath_out, str):
-        dirpath_out = Path(dirpath_out)
-    os.makedirs(dirpath_out, exist_ok=True)
-
-    # Generate a range of output rates for each pop.
-    rmax = 100
-    rbase = 0.001
-    rates_out_vec = np.geomspace(rbase, rmax, npts) - rbase
-    rates_out_mat = np.tile(rates_out_vec, (npops, 1))
-
-    # Convert output rates to NetRegime1DList
-    regimes_out = NetRegime1DList.from_regimes_mat(
-        pop_names, rates_out_mat
-    )
-
-    # Map regimes to inputs
-    inputs = [net_ir_mapper.R_to_I(regime) for regime in regimes_out]
-
-    # Extract ou_mean and ou_std matrices from the input list
-    ou_mean_mat = np.zeros((npops, npts))
-    ou_std_mat = np.zeros((npops, npts))
-    for m, inp in enumerate(inputs):
-        ou_mean_mat[:, m] = inp.get_pop_inputs_vec('ou_mean')
-        ou_std_mat[:, m] = inp.get_pop_inputs_vec('ou_std')
-
-    for n, pop_name in enumerate(pop_names):
-        print(f'Plotting I-R mapping for {pop_name}...')
-
-        R = rate_mats[pop_name]
-        
-        # Slie of the training data
-        ou_mean_vec = R.coords['ou_mean'].values
-        slicer = net_ir_mapper.pop_IR_mappers[pop_name].slicer
-        rr_vec = slicer.get_1d_slice(R, ou_mean_vec)
-
-        # Mask for the training data that was used for fitting
-        mask = ((ou_mean_vec >= inp_limits[pop_name][0]) &
-                (ou_mean_vec <= inp_limits[pop_name][1]))
-
-        # I-R mapping result
-        ou_mean_vec_hat = ou_mean_mat[n, :]
-        ou_std_vec_hat = ou_std_mat[n, :]
-        rr_vec_hat = rates_out_vec
-
-        ou_mean_vec = ou_mean_vec * 100
-        ou_mean_vec_hat = ou_mean_vec_hat * 100
-        ou_std_vec_hat = ou_std_vec_hat * 100
-
-        plt.figure(111)
-        plt.clf()
-
-        plt.plot(ou_mean_vec[~mask], rr_vec[~mask], 'kx')
-        plt.plot(ou_mean_vec[mask], rr_vec[mask], 'k.', markersize=6)
-        plt.plot(ou_mean_vec_hat, rr_vec_hat, 'r-', linewidth=2)
-        plt.title(pop_name)
-        plt.xlabel('OU mean * 100')
-        plt.ylabel('Rate')
-
-        #plt.xlim(0, inp_vis_max)
-        #plt.ylim(0, r_vis_max)
-
-        #plt.show()
-        #plt.draw()
-
-        #print('Saving figure...')
-        fpath_fig = dirpath_out / f'{n}_{pop_name}.png'
-        plt.savefig(fpath_fig)
+    return net_ir_mapper, R

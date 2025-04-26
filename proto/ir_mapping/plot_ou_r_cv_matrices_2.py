@@ -94,8 +94,8 @@ for m, pop_name in enumerate(pop_names):
         plt.xlabel('ouamp * 100')
         plt.ylabel('oustd * 100')
         plt.title(f'{pop_name}: {xname}')
-        plt.xlim(ouamp_vec[0], ouamp_vec[-1])
-        plt.ylim(oustd_vec[0], oustd_vec[-1])
+        #plt.xlim(ouamp_vec[0], ouamp_vec[-1])
+        #plt.ylim(oustd_vec[0], oustd_vec[-1])
 
     if interactive:
         plt.draw()

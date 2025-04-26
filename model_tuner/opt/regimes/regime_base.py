@@ -26,6 +26,9 @@ class NetRegime:
     
     def copy(self) -> 'NetRegime':
         return deepcopy(self)
+    
+    def __getitem__(self, pop_name):
+        return self.pop_regimes[pop_name]
 
 
 @dataclass
