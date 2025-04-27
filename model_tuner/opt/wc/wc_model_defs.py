@@ -35,6 +35,10 @@ class ModelDescWC:
     def get_pop_names(self) -> List[str]:
         return list(self.pops.keys())
     
+    @property
+    def npops(self) -> int:
+        return len(self.pops)
+    
     @classmethod
     def create_unconn(cls, num_pops: int) -> 'ModelDescWC':
         model = ModelDescWC()
