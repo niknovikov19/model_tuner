@@ -33,7 +33,8 @@ class MapFunc1DRichards(MapFunc1D):
     def f_inv(self, y: float | np.ndarray, a, b, c, k, q) -> float | np.ndarray:
         y_ = _to_array(y)
         y_ = _clip_to_nan(y_, self._y_limits, need_copy=True)
-        y_[(a / (y_ - c)) < 1] = np.nan
+        y_[(a / (y_ - c)) < 0] = np.nan
+        y_[(a / (y_ - c)) ** (1/q) < 1] = np.nan
         x = b - np.log((a / (y_ - c)) ** (1/q) - 1) / k
         x = x.clip(*self._x_limits)
         if _is_scalar(y):

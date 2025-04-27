@@ -1,4 +1,6 @@
-from typing import Dict, List, Literal
+from typing import Dict, List, Literal, Tuple
+
+import numpy as np
 
 from ..regimes import NetRegime1D, NetRegime1DList
 from ..map_funcs import MapFuncType, MapFitParams, MapFunc1D
@@ -53,7 +55,10 @@ class NetUCMapper1D(NetUCMapper):
             self,
             Ru: NetRegime1DList,
             Rc: NetRegime1DList,
-            fit_params: MapFitParams = MapFitParams()
+            fit_params: MapFitParams = MapFitParams(),
+            weights: np.ndarray | None = None,
+            bounds: Dict[str, Tuple[float, float]] | None = None,
+            verbose: bool = True
             ) -> bool:
         if len(Ru) != len(Rc):
              raise ValueError('Ru and Rc should have the same length')
@@ -66,8 +71,15 @@ class NetUCMapper1D(NetUCMapper):
         rr_c_mat = Rc.get_pop_attr_mat('value')
         
         for n, pop in enumerate(self._pop_names):
-            print(f'Fitting U-C for {pop}...')
-            self._map_funcs[pop].fit(rr_u_mat[n, :], rr_c_mat[n, :], opt_par=fit_params)
+            if verbose:
+                print(f'Fitting U-C for {pop}...')
+            self._map_funcs[pop].fit(
+                xx=rr_u_mat[n, :],
+                yy=rr_c_mat[n, :],
+                opt_par=fit_params,
+                ww=weights,
+                bounds=bounds
+            )
             
         self._is_identity = False
         return all([f.is_valid() for f in self._map_funcs.values()])

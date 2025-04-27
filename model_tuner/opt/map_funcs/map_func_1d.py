@@ -135,11 +135,21 @@ class MapFunc1D(ABC):
             yy = yy[mask]
             ww = ww[mask]
         
+        # Bounds of fitting
+        bounds = bounds or {}
+        bounds_def = self._get_fit_bounds()  # default bounds (from a subclass)
+        bounds = bounds_def | bounds  # replace default bounds by those from arguments
+        bounds = _bounds_dict_to_tuple(bounds)
+        
         # Initial guess
         par0 = self._get_first_fit_guess(xx, yy)  # default first guess (from a subclass)
         par0_prev = self.get_par_vals()  # result of the previous fitting
         if not np.any(np.isnan(par0_prev)):
             par0 = _mix_tuples(par0, par0_prev, opt_par.par0_kprev)  # mix par0 and par0_prev
+        
+        # Clip the initial guess to bounds
+        par0 = tuple(np.clip(p, low, high)
+                     for p, low, high in zip(par0, bounds[0], bounds[1]))
         
         # Accept the initial guess without further fitting
         if opt_par.return_first_guess:
@@ -148,12 +158,6 @@ class MapFunc1D(ABC):
             }
             return
         
-        # Bounds of fitting
-        bounds = bounds or {}
-        bounds_def = self._get_fit_bounds()  # default bounds (from a subclass)
-        bounds = bounds_def | bounds  # replace bounds provided in arguments
-        bounds = _bounds_dict_to_tuple(bounds)
-
         # Fit
         try:
             par, _ = curve_fit(
