@@ -319,28 +319,60 @@ with SSHClient(ssh_par_fs=ssh_par_fs, ssh_par_conn=ssh_par_conn) as ssh:
                 uc_map_params.rates_calc_params
             )
         print('\nCompleted')
-        
-        # Mix old and new regimes
-        Rc_lst = NetRegime1DList.mix(Rc_prev_lst, Rc_lst, exp_params.uc_alpha)
+
+        alpha_mult = 0.8
+        alpha = exp_params.uc_alpha
+        uc_fit_ok = False
+
+        # Re-estimate the Ru->Rc mapping based on the simulation results
+        while alpha > 0.01:
+
+            # Mix old and new regimes
+            Rc_lst_mixed = NetRegime1DList.mix(Rc_prev_lst, Rc_lst, alpha)
+
+            try:
+                # Fit U-C mapper
+                uc_mapper.set_to_identity()
+                res = uc_mapper.fit_from_data(
+                    Ru_lst, Rc_lst_mixed,
+                    fit_params=uc_map_params.map_fit_params,
+                    bounds=uc_map_params.fit_param_bounds,
+                    verbose=False
+                )
+                if not res:
+                    print(f'Fitting failed with alpha={alpha:.04f}')
+                    alpha *= alpha_mult   # decrease alpha
+                    continue
+            except Exception as e:
+                print(f'Fitting raised an exception with alpha={alpha:.04f}')
+                alpha *= alpha_mult   # decrease alpha
+                continue
+            
+            # Check whether Rc0->Ru mapping works for all the points
+            Ru_lst_hat = uc_mapper.Rc_to_Ru(Rc0_lst)
+            if all(Ru.is_valid() for Ru in Ru_lst_hat):
+                print(f'Inverse mapping ok with alpha={alpha:.04f}')
+                uc_fit_ok = True
+                break
+            else:
+                print(f'Inverse mapping failed with alpha={alpha:.04f}')
+                alpha *= alpha_mult   # decrease alpha
         
         # Save info about the current state of the optimization process
         Ru_mat = Ru_lst.get_pop_regimes_mat()
         Rc_mat = Rc_lst.get_pop_regimes_mat()
+        Rc_mat_mixed = Rc_lst_mixed.get_pop_regimes_mat()
         info = {
             'pop_names': exp_params.pop_names,
             'Ru': Ru_mat,
             'Rc': Rc_mat,
+            'Rc_mat_mixed': Rc_mat_mixed,
             'pfr': exp_params.pfr_vec[valid_points],
+            'alpha': alpha
         }
         fpath_info = dirpath_info / f'Ru_Rc_{sim_label}.pkl'
         with open(fpath_info, 'wb') as fid:
             pickle.dump(info, fid)        
-                
-        # Re-estimate the Ru->Rc mapping based on the simulations' results
-        uc_fit_res = uc_mapper.fit_from_data(
-            Ru_lst, Rc_lst,
-            uc_map_params.map_fit_params
-        )
         
         # Visualize the iteration result
         if need_plot_iter or (need_plot_res and (iter_num == (n_iter - 1))):
@@ -356,7 +388,7 @@ with SSHClient(ssh_par_fs=ssh_par_fs, ssh_par_conn=ssh_par_conn) as ssh:
                 
                 plot_opt_iteration_pop(
                     exp_params.pop_names, pop_name, uc_mapper,
-                    Ru_lst, Rc_lst, Rc_prev_lst, Rc0_lst
+                    Ru_lst, Rc_lst_mixed, Rc_prev_lst, Rc0_lst
                 )
                 
                 plt.get_current_fig_manager().window.showMaximized()
@@ -364,6 +396,6 @@ with SSHClient(ssh_par_fs=ssh_par_fs, ssh_par_conn=ssh_par_conn) as ssh:
                 plt.show()
                 plt.savefig(dirpath_figs_iter / f'{pop_name}.png')
 
-        if not uc_fit_res:
+        if not uc_fit_ok:
             print('U-C map fitting failed - stop')
             break

@@ -21,8 +21,8 @@ from model_tuner.utils import load_yaml
 dirpath_base = Path(
     r'D:\WORK\Salvador\repo\model_tuner\test_data\main'
     r'\test_opt_A1_hpc_batch_qsub\experiments'
-    r'\test_2_pfr=(0.4_1.0_4)_wmult=0.005_alpha=0.2'
-    #r'\test_2_pfr=(0.4_1.0_4)_wmult=0.005_alpha=1'
+    #r'\test_2_pfr=(0.4_1.0_4)_wmult=0.005_alpha=0.2'
+    r'\test_2_pfr=(0.4_1.0_4)_wmult=0.005_alpha=1'
 )
 dirpath_info = dirpath_base / 'info'
 
@@ -73,15 +73,16 @@ rc_max = Rc_lst[-1][pop_name_vis].value
 #uc_map_params.map_fit_params.ftol = 0.01
 uc_map_params.map_type = 'richards_1d'
 uc_map_params.fit_param_bounds = {
-    'c': (0, rc_min),
-    'a': (rc_max, np.inf),
-    #'q': (1, 30),
+    #'c': (0, rc_min),
+    'a': (0, np.inf),
+    'q': (1, 30),
     #'b': (0, np.inf)
 }
 
+uc_mapper = init_uc_mapper(uc_map_params)
+
 # Fit uc mapper
 try:
-    uc_mapper = init_uc_mapper(uc_map_params)
     uc_mapper.fit_from_data(
         Ru_lst, Rc_lst,
         fit_params=uc_map_params.map_fit_params,

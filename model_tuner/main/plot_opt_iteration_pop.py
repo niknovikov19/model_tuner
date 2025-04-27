@@ -14,7 +14,8 @@ def plot_opt_iteration_pop(
         Ru_lst: NetRegime1DList,
         Rc_lst: NetRegime1DList,
         Rc_prev_lst: NetRegime1DList = None,
-        Rc0_lst: NetRegime1DList = None
+        Rc0_lst: NetRegime1DList = None,
+        ru_limits: Tuple[float, float] = (None, None)
         ) -> None:
     
     n = pop_names.index(pop_name_vis)
@@ -23,6 +24,10 @@ def plot_opt_iteration_pop(
     rc_mat = Rc_lst.get_pop_attr_mat('value')
     rr_u = ru_mat[n, :]
     rr_c = rc_mat[n, :]
+
+    ru_limits = list(ru_limits)
+    ru_limits[0] = ru_limits[0] or np.nanmin(rr_u)
+    ru_limits[1] = ru_limits[1] or np.nanmax(rr_u)
     
     if Rc_prev_lst:
         rc_prev_mat = Rc_prev_lst.get_pop_attr_mat('value')
@@ -35,7 +40,7 @@ def plot_opt_iteration_pop(
     plt.plot(rr_u, rr_c, 'k.', markersize=8)
 
     if uc_mapper:
-        rr_u_ = np.linspace(np.nanmin(rr_u), np.nanmax(rr_u), 200)
+        rr_u_ = np.linspace(ru_limits[0], ru_limits[1], 200)
         plt.plot(rr_u_, uc_mapper._map_funcs[pop_name_vis].apply(rr_u_))
 
     if Rc_prev_lst:
