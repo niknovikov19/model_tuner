@@ -15,7 +15,8 @@ def plot_opt_iteration_pop(
         Rc_lst: NetRegime1DList,
         Rc_prev_lst: NetRegime1DList = None,
         Rc0_lst: NetRegime1DList = None,
-        ru_limits: Tuple[float, float] = (None, None)
+        ru_limits: Tuple[float, float] = (None, None),
+        **kwargs
         ) -> None:
     
     n = pop_names.index(pop_name_vis)
@@ -41,7 +42,9 @@ def plot_opt_iteration_pop(
 
     if uc_mapper:
         rr_u_ = np.linspace(ru_limits[0], ru_limits[1], 200)
-        plt.plot(rr_u_, uc_mapper._map_funcs[pop_name_vis].apply(rr_u_))
+        plt.plot(rr_u_,
+                 uc_mapper._map_funcs[pop_name_vis].apply(rr_u_),
+                 **kwargs)
 
     if Rc_prev_lst:
         plt.plot(rr_u, rr_c_prev, 'kx')

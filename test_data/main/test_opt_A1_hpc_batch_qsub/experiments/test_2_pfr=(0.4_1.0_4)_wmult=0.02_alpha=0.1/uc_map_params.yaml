@@ -1,0 +1,144 @@
+
+pop_names:
+- NGF1
+- NGF2
+- NGF3
+- NGF4
+- NGF5A
+- NGF5B
+- NGF6
+- SOM2
+- SOM3
+- SOM4
+- SOM5A
+- SOM5B
+- SOM6
+- PV2
+- PV3
+- PV4
+- PV5A
+- PV5B
+- PV6
+- VIP2
+- VIP3
+- VIP4
+- VIP5A
+- VIP5B
+- VIP6
+- IT2
+- IT3
+- IT6
+- ITP4
+- ITS4
+- IT5A
+- IT5B
+- PT5B
+- CT5A
+- CT5B
+- CT6
+- TC
+- TCM
+- HTC
+- IRE
+- IREM
+- TI
+- TIM
+
+# Parameters of the simulation result processing
+spikes_calc_params:   # sim_result -> spikes
+  combine_cells: true
+  ms: false
+  ndigits: 6
+  pop_names:
+    - NGF1
+    - NGF2
+    - NGF3
+    - NGF4
+    - NGF5A
+    - NGF5B
+    - NGF6
+    - SOM2
+    - SOM3
+    - SOM4
+    - SOM5A
+    - SOM5B
+    - SOM6
+    - PV2
+    - PV3
+    - PV4
+    - PV5A
+    - PV5B
+    - PV6
+    - VIP2
+    - VIP3
+    - VIP4
+    - VIP5A
+    - VIP5B
+    - VIP6
+    - IT2
+    - IT3
+    - IT6
+    - ITP4
+    - ITS4
+    - IT5A
+    - IT5B
+    - PT5B
+    - CT5A
+    - CT5B
+    - CT6
+    - TC
+    - TCM
+    - HTC
+    - IRE
+    - IREM
+    - TI
+    - TIM
+  subtract_t0: true
+  time_limits:
+  - 0
+  - null
+rates_calc_params:    # spikes -> rates
+  pop_names: null
+  time_limits:
+  - 0.5
+  - null
+
+# U-C mapping type and hyperparameters
+map_type: richards_1d
+map_params:
+  x_limits:
+  - 0
+  - .inf
+  y_limits:
+  - 0
+  - .inf
+
+# Fitting bounds for U-C mapping parameters
+fit_param_bounds:
+  a:
+  - 0
+  - .inf
+  q:
+  - 1
+  - 30
+
+# Limits for the input rates used for fitting
+inp_limits: null
+
+# Parameters of the formula that determines the fitting weights
+use_fit_weights: false
+fit_weight_pow: 0
+fit_weight_limits:
+  - 0
+  - .inf
+
+# Parameters of the fitting algorithm
+map_fit_params:
+  ftol: 0.01
+  max_nfev: 2000
+  method: trf
+  par0_kprev: 0
+  return_first_guess: false
+  verbose: false
+  xtol: null
+

@@ -83,11 +83,19 @@ else:
         r'D:\WORK\Salvador\repo\model_tuner\test_data\main\test_opt_A1_hpc_batch_qsub')
 
 # Experiment name
-exp_name = 'test_2_pfr=(0.4_1.0_4)_wmult=0.005_alpha=1'
+exp_name = 'test_2_pfr=(0.4_1.0_4)_wmult=0.015_alpha=0.1_tcalc=(2-3)'
 
 # Number of iterations
 # (don't put it to config, so it can be increased later)
-n_iter = 10
+n_iter = 30
+
+# Action flags
+need_delete_prev_results = 0
+need_recalc_ir = 0
+need_plot_ir = 0
+need_plot_iter = 1
+need_plot_res = 1
+
 
 # Local experiment folder
 dirpath_exp_local = dirpath_base_local / 'experiments' / exp_name
@@ -145,13 +153,6 @@ os.makedirs(dirpath_dk, exist_ok=True)
 dk = DataKeeper(dirpath_dk)
 
 logging.basicConfig(level=logging.ERROR, force=True)
-
-# Action flags
-need_delete_prev_results = 0
-need_recalc_ir = 0
-need_plot_ir = 0
-need_plot_iter = 1
-need_plot_res = 1
 
 # Initialize I-R mapper
 ir_mapper: NetIRMapper1DSlice

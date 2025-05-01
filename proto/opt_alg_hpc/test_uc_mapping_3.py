@@ -12,7 +12,6 @@ from model_tuner.main import (
     UCMapFitParams,
     init_uc_mapper,
     plot_opt_iteration_pop
-
 )
 
 from model_tuner.utils import load_yaml

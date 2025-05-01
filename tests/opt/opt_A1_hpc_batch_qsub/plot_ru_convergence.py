@@ -15,12 +15,11 @@ from model_tuner.main import OptExperimentParams
 dirpath_base = Path(
     r'D:\WORK\Salvador\repo\model_tuner\test_data\main'
     r'\test_opt_A1_hpc_batch_qsub\experiments'
-    #r'\test_1_pfr=(0.4_1.2_5)_unconn_alpha=0.25'
-    #r'\test_1_pfr=(0.4_1.2_5)_wmult=0.01_alpha=0.25'
-    r'\test_2_pfr=(0.4_1.0_4)_wmult=0.005_alpha=1'
+    r'\test_2_pfr=(0.4_1.0_4)_wmult=0.015_alpha=0.1_tcalc=(2-3)'
 )
 
-n_iter = 10
+fpath_mask = str(dirpath_base / 'info' / f'Ru_Rc_req_*.pkl')
+n_iter = len(glob(fpath_mask))
 
 need_plot_conv = 1
 need_plot_ucfit = 1

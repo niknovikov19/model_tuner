@@ -142,6 +142,62 @@ def plot_rc_data(
         plt.title(pop)
     plt.show()
 
+def uc_fit_step_to_latest_auto(
+        Ru_data: xr.DataArray,   # pop x pfr x iter
+        Rc_data: xr.DataArray,   # pop x pfr x iter
+        uc_map_params: UCMapFitParams,
+        alpha0: float = 1,
+        alpha_mult: float = 0.8,
+        alpha_min: float = 0.01,
+        #beta: float = 1,
+        verbose: bool = False
+        ) -> NetUCMapper1D | None:
+    
+    Rc0_mat = Rc_data.isel(iter=0, drop=True)
+    Rc0_lst = NetRegimeWCList.from_xr(Rc0_mat)
+
+    Ru_mat = Ru_data.isel(iter=-1, drop=True)
+    Ru_lst = NetRegimeWCList.from_xr(Ru_mat)
+
+    Rc_mat_last = Rc_data.isel(iter=-1, drop=True)
+    Rc_mat_prev = Rc_data.isel(iter=-2, drop=True)
+
+    alpha = alpha0
+    uc_fit_ok = False
+
+    while alpha > alpha_min:
+        Rc_mat = alpha * Rc_mat_last + (1 - alpha) * Rc_mat_prev    
+        Rc_lst = NetRegimeWCList.from_xr(Rc_mat)
+
+        # Fit U-C mapper
+        uc_mapper = fit_uc_mapper(Ru_lst, Rc_lst, uc_map_params)
+        if not uc_mapper:
+            if verbose:
+                print(f'Fitting failed with alpha={alpha:.04f}')
+            alpha *= alpha_mult   # decrease alpha
+            continue
+        
+        # Check whether Rc0->Ru mapping works for every base point
+        Ru_lst_hat = uc_mapper.Rc_to_Ru(Rc0_lst)
+        if all(Ru.is_valid() for Ru in Ru_lst_hat):
+            if verbose:
+                print(f'Inverse mapping ok with alpha={alpha:.04f}')
+            uc_fit_ok = True
+            break
+        else:
+            if verbose:
+                print(f'Inverse mapping failed with alpha={alpha:.04f}')
+            alpha *= alpha_mult   # decrease alpha
+    
+    if uc_fit_ok:
+        return uc_mapper
+    else:
+        return None
+
+    #Rc_mat = alpha * Rc_mat_last + (1 - alpha) * Rc_mat_prev    
+    #Rc_lst = NetRegimeWCList.from_xr(Rc_mat)
+
+
 def run_opt_experiment(
         model: ModelDescWC,
         rr_base: float,
@@ -200,19 +256,22 @@ def run_opt_experiment(
         Rc_data.loc[{'iter': iter_num}] = Rc_lst.to_xr('pfr', pfr_vec)
         
         # Fit UC mapping
-        uc_mapper = uc_fit_step_to_latest(
+        uc_mapper = uc_fit_step_to_latest_auto(
             Ru_data.sel(iter=range(0, iter_num + 1)),
             Rc_data.sel(iter=range(0, iter_num + 1)),
             uc_map_params,
-            alpha=uc_alpha
+            alpha0=uc_alpha,
+            verbose=True
         )
         #uc_mapper = fit_uc_mapper(Ru_lst, Rc_lst, uc_map_params)
 
     return Ru_data, Rc_data
 
 
+np.random.seed(112)
+
 # WC model
-model = create_wc_model(npops=6, g=0.5)
+model = create_wc_model(npops=6, g=0.25)
 
 # Original target rate vector
 rmin, rmax = 1, 6
@@ -222,15 +281,15 @@ rr_base = rmin + (rmax - rmin) * np.random.rand(model.npops)
 pfr_vec = np.array([0.4, 0.6, 0.8, 1, 1.2])
 
 # Parameters of WC "simulation"
-sim_par = {'niter': 10, 'dr_mult': 1}
+sim_par = {'niter': 20, 'dr_mult': 1}
 
 # UC map params
 uc_map_params = load_uc_map_params()
 uc_map_params.pop_names = model.get_pop_names()
 
 Ru_data, Rc_data = run_opt_experiment(
-    model, rr_base, pfr_vec,uc_map_params,
-    niter=10, uc_alpha=0.7
+    model, rr_base, pfr_vec, uc_map_params,
+    niter=10, uc_alpha=1
 )
 
 plot_rc_data(Rc_data, rr_base, pops_vis=['pop1'])
