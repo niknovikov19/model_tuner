@@ -35,3 +35,9 @@ class NetIRMapper:
         for name, R_ in R.pop_regimes.items():
             I.pop_inputs[name] = self.pop_IR_mappers[name].R_to_I(R_)
         return I
+    
+    def __getitem__(self, pop_name: str) -> PopIRMapper:
+        return self.pop_IR_mappers[pop_name]
+
+    #def __setitem__(self, pop_name: str, mapper: PopIRMapper):
+    #    self.pop_IR_mappers[pop_name] = mapper

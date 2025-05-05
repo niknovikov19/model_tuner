@@ -27,8 +27,10 @@ def plot_opt_iteration_pop(
     rr_c = rc_mat[n, :]
 
     ru_limits = list(ru_limits)
-    ru_limits[0] = ru_limits[0] or np.nanmin(rr_u)
-    ru_limits[1] = ru_limits[1] or np.nanmax(rr_u)
+    if ru_limits[0] is None:
+        ru_limits[0] = np.nanmin(rr_u)
+    if ru_limits[1] is None:
+        ru_limits[1] = np.nanmax(rr_u)
     
     if Rc_prev_lst:
         rc_prev_mat = Rc_prev_lst.get_pop_attr_mat('value')
@@ -38,13 +40,12 @@ def plot_opt_iteration_pop(
     rc0_mat = Rc0_lst.get_pop_attr_mat('value')
     rr_c0 = rc0_mat[n, :]
 
-    plt.plot(rr_u, rr_c, 'k.', markersize=8)
+    plt.plot(rr_u, rr_c, '.', markersize=8, **kwargs)
 
     if uc_mapper:
         rr_u_ = np.linspace(ru_limits[0], ru_limits[1], 200)
-        plt.plot(rr_u_,
-                 uc_mapper._map_funcs[pop_name_vis].apply(rr_u_),
-                 **kwargs)
+        rr_c_ = [Rc.value for Rc in uc_mapper[pop_name_vis].Ru_to_Rc(rr_u_)]
+        plt.plot(rr_u_, rr_c_, **kwargs)
 
     if Rc_prev_lst:
         plt.plot(rr_u, rr_c_prev, 'kx')

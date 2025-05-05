@@ -17,6 +17,9 @@ class PopRegime1D(PopRegime):
     
     def mix_with(self, R: 'PopRegime1D', alpha) -> None:
         self.value = (1 - alpha) * self.value + alpha * R.value
+    
+    def copy(self) -> 'PopRegime1D':
+        return PopRegime1D(self.value)
 
 
 @dataclass
@@ -32,17 +35,20 @@ class NetRegime1D(NetRegime):
     def from_values(
             cls,
             pop_names: List[str],
-            pop_values: List[float]
+            pop_values: List[float | PopRegime1D]
             ) -> 'NetRegime1D':
         R = NetRegime1D()
         for pop_name, val in zip(pop_names, pop_values):
-            R.pop_regimes[pop_name] = PopRegime1D(value=val)
+            if isinstance(val, PopRegime1D):
+                R.pop_regimes[pop_name] = val.copy()
+            else:
+                R.pop_regimes[pop_name] = PopRegime1D(value=val)
         return R
     
     @classmethod
     def from_dict(
             cls,
-            pop_vals_dict: Dict[str, float]
+            pop_vals_dict: Dict[str, float | PopRegime1D]
             ) -> 'NetRegime1D':
         return cls.from_values(
             pop_names=list(pop_vals_dict.keys()),

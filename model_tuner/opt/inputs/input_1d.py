@@ -10,6 +10,9 @@ from .input_base import PopInput, NetInput
 class PopInput1D(PopInput):
     value: float = 0
 
+    def is_valid(self) -> bool:
+        return not np.isnan(self.value)
+
 
 @dataclass
 class NetInput1D(NetInput):

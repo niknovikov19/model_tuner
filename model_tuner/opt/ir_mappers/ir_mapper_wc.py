@@ -11,11 +11,11 @@ class PopIRMapperWC(PopIRMapper):
         self.pop_params = pop_params
         
     def I_to_R(self, I: PopInputWC) -> PopRegimeWC:
-        r = wc_gain(I.I, self.pop_params)
+        r = wc_gain(I.value, self.pop_params)
         return PopRegimeWC(r=r)
 
     def R_to_I(self, R: PopRegimeWC) -> PopInputWC:
-        I = wc_gain_inv(R.r, self.pop_params)
+        I = wc_gain_inv(R.value, self.pop_params)
         return PopInputWC(I=I)
 
 

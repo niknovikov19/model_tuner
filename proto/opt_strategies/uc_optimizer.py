@@ -1,5 +1,7 @@
-from enum import Enum, auto
+from copy import deepcopy
 from dataclasses import dataclass, field
+from enum import Enum, auto
+import logging
 from pathlib import Path
 import sys
 from typing import Dict, List, Tuple
@@ -13,10 +15,8 @@ import xarray as xr
 from model_tuner.opt.regimes import (
     PopRegime1D, NetRegime1D, NetRegime1DList
 )
-from model_tuner.opt.ir_mappers import NetIRMapperWC
-from model_tuner.opt.uc_mappers import NetUCMapper1D
-from model_tuner.opt.wc import ModelDescWC
-from model_tuner.opt.wc import wc_gain, run_wc_model
+from model_tuner.opt.ir_mappers import NetIRMapper
+from model_tuner.opt.uc_mappers import PopUCMapper1D, NetUCMapper1D
 
 from model_tuner.main import UCMapFitParams, init_uc_mapper
 from model_tuner.utils import load_yaml
@@ -41,6 +41,8 @@ class OptStrategyParams:
     alpha_min: float = 0.01   # min. step size for STEP_TO_NEW_AUTOSZ
     dmax_rot: float = 0.1   # max. allowed value of 1 minus dot product
                             # between rotated and original step directions
+    steps_by_pop: bool = False   # individual alpha for each pop.
+    auto_decrease_step: bool = False
 
 
 class UCOptimizer:
@@ -66,6 +68,9 @@ class UCOptimizer:
     # UC mappers resulting from each step
     uc_mappers: list[NetUCMapper1D]
 
+    # I-R mapper
+    ir_mapper: NetIRMapper
+
     # Optimization strategy
     opt_strategy: OptStrategy
     opt_strategy_params: OptStrategyParams
@@ -80,6 +85,7 @@ class UCOptimizer:
             rr_base: float | np.ndarray,
             pfr_vec: list[float] | np.ndarray,
             n_iter: int,
+            ir_mapper: NetIRMapper,
             #regime_types: tuple[type, type, type] | None = None,
             opt_strategy: OptStrategy = OptStrategy.STEP_TO_NEW,
             opt_strategy_params: OptStrategyParams = OptStrategyParams()
@@ -89,6 +95,7 @@ class UCOptimizer:
         self.rr_base = np.array(rr_base)
         self.pfr_vec = np.array(pfr_vec)
         self.n_iter = n_iter
+        self.ir_mapper = ir_mapper
         #self._set_regime_types(regime_types)
         self.opt_strategy = opt_strategy
         self.opt_strategy_params = opt_strategy_params
@@ -146,13 +153,28 @@ class UCOptimizer:
             coords={'pop': self.pop_names, 'pfr': self.pfr_vec}
         )
     
-    def _init_zero_iter(self) -> None:
-        """Set 0-th step to Rc0 and 0-th uc_mapper to identity. """
-        self.step_data['Ru'].loc[{'iter': 0}] = self.Rc0
+    def _init_zero_iter(
+            self,
+            uc_mapper_0: NetUCMapper1D | None = None
+            ) -> None:
+       
+        if uc_mapper_0 is None:
+            uc_mapper_0 = init_uc_mapper(self.uc_map_params)
+        self.uc_mappers[0] = uc_mapper_0
+
         self.step_data['Rc'].loc[{'iter': 0}] = self.Rc0
-        self.uc_mappers[0] = init_uc_mapper(self.uc_map_params)
+
+        Rc0_lst = NetRegime1DList.from_xr(self.Rc0)
+        Ru0_lst = uc_mapper_0.Rc_to_Ru(Rc0_lst)
+        Ru0_lst.__class__ = NetRegime1DList
+        self.step_data['Ru'].loc[{'iter': 0}] = (
+            Ru0_lst.to_xr('pfr', self.pfr_vec)
+        )
     
-    def begin(self) -> None:
+    def begin(
+            self,
+            uc_mapper_0: NetUCMapper1D | None = None
+            ) -> None:
         """Prepare for the 1-st iteration. """
         self.Rc0 = self._calc_Rc0()
 
@@ -161,7 +183,7 @@ class UCOptimizer:
         
         self.uc_mappers = [None] * self.n_iter
 
-        self._init_zero_iter()
+        self._init_zero_iter(uc_mapper_0)
 
         self.iter_num = 1
     
@@ -204,7 +226,7 @@ class UCOptimizer:
         return self.sim_data['Rc'].isel(
             iter=self.iter_num, drop=True)
     
-    def _fit_uc_mapper_from_data(
+    """ def _fit_uc_mapper_from_data(
             self,
             Ru: xr.DataArray,   # (pop x pfr)
             Rc: xr.DataArray,   # (pop x pfr)
@@ -219,29 +241,130 @@ class UCOptimizer:
             bounds=self.uc_map_params.fit_param_bounds,
             verbose=verbose
         )
+        return uc_mapper """
+    
+    def _fit_pop_uc_mapper_from_data(
+            self,
+            Ru: xr.DataArray,   # (1 x pfr)
+            Rc: xr.DataArray,   # (1 x pfr)
+            ) -> PopUCMapper1D:
+        # Initialize pop UC mapper
+        uc_mapper = PopUCMapper1D(
+            map_type=self.uc_map_params.map_type,
+            map_params=self.uc_map_params.map_params
+        )
+        if self.uc_map_params.use_fit_weights:
+            raise NotImplementedError(
+                'Fitting with weights is not implemented for PopUCMapper1D'
+            )
+        # Fit pop UC mapper to (Ru, Rc)
+        uc_mapper.fit_from_data(
+            values_in=Ru.values,
+            values_out=Rc.values,
+            fit_params=self.uc_map_params.map_fit_params,
+            bounds=self.uc_map_params.fit_param_bounds,
+            weights=None
+        )
         return uc_mapper
+    
+    def _is_pop_uc_mapping_valid(
+            self,
+            uc_mapper: PopUCMapper1D,
+            pop_name: str
+            ) -> bool:        
+        # Check whether uc_mapper itself is valid
+        # (identity or successfully fiited)
+        if not uc_mapper.is_valid():
+            logging.warning(f'UC mapper for {pop_name} is invalid (fitting failed)')
+            return False
+        
+        # Check whether UC mapping can invert Rc0
+        Ru = uc_mapper.Rc_to_Ru(self.Rc0.sel(pop=pop_name))
+        if not all(Ru_.is_valid() for Ru_ in Ru):
+            logging.warning(f'UC mapper for {pop_name} cannot convert Rc0 to Ru')
+            return False
+        
+        # Check whether IR mapping can invert Ru
+        Iu = [self.ir_mapper[pop_name].R_to_I(Ru_) for Ru_ in Ru]
+        if not all(Iu_.is_valid() for Iu_ in Iu):
+            logging.warning(f'IR mapper for {pop_name} cannot convert Ru to Iu')
+            return False
+
+        return True        
     
     def _fit_uc_step_to_new(self) -> tuple[NetUCMapper1D,
                                            xr.DataArray,
                                            xr.DataArray]:
-        # Get recent simulation result
-        Ru_sim = self._get_cur_Ru_sim()
-        Rc_sim = self._get_cur_Rc_sim()
+        # Relative size of the new step (from prev step to sim result)           
+        alpha_Rc_0 = self.opt_strategy_params.alpha
+        alpha_Ru_0 = self.opt_strategy_params.alpha_Ru
+        alpha_mult = self.opt_strategy_params.alpha_mult
+        if self.opt_strategy_params.auto_decrease_step:
+            alpha_min = self.opt_strategy_params.alpha_min
+        else:
+            alpha_min = np.inf
 
-        # Previous step
-        Ru_prev = self._get_prev_Ru_step()
-        Rc_prev = self._get_prev_Rc_step()
+        # Initialize the new step by the previous one.
+        # It will be updated for the pops. with successful UC fitting
+        Ru_new_all = self._get_prev_Ru_step().copy()
+        Rc_new_all = self._get_prev_Rc_step().copy()
 
-        # Mix previous step with the recent sim result            
-        alpha = self.opt_strategy_params.alpha
-        alpha_Ru = self.opt_strategy_params.alpha_Ru
-        Ru_new = alpha_Ru * Ru_sim + (1 - alpha_Ru) * Ru_prev
-        Rc_new = alpha * Rc_sim + (1 - alpha) * Rc_prev
+        # Initialize the new UC mapper by the previous one.
+        # It will be updated for the pops. with successful UC fitting
+        uc_mapper = deepcopy(self.uc_mappers[self.iter_num - 1])
+        uc_fit_ok = False
 
-        # Fit UC mapper to (Ru_sim, Rc_new)
-        uc_mapper = self._fit_uc_mapper_from_data(Ru_new, Rc_new)
+        for pop in self.pop_names:
+            # Previous step
+            Ru_prev = self._get_prev_Ru_step().sel(pop=pop)
+            Rc_prev = self._get_prev_Rc_step().sel(pop=pop)
 
-        return uc_mapper, Ru_new, Rc_new
+            # Recent simulation result
+            Ru_sim = self._get_cur_Ru_sim().sel(pop=pop)
+            Rc_sim = self._get_cur_Rc_sim().sel(pop=pop)
+
+            # One iteration or a loop with decreasing alpha
+            alpha_Ru = alpha_Ru_0
+            alpha_Rc = alpha_Rc_0
+            while True:
+
+                # New step
+                Ru_new = alpha_Ru * Ru_sim + (1 - alpha_Ru) * Ru_prev
+                Rc_new = alpha_Rc * Rc_sim + (1 - alpha_Rc) * Rc_prev
+
+                # Fit UC mapper for the pop.
+                pop_uc_mapper = self._fit_pop_uc_mapper_from_data(Ru_new, Rc_new)
+                
+                # Check whether the new UC mapping is valid
+                # (fitting succeeded, and Rc0->Ru->Iu conversion is possible)
+                if self._is_pop_uc_mapping_valid(pop_uc_mapper, pop):
+                    # Store the new step and the UC mapper fitted to it
+                    uc_mapper[pop] = pop_uc_mapper
+                    Ru_new_all.loc[{'pop': pop}] = Ru_new
+                    Rc_new_all.loc[{'pop': pop}] = Rc_new
+                    uc_fit_ok = True
+                    break
+                
+                # Cannot decrease alpha anymore
+                if (alpha_Ru < alpha_min) or (alpha_Rc < alpha_min):
+                    if not self.opt_strategy_params.steps_by_pop:
+                        raise RuntimeError(
+                            f'UC mapping for {pop} failed (fitting failed'
+                            'or Rc0->Ru->Iu conversion impossible')
+                    break   # this pop will remain at the previous step
+
+                # Decrease alpha
+                alpha_Ru *= alpha_mult
+                alpha_Rc *= alpha_mult
+                logging.warning(
+                    f'Decrease alpha: ({alpha_Ru:.04f}, {alpha_Rc:.04f})'
+                )
+        
+        if not uc_fit_ok:
+            raise RuntimeError(
+                'UC mapping failed for all pops (fitting failed or Rc0->Ru->Iu conversion impossible')
+
+        return uc_mapper, Ru_new_all, Rc_new_all
     
     def _fit_uc_step_to_new_autosz(self) -> tuple[NetUCMapper1D,
                                                   xr.DataArray,
@@ -294,10 +417,15 @@ class UCOptimizer:
         Ru_sim = self._get_cur_Ru_sim()
         Rc_sim = self._get_cur_Rc_sim()
 
-        # Previous Rc step
+        # Previous step
+        Ru_prev = self._get_prev_Ru_step()
         Rc_prev = self._get_prev_Rc_step()
 
-        # Non-rotated step vector
+        # Ru step
+        alpha_Ru = self.opt_strategy_params.alpha_Ru
+        Ru_new = alpha_Ru * Ru_sim + (1 - alpha_Ru) * Ru_prev
+
+        # Non-rotated Rc step vector
         alpha = self.opt_strategy_params.alpha
         Rc_step_0 = alpha * (Rc_sim - Rc_prev)
 
@@ -317,27 +445,9 @@ class UCOptimizer:
         # Fit UC mapper to (Ru_sim, Rc_new)
         uc_mapper = self._fit_uc_mapper_from_data(Ru_sim, Rc_new_rot)
 
-        return uc_mapper, Ru_sim, Rc_new_rot
+        return uc_mapper, Ru_new, Rc_new_rot
     
-    """ def _fit_uc_step_to_new_rot_rand(self) -> tuple[NetUCMapper1D, xr.DataArray]:
-        # Get recent simulation result
-        Ru_sim = self._get_cur_Ru_sim()
-        Rc_sim = self._get_cur_Rc_sim()
-        
-        # Previous step endpoint
-        Rc_prev = self._get_prev_Rc_step()
-
-        v = alpha * ()
-
-
-        # Step from Rc_prev towards Rc_sim           
-        alpha = self.opt_strategy_params.alpha
-        Rc_new = alpha * Rc_sim + (1 - alpha) * Rc_prev
-
-        # Fit UC mapper to (Ru_sim, Rc_new)
-        uc_mapper = self._fit_uc_mapper_from_data(Ru_sim, Rc_new) """
-    
-    def fit_uc_mapper(self) -> NetUCMapper1D:
+    def fit_uc_mapper(self) -> None:
         """Fit UC mapper for the current iteration. """
 
         # Choose next step Rc' and fit UC mapper for (Ru_sim, Rc')
@@ -347,6 +457,8 @@ class UCOptimizer:
             res = self._fit_uc_step_to_new_autosz()
         elif self.opt_strategy == OptStrategy.STEP_TO_NEW_ROT:
             res = self._fit_uc_step_to_new_rot()
+        else:
+            raise ValueError(f'Unknown optimization strategy: {self.opt_strategy}')
         uc_mapper, Ru_step, Rc_step = res
 
         # Store the chosen step Rc' and fitted UC mapper for this iteration
@@ -366,3 +478,4 @@ class UCOptimizer:
         return self.iter_num >= self.n_iter
     
     
+#logging.basicConfig(level=logging.WARNING, force=True)
