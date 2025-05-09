@@ -76,6 +76,12 @@ class SimManager(ABC):
         if update: self.update_status()
         return any(sim.status == SimStatus.WAITING for sim in self.sims.values())
     
+    def remove_sim_request(self, label: str) -> None:
+        # TODO: checks
+        if label not in self.sims:
+            raise ValueError(f'Cannot remove non-existing request {label}')
+        self.sims.pop(label)
+    
     def add_sim_request(
             self,
             label: str,
@@ -87,7 +93,7 @@ class SimManager(ABC):
         # If a request with this label was already added previously,
         # just check params consistency and return
         if label in self.sims:
-            if params != self.sims[label]:
+            if params != self.sims[label].params:
                 raise ValueError('Repeated request with different params')
                 
         else:
