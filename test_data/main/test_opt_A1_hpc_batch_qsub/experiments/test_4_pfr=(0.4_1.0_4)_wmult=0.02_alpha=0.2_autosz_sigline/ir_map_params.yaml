@@ -1,0 +1,244 @@
+
+# Path(s) to the simulation results
+fpath_sim_res:
+- D:/WORK/Salvador/repo/A1_OUinp/exp_results/batch_ougrid_pyr_20x20/batch_result.csv
+- D:/WORK/Salvador/repo/A1_OUinp/exp_results/batch_ougrid_ct5a_20x20/batch_result.csv
+- D:/WORK/Salvador/repo/A1_OUinp/exp_results/batch_ougrid_its4_20x20_med/batch_result.csv
+- D:/WORK/Salvador/repo/A1_OUinp/exp_results/batch_ougrid_pv_20x20/batch_result.csv
+- D:/WORK/Salvador/repo/A1_OUinp/exp_results/batch_ougrid_ngf_0/batch_result.csv
+- D:/WORK/Salvador/repo/A1_OUinp/exp_results/batch_ougrid_som_20x20_med/batch_result.csv
+- D:/WORK/Salvador/repo/A1_OUinp/exp_results/batch_ougrid_vip_0/batch_result.csv
+- D:/WORK/Salvador/repo/A1_OUinp/exp_results/batch_ougrid_tc_20x20/batch_result.csv
+- D:/WORK/Salvador/repo/A1_OUinp/exp_results/batch_ougrid_ti_20x20/batch_result.csv
+- D:/WORK/Salvador/repo/A1_OUinp/exp_results/batch_ougrid_ire_20x20/batch_result.csv
+
+# Names of the parameters that vary in the batch
+batch_param_names:
+- ou_mean
+- ou_std
+
+# Batch parameter that parametrizes 1-d slice of 2-d matrix
+batch_param_main: ou_mean
+
+# Method of slicing the firing rate matrix to get 1-d data
+slice_method: batch_param_linear
+batch_param_ratio: 0.4
+batch_param_intercept: 0.005
+
+# Grid used for interpolation
+batch_param_grid:
+  ou_mean:
+  - -0.03
+  - 0.04
+  - 250
+  ou_std:
+  - 0
+  - 0.04
+  - 250
+
+# I-R mapping type and hyperparameters
+map_type: sigmoid_1d_line
+map_params:
+  x_limits:
+  - -.inf
+  - .inf
+  y_limits:
+  - 0
+  - .inf
+
+# Fitting bounds for I-R mapping parameters
+fit_param_bounds: {}
+
+# Limits for the input rates used for fitting
+inp_limits:
+  CT5A:
+  - -0.01
+  - 0.013
+  CT5B:
+  - -0.01
+  - 0.013
+  CT6:
+  - -0.01
+  - 0.013
+  IT2:
+  - -0.01
+  - 0.018
+  IT3:
+  - -0.01
+  - 0.018
+  IT5A:
+  - -0.01
+  - 0.015
+  IT5B:
+  - -0.01
+  - 0.013
+  IT6:
+  - -0.01
+  - 0.013
+  ITP4:
+  - 0
+  - 0.015
+  ITS4:
+  - -0.01
+  - 0.004
+  PT5B:
+  - 0
+  - 0.03
+  NGF1:
+  - -0.01
+  - 0.01
+  NGF2:
+  - -0.01
+  - 0.01
+  NGF3:
+  - -0.01
+  - 0.01
+  NGF4:
+  - -0.01
+  - 0.01
+  NGF5A:
+  - -0.01
+  - 0.01
+  NGF5B:
+  - -0.01
+  - 0.01
+  NGF6:
+  - -0.01
+  - 0.01
+  PV2:
+  - 0
+  - 0.025
+  PV3:
+  - 0
+  - 0.025
+  PV4:
+  - 0
+  - 0.025
+  PV5A:
+  - 0
+  - 0.025
+  PV5B:
+  - 0
+  - 0.025
+  PV6:
+  - 0
+  - 0.025
+  SOM2:
+  - -0.01
+  - 0.006
+  SOM3:
+  - -0.01
+  - 0.006
+  SOM4:
+  - -0.01
+  - 0.006
+  SOM5A:
+  - -0.01
+  - 0.006
+  SOM5B:
+  - -0.01
+  - 0.006
+  SOM6:
+  - -0.01
+  - 0.006
+  VIP2:
+  - -0.01
+  - 0.01
+  VIP3:
+  - -0.01
+  - 0.01
+  VIP4:
+  - -0.01
+  - 0.02
+  VIP5A:
+  - -0.01
+  - 0.01
+  VIP5B:
+  - -0.01
+  - 0.01
+  VIP6:
+  - -0.01
+  - 0.01
+  HTC:
+  - -0.01
+  - 0.01
+  IRE:
+  - -0.015
+  - 0.01
+  IREM:
+  - -0.015
+  - 0.01
+  TC:
+  - -0.01
+  - 0.01
+  TCM:
+  - -0.01
+  - 0.01
+  TI:
+  - -0.01
+  - 0.01
+  TIM:
+  - -0.01
+  - 0.01
+
+# Parameters of the formula that determines the fitting weights
+use_fit_weights: false 
+fit_weight_pow: 0.5
+fit_weight_limits:
+- 0.1
+- 10
+
+# Parameters of the fitting algorithm
+map_fit_params:
+  ftol: 0.0001
+  max_nfev: 2000
+  method: trf
+  par0_kprev: 0
+  return_first_guess: false
+  verbose: false
+  xtol: null
+
+pop_names:
+- NGF1
+- NGF2
+- NGF3
+- NGF4
+- NGF5A
+- NGF5B
+- NGF6
+- SOM2
+- SOM3
+- SOM4
+- SOM5A
+- SOM5B
+- SOM6
+- PV2
+- PV3
+- PV4
+- PV5A
+- PV5B
+- PV6
+- VIP2
+- VIP3
+- VIP4
+- VIP5A
+- VIP5B
+- VIP6
+- IT2
+- IT3
+- IT6
+- ITP4
+- ITS4
+- IT5A
+- IT5B
+- PT5B
+- CT5A
+- CT5B
+- CT6
+- TC
+- TCM
+- HTC
+- IRE
+- IREM
+- TI
+- TIM

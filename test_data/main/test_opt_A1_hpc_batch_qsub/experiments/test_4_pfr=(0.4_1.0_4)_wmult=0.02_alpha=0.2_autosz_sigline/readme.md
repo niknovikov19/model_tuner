@@ -1,0 +1,1 @@
+IR and UC mappings with Sigmoid1DLine function
