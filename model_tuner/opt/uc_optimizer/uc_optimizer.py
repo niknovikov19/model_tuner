@@ -21,27 +21,27 @@ from model_tuner.opt.uc_mappers import PopUCMapper1D, NetUCMapper1D
 from model_tuner.main import UCMapFitParams, init_uc_mapper
 from model_tuner.utils import load_yaml
 
-from rotated_step import rot_step
+from .rotated_step import rot_step
 
 
 warnings.filterwarnings('ignore')
 
 
 class OptStrategy(Enum):
-    STEP_TO_NEW = auto()
-    STEP_TO_NEW_AUTOSZ = auto()
-    STEP_TO_NEW_ROT = auto()
+    STEP_TO_NEW = 'step_to_new'
 
 
 @dataclass
 class OptStrategyParams:
-    alpha: float = 1      # (initial) step size by Rc
+    opt_strategy: OptStrategy = OptStrategy.STEP_TO_NEW
     alpha_Ru: float = 1   # (initial) step size by Ru
-    alpha_mult: float = 0.8   # step size multiplier for STEP_TO_NEW_AUTOSZ
-    alpha_min: float = 0.01   # min. step size for STEP_TO_NEW_AUTOSZ
-    dmax_rot: float = 0.1   # max. allowed value of 1 minus dot product
-                            # between rotated and original step directions
-    steps_by_pop: bool = False   # individual alpha for each pop.
+    alpha_Rc: float = 1      # (initial) step size by Rc
+    alpha_mult_Ru: float = 0.8   # Ru step multiplier for auto-decrease
+    alpha_mult_Rc: float = 0.8   # Rc step multiplier for auto-decrease
+    alpha_min: float = 0.01   # min. step size for auto-decrease
+    #dmax_rot: float = 0.1   # max. allowed value of 1 minus dot product
+    #                        # between rotated and original step directions
+    steps_by_pop: bool = False   # individual step for each pop.
     auto_decrease_step: bool = False
 
 
@@ -82,22 +82,28 @@ class UCOptimizer:
             self,
             uc_map_params: UCMapFitParams,
             pop_names: list[str],
-            rr_base: float | np.ndarray,
+            rr_base: float | np.ndarray | Dict[str, float],
             pfr_vec: list[float] | np.ndarray,
             n_iter: int,
             ir_mapper: NetIRMapper,
             #regime_types: tuple[type, type, type] | None = None,
-            opt_strategy: OptStrategy = OptStrategy.STEP_TO_NEW,
             opt_strategy_params: OptStrategyParams = OptStrategyParams()
             ) -> None:
+        
         self.uc_map_params = uc_map_params
-        self.pop_names = pop_names
-        self.rr_base = np.array(rr_base)
+        self.pop_names = list(pop_names)
+
+        if isinstance(rr_base, dict):
+            self.rr_base = np.array(
+                [rr_base[pop] for pop in self.pop_names])
+        else:
+            self.rr_base = np.array(rr_base)
+
         self.pfr_vec = np.array(pfr_vec)
         self.n_iter = n_iter
         self.ir_mapper = ir_mapper
         #self._set_regime_types(regime_types)
-        self.opt_strategy = opt_strategy
+        self.opt_strategy = opt_strategy_params.opt_strategy
         self.opt_strategy_params = opt_strategy_params
 
         self.begin()
@@ -296,9 +302,10 @@ class UCOptimizer:
                                            xr.DataArray,
                                            xr.DataArray]:
         # Relative size of the new step (from prev step to sim result)           
-        alpha_Rc_0 = self.opt_strategy_params.alpha
+        alpha_Rc_0 = self.opt_strategy_params.alpha_Rc
         alpha_Ru_0 = self.opt_strategy_params.alpha_Ru
-        alpha_mult = self.opt_strategy_params.alpha_mult
+        alpha_mult_Rc = self.opt_strategy_params.alpha_mult_Rc
+        alpha_mult_Ru = self.opt_strategy_params.alpha_mult_Ru
         if self.opt_strategy_params.auto_decrease_step:
             alpha_min = self.opt_strategy_params.alpha_min
         else:
@@ -354,8 +361,8 @@ class UCOptimizer:
                     break   # this pop will remain at the previous step
 
                 # Decrease alpha
-                alpha_Ru *= alpha_mult
-                alpha_Rc *= alpha_mult
+                alpha_Ru *= alpha_mult_Ru
+                alpha_Rc *= alpha_mult_Rc
                 logging.warning(
                     f'Decrease alpha: ({alpha_Ru:.04f}, {alpha_Rc:.04f})'
                 )
@@ -365,50 +372,6 @@ class UCOptimizer:
                 'UC mapping failed for all pops (fitting failed or Rc0->Ru->Iu conversion impossible')
 
         return uc_mapper, Ru_new_all, Rc_new_all
-    
-    def _fit_uc_step_to_new_autosz(self) -> tuple[NetUCMapper1D,
-                                                  xr.DataArray,
-                                                  xr.DataArray]:
-        # Recent simulation result
-        Ru_sim = self._get_cur_Ru_sim()
-        Rc_sim = self._get_cur_Rc_sim()
-
-        # Previous step
-        Ru_prev = self._get_prev_Ru_step()
-        Rc_prev = self._get_prev_Rc_step()
-
-        # Initial step size
-        alpha = self.opt_strategy_params.alpha
-        alpha_min = self.opt_strategy_params.alpha_min
-
-        verbose = 1
-
-        uc_fit_ok = False
-        while alpha > alpha_min:
-            # Mix previous step Rc_prev with simulation result Rc_sim
-            Rc_new = alpha * Rc_sim + (1 - alpha) * Rc_prev
-
-            # Fit UC mapper to (Ru_sim, Rc_new)
-            uc_mapper = self._fit_uc_mapper_from_data(Ru_sim, Rc_new)
-
-            # Check whether the fitted mapping can invert Rc0
-            Ru_lst_hat = uc_mapper.Rc_to_Ru(
-                NetRegime1DList.from_xr(self.Rc0)
-            )
-            if all(Ru.is_valid() for Ru in Ru_lst_hat):
-                if verbose:
-                    print(f'Inverse mapping ok with alpha={alpha:.04f}')
-                uc_fit_ok = True
-                break
-            else:
-                if verbose:
-                    print(f'Inverse mapping failed with alpha={alpha:.04f}')
-                alpha *= self.opt_strategy_params.alpha_mult   # decrease alpha   
-
-        if not uc_fit_ok:
-            raise RuntimeError('UC mapping failed')
-                
-        return uc_mapper, Ru_sim, Rc_new
     
     def _fit_uc_step_to_new_rot(self) -> tuple[NetUCMapper1D,
                                                xr.DataArray,
@@ -453,8 +416,6 @@ class UCOptimizer:
         # Choose next step Rc' and fit UC mapper for (Ru_sim, Rc')
         if self.opt_strategy == OptStrategy.STEP_TO_NEW:
             res = self._fit_uc_step_to_new()
-        elif self.opt_strategy == OptStrategy.STEP_TO_NEW_AUTOSZ:
-            res = self._fit_uc_step_to_new_autosz()
         elif self.opt_strategy == OptStrategy.STEP_TO_NEW_ROT:
             res = self._fit_uc_step_to_new_rot()
         else:
