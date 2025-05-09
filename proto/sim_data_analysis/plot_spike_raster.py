@@ -17,7 +17,8 @@ matplotlib.use('Qt5Agg', force=True)
 
 #layer = '3'
 #pops_vis = [pop + layer for pop in ['IT', 'PV', 'SOM', 'VIP', 'NGF']]
-pops_vis = ['TC', 'TCM', 'HTC', 'TI' ,'TIM', 'IRE', 'IREM']
+#pops_vis = ['TC', 'TCM', 'HTC', 'TI' ,'TIM', 'IRE', 'IREM']
+pops_vis = ['PV2', 'PV3', 'PV4']
 
 plt.ion()
 sim.analysis.plotRaster(orderInverse=True, include=pops_vis, showFig=True)

@@ -129,11 +129,13 @@ class MapFunc1D(ABC):
                 raise ValueError('ww should be effectively 1-dimensional')
             ww = ww.ravel()
 
+        # Remove nan points
+        mask = ~np.isnan(xx) & ~np.isnan(yy)
         if ww is not None:
-            mask = ~np.isnan(ww)
-            xx = xx[mask]
-            yy = yy[mask]
+            mask &= ~np.isnan(ww)
             ww = ww[mask]
+        xx = xx[mask]
+        yy = yy[mask]            
         
         # Bounds of fitting
         bounds = bounds or {}

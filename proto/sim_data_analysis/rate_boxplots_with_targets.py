@@ -7,12 +7,12 @@ import pandas as pd
 
 fpath_sim = (
     r'D:\WORK\Salvador\repo\model_tuner\models\A1_OUinp\A1_OUinp\simulations'
-    r'\test_opt_A1_batch_qsub\test_2_pfr=(0.4_1.0_4)_wmult=0.005_alpha=0.2\req_19_3_data.pkl'
+    r'\test_opt_A1_batch_qsub\test_3_pfr=(0.4_1.0_4)_wmult=0.02_alpha=1_autosz\req_11_3_data.pkl'
 )
 
 fpath_targets = (
     r'D:\WORK\Salvador\repo\model_tuner\test_data\main\test_opt_A1_hpc_batch_qsub'
-    r'\experiments\test_2_pfr=(0.4_1.0_4)_wmult=0.005_alpha=0.2\target_rates.csv'
+    r'\experiments\test_3_pfr=(0.4_1.0_4)_wmult=0.02_alpha=1_autosz\target_rates.csv'
 )
 
 df = pd.read_csv(fpath_targets)

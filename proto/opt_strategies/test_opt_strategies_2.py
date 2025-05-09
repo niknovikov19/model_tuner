@@ -25,7 +25,9 @@ from model_tuner.main import (
 )
 from model_tuner.utils import load_yaml
 
-from uc_optimizer import OptStrategy, OptStrategyParams, UCOptimizer
+from model_tuner.opt.uc_optimizer import (
+    OptStrategy, OptStrategyParams, UCOptimizer
+)
 
 warnings.filterwarnings('ignore')
 
@@ -227,9 +229,9 @@ uc_map_params.fit_param_bounds = {
 n_iter = 60
 
 # Optimization strategy
-opt_strategy = OptStrategy.STEP_TO_NEW
 alpha = 0.2
 opt_strategy_par = OptStrategyParams(
+    opt_strategy = OptStrategy.STEP_TO_NEW,
     alpha=alpha,
     alpha_Ru=alpha,
     alpha_mult=0.8,
@@ -268,7 +270,7 @@ for exp_num, wmult in enumerate(wmult_vec):
     # Initialize UC optimizer
     uc_optimizer = UCOptimizer(
         uc_map_params, model_cur.get_pop_names(), rr_base, pfr_vec,
-        n_iter, ir_mapper, opt_strategy, opt_strategy_par
+        n_iter, ir_mapper, opt_strategy_par
     )
     uc_optimizers.append(uc_optimizer)
 
