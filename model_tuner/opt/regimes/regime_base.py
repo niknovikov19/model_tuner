@@ -4,6 +4,8 @@ from typing import Dict, List
 
 import numpy as np
 
+from model_tuner.utils import copy_or_ref
+
 
 @dataclass
 class PopRegime:    
@@ -11,9 +13,29 @@ class PopRegime:
         return True
 
 
-@dataclass
 class NetRegime:
     pop_regimes: Dict[str, PopRegime] = field(default_factory=dict)
+
+    def __init__(
+            self,
+            R: 'NetRegime' | Dict[str, PopRegime] | None = None,
+            force_copy: bool = False
+            ):
+        if R is None:
+            self.pop_regimes = {}
+        elif isinstance(R, NetRegime):
+            self.pop_regimes = copy_or_ref(R.pop_regimes, force_copy)
+        elif isinstance(R, dict):
+            self.pop_regimes = copy_or_ref(R, force_copy)
+        
+        self._check()
+
+    def _check(self) -> None:
+        for R_ in self.pop_regimes.values():
+            if not isinstance(R_, PopRegime):
+                raise TypeError(
+                    'NetRegime should contain PopRegime objects.'
+                )
     
     def is_valid(self) -> bool:
         return all(R.is_valid() for R in self.pop_regimes.values())
@@ -31,9 +53,31 @@ class NetRegime:
         return self.pop_regimes[pop_name]
 
 
-@dataclass
 class NetRegimeList:
     net_regimes: List[NetRegime] = field(default_factory=list)
+
+    def __init__(
+            self,
+            L: 'NetRegimeList' | List[NetRegime] | None = None,
+            force_copy: bool = False
+            ):
+        if L is None:
+            self.net_regimes = []
+        elif isinstance(L, NetRegimeList):
+            self.net_regimes = copy_or_ref(L.net_regimes, force_copy)
+        elif isinstance(L, list):
+            self.net_regimes = copy_or_ref(L, force_copy)
+        
+        self._check()
+    
+    def _check(self) -> None:
+        for R in self.net_regimes:
+            if not isinstance(R, NetRegime):
+                raise TypeError(
+                    'NetRegime1DList should contain NetRegime1D objects.'
+                )
+            R._check()
+        self._check_pop_consistency()
     
     def __post_init__(self):
         self._check_pop_consistency()

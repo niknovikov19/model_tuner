@@ -15,23 +15,25 @@ class NetUCMapper(ABC):
     
     def Ru_to_Rc(
             self,
-            Ru: Union[NetRegime, NetRegimeList]
-            ) -> Union[NetRegime, NetRegimeList]:
+            Ru: NetRegime | NetRegimeList
+            ) -> NetRegime | NetRegimeList:
         """Unconnected -> connected. """
         if isinstance(Ru, NetRegime):
-            return self._Ru_to_Rc(Ru)
+            Rc = self._Ru_to_Rc(Ru)
         else:
-            return NetRegimeList([self._Ru_to_Rc(Ru_) for Ru_ in Ru])
+            Rc = [self._Ru_to_Rc(Ru_) for Ru_ in Ru]
+        return type(Ru)(Rc)   # convert Rc to the same type as Ru
         
     def Rc_to_Ru(
             self,
-            Rc: Union[NetRegime, NetRegimeList]
-            ) -> Union[NetRegime, NetRegimeList]:
+            Rc: NetRegime | NetRegimeList
+            ) -> NetRegime | NetRegimeList:
         """Connected -> unconnected. """
         if isinstance(Rc, NetRegime):
-            return self._Rc_to_Ru(Rc)
+            Ru = self._Rc_to_Ru(Rc)
         else:
-            return NetRegimeList([self._Rc_to_Ru(Rc_) for Rc_ in Rc])
+            Ru = [self._Rc_to_Ru(Rc_) for Rc_ in Rc]
+        return type(Rc)(Ru)   # convert Ru to the same type as Rc
     
     @abstractmethod        
     def fit_from_data(self, Ru: NetRegimeList, Rc: NetRegimeList):

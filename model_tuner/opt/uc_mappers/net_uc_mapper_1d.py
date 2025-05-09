@@ -4,7 +4,10 @@ from typing import Dict, List, Tuple
 
 import numpy as np
 
-from ..regimes import PopRegime1D, NetRegime1D, NetRegime1DList
+from ..regimes import (
+    PopRegime, NetRegime, NetRegimeList,
+    PopRegime1D, NetRegime1D, NetRegime1DList
+)
 from ..map_funcs import MapFuncType, MapFitParams, MapFunc1D
 from ..map_funcs import create_map_func_by_type
 
@@ -32,28 +35,28 @@ class PopUCMapper1D:
     def is_valid(self):
         return self._is_identity or self._map_func.is_valid()
 
-    @classmethod
-    def _make_pop_regime_1d(cls, R: PopRegime1D | float) -> PopRegime1D:
+    @staticmethod
+    def _make_pop_regime_1d(R: PopRegime1D | float) -> PopRegime1D:
         if isinstance(R, PopRegime1D):
-            return R
+            return R   # can be a subclass of PopRegime1D
         else:
             return PopRegime1D(value=float(R))
     
     def _Ru_to_Rc(self, Ru: PopRegime1D | float) -> PopRegime1D:
         Ru = self._make_pop_regime_1d(Ru)
         if self._is_identity:
-            return deepcopy(Ru)
+            x_out = Ru.value
         else:
             x_out = self._map_func.apply(Ru.value)
-            return PopRegime1D(value=x_out)
+        return type(Ru)(value=x_out)   # can be a subclass of PopRegime1D
 
     def _Rc_to_Ru(self, Rc: PopRegime1D | float) -> PopRegime1D:
         Rc = self._make_pop_regime_1d(Rc)
         if self._is_identity:
-            return deepcopy(Rc)
+            x_in = Rc.value
         else:
             x_in = self._map_func.apply_inv(Rc.value)
-            return PopRegime1D(value=x_in)
+        return type(Rc)(value=x_in)   # can be a subclass of PopRegime1D
     
     def Ru_to_Rc(
             self,
@@ -142,19 +145,19 @@ class NetUCMapper1D(NetUCMapper):
             raise ValueError('Ru should have the same pops. as the mapper')
         Rc = {pop: self.pop_UC_mappers[pop].Ru_to_Rc(Ru[pop])
               for pop in self.pop_names}
-        return NetRegime1D.from_dict(Rc)
+        return type(Ru).from_dict(Rc)   # can be a subclass of NetRegime1D
         
     def _Rc_to_Ru(self, Rc: NetRegime1D) -> NetRegime1D:
         if Rc.get_pop_names() != self.pop_names:
             raise ValueError('Rc should have the same pops. as the mapper')
         Ru = {pop: self.pop_UC_mappers[pop].Rc_to_Ru(Rc[pop])
               for pop in self.pop_names}
-        return NetRegime1D.from_dict(Ru)        
+        return type(Rc).from_dict(Ru)   # can be a subclass of NetRegime1D
     
     def fit_from_data(
             self,
-            Ru: NetRegime1DList,
-            Rc: NetRegime1DList,
+            Ru: NetRegimeList | List[NetRegime],
+            Rc: NetRegimeList | List[NetRegime],
             fit_params: MapFitParams = MapFitParams(),
             weights: np.ndarray | None = None,
             bounds: Dict[str, Tuple[float, float]] | None = None,
@@ -167,8 +170,8 @@ class NetUCMapper1D(NetUCMapper):
         if Rc.get_pop_names() != self._pop_names:
             raise ValueError('Rc should have the same pops. as the mapper')
             
-        rr_u_mat = Ru.get_pop_attr_mat('value')
-        rr_c_mat = Rc.get_pop_attr_mat('value')
+        rr_u_mat = NetRegime1DList(Ru).get_pop_attr_mat('value')
+        rr_c_mat = NetRegime1DList(Rc).get_pop_attr_mat('value')
         
         for n, pop in enumerate(self.pop_names):
             if verbose:

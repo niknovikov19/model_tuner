@@ -27,6 +27,9 @@ class PopInputND(PopInput):
     
     def __getitem__(self, var_name):
         return self.vars[var_name]
+    
+    def is_valid(self) -> bool:
+        return all(not np.isnan(var) for var in self.vars.values())
 
 
 @dataclass
