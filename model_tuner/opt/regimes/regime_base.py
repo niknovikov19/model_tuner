@@ -14,7 +14,7 @@ class PopRegime:
 
 
 class NetRegime:
-    pop_regimes: Dict[str, PopRegime] = field(default_factory=dict)
+    pop_regimes: Dict[str, PopRegime]
 
     def __init__(
             self,
@@ -27,6 +27,8 @@ class NetRegime:
             self.pop_regimes = copy_or_ref(R.pop_regimes, force_copy)
         elif isinstance(R, dict):
             self.pop_regimes = copy_or_ref(R, force_copy)
+        else:
+            raise TypeError('Wrong NetRegime initializer type')
         
         self._check()
 
@@ -54,7 +56,7 @@ class NetRegime:
 
 
 class NetRegimeList:
-    net_regimes: List[NetRegime] = field(default_factory=list)
+    net_regimes: List[NetRegime]
 
     def __init__(
             self,
@@ -67,6 +69,8 @@ class NetRegimeList:
             self.net_regimes = copy_or_ref(L.net_regimes, force_copy)
         elif isinstance(L, list):
             self.net_regimes = copy_or_ref(L, force_copy)
+        else:
+            raise TypeError('Wrong NetRegimeList initializer type')
         
         self._check()
     

@@ -57,6 +57,8 @@ class NetRegime1D(NetRegime):
         # From a dict with float values or PopRegime1D objects
         elif isinstance(R, dict):
             self._from_dict(R)
+        else:
+            raise TypeError('Wrong NetRegime1D initializer type')
         
         self._check()
 
@@ -155,6 +157,8 @@ class NetRegime1DList(NetRegimeList):
         # From (pops x points) xarray
         elif isinstance(L, xr.DataArray):
             self._from_xr(L)
+        else:
+            raise TypeError('Wrong NetRegime1DList initializer type')
         
         self._check()
     

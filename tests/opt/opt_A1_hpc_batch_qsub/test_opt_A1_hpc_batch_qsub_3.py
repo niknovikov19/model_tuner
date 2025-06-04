@@ -87,7 +87,7 @@ else:
         r'D:\WORK\Salvador\repo\model_tuner\test_data\main\test_opt_A1_hpc_batch_qsub')
 
 # Experiment name
-exp_name = 'test_4_pfr=(0.4_1.0_4)_wmult=0.02_alpha=0.2_autosz_sigline'
+exp_name = 'test_5_pfr=(0.4_1.0_4)_wmult=0.02_alpha=0.2_autosz_sigline'
 
 # Number of iterations
 # (don't put it to config, so it can be increased later)
@@ -203,6 +203,13 @@ else:
     ssh_par_fs=ssh_par_lethe
     ssh_par_conn=[ssh_par_lethe, ssh_par_grid]
 
+# Load the final result of another opt. experiment
+exp_name_prev = 'test_2_pfr=(0.4_1.0_4)_wmult=0.01_alpha=1'
+fpath_exp_prev = (dirpath_base_local / 'experiments' / 
+                  exp_name_prev / 'info_new' / 'Ru_Rc_req_19_3.pkl')
+with open(fpath_exp_prev, 'rb') as fid:
+    prev_data = pickle.load(fid)
+
 # Main part
 with SSHClient(ssh_par_fs=ssh_par_fs, ssh_par_conn=ssh_par_conn) as ssh:
     
@@ -236,7 +243,9 @@ with SSHClient(ssh_par_fs=ssh_par_fs, ssh_par_conn=ssh_par_conn) as ssh:
         fs_delete(ssh.fs, path)
     
     # Prepare UC optimizer for the first iteration
-    uc_optimizer.begin()
+    uc_optimizer.begin(Ru_step_0=prev_data['Ru_mat_mixed'].isel(iter=-1),
+                       Rc_step_0=prev_data['Rc_mat_mixed'].isel(iter=-1),
+                       uc_mapper_0='auto')
 
     # Iterations of the main optimization algorithm
     iter_num = 1

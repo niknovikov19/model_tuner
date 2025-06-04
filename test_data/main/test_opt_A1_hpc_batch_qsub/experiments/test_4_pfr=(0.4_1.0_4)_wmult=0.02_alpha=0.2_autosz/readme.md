@@ -1,1 +1,0 @@
-IR mapping with Sigmoid1DLine function

@@ -121,6 +121,8 @@ class MapFunc1D(ABC):
             ) -> None:
         
         # Convert data to 1-d format
+        xx = np.array(xx)
+        yy = np.array(yy)
         if not _is_1d_array(xx) or not _is_1d_array(yy):
             raise ValueError('xx and yy should be effectively 1-dimensional')
         xx, yy = xx.ravel(), yy.ravel()

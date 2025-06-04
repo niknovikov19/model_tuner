@@ -10,7 +10,7 @@ from .regime_base import PopRegime, NetRegime, NetRegimeList
 from .regime_1d import PopRegime1D, NetRegime1D, NetRegime1DList
 
 
-@dataclass        
+@dataclass    
 class PopRegimeWC(PopRegime1D):
     @property
     def r(self) -> float:
@@ -21,7 +21,6 @@ class PopRegimeWC(PopRegime1D):
         self.value = new_value
 
 
-@dataclass
 class NetRegimeWC(NetRegime1D):    
     """ def __init__(self, pop_regimes: Dict[str, PopRegimeWC | dict] = None):
         pop_regimes = pop_regimes or {}
@@ -63,7 +62,6 @@ class NetRegimeWC(NetRegime1D):
         )
 
 
-@dataclass
 class NetRegimeWCList(NetRegime1DList):
 
     def get_pop_rates_mat(self) -> np.ndarray:

@@ -165,9 +165,9 @@ class NetUCMapper1D(NetUCMapper):
             ) -> bool:
         if len(Ru) != len(Rc):
              raise ValueError('Ru and Rc should have the same length')
-        if Ru.get_pop_names() != self._pop_names:
+        if Ru.get_pop_names() != self.pop_names:
             raise ValueError('Ru should have the same pops. as the mapper')
-        if Rc.get_pop_names() != self._pop_names:
+        if Rc.get_pop_names() != self.pop_names:
             raise ValueError('Rc should have the same pops. as the mapper')
             
         rr_u_mat = NetRegime1DList(Ru).get_pop_attr_mat('value')

@@ -1,5 +1,6 @@
 from typing import Callable, Dict, Tuple
 
+import numpy as np
 import xarray as xr
 
 from ..inputs import PopInputND, NetInputND
@@ -75,6 +76,25 @@ class PopIRMapper1DSlice(PopIRMapper):
         weights = weight_func(values_out) if weight_func else None
 
         # Fit 1-d mapping function to the points (values_in, values_out)
+        self._map_func.fit(values_in, values_out, fit_params, weights, bounds)
+    
+    def fit_from_data_1d(
+            self,
+            values_in: np.ndarray,    # 1-d
+            values_out: np.ndarray,   # 1-d
+            fit_params: MapFitParams = MapFitParams(),
+            weight_func: Callable | None = None,
+            bounds: Dict[str, Tuple[float, float]] | None = None
+            ) -> None:
+        
+        if values_in.ndim != 1 or values_out.ndim != 1:
+            raise ValueError('Input and output values must be 1-dimensional')
+        if len(values_in) != len(values_out):
+            raise ValueError('Input and output value vectors should have the same length')
+        
+        # Weights for fitting
+        weights = weight_func(values_out) if weight_func else None
+        
         self._map_func.fit(values_in, values_out, fit_params, weights, bounds)
 
 

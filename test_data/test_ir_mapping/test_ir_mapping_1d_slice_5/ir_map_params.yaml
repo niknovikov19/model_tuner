@@ -1,0 +1,103 @@
+
+# Path(s) to the simulation results
+fpath_sim_res: D:/WORK/Salvador/repo/model_tuner/test_data/main/test_subnet_opt_A1/i_ou_wmult_0.02_5/batch_result.nc
+
+# Names of the parameters that vary in the batch
+batch_param_names:
+- ou_mean
+- ou_std
+
+# Batch parameter that parametrizes 1-d slice of 2-d matrix
+batch_param_main: ou_mean
+
+# Method of slicing the firing rate matrix to get 1-d data
+slice_method: batch_param_linear
+batch_param_ratio: 0.2
+batch_param_intercept: 0.002
+
+# I-R mapping type and hyperparameters
+map_type: richards_1d    # asymmetric sigmoid
+map_params:
+  x_limits:
+  - -.inf
+  - .inf
+  y_limits:
+  - -.inf
+  - .inf
+
+# Fitting bounds for I-R mapping parameters
+fit_param_bounds:
+  c:
+  - 0
+  - 1.0e-17
+  a:
+  - 0
+  - .inf
+  q:
+  - 1
+  - 30
+
+# Limits for the input rates used for fitting
+inp_limits: null
+
+# Parameters of the formula that determines the fitting weights
+use_fit_weights: true 
+fit_weight_pow: 0.5
+fit_weight_limits:
+- 0.1
+- 10
+
+# Parameters of the fitting algorithm
+map_fit_params:
+  ftol: 0.001
+  max_nfev: 2000
+  method: trf
+  par0_kprev: 0
+  return_first_guess: false
+  verbose: false
+  xtol: null
+
+pop_names:
+- NGF1
+- NGF2
+- NGF3
+- NGF4
+- NGF5A
+- NGF5B
+- NGF6
+- SOM2
+- SOM3
+- SOM4
+- SOM5A
+- SOM5B
+- SOM6
+- PV2
+- PV3
+- PV4
+- PV5A
+- PV5B
+- PV6
+- VIP2
+- VIP3
+- VIP4
+- VIP5A
+- VIP5B
+- VIP6
+- IT2
+- IT3
+- IT6
+- ITP4
+- ITS4
+- IT5A
+- IT5B
+- PT5B
+- CT5A
+- CT5B
+- CT6
+- TC
+- TCM
+- HTC
+- IRE
+- IREM
+- TI
+- TIM

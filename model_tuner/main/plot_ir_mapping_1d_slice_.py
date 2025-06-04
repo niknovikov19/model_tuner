@@ -18,7 +18,9 @@ def plot_ir_mapping_1d_slice(
         target_rates: Dict[str, float] | None = None,
         r_vis_max: float | None = None,
         inp_vis_max: float | None = None,
-        npts: int = 200
+        npts: int = 200,
+        rbase: float = 0.001,
+        rmax: float = 100
         ) -> None:
     
     pop_names = net_ir_mapper.pop_names
@@ -30,9 +32,8 @@ def plot_ir_mapping_1d_slice(
     os.makedirs(dirpath_out, exist_ok=True)
 
     # Generate a range of output rates for each pop.
-    rmax = 100
-    rbase = 0.001
-    rates_out_vec = np.geomspace(rbase, rmax, npts) - rbase
+    #rates_out_vec = np.geomspace(rbase, rmax, npts) - rbase
+    rates_out_vec = np.linspace(rbase, rmax, npts)
     rates_out_mat = np.tile(rates_out_vec, (npops, 1))
 
     # Convert output rates to NetRegime1DList
@@ -62,12 +63,18 @@ def plot_ir_mapping_1d_slice(
         
         # Slie of the training data
         ou_mean_vec = R.coords['ou_mean'].values
-        slicer = net_ir_mapper.pop_IR_mappers[pop_name].slicer
-        rr_vec = slicer.get_1d_slice(R, ou_mean_vec)
+        if R.ndim == 2:
+            slicer = net_ir_mapper.pop_IR_mappers[pop_name].slicer
+            rr_vec = slicer.get_1d_slice(R, ou_mean_vec)
+        else:
+            rr_vec = R.values
 
         # Mask for the training data that was used for fitting
-        mask = ((ou_mean_vec >= inp_limits[pop_name][0]) &
-                (ou_mean_vec <= inp_limits[pop_name][1]))
+        if inp_limits is not None:
+            mask = ((ou_mean_vec >= inp_limits[pop_name][0]) &
+                    (ou_mean_vec <= inp_limits[pop_name][1]))
+        else:
+            mask = np.full_like(ou_mean_vec, True, dtype=bool)
 
         # I-R mapping result
         ou_mean_vec_hat = ou_mean_mat[n, :]

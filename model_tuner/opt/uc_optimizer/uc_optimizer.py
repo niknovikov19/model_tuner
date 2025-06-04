@@ -4,7 +4,7 @@ from enum import Enum, auto
 import logging
 from pathlib import Path
 import sys
-from typing import Dict, List, Tuple
+from typing import Dict, List, Literal, Tuple
 import warnings
 
 import matplotlib.pyplot as plt
@@ -161,25 +161,55 @@ class UCOptimizer:
     
     def _init_zero_iter(
             self,
-            uc_mapper_0: NetUCMapper1D | None = None
+            uc_mapper_0: NetUCMapper1D | Literal['auto'] | None = None,
+            Ru_step_0: xr.DataArray | None = None,
+            Rc_step_0: xr.DataArray | None = None
             ) -> None:
-       
+
+        # Check the correct pops. and pfr values order
+        if Rc_step_0 is not None:
+            Rc_step_0 = Rc_step_0.sel(pop=self.pop_names, pfr=self.pfr_vec)
+        if Ru_step_0 is not None:
+            Ru_step_0 = Ru_step_0.sel(pop=self.pop_names, pfr=self.pfr_vec)
+        
+        # Initialize UC mapper
         if uc_mapper_0 is None:
-            uc_mapper_0 = init_uc_mapper(self.uc_map_params)
-        self.uc_mappers[0] = uc_mapper_0
-
-        self.step_data['Rc'].loc[{'iter': 0}] = self.Rc0
-
-        Rc0_lst = NetRegime1DList.from_xr(self.Rc0)
-        Ru0_lst = uc_mapper_0.Rc_to_Ru(Rc0_lst)
-        Ru0_lst.__class__ = NetRegime1DList
-        self.step_data['Ru'].loc[{'iter': 0}] = (
-            Ru0_lst.to_xr('pfr', self.pfr_vec)
-        )
+            # Set UC mapper to identity
+            self.uc_mappers[0] = init_uc_mapper(self.uc_map_params)
+        elif uc_mapper_0 == 'auto':
+            if (Rc_step_0 is not None) and (Ru_step_0 is not None):
+                # Fit UC mapper to the zero step data
+                self.uc_mappers[0] = (
+                    self._fit_net_uc_mapper_from_data(Ru_step_0, Rc_step_0))
+            else:
+                # Set UC mapper to identity
+                self.uc_mappers[0] = init_uc_mapper(self.uc_map_params)
+        else:
+            # Use the provided UC mapper
+            self.uc_mappers[0] = uc_mapper_0
+        
+        # Set the 0-th Rc step
+        if Rc_step_0 is not None:
+            self.step_data['Rc'].loc[{'iter': 0}] = Rc_step_0
+        else:
+            self.step_data['Rc'].loc[{'iter': 0}] = deepcopy(self.Rc0)
+        
+        # Set the 0-th Ru step
+        if Ru_step_0 is not None:
+            self.step_data['Ru'].loc[{'iter': 0}] = Ru_step_0
+        else:
+            Rc0_lst = NetRegime1DList.from_xr(
+                self.step_data['Rc'].sel(iter=0))
+            Ru0_lst = self.uc_mappers[0].Rc_to_Ru(Rc0_lst)
+            #Ru0_lst.__class__ = NetRegime1DList
+            self.step_data['Ru'].loc[{'iter': 0}] = (
+                Ru0_lst.to_xr('pfr', self.pfr_vec))
     
     def begin(
             self,
-            uc_mapper_0: NetUCMapper1D | None = None
+            uc_mapper_0: NetUCMapper1D | Literal['auto'] | None = None,
+            Ru_step_0: xr.DataArray | None = None,
+            Rc_step_0: xr.DataArray | None = None
             ) -> None:
         """Prepare for the 1-st iteration. """
         self.Rc0 = self._calc_Rc0()
@@ -189,7 +219,7 @@ class UCOptimizer:
         
         self.uc_mappers = [None] * self.n_iter
 
-        self._init_zero_iter(uc_mapper_0)
+        self._init_zero_iter(uc_mapper_0, Ru_step_0, Rc_step_0)
 
         self.iter_num = 1
     
@@ -232,7 +262,7 @@ class UCOptimizer:
         return self.sim_data['Rc'].isel(
             iter=self.iter_num, drop=True)
     
-    """ def _fit_uc_mapper_from_data(
+    def _fit_net_uc_mapper_from_data(
             self,
             Ru: xr.DataArray,   # (pop x pfr)
             Rc: xr.DataArray,   # (pop x pfr)
@@ -247,7 +277,7 @@ class UCOptimizer:
             bounds=self.uc_map_params.fit_param_bounds,
             verbose=verbose
         )
-        return uc_mapper """
+        return uc_mapper
     
     def _fit_pop_uc_mapper_from_data(
             self,
@@ -356,8 +386,8 @@ class UCOptimizer:
                 if (alpha_Ru < alpha_min) or (alpha_Rc < alpha_min):
                     if not self.opt_strategy_params.steps_by_pop:
                         raise RuntimeError(
-                            f'UC mapping for {pop} failed (fitting failed'
-                            'or Rc0->Ru->Iu conversion impossible')
+                            f'UC mapping for {pop} failed: '
+                            'Rc0->Ru->Iu conversion impossible')
                     break   # this pop will remain at the previous step
 
                 # Decrease alpha

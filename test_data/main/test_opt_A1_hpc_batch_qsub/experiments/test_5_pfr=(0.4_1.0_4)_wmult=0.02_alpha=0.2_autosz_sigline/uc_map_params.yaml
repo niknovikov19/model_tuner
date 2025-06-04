@@ -104,7 +104,7 @@ rates_calc_params:    # spikes -> rates
   - null
 
 # U-C mapping type and hyperparameters
-map_type: richards_1d
+map_type: sigmoid_1d_line
 map_params:
   x_limits:
   - 0
@@ -114,13 +114,7 @@ map_params:
   - .inf
 
 # Fitting bounds for U-C mapping parameters
-fit_param_bounds:
-  a:
-  - 0
-  - .inf
-  q:
-  - 1
-  - 30
+fit_param_bounds: {}
 
 # Limits for the input rates used for fitting
 inp_limits: null
