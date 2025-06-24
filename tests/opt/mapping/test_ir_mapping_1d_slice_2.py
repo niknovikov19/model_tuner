@@ -11,8 +11,10 @@ from model_tuner.utils import load_yaml
 
 
 dirpath_base = Path(
-    r'D:\WORK\Salvador\repo\model_tuner\test_data\test_ir_mapping\test_ir_mapping_list'
-    r'\ALL_sigmoid_line'
+    r'D:\WORK\Salvador\repo\model_tuner\test_data\test_ir_mapping'
+    #r'\test_ir_mapping_list'
+    r'\test_ir_mapping_list_k=0.2'
+    #r'\ALL_sigmoid_line'
     #r'\Thalamic_sigmoid_line'
 )
 
