@@ -13,7 +13,7 @@ from model_tuner.opt.map_funcs import MapFunc1DRichards, MapFitParams
 dirpath_base = Path(r'D:\WORK\Salvador\repo\model_tuner\test_data\main\test_subnet_opt_A1')
 
 # Experiment
-exp_name = 'i_ou_wmult_0.02_5_cv'
+exp_name = 'i_ou_wmult_0.05_ikdr_mult_3s_6pts_2'
 
 # OU input slice
 ou_std_mean_ratio = 0.2

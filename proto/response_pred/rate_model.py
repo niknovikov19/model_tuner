@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from typing import Literal
 
 import numpy as np
 import xarray as xr
@@ -17,6 +18,8 @@ class RateModel(ABC):
     W: np.ndarray   # (npops, npops)
     tau: np.ndarray   # (npops, 1)
 
+    sim_res_type: Literal['full', 'final']
+
     def __init__(
             self,
             W: np.ndarray,   # (npops, npops)
@@ -26,6 +29,7 @@ class RateModel(ABC):
         self.W = W
         self.npops = W.shape[0]
         self.tau = _to_array(tau, (self.npops, 1))
+        self.sim_res_type = 'full'
     
     @abstractmethod
     def gain(self,
@@ -34,7 +38,7 @@ class RateModel(ABC):
              ) -> np.ndarray | float:
         pass
 
-    def run(self,
+    def _run_full(self,
             h: np.ndarray,   # input: (npops, 1)
             r0: np.ndarray,   # initial state: (npops, 1)
             dt: float = 1,
@@ -46,10 +50,6 @@ class RateModel(ABC):
 
         # Time bins
         tvec = np.arange(0, nsteps * dt, dt)
-
-        # To column vectors
-        r0 = r0.reshape((self.npops, 1))
-        h = h.reshape((self.npops, 1))
 
         # Initial state
         R[:, [0]] = r0
@@ -67,8 +67,42 @@ class RateModel(ABC):
             coords={'pop': np.arange(self.npops), 'time': tvec},
         )
         return R
+
+    def _run(self,
+            h: np.ndarray,   # input: (npops, 1)
+            r0: np.ndarray,   # initial state: (npops, 1)
+            dt: float = 1,
+            nsteps: int = 10
+            ) -> np.ndarray:   # (npops, 1)
+        
+        # Initial state
+        r = r0.copy()
+
+        # Iterate to find the steady state
+        for n in range(1, nsteps):
+            r_hat = self.gain(self.W @ r + h)
+            r += (r_hat - r) * dt / self.tau
+        
+        return r
     
-    def run_1pop(self,
+    def run(self,
+            h: np.ndarray,   # input: (npops, 1)
+            r0: np.ndarray,   # initial state: (npops, 1)
+            dt: float = 1,
+            nsteps: int = 10
+            ) -> xr.DataArray | np.ndarray:   # (npops | 1, nsteps)
+        # To column vectors
+        r0 = r0.reshape((self.npops, 1))
+        h = h.reshape((self.npops, 1))
+        # Run (return full sim or the last bin only)
+        if self.sim_res_type == 'full':
+            return self._run_full(h, r0, dt, nsteps)
+        elif self.sim_res_type == 'final':
+            return self._run(h, r0, dt, nsteps)
+        else:
+            raise ValueError(f"Unknown simulation result type: {self.sim_res_type}")
+    
+    def _run_1pop_full(self,
             pop_num: int,
             h: float,
             r0: np.ndarray,   # surrogate rates (npops, 1)
@@ -104,6 +138,36 @@ class RateModel(ABC):
             coords={'pop': [pop_num], 'time': tvec},
         )
         return R
+    
+    def _run_1pop(
+            self,
+            pop_num: int,
+            h: float,
+            r0: np.ndarray,   # surrogate rates (npops, 1)
+            dt: float = 1,
+            nsteps: int = 10
+            ) -> float:
+        # Return steady-state
+        r0 = r0.reshape((self.npops, 1))
+        r_hat = self.gain(
+            float(self.W[pop_num, :] @ r0 + h), pop_num)
+        return r_hat
+    
+    def run_1pop(
+            self,
+            pop_num: int,
+            h: float,
+            r0: np.ndarray,   # surrogate rates (npops, 1)
+            dt: float = 1,
+            nsteps: int = 10
+            ) -> xr.DataArray | float:
+        # Run (return full sim or the last bin only)
+        if self.sim_res_type == 'full':
+            return self._run_1pop_full(pop_num, h, r0, dt, nsteps)
+        elif self.sim_res_type == 'final':
+            return self._run_1pop(pop_num, h, r0, dt, nsteps)
+        else:
+            raise ValueError(f"Unknown simulation result type: {self.sim_res_type}")
         
 
 class RateModelWC(RateModel):
@@ -134,6 +198,7 @@ class RateModelWC(RateModel):
             mu = mu.reshape((self.npops, -1))
             return rmax / (1 + np.exp(-k * (mu - c)))
         else:
-            mu = mu.reshape((1, -1))
-            rmax, k, c = rmax[pop_num], k[pop_num], c[pop_num]
+            if not np.isscalar(mu):
+                mu = mu.reshape((1, -1))
+            rmax, k, c = rmax[pop_num, 0], k[pop_num, 0], c[pop_num, 0]
             return rmax / (1 + np.exp(-k * (mu - c)))    
