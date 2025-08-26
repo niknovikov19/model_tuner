@@ -4,10 +4,11 @@ import numpy as np
 
 
 @dataclass
-class OptExperimentParams:
-    
+class OptExperimentParamsBase:
     # Experiment name
     exp_name: str = 'OPT_EXP'
+
+    exp_name_base: str = ''
 
     # Batchtools script to run
     fpath_batch_script_hpc: str = ''
@@ -17,7 +18,13 @@ class OptExperimentParams:
 
     # Conda environment to use on HPC
     conda_env: str = ''
-    
+
+    # Parameters to override in the cfg of the model
+    model_cfg: Dict[str, Any] = field(default_factory=dict)
+
+
+@dataclass
+class OptExperimentParams(OptExperimentParamsBase):
     # Names of the populations
     pop_names: Tuple[str, ...] = ()
 
@@ -33,6 +40,3 @@ class OptExperimentParams:
     # Global weight multiplier
     # keep it outside model_cfg for compatibility
     wmult: float = 0.25
-    
-    # Parameters to override in the cfg of the model
-    model_cfg: Dict[str, Any] = field(default_factory=dict)

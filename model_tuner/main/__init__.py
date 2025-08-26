@@ -9,7 +9,7 @@ from .get_sim_rates import get_sim_rates
 from .plot_opt_iteration import plot_opt_iteration
 from .plot_opt_iteration_pop import plot_opt_iteration_pop
 from .plot_ir_mapping_1d_slice_ import plot_ir_mapping_1d_slice
-from .opt_exp_params import OptExperimentParams
+from .opt_exp_params import OptExperimentParamsBase, OptExperimentParams
 from .read_batch_res_table_ import read_batch_res_table
 
 __all__ = [
@@ -23,6 +23,7 @@ __all__ = [
     'plot_opt_iteration',
     'plot_opt_iteration_pop',
     'plot_ir_mapping_1d_slice',
+    'OptExperimentParamsBase',
     'OptExperimentParams',
     'read_batch_res_table'
 ]

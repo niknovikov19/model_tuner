@@ -1,5 +1,7 @@
 from typing import List
+import sys
 
+import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 import xarray as xr
@@ -66,3 +68,12 @@ def plot_xr_contour(
     )
     plt.clabel(contours, inline=True, fontsize=8, 
                fmt=fmt_func, rightside_up=True)
+
+
+def set_qt_backend():
+    global plt
+    if 'matplotlib.pyplot' in sys.modules:
+        del sys.modules['matplotlib.pyplot']  # remove old pyplot with bad backend
+    matplotlib.use('Qt5Agg', force=True)  # re-set the backend
+    import matplotlib.pyplot as plt_
+    plt = plt_
