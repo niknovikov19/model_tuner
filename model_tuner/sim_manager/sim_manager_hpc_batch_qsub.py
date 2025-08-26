@@ -75,12 +75,17 @@ class SimManagerHPCBatchQsub(SimManagerHPCBatch):
             batch_script_job_params: HPCJobSubmitParams,
             batch_paths: SimBatchPaths,
             conda_env: Optional[str] = None,
-            res_filename_templ = '{sim_label}_data.pkl'
+            res_filename_templ = '{sim_label}_data.pkl',
+            job_cmdline_args: Optional[list[str]] = None,
+            child_job_name: str | None = None
             ):
         #self.BATCH_JOB_NAME = 'BATCHTOOLS1'
         self._batch_script_job_params = batch_script_job_params
         self._is_job_script_running = False
-        super().__init__(ssh, fpath_batch_script, batch_paths, conda_env, res_filename_templ)
+        self._child_job_name = child_job_name or self.CHILD_JOB_NAME
+        print(f'>>>> _child_job_name = {self._child_job_name}')
+        super().__init__(ssh, fpath_batch_script, batch_paths, conda_env,
+                         res_filename_templ, job_cmdline_args)
 
         # Kill the old batch if it is still runninng
         if self._qstat(self.BATCH_JOB_NAME):
@@ -108,7 +113,7 @@ class SimManagerHPCBatchQsub(SimManagerHPCBatch):
     def _update_batch_script_status(self) -> None:
         batch_running_now = self._qstat(self.BATCH_JOB_NAME)
         batch_was_running = self._is_batch_script_running
-        job_running_now = self._qstat(self.CHILD_JOB_NAME)
+        job_running_now = self._qstat(self._child_job_name)
         job_was_running = self._is_job_script_running
 
         # New batch submitted fresh jobs
@@ -132,6 +137,29 @@ class SimManagerHPCBatchQsub(SimManagerHPCBatch):
         
         # Update the batch script status
         self._is_batch_script_running = self._qstat(self.BATCH_JOB_NAME)
+    
+    def _update_sim_status(self, label: str) -> None:
+        sim = self.sims[label]
+        # Statuses other than WAITING don't require an update
+        if sim.status != SimStatus.WAITING:
+            return
+        
+        # If the batch script is still running - consider the sims not ready
+        if self._is_batch_script_running:
+            return
+
+        # Batch script terminated, but some jobs are still running - 
+        # keep all the jobs in the WAITING status
+        if self._qstat(self._child_job_name):
+            return
+        
+        # Check whether the result file of this simulation exists
+        # (after completion of the batch script)
+        fpath_res = self.get_sim_result_path(label)
+        if self._ssh.fs.exists(fpath_res):
+            sim.status = SimStatus.DONE
+        else:
+            sim.status = SimStatus.ERROR  # batch finished, but no result
     
     def _run_hpc_script(self):
         raise RuntimeError('Directly running scripts on HPC is prohibited')
@@ -207,7 +235,7 @@ class SimManagerHPCBatchQsub(SimManagerHPCBatch):
             job_params=self._batch_script_job_params,
             fpath_log=self._paths.log_file,
             fpath_err=self._paths.log_file.replace('.out', '.err'),
-            cmd_args=[self._paths.base_dir],
+            cmd_args=([self._paths.base_dir] + self._job_cmdline_args),
             node=self.BATCH_NODE
         )
 

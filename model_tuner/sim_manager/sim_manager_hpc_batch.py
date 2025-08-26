@@ -77,7 +77,8 @@ class SimManagerHPCBatch(SimManager):
             fpath_batch_script: str,
             batch_paths: SimBatchPaths,
             conda_env: Optional[str] = None,
-            res_filename_templ = '{sim_label}_data.pkl'
+            res_filename_templ = '{sim_label}_data.pkl',
+            job_cmdline_args: Optional[list[str]] = None
             ):
         super().__init__()
         self._ssh = ssh
@@ -86,6 +87,7 @@ class SimManagerHPCBatch(SimManager):
         self._conda_env = conda_env or 'base'
         self._is_batch_script_running = False
         self._res_filename_templ = res_filename_templ
+        self._job_cmdline_args = job_cmdline_args or []
         self.update_status()
     
     def get_sim_result_path(self, label: str) -> str:
@@ -116,7 +118,7 @@ class SimManagerHPCBatch(SimManager):
         if self._ssh.fs.exists(fpath_res):
             sim.status = SimStatus.DONE
         else:
-            sim.status = SimStatus.ERROR  # batch finished, but no result       
+            sim.status = SimStatus.ERROR  # batch finished, but no result
     
     def update_status(self) -> None:
         """Update statuses of simulation requests. """        
@@ -140,7 +142,7 @@ class SimManagerHPCBatch(SimManager):
         if labels_used is None: labels_used = self.sims.keys()
         sim_reqs = {label: self.sims[label].params for label in labels_used}
         with self._ssh.fs.open(fpath_json, 'w') as fid:
-            json.dump(sim_reqs, fid, cls=CustomEncoder)
+            json.dump(sim_reqs, fid, cls=CustomEncoder, indent=4)
     
     def _run_hpc_script(self,
                         fpath_script: str,
@@ -181,7 +183,7 @@ class SimManagerHPCBatch(SimManager):
         self._run_hpc_script(
             self._fpath_batch_script,
             self._paths.log_file,
-            cmd_args=[self._paths.base_dir]
+            cmd_args=([self._paths.base_dir] + self._job_cmdline_args)
         )
         
         # Update statuses of the pushed simulations
