@@ -22,7 +22,9 @@ class ResponsePredictor_2:
     J1: np.ndarray   # J1kn = dfk / drn
     Q1: np.ndarray   # Q1n = dfn / dhn
 
-    J2: np.ndarray   # J2kmn = d2fk / (drm * drn)
+    J2: np.ndarray   # J2knm = d2fk / (drn * drm)
+    Q2: np.ndarray   # Q2n = d2fn / dhn^2
+    JQ11: np.ndarray   # JQ11nm = d2fn / (dhn * drm)
 
     def __init__(
             self,
@@ -82,7 +84,7 @@ class ResponsePredictor_2:
             self.Q1[n] = (r_pert_p - r_pert_n) / (2 * dh)
     
     def _calc_J2(self, dr: float) -> None:
-        """Calculate J2: J2kmn = d2fk / (drm * drn). """
+        """Calculate J2: J2knm = d2fk / (drn * drm) """
         N = self.model.npops
         sim_par = self.dt, self.nsteps
         D = np.eye(N, N)
@@ -98,8 +100,34 @@ class ResponsePredictor_2:
                     r_pert_nn = self.model.run_1pop(k, self.h0[k], self.r0 - dr_m - dr_n, *sim_par)
                     self.J2[k, m, n] = (r_pert_pp - r_pert_pn - r_pert_np + r_pert_nn) / (4 * dr**2)
     
+    def _calc_Q2(self, dh: float) -> None:
+        """Calculate Q2: Q2n = d2fn / dhn^2 """
+        N = self.model.npops
+        sim_par = self.dt, self.nsteps
+        self.Q2 = np.zeros((N, 1))
+        for n in range(N):
+            r_pert_p = self.model.run_1pop(n, self.h0[n] + dh, self.r0, *sim_par)
+            r_pert_0 = self.model.run_1pop(n, self.h0[n], self.r0, *sim_par)
+            r_pert_n = self.model.run_1pop(n, self.h0[n] - dh, self.r0, *sim_par)
+            self.Q2[n] = (r_pert_p - 2 * r_pert_0 + r_pert_n) / (dh**2)
+    
+    def _calc_JQ11(self, dr: float, dh: float) -> None:
+        """Calculate JQ11: JQ11nm = d2f_n / (dh_n * dr_m) """
+        N = self.model.npops
+        sim_par = self.dt, self.nsteps
+        D = np.eye(N, N)
+        self.JQ11 = np.zeros((N, N))
+        for n in range(N):        # population whose f_n we read out
+            for m in range(N):    # axis in r we perturb
+                dr_m = D[:, [m]] * dr
+                f_pp = self.model.run_1pop(n, self.h0[n] + dh, self.r0 + dr_m, *sim_par)
+                f_pn = self.model.run_1pop(n, self.h0[n] + dh, self.r0 - dr_m, *sim_par)
+                f_np = self.model.run_1pop(n, self.h0[n] - dh, self.r0 + dr_m, *sim_par)
+                f_nn = self.model.run_1pop(n, self.h0[n] - dh, self.r0 - dr_m, *sim_par)
+                self.JQ11[n, m] = (f_pp - f_pn - f_np + f_nn) / (4 * dh * dr)
+    
     def _calc_J2_estim(self, dr: float) -> None:
-        """Calculate J2: J2kmn = d2fk / (drm * drn). """
+        """Calculate J2: J2kmn = d2fk / (drm * drn) """
         N = self.model.npops
         sim_par = self.dt, self.nsteps
         self.J2 = np.zeros((N, N, N))
@@ -112,12 +140,12 @@ class ResponsePredictor_2:
         self._calc_Q1(dh)
         self._calc_J1(dr)
         self._calc_J2(dr)
+        self._calc_Q2(dh)
+        self._calc_JQ11(dr, dh)
 
     """ def predict_r(
             self,
             Dh: np.ndarray,   # (npops, 1) 
-            dh_train: float | None = None,
-            dr_train: float | None = None
             ) -> np.ndarray:
         
         N = self.model.npops
@@ -150,6 +178,93 @@ class ResponsePredictor_2:
 
         r_hat = self.r0 + Dr_post
         return r_hat """
+
+    def predict_r(self, Dh: np.ndarray,
+                  tol=1e-8, max_iter=30,
+                  damping=1.0, backtrack=True,
+                  use_dh2=True
+                  ) -> np.ndarray:
+        """
+        Solve for r* given Dh using a 2nd-order Taylor implicit model and Newton's method.
+        Returns r_pred (N, 1).
+        """
+        if any(x is None for x in [self.r0, self.J1, self.Q1, self.Q2, self.J2, self.JQ11]):
+            raise ValueError("Call train(...) first to populate r0, J1, Q1, Q2, J2, JQ11.")
+
+        N = self.model.npops
+        Dh = np.asarray(Dh).reshape(N, 1)
+
+        # Precompute constants
+        J1   = self.J1.copy()
+        JQ   = self.JQ11.copy()
+        J2   = self.J2.copy()
+        Q1   = self.Q1.reshape(N, 1).copy()
+        Q2   = self.Q2.reshape(N, 1).copy()
+        I    = np.eye(N)
+
+        # Symmetrize J2
+        J2 = 0.5 * (J2 + np.transpose(J2, (0, 2, 1)))
+
+        # Right-hand side terms depending only on Dh
+        rhs = Q1 * Dh          # (N,1)
+        if use_dh2:
+            rhs += 0.5 * Q2 * (Dh * Dh)
+
+        # Good initial guess: ignore quadratic-in-Δr and JQ term
+        M0 = I - J1
+        try:
+            dr = np.linalg.solve(M0, rhs)             # (N,1)
+        except np.linalg.LinAlgError:
+            lam = 1e-6 * np.linalg.norm(M0)
+            dr = np.linalg.solve(M0 + lam * I, rhs)
+
+        def quad_vec(J2, dr_flat):
+            # q_k = dr^T J2[k] dr
+            return np.einsum('kij,i,j->k', J2, dr_flat, dr_flat).reshape(N, 1)
+
+        def H_rows(J2, dr_flat):
+            # Row k = (J2[k] @ dr)^T
+            return np.einsum('kij,j->ki', J2, dr_flat)
+
+        # Newton iterations
+        for _ in range(max_iter):
+            drf = dr.ravel()
+
+            quad = quad_vec(J2, drf)                                   # (N,1)
+            g = dr - J1 @ dr - (Dh * (JQ @ dr)) - 0.5 * quad - rhs     # residual (N,1)
+
+            # Convergence check (relative to rhs scale)
+            if np.linalg.norm(g) <= tol * (1.0 + np.linalg.norm(rhs)):
+                return self.r0 + dr
+
+            # Build Jacobian
+            A = I - J1 - np.diagflat(Dh.ravel()) @ JQ                  # (N,N)
+            A -= H_rows(J2, drf)                                       # subtract row-wise (N,N)
+
+            # Newton step
+            try:
+                delta = np.linalg.solve(A, -g)
+            except np.linalg.LinAlgError:
+                lam = 1e-6 * np.linalg.norm(A)
+                delta = np.linalg.solve(A + lam * I, -g)
+
+            # Damping / backtracking (simple Armijo-style)
+            step = float(damping)
+            if backtrack:
+                g_norm = np.linalg.norm(g)
+                for _ in range(10):
+                    dr_try = dr + step * delta
+                    drf_try = dr_try.ravel()
+                    quad_try = quad_vec(J2, drf_try)
+                    g_try = dr_try - J1 @ dr_try - (Dh * (JQ @ dr_try)) - 0.5 * quad_try - rhs
+                    if np.linalg.norm(g_try) < g_norm:
+                        break
+                    step *= 0.5
+            dr = dr + step * delta
+
+        # Not converged: return best attempt
+        return self.r0 + dr
+
 
 
 
