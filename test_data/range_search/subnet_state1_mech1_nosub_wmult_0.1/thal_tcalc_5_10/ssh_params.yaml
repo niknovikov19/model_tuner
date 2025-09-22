@@ -1,0 +1,10 @@
+lethe:
+    host: 138.5.86.32
+    user: niknovikov19
+    port: 2718
+    fpath_private_key: 'C:\Users\aleks\.ssh\id_rsa_lethe'
+
+grid:
+    host: grid
+    user: niknovikov19
+    fpath_private_key: 'C:\Users\aleks\.ssh\id_ed25519_grid'

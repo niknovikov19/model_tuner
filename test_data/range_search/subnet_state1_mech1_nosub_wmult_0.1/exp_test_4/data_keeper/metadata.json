@@ -1,0 +1,2552 @@
+{
+    "net_spikes_req_it_1_std_0_mean_0_566466882d339bdfc7f28fa480722789": {
+        "name": "net_spikes_req_it_1_std_0_mean_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_1_std_0_mean_0_data.pkl"
+                },
+                "net_spikes_req_it_1_std_0_mean_0": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_1_std_0_mean_0\\net_spikes_req_it_1_std_0_mean_0_566466882d339bdfc7f28fa480722789.pkl"
+    },
+    "net_rates_req_it_1_std_0_mean_0_d5f83d07b129d239d8a3c94a870b59f8": {
+        "name": "net_rates_req_it_1_std_0_mean_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_1_std_0_mean_0_data.pkl"
+                },
+                "net_spikes_req_it_1_std_0_mean_0": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_1_std_0_mean_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_1_std_0_mean_0\\net_rates_req_it_1_std_0_mean_0_d5f83d07b129d239d8a3c94a870b59f8.pkl"
+    },
+    "net_spikes_req_it_1_std_0_mean_1_37e0807fe565e523ca93f7743e2da1d0": {
+        "name": "net_spikes_req_it_1_std_0_mean_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_1_std_0_mean_1_data.pkl"
+                },
+                "net_spikes_req_it_1_std_0_mean_1": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_1_std_0_mean_1\\net_spikes_req_it_1_std_0_mean_1_37e0807fe565e523ca93f7743e2da1d0.pkl"
+    },
+    "net_rates_req_it_1_std_0_mean_1_3a85b7781f26d7f07b77be151447be6b": {
+        "name": "net_rates_req_it_1_std_0_mean_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_1_std_0_mean_1_data.pkl"
+                },
+                "net_spikes_req_it_1_std_0_mean_1": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_1_std_0_mean_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_1_std_0_mean_1\\net_rates_req_it_1_std_0_mean_1_3a85b7781f26d7f07b77be151447be6b.pkl"
+    },
+    "net_spikes_req_it_1_std_0_mean_2_e176d3985d3af1eda0cd4fbacb21b2c1": {
+        "name": "net_spikes_req_it_1_std_0_mean_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_1_std_0_mean_2_data.pkl"
+                },
+                "net_spikes_req_it_1_std_0_mean_2": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_1_std_0_mean_2\\net_spikes_req_it_1_std_0_mean_2_e176d3985d3af1eda0cd4fbacb21b2c1.pkl"
+    },
+    "net_rates_req_it_1_std_0_mean_2_8e2c80709cf6aaf3fd5a3c8dd898b43a": {
+        "name": "net_rates_req_it_1_std_0_mean_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_1_std_0_mean_2_data.pkl"
+                },
+                "net_spikes_req_it_1_std_0_mean_2": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_1_std_0_mean_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_1_std_0_mean_2\\net_rates_req_it_1_std_0_mean_2_8e2c80709cf6aaf3fd5a3c8dd898b43a.pkl"
+    },
+    "net_spikes_req_it_1_std_0_mean_3_d377fe41bdf08ee860094777349443fe": {
+        "name": "net_spikes_req_it_1_std_0_mean_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_1_std_0_mean_3_data.pkl"
+                },
+                "net_spikes_req_it_1_std_0_mean_3": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_1_std_0_mean_3\\net_spikes_req_it_1_std_0_mean_3_d377fe41bdf08ee860094777349443fe.pkl"
+    },
+    "net_rates_req_it_1_std_0_mean_3_852983b7b83ea2a266498edadbb5c528": {
+        "name": "net_rates_req_it_1_std_0_mean_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_1_std_0_mean_3_data.pkl"
+                },
+                "net_spikes_req_it_1_std_0_mean_3": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_1_std_0_mean_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_1_std_0_mean_3\\net_rates_req_it_1_std_0_mean_3_852983b7b83ea2a266498edadbb5c528.pkl"
+    },
+    "net_spikes_req_it_1_std_0_mean_4_b57d0cea9e6148e2daf7bd719ee61d51": {
+        "name": "net_spikes_req_it_1_std_0_mean_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_1_std_0_mean_4_data.pkl"
+                },
+                "net_spikes_req_it_1_std_0_mean_4": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_1_std_0_mean_4\\net_spikes_req_it_1_std_0_mean_4_b57d0cea9e6148e2daf7bd719ee61d51.pkl"
+    },
+    "net_rates_req_it_1_std_0_mean_4_6d9dd83160e76bca247a580d4a48a279": {
+        "name": "net_rates_req_it_1_std_0_mean_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_1_std_0_mean_4_data.pkl"
+                },
+                "net_spikes_req_it_1_std_0_mean_4": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_1_std_0_mean_4": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_1_std_0_mean_4\\net_rates_req_it_1_std_0_mean_4_6d9dd83160e76bca247a580d4a48a279.pkl"
+    },
+    "net_spikes_req_it_1_std_1_mean_0_798d59a5e840cf1aa4f636549aa3cb11": {
+        "name": "net_spikes_req_it_1_std_1_mean_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_1_std_1_mean_0_data.pkl"
+                },
+                "net_spikes_req_it_1_std_1_mean_0": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_1_std_1_mean_0\\net_spikes_req_it_1_std_1_mean_0_798d59a5e840cf1aa4f636549aa3cb11.pkl"
+    },
+    "net_rates_req_it_1_std_1_mean_0_cca2a337be1cd42f98859c5678f7f6ba": {
+        "name": "net_rates_req_it_1_std_1_mean_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_1_std_1_mean_0_data.pkl"
+                },
+                "net_spikes_req_it_1_std_1_mean_0": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_1_std_1_mean_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_1_std_1_mean_0\\net_rates_req_it_1_std_1_mean_0_cca2a337be1cd42f98859c5678f7f6ba.pkl"
+    },
+    "net_spikes_req_it_1_std_1_mean_1_2b029db2ef5cc0eb3ce3535dcf1522b2": {
+        "name": "net_spikes_req_it_1_std_1_mean_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_1_std_1_mean_1_data.pkl"
+                },
+                "net_spikes_req_it_1_std_1_mean_1": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_1_std_1_mean_1\\net_spikes_req_it_1_std_1_mean_1_2b029db2ef5cc0eb3ce3535dcf1522b2.pkl"
+    },
+    "net_rates_req_it_1_std_1_mean_1_a5df4795d7365d24dcb9b537c2d9f0b3": {
+        "name": "net_rates_req_it_1_std_1_mean_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_1_std_1_mean_1_data.pkl"
+                },
+                "net_spikes_req_it_1_std_1_mean_1": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_1_std_1_mean_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_1_std_1_mean_1\\net_rates_req_it_1_std_1_mean_1_a5df4795d7365d24dcb9b537c2d9f0b3.pkl"
+    },
+    "net_spikes_req_it_1_std_1_mean_2_1906eb574a31f8bbcc31e674439ab075": {
+        "name": "net_spikes_req_it_1_std_1_mean_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_1_std_1_mean_2_data.pkl"
+                },
+                "net_spikes_req_it_1_std_1_mean_2": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_1_std_1_mean_2\\net_spikes_req_it_1_std_1_mean_2_1906eb574a31f8bbcc31e674439ab075.pkl"
+    },
+    "net_rates_req_it_1_std_1_mean_2_ef16fa99fa1d75eb06f4adbae62868fd": {
+        "name": "net_rates_req_it_1_std_1_mean_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_1_std_1_mean_2_data.pkl"
+                },
+                "net_spikes_req_it_1_std_1_mean_2": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_1_std_1_mean_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_1_std_1_mean_2\\net_rates_req_it_1_std_1_mean_2_ef16fa99fa1d75eb06f4adbae62868fd.pkl"
+    },
+    "net_spikes_req_it_1_std_1_mean_3_173139794680cb1ed7756c1f92baf464": {
+        "name": "net_spikes_req_it_1_std_1_mean_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_1_std_1_mean_3_data.pkl"
+                },
+                "net_spikes_req_it_1_std_1_mean_3": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_1_std_1_mean_3\\net_spikes_req_it_1_std_1_mean_3_173139794680cb1ed7756c1f92baf464.pkl"
+    },
+    "net_rates_req_it_1_std_1_mean_3_6de7e8f6bcae415da37c1ae4ae4c4050": {
+        "name": "net_rates_req_it_1_std_1_mean_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_1_std_1_mean_3_data.pkl"
+                },
+                "net_spikes_req_it_1_std_1_mean_3": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_1_std_1_mean_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_1_std_1_mean_3\\net_rates_req_it_1_std_1_mean_3_6de7e8f6bcae415da37c1ae4ae4c4050.pkl"
+    },
+    "net_spikes_req_it_1_std_1_mean_4_36819ecf76d300ac45eca09d3a6a5c4c": {
+        "name": "net_spikes_req_it_1_std_1_mean_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_1_std_1_mean_4_data.pkl"
+                },
+                "net_spikes_req_it_1_std_1_mean_4": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_1_std_1_mean_4\\net_spikes_req_it_1_std_1_mean_4_36819ecf76d300ac45eca09d3a6a5c4c.pkl"
+    },
+    "net_rates_req_it_1_std_1_mean_4_4e8076a442f1addcf157aa091cf2fb16": {
+        "name": "net_rates_req_it_1_std_1_mean_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_1_std_1_mean_4_data.pkl"
+                },
+                "net_spikes_req_it_1_std_1_mean_4": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_1_std_1_mean_4": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_1_std_1_mean_4\\net_rates_req_it_1_std_1_mean_4_4e8076a442f1addcf157aa091cf2fb16.pkl"
+    },
+    "net_spikes_req_it_2_std_0_mean_0_6f5cf8d5e8472030a5577a031fd12f21": {
+        "name": "net_spikes_req_it_2_std_0_mean_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_2_std_0_mean_0_data.pkl"
+                },
+                "net_spikes_req_it_2_std_0_mean_0": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_2_std_0_mean_0\\net_spikes_req_it_2_std_0_mean_0_6f5cf8d5e8472030a5577a031fd12f21.pkl"
+    },
+    "net_rates_req_it_2_std_0_mean_0_87d23aabbccc21c85434cc6b4d13728c": {
+        "name": "net_rates_req_it_2_std_0_mean_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_2_std_0_mean_0_data.pkl"
+                },
+                "net_spikes_req_it_2_std_0_mean_0": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_2_std_0_mean_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_2_std_0_mean_0\\net_rates_req_it_2_std_0_mean_0_87d23aabbccc21c85434cc6b4d13728c.pkl"
+    },
+    "net_spikes_req_it_2_std_0_mean_1_1b6f46d4339fa253d57de7a0e432164e": {
+        "name": "net_spikes_req_it_2_std_0_mean_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_2_std_0_mean_1_data.pkl"
+                },
+                "net_spikes_req_it_2_std_0_mean_1": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_2_std_0_mean_1\\net_spikes_req_it_2_std_0_mean_1_1b6f46d4339fa253d57de7a0e432164e.pkl"
+    },
+    "net_rates_req_it_2_std_0_mean_1_c6fd41a2afffe831e8cfb2e2257419e8": {
+        "name": "net_rates_req_it_2_std_0_mean_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_2_std_0_mean_1_data.pkl"
+                },
+                "net_spikes_req_it_2_std_0_mean_1": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_2_std_0_mean_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_2_std_0_mean_1\\net_rates_req_it_2_std_0_mean_1_c6fd41a2afffe831e8cfb2e2257419e8.pkl"
+    },
+    "net_spikes_req_it_2_std_0_mean_2_cdade2e1951c1161dde5ccf84a1b3454": {
+        "name": "net_spikes_req_it_2_std_0_mean_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_2_std_0_mean_2_data.pkl"
+                },
+                "net_spikes_req_it_2_std_0_mean_2": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_2_std_0_mean_2\\net_spikes_req_it_2_std_0_mean_2_cdade2e1951c1161dde5ccf84a1b3454.pkl"
+    },
+    "net_rates_req_it_2_std_0_mean_2_387db60e3f5138a9d9a448856c973964": {
+        "name": "net_rates_req_it_2_std_0_mean_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_2_std_0_mean_2_data.pkl"
+                },
+                "net_spikes_req_it_2_std_0_mean_2": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_2_std_0_mean_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_2_std_0_mean_2\\net_rates_req_it_2_std_0_mean_2_387db60e3f5138a9d9a448856c973964.pkl"
+    },
+    "net_spikes_req_it_2_std_0_mean_3_9812590ef5156b8a4906550852ffad3c": {
+        "name": "net_spikes_req_it_2_std_0_mean_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_2_std_0_mean_3_data.pkl"
+                },
+                "net_spikes_req_it_2_std_0_mean_3": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_2_std_0_mean_3\\net_spikes_req_it_2_std_0_mean_3_9812590ef5156b8a4906550852ffad3c.pkl"
+    },
+    "net_rates_req_it_2_std_0_mean_3_d5227d2cb534540c4ccdf369068395bd": {
+        "name": "net_rates_req_it_2_std_0_mean_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_2_std_0_mean_3_data.pkl"
+                },
+                "net_spikes_req_it_2_std_0_mean_3": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_2_std_0_mean_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_2_std_0_mean_3\\net_rates_req_it_2_std_0_mean_3_d5227d2cb534540c4ccdf369068395bd.pkl"
+    },
+    "net_spikes_req_it_2_std_0_mean_4_c937292b967f5091959c26951c05b50f": {
+        "name": "net_spikes_req_it_2_std_0_mean_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_2_std_0_mean_4_data.pkl"
+                },
+                "net_spikes_req_it_2_std_0_mean_4": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_2_std_0_mean_4\\net_spikes_req_it_2_std_0_mean_4_c937292b967f5091959c26951c05b50f.pkl"
+    },
+    "net_rates_req_it_2_std_0_mean_4_778b1073cf78b47e6cf202b6d2cfa299": {
+        "name": "net_rates_req_it_2_std_0_mean_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_2_std_0_mean_4_data.pkl"
+                },
+                "net_spikes_req_it_2_std_0_mean_4": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_2_std_0_mean_4": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_2_std_0_mean_4\\net_rates_req_it_2_std_0_mean_4_778b1073cf78b47e6cf202b6d2cfa299.pkl"
+    },
+    "net_spikes_req_it_2_std_1_mean_0_c16ee1afa321082ae2b5cb1a2c75cf40": {
+        "name": "net_spikes_req_it_2_std_1_mean_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_2_std_1_mean_0_data.pkl"
+                },
+                "net_spikes_req_it_2_std_1_mean_0": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_2_std_1_mean_0\\net_spikes_req_it_2_std_1_mean_0_c16ee1afa321082ae2b5cb1a2c75cf40.pkl"
+    },
+    "net_rates_req_it_2_std_1_mean_0_46bfa119b343d5b5cc86051b879dc27a": {
+        "name": "net_rates_req_it_2_std_1_mean_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_2_std_1_mean_0_data.pkl"
+                },
+                "net_spikes_req_it_2_std_1_mean_0": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_2_std_1_mean_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_2_std_1_mean_0\\net_rates_req_it_2_std_1_mean_0_46bfa119b343d5b5cc86051b879dc27a.pkl"
+    },
+    "net_spikes_req_it_2_std_1_mean_1_d945e81df9fd904fb1fd93ba2fd8456e": {
+        "name": "net_spikes_req_it_2_std_1_mean_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_2_std_1_mean_1_data.pkl"
+                },
+                "net_spikes_req_it_2_std_1_mean_1": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_2_std_1_mean_1\\net_spikes_req_it_2_std_1_mean_1_d945e81df9fd904fb1fd93ba2fd8456e.pkl"
+    },
+    "net_rates_req_it_2_std_1_mean_1_1d28ffc3ba9e8186c1611e73982933ff": {
+        "name": "net_rates_req_it_2_std_1_mean_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_2_std_1_mean_1_data.pkl"
+                },
+                "net_spikes_req_it_2_std_1_mean_1": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_2_std_1_mean_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_2_std_1_mean_1\\net_rates_req_it_2_std_1_mean_1_1d28ffc3ba9e8186c1611e73982933ff.pkl"
+    },
+    "net_spikes_req_it_2_std_1_mean_2_997ab69ec84c46aa7c191d693485e545": {
+        "name": "net_spikes_req_it_2_std_1_mean_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_2_std_1_mean_2_data.pkl"
+                },
+                "net_spikes_req_it_2_std_1_mean_2": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_2_std_1_mean_2\\net_spikes_req_it_2_std_1_mean_2_997ab69ec84c46aa7c191d693485e545.pkl"
+    },
+    "net_rates_req_it_2_std_1_mean_2_38a91607323d37934ca16e563768bb06": {
+        "name": "net_rates_req_it_2_std_1_mean_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_2_std_1_mean_2_data.pkl"
+                },
+                "net_spikes_req_it_2_std_1_mean_2": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_2_std_1_mean_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_2_std_1_mean_2\\net_rates_req_it_2_std_1_mean_2_38a91607323d37934ca16e563768bb06.pkl"
+    },
+    "net_spikes_req_it_2_std_1_mean_3_37751a7c68aee22e1bd8cfd0342a43eb": {
+        "name": "net_spikes_req_it_2_std_1_mean_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_2_std_1_mean_3_data.pkl"
+                },
+                "net_spikes_req_it_2_std_1_mean_3": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_2_std_1_mean_3\\net_spikes_req_it_2_std_1_mean_3_37751a7c68aee22e1bd8cfd0342a43eb.pkl"
+    },
+    "net_rates_req_it_2_std_1_mean_3_b3c3c77be4b2ccd900f00ddbff2a2134": {
+        "name": "net_rates_req_it_2_std_1_mean_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_2_std_1_mean_3_data.pkl"
+                },
+                "net_spikes_req_it_2_std_1_mean_3": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_2_std_1_mean_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_2_std_1_mean_3\\net_rates_req_it_2_std_1_mean_3_b3c3c77be4b2ccd900f00ddbff2a2134.pkl"
+    },
+    "net_spikes_req_it_2_std_1_mean_4_157d99e89a6b36404af4a92ee4ddb909": {
+        "name": "net_spikes_req_it_2_std_1_mean_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_2_std_1_mean_4_data.pkl"
+                },
+                "net_spikes_req_it_2_std_1_mean_4": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_2_std_1_mean_4\\net_spikes_req_it_2_std_1_mean_4_157d99e89a6b36404af4a92ee4ddb909.pkl"
+    },
+    "net_rates_req_it_2_std_1_mean_4_61ae1e02bfa0518d00acc75ef5e22433": {
+        "name": "net_rates_req_it_2_std_1_mean_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_2_std_1_mean_4_data.pkl"
+                },
+                "net_spikes_req_it_2_std_1_mean_4": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_2_std_1_mean_4": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_2_std_1_mean_4\\net_rates_req_it_2_std_1_mean_4_61ae1e02bfa0518d00acc75ef5e22433.pkl"
+    },
+    "net_spikes_req_it_3_std_0_mean_0_21dbfb6cf2f902a727e5d398b37f6f0f": {
+        "name": "net_spikes_req_it_3_std_0_mean_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_3_std_0_mean_0_data.pkl"
+                },
+                "net_spikes_req_it_3_std_0_mean_0": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_3_std_0_mean_0\\net_spikes_req_it_3_std_0_mean_0_21dbfb6cf2f902a727e5d398b37f6f0f.pkl"
+    },
+    "net_rates_req_it_3_std_0_mean_0_dc6f0df9d7d20f519aaa4dd1fe8f0f63": {
+        "name": "net_rates_req_it_3_std_0_mean_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_3_std_0_mean_0_data.pkl"
+                },
+                "net_spikes_req_it_3_std_0_mean_0": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_3_std_0_mean_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_3_std_0_mean_0\\net_rates_req_it_3_std_0_mean_0_dc6f0df9d7d20f519aaa4dd1fe8f0f63.pkl"
+    },
+    "net_spikes_req_it_3_std_0_mean_1_102cd3870eacf6b38d80d8d28aeedd4c": {
+        "name": "net_spikes_req_it_3_std_0_mean_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_3_std_0_mean_1_data.pkl"
+                },
+                "net_spikes_req_it_3_std_0_mean_1": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_3_std_0_mean_1\\net_spikes_req_it_3_std_0_mean_1_102cd3870eacf6b38d80d8d28aeedd4c.pkl"
+    },
+    "net_rates_req_it_3_std_0_mean_1_f140f4beca41198e094ce3c7cba75d0f": {
+        "name": "net_rates_req_it_3_std_0_mean_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_3_std_0_mean_1_data.pkl"
+                },
+                "net_spikes_req_it_3_std_0_mean_1": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_3_std_0_mean_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_3_std_0_mean_1\\net_rates_req_it_3_std_0_mean_1_f140f4beca41198e094ce3c7cba75d0f.pkl"
+    },
+    "net_spikes_req_it_3_std_0_mean_2_22c8bb6bc1c41792062abc97602b0006": {
+        "name": "net_spikes_req_it_3_std_0_mean_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_3_std_0_mean_2_data.pkl"
+                },
+                "net_spikes_req_it_3_std_0_mean_2": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_3_std_0_mean_2\\net_spikes_req_it_3_std_0_mean_2_22c8bb6bc1c41792062abc97602b0006.pkl"
+    },
+    "net_rates_req_it_3_std_0_mean_2_ace2b8c360e9af679f581c7479e29b15": {
+        "name": "net_rates_req_it_3_std_0_mean_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_3_std_0_mean_2_data.pkl"
+                },
+                "net_spikes_req_it_3_std_0_mean_2": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_3_std_0_mean_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_3_std_0_mean_2\\net_rates_req_it_3_std_0_mean_2_ace2b8c360e9af679f581c7479e29b15.pkl"
+    },
+    "net_spikes_req_it_3_std_0_mean_3_70b1d1e97ca4742caec7fdb51773dc74": {
+        "name": "net_spikes_req_it_3_std_0_mean_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_3_std_0_mean_3_data.pkl"
+                },
+                "net_spikes_req_it_3_std_0_mean_3": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_3_std_0_mean_3\\net_spikes_req_it_3_std_0_mean_3_70b1d1e97ca4742caec7fdb51773dc74.pkl"
+    },
+    "net_rates_req_it_3_std_0_mean_3_e9a9e2ce9c22a7bece7876328b00087a": {
+        "name": "net_rates_req_it_3_std_0_mean_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_3_std_0_mean_3_data.pkl"
+                },
+                "net_spikes_req_it_3_std_0_mean_3": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_3_std_0_mean_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_3_std_0_mean_3\\net_rates_req_it_3_std_0_mean_3_e9a9e2ce9c22a7bece7876328b00087a.pkl"
+    },
+    "net_spikes_req_it_3_std_0_mean_4_973135f6ba29488e205cd42fa89521fc": {
+        "name": "net_spikes_req_it_3_std_0_mean_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_3_std_0_mean_4_data.pkl"
+                },
+                "net_spikes_req_it_3_std_0_mean_4": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_3_std_0_mean_4\\net_spikes_req_it_3_std_0_mean_4_973135f6ba29488e205cd42fa89521fc.pkl"
+    },
+    "net_rates_req_it_3_std_0_mean_4_91847136fa542d5b92455f5707995948": {
+        "name": "net_rates_req_it_3_std_0_mean_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_3_std_0_mean_4_data.pkl"
+                },
+                "net_spikes_req_it_3_std_0_mean_4": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_3_std_0_mean_4": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_3_std_0_mean_4\\net_rates_req_it_3_std_0_mean_4_91847136fa542d5b92455f5707995948.pkl"
+    },
+    "net_spikes_req_it_3_std_1_mean_0_96dbb250ffd1a4a5320eef862374f3c5": {
+        "name": "net_spikes_req_it_3_std_1_mean_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_3_std_1_mean_0_data.pkl"
+                },
+                "net_spikes_req_it_3_std_1_mean_0": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_3_std_1_mean_0\\net_spikes_req_it_3_std_1_mean_0_96dbb250ffd1a4a5320eef862374f3c5.pkl"
+    },
+    "net_rates_req_it_3_std_1_mean_0_5e85a53b51bdcdf18cbe7f4182611fc0": {
+        "name": "net_rates_req_it_3_std_1_mean_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_3_std_1_mean_0_data.pkl"
+                },
+                "net_spikes_req_it_3_std_1_mean_0": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_3_std_1_mean_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_3_std_1_mean_0\\net_rates_req_it_3_std_1_mean_0_5e85a53b51bdcdf18cbe7f4182611fc0.pkl"
+    },
+    "net_spikes_req_it_3_std_1_mean_1_b543bbdaa61f628cf79944133a9c3928": {
+        "name": "net_spikes_req_it_3_std_1_mean_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_3_std_1_mean_1_data.pkl"
+                },
+                "net_spikes_req_it_3_std_1_mean_1": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_3_std_1_mean_1\\net_spikes_req_it_3_std_1_mean_1_b543bbdaa61f628cf79944133a9c3928.pkl"
+    },
+    "net_rates_req_it_3_std_1_mean_1_8f84c5f4cad792388752131db679a76f": {
+        "name": "net_rates_req_it_3_std_1_mean_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_3_std_1_mean_1_data.pkl"
+                },
+                "net_spikes_req_it_3_std_1_mean_1": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_3_std_1_mean_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_3_std_1_mean_1\\net_rates_req_it_3_std_1_mean_1_8f84c5f4cad792388752131db679a76f.pkl"
+    },
+    "net_spikes_req_it_3_std_1_mean_2_beb97c7039c61dec77032700513a2d62": {
+        "name": "net_spikes_req_it_3_std_1_mean_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_3_std_1_mean_2_data.pkl"
+                },
+                "net_spikes_req_it_3_std_1_mean_2": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_3_std_1_mean_2\\net_spikes_req_it_3_std_1_mean_2_beb97c7039c61dec77032700513a2d62.pkl"
+    },
+    "net_rates_req_it_3_std_1_mean_2_b3510c5ab1112ed0ff1176da352ccdcc": {
+        "name": "net_rates_req_it_3_std_1_mean_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_3_std_1_mean_2_data.pkl"
+                },
+                "net_spikes_req_it_3_std_1_mean_2": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_3_std_1_mean_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_3_std_1_mean_2\\net_rates_req_it_3_std_1_mean_2_b3510c5ab1112ed0ff1176da352ccdcc.pkl"
+    },
+    "net_spikes_req_it_3_std_1_mean_3_b47cce7cc4338ad2bd1db5cc6cd115c1": {
+        "name": "net_spikes_req_it_3_std_1_mean_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_3_std_1_mean_3_data.pkl"
+                },
+                "net_spikes_req_it_3_std_1_mean_3": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_3_std_1_mean_3\\net_spikes_req_it_3_std_1_mean_3_b47cce7cc4338ad2bd1db5cc6cd115c1.pkl"
+    },
+    "net_rates_req_it_3_std_1_mean_3_d002fe2e7cb883eaeaf49fcab85ede29": {
+        "name": "net_rates_req_it_3_std_1_mean_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_3_std_1_mean_3_data.pkl"
+                },
+                "net_spikes_req_it_3_std_1_mean_3": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_3_std_1_mean_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_3_std_1_mean_3\\net_rates_req_it_3_std_1_mean_3_d002fe2e7cb883eaeaf49fcab85ede29.pkl"
+    },
+    "net_spikes_req_it_3_std_1_mean_4_af824b5cbccbe2062161b63a5072c762": {
+        "name": "net_spikes_req_it_3_std_1_mean_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_3_std_1_mean_4_data.pkl"
+                },
+                "net_spikes_req_it_3_std_1_mean_4": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_3_std_1_mean_4\\net_spikes_req_it_3_std_1_mean_4_af824b5cbccbe2062161b63a5072c762.pkl"
+    },
+    "net_rates_req_it_3_std_1_mean_4_838eacbc982f7d4057efa2a930a721a2": {
+        "name": "net_rates_req_it_3_std_1_mean_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_3_std_1_mean_4_data.pkl"
+                },
+                "net_spikes_req_it_3_std_1_mean_4": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_3_std_1_mean_4": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_3_std_1_mean_4\\net_rates_req_it_3_std_1_mean_4_838eacbc982f7d4057efa2a930a721a2.pkl"
+    },
+    "net_spikes_req_it_4_std_0_mean_0_c9dba5eea9cfc122a879a1c8cab41a19": {
+        "name": "net_spikes_req_it_4_std_0_mean_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_4_std_0_mean_0_data.pkl"
+                },
+                "net_spikes_req_it_4_std_0_mean_0": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_4_std_0_mean_0\\net_spikes_req_it_4_std_0_mean_0_c9dba5eea9cfc122a879a1c8cab41a19.pkl"
+    },
+    "net_rates_req_it_4_std_0_mean_0_e0c819b202e71c154a97e212014d2096": {
+        "name": "net_rates_req_it_4_std_0_mean_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_4_std_0_mean_0_data.pkl"
+                },
+                "net_spikes_req_it_4_std_0_mean_0": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_4_std_0_mean_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_4_std_0_mean_0\\net_rates_req_it_4_std_0_mean_0_e0c819b202e71c154a97e212014d2096.pkl"
+    },
+    "net_spikes_req_it_4_std_0_mean_1_97e790510fae8fb4dd237e168b20903a": {
+        "name": "net_spikes_req_it_4_std_0_mean_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_4_std_0_mean_1_data.pkl"
+                },
+                "net_spikes_req_it_4_std_0_mean_1": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_4_std_0_mean_1\\net_spikes_req_it_4_std_0_mean_1_97e790510fae8fb4dd237e168b20903a.pkl"
+    },
+    "net_rates_req_it_4_std_0_mean_1_c5bf78abf28fa1f549062e37be566205": {
+        "name": "net_rates_req_it_4_std_0_mean_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_4_std_0_mean_1_data.pkl"
+                },
+                "net_spikes_req_it_4_std_0_mean_1": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_4_std_0_mean_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_4_std_0_mean_1\\net_rates_req_it_4_std_0_mean_1_c5bf78abf28fa1f549062e37be566205.pkl"
+    },
+    "net_spikes_req_it_4_std_0_mean_2_622bb6574ebcbf344532c7c385a5848c": {
+        "name": "net_spikes_req_it_4_std_0_mean_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_4_std_0_mean_2_data.pkl"
+                },
+                "net_spikes_req_it_4_std_0_mean_2": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_4_std_0_mean_2\\net_spikes_req_it_4_std_0_mean_2_622bb6574ebcbf344532c7c385a5848c.pkl"
+    },
+    "net_rates_req_it_4_std_0_mean_2_ce2f6e761c51ccf628c6b765ba4366e3": {
+        "name": "net_rates_req_it_4_std_0_mean_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_4_std_0_mean_2_data.pkl"
+                },
+                "net_spikes_req_it_4_std_0_mean_2": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_4_std_0_mean_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_4_std_0_mean_2\\net_rates_req_it_4_std_0_mean_2_ce2f6e761c51ccf628c6b765ba4366e3.pkl"
+    },
+    "net_spikes_req_it_4_std_0_mean_3_0f7bad9aa03f42d144d189dbc38d0e94": {
+        "name": "net_spikes_req_it_4_std_0_mean_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_4_std_0_mean_3_data.pkl"
+                },
+                "net_spikes_req_it_4_std_0_mean_3": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_4_std_0_mean_3\\net_spikes_req_it_4_std_0_mean_3_0f7bad9aa03f42d144d189dbc38d0e94.pkl"
+    },
+    "net_rates_req_it_4_std_0_mean_3_6fdab856247d5f78bec0a4763d0f5366": {
+        "name": "net_rates_req_it_4_std_0_mean_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_4_std_0_mean_3_data.pkl"
+                },
+                "net_spikes_req_it_4_std_0_mean_3": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_4_std_0_mean_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_4_std_0_mean_3\\net_rates_req_it_4_std_0_mean_3_6fdab856247d5f78bec0a4763d0f5366.pkl"
+    },
+    "net_spikes_req_it_4_std_0_mean_4_2d5ea7079b24279530b860c21c048fd7": {
+        "name": "net_spikes_req_it_4_std_0_mean_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_4_std_0_mean_4_data.pkl"
+                },
+                "net_spikes_req_it_4_std_0_mean_4": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_4_std_0_mean_4\\net_spikes_req_it_4_std_0_mean_4_2d5ea7079b24279530b860c21c048fd7.pkl"
+    },
+    "net_rates_req_it_4_std_0_mean_4_0bec559eb384cc493bb35f5abba12545": {
+        "name": "net_rates_req_it_4_std_0_mean_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_4_std_0_mean_4_data.pkl"
+                },
+                "net_spikes_req_it_4_std_0_mean_4": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_4_std_0_mean_4": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_4_std_0_mean_4\\net_rates_req_it_4_std_0_mean_4_0bec559eb384cc493bb35f5abba12545.pkl"
+    },
+    "net_spikes_req_it_4_std_1_mean_0_4ff76431f8b634ded7330887e91b4676": {
+        "name": "net_spikes_req_it_4_std_1_mean_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_4_std_1_mean_0_data.pkl"
+                },
+                "net_spikes_req_it_4_std_1_mean_0": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_4_std_1_mean_0\\net_spikes_req_it_4_std_1_mean_0_4ff76431f8b634ded7330887e91b4676.pkl"
+    },
+    "net_rates_req_it_4_std_1_mean_0_5dc40329019867b830cfd45c28065c2f": {
+        "name": "net_rates_req_it_4_std_1_mean_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_4_std_1_mean_0_data.pkl"
+                },
+                "net_spikes_req_it_4_std_1_mean_0": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_4_std_1_mean_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_4_std_1_mean_0\\net_rates_req_it_4_std_1_mean_0_5dc40329019867b830cfd45c28065c2f.pkl"
+    },
+    "net_spikes_req_it_4_std_1_mean_1_518ba903d424f7d832fb22a8060a9fae": {
+        "name": "net_spikes_req_it_4_std_1_mean_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_4_std_1_mean_1_data.pkl"
+                },
+                "net_spikes_req_it_4_std_1_mean_1": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_4_std_1_mean_1\\net_spikes_req_it_4_std_1_mean_1_518ba903d424f7d832fb22a8060a9fae.pkl"
+    },
+    "net_rates_req_it_4_std_1_mean_1_687e831696ca806f1b48eaaaa2ffe1d7": {
+        "name": "net_rates_req_it_4_std_1_mean_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_4_std_1_mean_1_data.pkl"
+                },
+                "net_spikes_req_it_4_std_1_mean_1": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_4_std_1_mean_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_4_std_1_mean_1\\net_rates_req_it_4_std_1_mean_1_687e831696ca806f1b48eaaaa2ffe1d7.pkl"
+    },
+    "net_spikes_req_it_4_std_1_mean_2_edcea8c543008f552738707888771d8a": {
+        "name": "net_spikes_req_it_4_std_1_mean_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_4_std_1_mean_2_data.pkl"
+                },
+                "net_spikes_req_it_4_std_1_mean_2": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_4_std_1_mean_2\\net_spikes_req_it_4_std_1_mean_2_edcea8c543008f552738707888771d8a.pkl"
+    },
+    "net_rates_req_it_4_std_1_mean_2_1b11d41453adf5052ace828fb90c97e6": {
+        "name": "net_rates_req_it_4_std_1_mean_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_4_std_1_mean_2_data.pkl"
+                },
+                "net_spikes_req_it_4_std_1_mean_2": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_4_std_1_mean_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_4_std_1_mean_2\\net_rates_req_it_4_std_1_mean_2_1b11d41453adf5052ace828fb90c97e6.pkl"
+    },
+    "net_spikes_req_it_4_std_1_mean_3_851dbe7199e2bd42c345d5ab9ab0e478": {
+        "name": "net_spikes_req_it_4_std_1_mean_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_4_std_1_mean_3_data.pkl"
+                },
+                "net_spikes_req_it_4_std_1_mean_3": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_4_std_1_mean_3\\net_spikes_req_it_4_std_1_mean_3_851dbe7199e2bd42c345d5ab9ab0e478.pkl"
+    },
+    "net_rates_req_it_4_std_1_mean_3_90f41df1689d3b258dceb12ebea08f38": {
+        "name": "net_rates_req_it_4_std_1_mean_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_4_std_1_mean_3_data.pkl"
+                },
+                "net_spikes_req_it_4_std_1_mean_3": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_4_std_1_mean_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_4_std_1_mean_3\\net_rates_req_it_4_std_1_mean_3_90f41df1689d3b258dceb12ebea08f38.pkl"
+    },
+    "net_spikes_req_it_4_std_1_mean_4_600ef14bd497cdabac9aff7b57d34cb8": {
+        "name": "net_spikes_req_it_4_std_1_mean_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_4_std_1_mean_4_data.pkl"
+                },
+                "net_spikes_req_it_4_std_1_mean_4": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_4_std_1_mean_4\\net_spikes_req_it_4_std_1_mean_4_600ef14bd497cdabac9aff7b57d34cb8.pkl"
+    },
+    "net_rates_req_it_4_std_1_mean_4_fb1ebc775dc8f8e096355f249d022bdc": {
+        "name": "net_rates_req_it_4_std_1_mean_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_4_std_1_mean_4_data.pkl"
+                },
+                "net_spikes_req_it_4_std_1_mean_4": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_4_std_1_mean_4": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_4_std_1_mean_4\\net_rates_req_it_4_std_1_mean_4_fb1ebc775dc8f8e096355f249d022bdc.pkl"
+    },
+    "net_spikes_req_it_5_std_0_mean_0_5829f0c2ae1b3a51ec072a67935c2a11": {
+        "name": "net_spikes_req_it_5_std_0_mean_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_5_std_0_mean_0_data.pkl"
+                },
+                "net_spikes_req_it_5_std_0_mean_0": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_5_std_0_mean_0\\net_spikes_req_it_5_std_0_mean_0_5829f0c2ae1b3a51ec072a67935c2a11.pkl"
+    },
+    "net_rates_req_it_5_std_0_mean_0_4e2eb3becce93acc0cb386a45e44ff94": {
+        "name": "net_rates_req_it_5_std_0_mean_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_5_std_0_mean_0_data.pkl"
+                },
+                "net_spikes_req_it_5_std_0_mean_0": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_5_std_0_mean_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_5_std_0_mean_0\\net_rates_req_it_5_std_0_mean_0_4e2eb3becce93acc0cb386a45e44ff94.pkl"
+    },
+    "net_spikes_req_it_5_std_0_mean_1_5e07c4b570fce455d0beb1d27c5e6625": {
+        "name": "net_spikes_req_it_5_std_0_mean_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_5_std_0_mean_1_data.pkl"
+                },
+                "net_spikes_req_it_5_std_0_mean_1": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_5_std_0_mean_1\\net_spikes_req_it_5_std_0_mean_1_5e07c4b570fce455d0beb1d27c5e6625.pkl"
+    },
+    "net_rates_req_it_5_std_0_mean_1_175608c925d33b194fa7ae05db9295ad": {
+        "name": "net_rates_req_it_5_std_0_mean_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_5_std_0_mean_1_data.pkl"
+                },
+                "net_spikes_req_it_5_std_0_mean_1": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_5_std_0_mean_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_5_std_0_mean_1\\net_rates_req_it_5_std_0_mean_1_175608c925d33b194fa7ae05db9295ad.pkl"
+    },
+    "net_spikes_req_it_5_std_0_mean_2_0911450323eac6a972b51be8fa5f1796": {
+        "name": "net_spikes_req_it_5_std_0_mean_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_5_std_0_mean_2_data.pkl"
+                },
+                "net_spikes_req_it_5_std_0_mean_2": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_5_std_0_mean_2\\net_spikes_req_it_5_std_0_mean_2_0911450323eac6a972b51be8fa5f1796.pkl"
+    },
+    "net_rates_req_it_5_std_0_mean_2_a4ccb514d6b5fb8c44cfe3c7d2569dde": {
+        "name": "net_rates_req_it_5_std_0_mean_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_5_std_0_mean_2_data.pkl"
+                },
+                "net_spikes_req_it_5_std_0_mean_2": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_5_std_0_mean_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_5_std_0_mean_2\\net_rates_req_it_5_std_0_mean_2_a4ccb514d6b5fb8c44cfe3c7d2569dde.pkl"
+    },
+    "net_spikes_req_it_5_std_0_mean_3_aa47324872492cf058f1510733f7f792": {
+        "name": "net_spikes_req_it_5_std_0_mean_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_5_std_0_mean_3_data.pkl"
+                },
+                "net_spikes_req_it_5_std_0_mean_3": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_5_std_0_mean_3\\net_spikes_req_it_5_std_0_mean_3_aa47324872492cf058f1510733f7f792.pkl"
+    },
+    "net_rates_req_it_5_std_0_mean_3_1c228d75dacae8cc521f8522c66f6b0a": {
+        "name": "net_rates_req_it_5_std_0_mean_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_5_std_0_mean_3_data.pkl"
+                },
+                "net_spikes_req_it_5_std_0_mean_3": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_5_std_0_mean_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_5_std_0_mean_3\\net_rates_req_it_5_std_0_mean_3_1c228d75dacae8cc521f8522c66f6b0a.pkl"
+    },
+    "net_spikes_req_it_5_std_0_mean_4_36af0d0a5dd854ffcb74c6ca43cb9ecb": {
+        "name": "net_spikes_req_it_5_std_0_mean_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_5_std_0_mean_4_data.pkl"
+                },
+                "net_spikes_req_it_5_std_0_mean_4": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_5_std_0_mean_4\\net_spikes_req_it_5_std_0_mean_4_36af0d0a5dd854ffcb74c6ca43cb9ecb.pkl"
+    },
+    "net_rates_req_it_5_std_0_mean_4_cefc4acb63a571a1baec038b203d8f77": {
+        "name": "net_rates_req_it_5_std_0_mean_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_5_std_0_mean_4_data.pkl"
+                },
+                "net_spikes_req_it_5_std_0_mean_4": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_5_std_0_mean_4": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_5_std_0_mean_4\\net_rates_req_it_5_std_0_mean_4_cefc4acb63a571a1baec038b203d8f77.pkl"
+    },
+    "net_spikes_req_it_5_std_1_mean_0_cd043e7724d6c33100ad70d18a2b6604": {
+        "name": "net_spikes_req_it_5_std_1_mean_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_5_std_1_mean_0_data.pkl"
+                },
+                "net_spikes_req_it_5_std_1_mean_0": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_5_std_1_mean_0\\net_spikes_req_it_5_std_1_mean_0_cd043e7724d6c33100ad70d18a2b6604.pkl"
+    },
+    "net_rates_req_it_5_std_1_mean_0_f6d1622b5cb7b186be1209d5468bcf9f": {
+        "name": "net_rates_req_it_5_std_1_mean_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_5_std_1_mean_0_data.pkl"
+                },
+                "net_spikes_req_it_5_std_1_mean_0": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_5_std_1_mean_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_5_std_1_mean_0\\net_rates_req_it_5_std_1_mean_0_f6d1622b5cb7b186be1209d5468bcf9f.pkl"
+    },
+    "net_spikes_req_it_5_std_1_mean_1_435461442d76b0d2dc6eb9cad2411584": {
+        "name": "net_spikes_req_it_5_std_1_mean_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_5_std_1_mean_1_data.pkl"
+                },
+                "net_spikes_req_it_5_std_1_mean_1": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_5_std_1_mean_1\\net_spikes_req_it_5_std_1_mean_1_435461442d76b0d2dc6eb9cad2411584.pkl"
+    },
+    "net_rates_req_it_5_std_1_mean_1_3341fba9a41118b2b1fcb0684e9ccef0": {
+        "name": "net_rates_req_it_5_std_1_mean_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_5_std_1_mean_1_data.pkl"
+                },
+                "net_spikes_req_it_5_std_1_mean_1": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_5_std_1_mean_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_5_std_1_mean_1\\net_rates_req_it_5_std_1_mean_1_3341fba9a41118b2b1fcb0684e9ccef0.pkl"
+    },
+    "net_spikes_req_it_5_std_1_mean_2_3e30f4861c7a2af65b13d8a1d1c17c2d": {
+        "name": "net_spikes_req_it_5_std_1_mean_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_5_std_1_mean_2_data.pkl"
+                },
+                "net_spikes_req_it_5_std_1_mean_2": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_5_std_1_mean_2\\net_spikes_req_it_5_std_1_mean_2_3e30f4861c7a2af65b13d8a1d1c17c2d.pkl"
+    },
+    "net_rates_req_it_5_std_1_mean_2_dcbd3c58289b5f88c0368d6cbbc859e7": {
+        "name": "net_rates_req_it_5_std_1_mean_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_5_std_1_mean_2_data.pkl"
+                },
+                "net_spikes_req_it_5_std_1_mean_2": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_5_std_1_mean_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_5_std_1_mean_2\\net_rates_req_it_5_std_1_mean_2_dcbd3c58289b5f88c0368d6cbbc859e7.pkl"
+    },
+    "net_spikes_req_it_5_std_1_mean_3_d9549fd463b66d0093ad2e362d859821": {
+        "name": "net_spikes_req_it_5_std_1_mean_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_5_std_1_mean_3_data.pkl"
+                },
+                "net_spikes_req_it_5_std_1_mean_3": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_5_std_1_mean_3\\net_spikes_req_it_5_std_1_mean_3_d9549fd463b66d0093ad2e362d859821.pkl"
+    },
+    "net_rates_req_it_5_std_1_mean_3_2179f88fc7546acadae1d509bbba887f": {
+        "name": "net_rates_req_it_5_std_1_mean_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_5_std_1_mean_3_data.pkl"
+                },
+                "net_spikes_req_it_5_std_1_mean_3": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_5_std_1_mean_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_5_std_1_mean_3\\net_rates_req_it_5_std_1_mean_3_2179f88fc7546acadae1d509bbba887f.pkl"
+    },
+    "net_spikes_req_it_5_std_1_mean_4_58935515d9ab3fa41f12a57b2f1f6f70": {
+        "name": "net_spikes_req_it_5_std_1_mean_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_5_std_1_mean_4_data.pkl"
+                },
+                "net_spikes_req_it_5_std_1_mean_4": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_it_5_std_1_mean_4\\net_spikes_req_it_5_std_1_mean_4_58935515d9ab3fa41f12a57b2f1f6f70.pkl"
+    },
+    "net_rates_req_it_5_std_1_mean_4_43a4bb182c8b8f879a8c84dde4d1e3a0": {
+        "name": "net_rates_req_it_5_std_1_mean_4",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\exp_test_4\\results\\req_it_5_std_1_mean_4_data.pkl"
+                },
+                "net_spikes_req_it_5_std_1_mean_4": {
+                    "pop_names": null,
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_it_5_std_1_mean_4": {
+                    "pop_names": null,
+                    "time_limits": [
+                        5,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_it_5_std_1_mean_4\\net_rates_req_it_5_std_1_mean_4_43a4bb182c8b8f879a8c84dde4d1e3a0.pkl"
+    }
+}

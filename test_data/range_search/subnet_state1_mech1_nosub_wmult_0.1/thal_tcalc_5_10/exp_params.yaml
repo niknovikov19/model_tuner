@@ -1,0 +1,5 @@
+conda_env: netpyne_batch
+dirpath_hpc_base: /ddn/niknovikov19/repo/A1_OUinp/exp_results/sim_manager_batch/exp_subnet_state1_mech1_nosub_wmult_0.1
+exp_name_base: sim_manager_batch/exp_subnet_state1_mech1_nosub_wmult_0.1
+exp_name: thal_tcalc_5_10
+fpath_batch_script_hpc: /ddn/niknovikov19/repo/A1_OUinp/opt_batch_script.py
