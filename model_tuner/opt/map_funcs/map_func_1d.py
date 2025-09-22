@@ -101,7 +101,10 @@ class MapFunc1D(ABC):
         
     @classmethod
     @abstractmethod
-    def _get_first_fit_guess(cls, xx: np.ndarray, yy: np.ndarray) -> Tuple:
+    def _get_first_fit_guess(
+            cls, xx: np.ndarray, yy: np.ndarray,
+            bounds: Dict[str, Tuple[float, float]]
+            ) -> Tuple:
         pass
 
     def is_valid(self) -> bool:
@@ -146,7 +149,7 @@ class MapFunc1D(ABC):
         bounds = _bounds_dict_to_tuple(bounds)
         
         # Initial guess
-        par0 = self._get_first_fit_guess(xx, yy)  # default first guess (from a subclass)
+        par0 = self._get_first_fit_guess(xx, yy, bounds)  # default first guess (from a subclass)
         par0_prev = self.get_par_vals()  # result of the previous fitting
         if not np.any(np.isnan(par0_prev)):
             par0 = _mix_tuples(par0, par0_prev, opt_par.par0_kprev)  # mix par0 and par0_prev

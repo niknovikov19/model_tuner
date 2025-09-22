@@ -48,11 +48,17 @@ class MapFunc1DRichards(MapFunc1D):
         return bounds
     
     @classmethod
-    def _get_first_fit_guess(cls, xx: np.ndarray, yy: np.ndarray) -> Tuple:
+    def _get_first_fit_guess(
+            cls, xx: np.ndarray, yy: np.ndarray,
+            bounds: Dict[str, Tuple[float, float]]
+            ) -> Tuple:
 
         q0 = 1
 
         c0 = np.nanmin(yy)
+        if 'c' in bounds:
+            c0 = np.clip(c0, *bounds['c'])
+
         a0 = np.nanmax(yy) - c0
         
         # Interval with the max. slope and its midpoint
