@@ -61,7 +61,7 @@ def plot_ir_mapping_1d_slice(
 
         R = rate_mats[pop_name]
         
-        # Slie of the training data
+        # Slice of the training data
         ou_mean_vec = R.coords['ou_mean'].values
         if R.ndim == 2:
             slicer = net_ir_mapper.pop_IR_mappers[pop_name].slicer

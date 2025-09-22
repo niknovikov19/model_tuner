@@ -84,7 +84,7 @@ class IRMapConfigRateFrom2DBatchResLists:
     fit_weight_pow: float = 0.5
     fit_weight_limits: Tuple[float, float] = (0.1, 10)
 
-    # Paramteres of the fitting algorithm (tolerances, etc...)
+    # Parameteres of the fitting algorithm (tolerances, etc...)
     map_fit_params: MapFitParams = MapFitParams()
 
     def __post_init__(self):
