@@ -1,0 +1,2342 @@
+{
+    "net_spikes_req_1_0_8fdcd64754e140e6103e014821de5752": {
+        "name": "net_spikes_req_1_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_1_0_data.pkl"
+                },
+                "net_spikes_req_1_0": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_1_0\\net_spikes_req_1_0_8fdcd64754e140e6103e014821de5752.pkl"
+    },
+    "net_rates_req_1_0_9c65e5e5df6dcb424cbb9f74889107fe": {
+        "name": "net_rates_req_1_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_1_0_data.pkl"
+                },
+                "net_spikes_req_1_0": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_1_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_1_0\\net_rates_req_1_0_9c65e5e5df6dcb424cbb9f74889107fe.pkl"
+    },
+    "net_spikes_req_1_1_92b686a236b14a5c149bb3001c486858": {
+        "name": "net_spikes_req_1_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_1_1_data.pkl"
+                },
+                "net_spikes_req_1_1": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_1_1\\net_spikes_req_1_1_92b686a236b14a5c149bb3001c486858.pkl"
+    },
+    "net_rates_req_1_1_7bd5bbce7fa119eac07348b18ee7563a": {
+        "name": "net_rates_req_1_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_1_1_data.pkl"
+                },
+                "net_spikes_req_1_1": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_1_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_1_1\\net_rates_req_1_1_7bd5bbce7fa119eac07348b18ee7563a.pkl"
+    },
+    "net_spikes_req_1_2_4fb8decc4762c67967ef3bcf8942af85": {
+        "name": "net_spikes_req_1_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_1_2_data.pkl"
+                },
+                "net_spikes_req_1_2": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_1_2\\net_spikes_req_1_2_4fb8decc4762c67967ef3bcf8942af85.pkl"
+    },
+    "net_rates_req_1_2_ef2a7cfee551bcedc93792ee2da08a48": {
+        "name": "net_rates_req_1_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_1_2_data.pkl"
+                },
+                "net_spikes_req_1_2": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_1_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_1_2\\net_rates_req_1_2_ef2a7cfee551bcedc93792ee2da08a48.pkl"
+    },
+    "net_spikes_req_1_3_50659e1584f37ade5d12194edf477a11": {
+        "name": "net_spikes_req_1_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_1_3_data.pkl"
+                },
+                "net_spikes_req_1_3": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_1_3\\net_spikes_req_1_3_50659e1584f37ade5d12194edf477a11.pkl"
+    },
+    "net_rates_req_1_3_0b5f774c74979c5e48dc5a01a4729758": {
+        "name": "net_rates_req_1_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_1_3_data.pkl"
+                },
+                "net_spikes_req_1_3": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_1_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_1_3\\net_rates_req_1_3_0b5f774c74979c5e48dc5a01a4729758.pkl"
+    },
+    "net_spikes_req_2_0_86b3e97a73a3421cffe7137b8d234d6e": {
+        "name": "net_spikes_req_2_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_2_0_data.pkl"
+                },
+                "net_spikes_req_2_0": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_2_0\\net_spikes_req_2_0_86b3e97a73a3421cffe7137b8d234d6e.pkl"
+    },
+    "net_rates_req_2_0_a4edf7a09c2baac1567ae385531fabe8": {
+        "name": "net_rates_req_2_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_2_0_data.pkl"
+                },
+                "net_spikes_req_2_0": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_2_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_2_0\\net_rates_req_2_0_a4edf7a09c2baac1567ae385531fabe8.pkl"
+    },
+    "net_spikes_req_2_1_77935d4f1240b56e8aebba82127beb1f": {
+        "name": "net_spikes_req_2_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_2_1_data.pkl"
+                },
+                "net_spikes_req_2_1": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_2_1\\net_spikes_req_2_1_77935d4f1240b56e8aebba82127beb1f.pkl"
+    },
+    "net_rates_req_2_1_a5086a68dcbe0e9bd04d4ff4f177e9db": {
+        "name": "net_rates_req_2_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_2_1_data.pkl"
+                },
+                "net_spikes_req_2_1": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_2_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_2_1\\net_rates_req_2_1_a5086a68dcbe0e9bd04d4ff4f177e9db.pkl"
+    },
+    "net_spikes_req_2_2_39cffdc8c7007cc78d23ac2ea1020da5": {
+        "name": "net_spikes_req_2_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_2_2_data.pkl"
+                },
+                "net_spikes_req_2_2": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_2_2\\net_spikes_req_2_2_39cffdc8c7007cc78d23ac2ea1020da5.pkl"
+    },
+    "net_rates_req_2_2_4fdbf4a20249e24582991cb6ea102000": {
+        "name": "net_rates_req_2_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_2_2_data.pkl"
+                },
+                "net_spikes_req_2_2": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_2_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_2_2\\net_rates_req_2_2_4fdbf4a20249e24582991cb6ea102000.pkl"
+    },
+    "net_spikes_req_2_3_73c44ede09cb5fd33fd2c910b9d102e0": {
+        "name": "net_spikes_req_2_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_2_3_data.pkl"
+                },
+                "net_spikes_req_2_3": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_2_3\\net_spikes_req_2_3_73c44ede09cb5fd33fd2c910b9d102e0.pkl"
+    },
+    "net_rates_req_2_3_a6d32b13d3fad90559d11a713a3de797": {
+        "name": "net_rates_req_2_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_2_3_data.pkl"
+                },
+                "net_spikes_req_2_3": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_2_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_2_3\\net_rates_req_2_3_a6d32b13d3fad90559d11a713a3de797.pkl"
+    },
+    "net_spikes_req_3_0_c3e6ad2627b87d07410930ea15bcc852": {
+        "name": "net_spikes_req_3_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_3_0_data.pkl"
+                },
+                "net_spikes_req_3_0": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_3_0\\net_spikes_req_3_0_c3e6ad2627b87d07410930ea15bcc852.pkl"
+    },
+    "net_rates_req_3_0_c691ab6df1059e13d4347c578b437795": {
+        "name": "net_rates_req_3_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_3_0_data.pkl"
+                },
+                "net_spikes_req_3_0": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_3_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_3_0\\net_rates_req_3_0_c691ab6df1059e13d4347c578b437795.pkl"
+    },
+    "net_spikes_req_3_1_83839ff88e42e4b91895d82ae0f6bbe9": {
+        "name": "net_spikes_req_3_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_3_1_data.pkl"
+                },
+                "net_spikes_req_3_1": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_3_1\\net_spikes_req_3_1_83839ff88e42e4b91895d82ae0f6bbe9.pkl"
+    },
+    "net_rates_req_3_1_1a403a12f30e64d5190ef2649f43a776": {
+        "name": "net_rates_req_3_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_3_1_data.pkl"
+                },
+                "net_spikes_req_3_1": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_3_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_3_1\\net_rates_req_3_1_1a403a12f30e64d5190ef2649f43a776.pkl"
+    },
+    "net_spikes_req_3_2_81253fdbf3295d099eabafb7bf0ccbf4": {
+        "name": "net_spikes_req_3_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_3_2_data.pkl"
+                },
+                "net_spikes_req_3_2": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_3_2\\net_spikes_req_3_2_81253fdbf3295d099eabafb7bf0ccbf4.pkl"
+    },
+    "net_rates_req_3_2_837b4679bf759abb18232c21e7aa591d": {
+        "name": "net_rates_req_3_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_3_2_data.pkl"
+                },
+                "net_spikes_req_3_2": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_3_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_3_2\\net_rates_req_3_2_837b4679bf759abb18232c21e7aa591d.pkl"
+    },
+    "net_spikes_req_3_3_c34962a26db0a1982cc4d7c48f546780": {
+        "name": "net_spikes_req_3_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_3_3_data.pkl"
+                },
+                "net_spikes_req_3_3": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_3_3\\net_spikes_req_3_3_c34962a26db0a1982cc4d7c48f546780.pkl"
+    },
+    "net_rates_req_3_3_75ce82a6bb346bca8cc6f3316917eb08": {
+        "name": "net_rates_req_3_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_3_3_data.pkl"
+                },
+                "net_spikes_req_3_3": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_3_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_3_3\\net_rates_req_3_3_75ce82a6bb346bca8cc6f3316917eb08.pkl"
+    },
+    "net_spikes_req_4_0_92d6620c2cb07db00396b61135999bc6": {
+        "name": "net_spikes_req_4_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_4_0_data.pkl"
+                },
+                "net_spikes_req_4_0": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_4_0\\net_spikes_req_4_0_92d6620c2cb07db00396b61135999bc6.pkl"
+    },
+    "net_rates_req_4_0_f45fe760996d1108d0941ecfd006baad": {
+        "name": "net_rates_req_4_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_4_0_data.pkl"
+                },
+                "net_spikes_req_4_0": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_4_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_4_0\\net_rates_req_4_0_f45fe760996d1108d0941ecfd006baad.pkl"
+    },
+    "net_spikes_req_4_1_480c8dc8c0aaec73040f39b2bf15b9b9": {
+        "name": "net_spikes_req_4_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_4_1_data.pkl"
+                },
+                "net_spikes_req_4_1": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_4_1\\net_spikes_req_4_1_480c8dc8c0aaec73040f39b2bf15b9b9.pkl"
+    },
+    "net_rates_req_4_1_26a1dfa2b8548fee4b961db14826fdbf": {
+        "name": "net_rates_req_4_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_4_1_data.pkl"
+                },
+                "net_spikes_req_4_1": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_4_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_4_1\\net_rates_req_4_1_26a1dfa2b8548fee4b961db14826fdbf.pkl"
+    },
+    "net_spikes_req_4_2_5f269f287785a5ac215dbec94c71dd70": {
+        "name": "net_spikes_req_4_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_4_2_data.pkl"
+                },
+                "net_spikes_req_4_2": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_4_2\\net_spikes_req_4_2_5f269f287785a5ac215dbec94c71dd70.pkl"
+    },
+    "net_rates_req_4_2_f4bc069b455fda36b09ad9eadbcfb2cf": {
+        "name": "net_rates_req_4_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_4_2_data.pkl"
+                },
+                "net_spikes_req_4_2": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_4_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_4_2\\net_rates_req_4_2_f4bc069b455fda36b09ad9eadbcfb2cf.pkl"
+    },
+    "net_spikes_req_4_3_b202aaee9a83e0595164887229781086": {
+        "name": "net_spikes_req_4_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_4_3_data.pkl"
+                },
+                "net_spikes_req_4_3": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_4_3\\net_spikes_req_4_3_b202aaee9a83e0595164887229781086.pkl"
+    },
+    "net_rates_req_4_3_27c37f4eca31e29346a49797c4ba1cac": {
+        "name": "net_rates_req_4_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_4_3_data.pkl"
+                },
+                "net_spikes_req_4_3": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_4_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_4_3\\net_rates_req_4_3_27c37f4eca31e29346a49797c4ba1cac.pkl"
+    },
+    "net_spikes_req_5_0_ef789437aaefeb973fb63a3bc21d9175": {
+        "name": "net_spikes_req_5_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_5_0_data.pkl"
+                },
+                "net_spikes_req_5_0": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_5_0\\net_spikes_req_5_0_ef789437aaefeb973fb63a3bc21d9175.pkl"
+    },
+    "net_rates_req_5_0_988cac42a0419be636c6e13059b57976": {
+        "name": "net_rates_req_5_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_5_0_data.pkl"
+                },
+                "net_spikes_req_5_0": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_5_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_5_0\\net_rates_req_5_0_988cac42a0419be636c6e13059b57976.pkl"
+    },
+    "net_spikes_req_5_1_092e9654cf23186907667228c90cc5a7": {
+        "name": "net_spikes_req_5_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_5_1_data.pkl"
+                },
+                "net_spikes_req_5_1": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_5_1\\net_spikes_req_5_1_092e9654cf23186907667228c90cc5a7.pkl"
+    },
+    "net_rates_req_5_1_87320d0b193a432f234cf7fbaf7e9e79": {
+        "name": "net_rates_req_5_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_5_1_data.pkl"
+                },
+                "net_spikes_req_5_1": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_5_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_5_1\\net_rates_req_5_1_87320d0b193a432f234cf7fbaf7e9e79.pkl"
+    },
+    "net_spikes_req_5_2_7e928e691f5a6fe518d4c510b47c5a3a": {
+        "name": "net_spikes_req_5_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_5_2_data.pkl"
+                },
+                "net_spikes_req_5_2": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_5_2\\net_spikes_req_5_2_7e928e691f5a6fe518d4c510b47c5a3a.pkl"
+    },
+    "net_rates_req_5_2_dea8486c7b6e7a5f7765fa25846e9d48": {
+        "name": "net_rates_req_5_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_5_2_data.pkl"
+                },
+                "net_spikes_req_5_2": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_5_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_5_2\\net_rates_req_5_2_dea8486c7b6e7a5f7765fa25846e9d48.pkl"
+    },
+    "net_spikes_req_5_3_fc557f4fa613ee7850f596e6a14b9a64": {
+        "name": "net_spikes_req_5_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_5_3_data.pkl"
+                },
+                "net_spikes_req_5_3": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_5_3\\net_spikes_req_5_3_fc557f4fa613ee7850f596e6a14b9a64.pkl"
+    },
+    "net_rates_req_5_3_3807077804d16f9eb97dbb1a0710ffe3": {
+        "name": "net_rates_req_5_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_5_3_data.pkl"
+                },
+                "net_spikes_req_5_3": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_5_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_5_3\\net_rates_req_5_3_3807077804d16f9eb97dbb1a0710ffe3.pkl"
+    },
+    "net_spikes_req_6_0_33d35ae15f37ce81d8ae058b0998e6dc": {
+        "name": "net_spikes_req_6_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_6_0_data.pkl"
+                },
+                "net_spikes_req_6_0": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_6_0\\net_spikes_req_6_0_33d35ae15f37ce81d8ae058b0998e6dc.pkl"
+    },
+    "net_rates_req_6_0_56ffe152153b8d8f077200a595f2d3aa": {
+        "name": "net_rates_req_6_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_6_0_data.pkl"
+                },
+                "net_spikes_req_6_0": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_6_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_6_0\\net_rates_req_6_0_56ffe152153b8d8f077200a595f2d3aa.pkl"
+    },
+    "net_spikes_req_6_1_4d9a515f15695d0eb6c72295f4205747": {
+        "name": "net_spikes_req_6_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_6_1_data.pkl"
+                },
+                "net_spikes_req_6_1": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_6_1\\net_spikes_req_6_1_4d9a515f15695d0eb6c72295f4205747.pkl"
+    },
+    "net_rates_req_6_1_cf96ca4d0b8d4c98cc96a58e04ab2bfb": {
+        "name": "net_rates_req_6_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_6_1_data.pkl"
+                },
+                "net_spikes_req_6_1": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_6_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_6_1\\net_rates_req_6_1_cf96ca4d0b8d4c98cc96a58e04ab2bfb.pkl"
+    },
+    "net_spikes_req_6_2_aa33fc85295dcec827b420e9d274df2c": {
+        "name": "net_spikes_req_6_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_6_2_data.pkl"
+                },
+                "net_spikes_req_6_2": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_6_2\\net_spikes_req_6_2_aa33fc85295dcec827b420e9d274df2c.pkl"
+    },
+    "net_rates_req_6_2_1070a30fc3581ffebb2eb2b42c92f368": {
+        "name": "net_rates_req_6_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_6_2_data.pkl"
+                },
+                "net_spikes_req_6_2": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_6_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_6_2\\net_rates_req_6_2_1070a30fc3581ffebb2eb2b42c92f368.pkl"
+    },
+    "net_spikes_req_6_3_3cce9fb774d1a25a470d8a87e684360c": {
+        "name": "net_spikes_req_6_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_6_3_data.pkl"
+                },
+                "net_spikes_req_6_3": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_6_3\\net_spikes_req_6_3_3cce9fb774d1a25a470d8a87e684360c.pkl"
+    },
+    "net_rates_req_6_3_4320db66f8483b658914bb35f66909ce": {
+        "name": "net_rates_req_6_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_6_3_data.pkl"
+                },
+                "net_spikes_req_6_3": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_6_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_6_3\\net_rates_req_6_3_4320db66f8483b658914bb35f66909ce.pkl"
+    },
+    "net_spikes_req_7_0_8864e7b8f1f246c099f561067ef5eb8d": {
+        "name": "net_spikes_req_7_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_7_0_data.pkl"
+                },
+                "net_spikes_req_7_0": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_7_0\\net_spikes_req_7_0_8864e7b8f1f246c099f561067ef5eb8d.pkl"
+    },
+    "net_rates_req_7_0_e30a538c6f1188db8e0db4861d28c9e5": {
+        "name": "net_rates_req_7_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_7_0_data.pkl"
+                },
+                "net_spikes_req_7_0": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_7_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_7_0\\net_rates_req_7_0_e30a538c6f1188db8e0db4861d28c9e5.pkl"
+    },
+    "net_spikes_req_7_1_bc48f82733177f5b8421580d44c5fe33": {
+        "name": "net_spikes_req_7_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_7_1_data.pkl"
+                },
+                "net_spikes_req_7_1": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_7_1\\net_spikes_req_7_1_bc48f82733177f5b8421580d44c5fe33.pkl"
+    },
+    "net_rates_req_7_1_9d56765bc3804510a9210a5119236d1f": {
+        "name": "net_rates_req_7_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_7_1_data.pkl"
+                },
+                "net_spikes_req_7_1": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_7_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_7_1\\net_rates_req_7_1_9d56765bc3804510a9210a5119236d1f.pkl"
+    },
+    "net_spikes_req_7_2_4d821d5c1a3c41cb2a02ef9d67947823": {
+        "name": "net_spikes_req_7_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_7_2_data.pkl"
+                },
+                "net_spikes_req_7_2": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_7_2\\net_spikes_req_7_2_4d821d5c1a3c41cb2a02ef9d67947823.pkl"
+    },
+    "net_rates_req_7_2_aad3054a4c3b2ec59ca915abe8588bbe": {
+        "name": "net_rates_req_7_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_7_2_data.pkl"
+                },
+                "net_spikes_req_7_2": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_7_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_7_2\\net_rates_req_7_2_aad3054a4c3b2ec59ca915abe8588bbe.pkl"
+    },
+    "net_spikes_req_7_3_167d25f8ec08577d337943d21ce84280": {
+        "name": "net_spikes_req_7_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_7_3_data.pkl"
+                },
+                "net_spikes_req_7_3": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_7_3\\net_spikes_req_7_3_167d25f8ec08577d337943d21ce84280.pkl"
+    },
+    "net_rates_req_7_3_56aa9a4898aa936fb4d46fcd433c0794": {
+        "name": "net_rates_req_7_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_7_3_data.pkl"
+                },
+                "net_spikes_req_7_3": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_7_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_7_3\\net_rates_req_7_3_56aa9a4898aa936fb4d46fcd433c0794.pkl"
+    },
+    "net_spikes_req_8_0_eed98ce5b7580e71a7c9650e05abe914": {
+        "name": "net_spikes_req_8_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_8_0_data.pkl"
+                },
+                "net_spikes_req_8_0": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_8_0\\net_spikes_req_8_0_eed98ce5b7580e71a7c9650e05abe914.pkl"
+    },
+    "net_rates_req_8_0_758029502c7b88d55da56cdd8e643fd2": {
+        "name": "net_rates_req_8_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_8_0_data.pkl"
+                },
+                "net_spikes_req_8_0": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_8_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_8_0\\net_rates_req_8_0_758029502c7b88d55da56cdd8e643fd2.pkl"
+    },
+    "net_spikes_req_8_1_5c43d22e48c290481b9835a18a5a4d51": {
+        "name": "net_spikes_req_8_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_8_1_data.pkl"
+                },
+                "net_spikes_req_8_1": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_8_1\\net_spikes_req_8_1_5c43d22e48c290481b9835a18a5a4d51.pkl"
+    },
+    "net_rates_req_8_1_4dce923b4b331d4d0f5d020a3ac94ea7": {
+        "name": "net_rates_req_8_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_8_1_data.pkl"
+                },
+                "net_spikes_req_8_1": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_8_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_8_1\\net_rates_req_8_1_4dce923b4b331d4d0f5d020a3ac94ea7.pkl"
+    },
+    "net_spikes_req_8_2_14171ef6d9a7ffa8d2b22d21b8601d17": {
+        "name": "net_spikes_req_8_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_8_2_data.pkl"
+                },
+                "net_spikes_req_8_2": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_8_2\\net_spikes_req_8_2_14171ef6d9a7ffa8d2b22d21b8601d17.pkl"
+    },
+    "net_rates_req_8_2_45a8b080b087d310caf26908cc44753b": {
+        "name": "net_rates_req_8_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_8_2_data.pkl"
+                },
+                "net_spikes_req_8_2": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_8_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_8_2\\net_rates_req_8_2_45a8b080b087d310caf26908cc44753b.pkl"
+    },
+    "net_spikes_req_8_3_fb884145f72dffc4e56259c8672809df": {
+        "name": "net_spikes_req_8_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_8_3_data.pkl"
+                },
+                "net_spikes_req_8_3": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_8_3\\net_spikes_req_8_3_fb884145f72dffc4e56259c8672809df.pkl"
+    },
+    "net_rates_req_8_3_610e1b01e6dccdd8d8b05ceab44ac996": {
+        "name": "net_rates_req_8_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_8_3_data.pkl"
+                },
+                "net_spikes_req_8_3": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_8_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_8_3\\net_rates_req_8_3_610e1b01e6dccdd8d8b05ceab44ac996.pkl"
+    },
+    "net_spikes_req_9_0_a07a01bb054893fe488a9eaea7c1c5ff": {
+        "name": "net_spikes_req_9_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_9_0_data.pkl"
+                },
+                "net_spikes_req_9_0": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_9_0\\net_spikes_req_9_0_a07a01bb054893fe488a9eaea7c1c5ff.pkl"
+    },
+    "net_rates_req_9_0_6f8fbd2f8299ba4d33c73bad2545471a": {
+        "name": "net_rates_req_9_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_9_0_data.pkl"
+                },
+                "net_spikes_req_9_0": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_9_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_9_0\\net_rates_req_9_0_6f8fbd2f8299ba4d33c73bad2545471a.pkl"
+    },
+    "net_spikes_req_9_1_07ee36cd22f2009a4451fe77590bced2": {
+        "name": "net_spikes_req_9_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_9_1_data.pkl"
+                },
+                "net_spikes_req_9_1": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_9_1\\net_spikes_req_9_1_07ee36cd22f2009a4451fe77590bced2.pkl"
+    },
+    "net_rates_req_9_1_255c9f1883cc0317a41630f49d34ff68": {
+        "name": "net_rates_req_9_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_9_1_data.pkl"
+                },
+                "net_spikes_req_9_1": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_9_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_9_1\\net_rates_req_9_1_255c9f1883cc0317a41630f49d34ff68.pkl"
+    },
+    "net_spikes_req_9_2_cbf934f5d536d7f5cfbc0eae584ccf48": {
+        "name": "net_spikes_req_9_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_9_2_data.pkl"
+                },
+                "net_spikes_req_9_2": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_9_2\\net_spikes_req_9_2_cbf934f5d536d7f5cfbc0eae584ccf48.pkl"
+    },
+    "net_rates_req_9_2_70be3435f7c703440b0ac4e814a0e760": {
+        "name": "net_rates_req_9_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_9_2_data.pkl"
+                },
+                "net_spikes_req_9_2": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_9_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_9_2\\net_rates_req_9_2_70be3435f7c703440b0ac4e814a0e760.pkl"
+    },
+    "net_spikes_req_9_3_070f5b95c25cc7858c2254ec433bae62": {
+        "name": "net_spikes_req_9_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_9_3_data.pkl"
+                },
+                "net_spikes_req_9_3": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_9_3\\net_spikes_req_9_3_070f5b95c25cc7858c2254ec433bae62.pkl"
+    },
+    "net_rates_req_9_3_502d4c103e19696bc08c3656fcd6da73": {
+        "name": "net_rates_req_9_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\L4_conn_5s_spline_alpha_0.5\\results\\req_9_3_data.pkl"
+                },
+                "net_spikes_req_9_3": {
+                    "pop_names": [
+                        "ITP4",
+                        "ITS4",
+                        "PV4",
+                        "SOM4",
+                        "VIP4",
+                        "NGF4"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_9_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_9_3\\net_rates_req_9_3_502d4c103e19696bc08c3656fcd6da73.pkl"
+    }
+}

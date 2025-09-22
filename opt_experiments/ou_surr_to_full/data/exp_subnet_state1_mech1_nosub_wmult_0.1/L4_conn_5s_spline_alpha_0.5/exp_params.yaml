@@ -1,0 +1,30 @@
+conda_env: netpyne_batch
+dirpath_hpc_base: /ddn/niknovikov19/repo/A1_OUinp/exp_results/sim_manager_batch/exp_subnet_state1_mech1_nosub_wmult_0.1
+exp_name_base: sim_manager_batch/exp_subnet_state1_mech1_nosub_wmult_0.1
+exp_name: L4_conn_5s_spline_alpha_0.5
+fpath_batch_script_hpc: /ddn/niknovikov19/repo/A1_OUinp/opt_batch_script.py
+model_cfg:
+  duration: 5000
+  connected: 1
+  wmult: 0.1
+  subnet_params:
+    pops_active:
+      - ITP4
+      - ITS4
+      - PV4
+      - SOM4
+      - VIP4
+      - NGF4
+    conns_frozen: []
+pfr_vec:
+- 0.6
+- 0.8
+- 1.0
+- 1.2
+pop_names:
+- ITP4
+- ITS4
+- PV4
+- SOM4
+- VIP4
+- NGF4

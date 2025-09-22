@@ -1,0 +1,65 @@
+pop_names:
+- ITP4
+- ITS4
+- PV4
+- SOM4
+- VIP4
+- NGF4
+
+# Parameters of the simulation result processing
+spikes_calc_params:   # sim_result -> spikes
+  combine_cells: true
+  ms: false
+  ndigits: 6
+  pop_names:
+    - ITP4
+    - ITS4
+    - PV4
+    - SOM4
+    - VIP4
+    - NGF4
+  subtract_t0: true
+  time_limits:
+  - 0
+  - null
+rates_calc_params:    # spikes -> rates
+  pop_names: null
+  time_limits:
+  - 2
+  - null
+
+# U-C mapping type and hyperparameters
+map_type: richards_1d
+map_params:
+  x_limits:
+  - 0
+  - .inf
+  y_limits:
+  - 0
+  - .inf
+
+# Fitting bounds for U-C mapping parameters
+fit_param_bounds:
+  c:
+  - 0
+  - 0.1
+
+# Limits for the input rates used for fitting
+inp_limits: null
+
+# Parameters of the formula that determines the fitting weights
+use_fit_weights: false
+fit_weight_pow: 0
+fit_weight_limits:
+  - 0
+  - .inf
+
+# Parameters of the fitting algorithm
+map_fit_params:
+  ftol: 0.01
+  max_nfev: 2000
+  method: trf
+  par0_kprev: 0
+  return_first_guess: false
+  verbose: false
+  xtol: null

@@ -1,0 +1,14 @@
+opt_strategy: step_to_new
+
+# Step size
+alpha_Ru: 0.1
+alpha_Rc: 0.1
+
+# Auto-decrease of step size
+auto_decrease_step: true
+alpha_mult_Ru: 0.8   # Ru step multiplier
+alpha_mult_Rc: 0.8   # Rc step multiplier
+alpha_min: 0.01      # min. step size
+
+# Individual step size for each population
+steps_by_pop: true

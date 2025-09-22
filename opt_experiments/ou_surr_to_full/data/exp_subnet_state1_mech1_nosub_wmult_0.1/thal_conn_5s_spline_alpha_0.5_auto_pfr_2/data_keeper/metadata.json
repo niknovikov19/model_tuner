@@ -1,0 +1,3218 @@
+{
+    "net_spikes_req_1_0_227e5590ea557a78b37f5720a876b2ce": {
+        "name": "net_spikes_req_1_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_1_0_data.pkl"
+                },
+                "net_spikes_req_1_0": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_1_0\\net_spikes_req_1_0_227e5590ea557a78b37f5720a876b2ce.pkl"
+    },
+    "net_rates_req_1_0_48cbc7694a4af4f34a66f0023e29c49f": {
+        "name": "net_rates_req_1_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_1_0_data.pkl"
+                },
+                "net_spikes_req_1_0": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_1_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_1_0\\net_rates_req_1_0_48cbc7694a4af4f34a66f0023e29c49f.pkl"
+    },
+    "net_spikes_req_1_1_89e5c2e195b3897c65f868d15ba7f6af": {
+        "name": "net_spikes_req_1_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_1_1_data.pkl"
+                },
+                "net_spikes_req_1_1": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_1_1\\net_spikes_req_1_1_89e5c2e195b3897c65f868d15ba7f6af.pkl"
+    },
+    "net_rates_req_1_1_8982a77a1da2b53d0ff74deb7c0d26c7": {
+        "name": "net_rates_req_1_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_1_1_data.pkl"
+                },
+                "net_spikes_req_1_1": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_1_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_1_1\\net_rates_req_1_1_8982a77a1da2b53d0ff74deb7c0d26c7.pkl"
+    },
+    "net_spikes_req_1_2_19fe8f70b88fabdfdece597564bd96b7": {
+        "name": "net_spikes_req_1_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_1_2_data.pkl"
+                },
+                "net_spikes_req_1_2": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_1_2\\net_spikes_req_1_2_19fe8f70b88fabdfdece597564bd96b7.pkl"
+    },
+    "net_rates_req_1_2_646e8dd0dd4f1dfbe0ba84f59c3557fc": {
+        "name": "net_rates_req_1_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_1_2_data.pkl"
+                },
+                "net_spikes_req_1_2": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_1_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_1_2\\net_rates_req_1_2_646e8dd0dd4f1dfbe0ba84f59c3557fc.pkl"
+    },
+    "net_spikes_req_1_3_91b9e6751d1e6adf04a233d62194b160": {
+        "name": "net_spikes_req_1_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_1_3_data.pkl"
+                },
+                "net_spikes_req_1_3": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_1_3\\net_spikes_req_1_3_91b9e6751d1e6adf04a233d62194b160.pkl"
+    },
+    "net_rates_req_1_3_aa7c9f862a21967f009c1a9553d9364c": {
+        "name": "net_rates_req_1_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_1_3_data.pkl"
+                },
+                "net_spikes_req_1_3": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_1_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_1_3\\net_rates_req_1_3_aa7c9f862a21967f009c1a9553d9364c.pkl"
+    },
+    "net_spikes_req_2_0_93a3a2249221c75bb53188e162a6d40d": {
+        "name": "net_spikes_req_2_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_2_0_data.pkl"
+                },
+                "net_spikes_req_2_0": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_2_0\\net_spikes_req_2_0_93a3a2249221c75bb53188e162a6d40d.pkl"
+    },
+    "net_rates_req_2_0_37fb64c224edfa7e6b968ca2cde74eb4": {
+        "name": "net_rates_req_2_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_2_0_data.pkl"
+                },
+                "net_spikes_req_2_0": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_2_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_2_0\\net_rates_req_2_0_37fb64c224edfa7e6b968ca2cde74eb4.pkl"
+    },
+    "net_spikes_req_2_1_ae37df7cf387f294dc9eef63812ea672": {
+        "name": "net_spikes_req_2_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_2_1_data.pkl"
+                },
+                "net_spikes_req_2_1": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_2_1\\net_spikes_req_2_1_ae37df7cf387f294dc9eef63812ea672.pkl"
+    },
+    "net_rates_req_2_1_ef77f59e02cb45e0b6c6828469ea93c8": {
+        "name": "net_rates_req_2_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_2_1_data.pkl"
+                },
+                "net_spikes_req_2_1": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_2_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_2_1\\net_rates_req_2_1_ef77f59e02cb45e0b6c6828469ea93c8.pkl"
+    },
+    "net_spikes_req_2_2_609b1fd0d0e965f1e2815f3ef670656b": {
+        "name": "net_spikes_req_2_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_2_2_data.pkl"
+                },
+                "net_spikes_req_2_2": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_2_2\\net_spikes_req_2_2_609b1fd0d0e965f1e2815f3ef670656b.pkl"
+    },
+    "net_rates_req_2_2_b8f11c5e69227236a838b9abebe27395": {
+        "name": "net_rates_req_2_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_2_2_data.pkl"
+                },
+                "net_spikes_req_2_2": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_2_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_2_2\\net_rates_req_2_2_b8f11c5e69227236a838b9abebe27395.pkl"
+    },
+    "net_spikes_req_2_3_43670ed5c12a7a73e80cf5995e987327": {
+        "name": "net_spikes_req_2_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_2_3_data.pkl"
+                },
+                "net_spikes_req_2_3": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_2_3\\net_spikes_req_2_3_43670ed5c12a7a73e80cf5995e987327.pkl"
+    },
+    "net_rates_req_2_3_9d8e76663186daab1b9bf7ea4c0f62a8": {
+        "name": "net_rates_req_2_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_2_3_data.pkl"
+                },
+                "net_spikes_req_2_3": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_2_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_2_3\\net_rates_req_2_3_9d8e76663186daab1b9bf7ea4c0f62a8.pkl"
+    },
+    "net_spikes_req_3_0_847c61fd0b732dd68fb43364db74555b": {
+        "name": "net_spikes_req_3_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_3_0_data.pkl"
+                },
+                "net_spikes_req_3_0": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_3_0\\net_spikes_req_3_0_847c61fd0b732dd68fb43364db74555b.pkl"
+    },
+    "net_rates_req_3_0_d9e435fbf5bdb7be244c99f2533fba78": {
+        "name": "net_rates_req_3_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_3_0_data.pkl"
+                },
+                "net_spikes_req_3_0": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_3_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_3_0\\net_rates_req_3_0_d9e435fbf5bdb7be244c99f2533fba78.pkl"
+    },
+    "net_spikes_req_3_1_ab6f303b0ca1dd7fda036caf6ae7b81c": {
+        "name": "net_spikes_req_3_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_3_1_data.pkl"
+                },
+                "net_spikes_req_3_1": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_3_1\\net_spikes_req_3_1_ab6f303b0ca1dd7fda036caf6ae7b81c.pkl"
+    },
+    "net_rates_req_3_1_5580ee532dbea71a78365afc78405fb3": {
+        "name": "net_rates_req_3_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_3_1_data.pkl"
+                },
+                "net_spikes_req_3_1": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_3_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_3_1\\net_rates_req_3_1_5580ee532dbea71a78365afc78405fb3.pkl"
+    },
+    "net_spikes_req_3_2_78304870b0a67c6be124a4c478f01f58": {
+        "name": "net_spikes_req_3_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_3_2_data.pkl"
+                },
+                "net_spikes_req_3_2": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_3_2\\net_spikes_req_3_2_78304870b0a67c6be124a4c478f01f58.pkl"
+    },
+    "net_rates_req_3_2_a4019dc4ac71f8d33c07714cfe5caeac": {
+        "name": "net_rates_req_3_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_3_2_data.pkl"
+                },
+                "net_spikes_req_3_2": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_3_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_3_2\\net_rates_req_3_2_a4019dc4ac71f8d33c07714cfe5caeac.pkl"
+    },
+    "net_spikes_req_3_3_5924f85d552a41c09685cbfe29937743": {
+        "name": "net_spikes_req_3_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_3_3_data.pkl"
+                },
+                "net_spikes_req_3_3": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_3_3\\net_spikes_req_3_3_5924f85d552a41c09685cbfe29937743.pkl"
+    },
+    "net_rates_req_3_3_66014b9fd622ae4ecfa4ed31550a9b56": {
+        "name": "net_rates_req_3_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_3_3_data.pkl"
+                },
+                "net_spikes_req_3_3": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_3_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_3_3\\net_rates_req_3_3_66014b9fd622ae4ecfa4ed31550a9b56.pkl"
+    },
+    "net_spikes_req_4_0_9daec1ed8778be764a49f9c4b711f6b8": {
+        "name": "net_spikes_req_4_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_4_0_data.pkl"
+                },
+                "net_spikes_req_4_0": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_4_0\\net_spikes_req_4_0_9daec1ed8778be764a49f9c4b711f6b8.pkl"
+    },
+    "net_rates_req_4_0_e8b9962020eadef84431688bfdc29eaf": {
+        "name": "net_rates_req_4_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_4_0_data.pkl"
+                },
+                "net_spikes_req_4_0": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_4_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_4_0\\net_rates_req_4_0_e8b9962020eadef84431688bfdc29eaf.pkl"
+    },
+    "net_spikes_req_4_1_5386b7e640c60e784ecb8c4aaedb69bc": {
+        "name": "net_spikes_req_4_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_4_1_data.pkl"
+                },
+                "net_spikes_req_4_1": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_4_1\\net_spikes_req_4_1_5386b7e640c60e784ecb8c4aaedb69bc.pkl"
+    },
+    "net_rates_req_4_1_2a6ec44b8e7bf96eb17a9754744d2be3": {
+        "name": "net_rates_req_4_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_4_1_data.pkl"
+                },
+                "net_spikes_req_4_1": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_4_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_4_1\\net_rates_req_4_1_2a6ec44b8e7bf96eb17a9754744d2be3.pkl"
+    },
+    "net_spikes_req_4_2_1636035d3e2481e3335f5528277b9746": {
+        "name": "net_spikes_req_4_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_4_2_data.pkl"
+                },
+                "net_spikes_req_4_2": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_4_2\\net_spikes_req_4_2_1636035d3e2481e3335f5528277b9746.pkl"
+    },
+    "net_rates_req_4_2_768ab9b0276031fbe9cb301881d1d5aa": {
+        "name": "net_rates_req_4_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_4_2_data.pkl"
+                },
+                "net_spikes_req_4_2": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_4_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_4_2\\net_rates_req_4_2_768ab9b0276031fbe9cb301881d1d5aa.pkl"
+    },
+    "net_spikes_req_4_3_fe8ac653e49bdcc467ec073873142447": {
+        "name": "net_spikes_req_4_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_4_3_data.pkl"
+                },
+                "net_spikes_req_4_3": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_4_3\\net_spikes_req_4_3_fe8ac653e49bdcc467ec073873142447.pkl"
+    },
+    "net_rates_req_4_3_8fd4f1c89227b1f04932a7c99b313c61": {
+        "name": "net_rates_req_4_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_4_3_data.pkl"
+                },
+                "net_spikes_req_4_3": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_4_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_4_3\\net_rates_req_4_3_8fd4f1c89227b1f04932a7c99b313c61.pkl"
+    },
+    "net_spikes_req_5_0_96c86ca14d7be6f874aad23238d8f2b6": {
+        "name": "net_spikes_req_5_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_5_0_data.pkl"
+                },
+                "net_spikes_req_5_0": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_5_0\\net_spikes_req_5_0_96c86ca14d7be6f874aad23238d8f2b6.pkl"
+    },
+    "net_rates_req_5_0_2033902ec10407d031af4998977f2b01": {
+        "name": "net_rates_req_5_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_5_0_data.pkl"
+                },
+                "net_spikes_req_5_0": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_5_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_5_0\\net_rates_req_5_0_2033902ec10407d031af4998977f2b01.pkl"
+    },
+    "net_spikes_req_5_1_c7632ea43cb8f98e5e4b718e6930ae9e": {
+        "name": "net_spikes_req_5_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_5_1_data.pkl"
+                },
+                "net_spikes_req_5_1": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_5_1\\net_spikes_req_5_1_c7632ea43cb8f98e5e4b718e6930ae9e.pkl"
+    },
+    "net_rates_req_5_1_c103b7a41192427e94dc0c70a305c652": {
+        "name": "net_rates_req_5_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_5_1_data.pkl"
+                },
+                "net_spikes_req_5_1": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_5_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_5_1\\net_rates_req_5_1_c103b7a41192427e94dc0c70a305c652.pkl"
+    },
+    "net_spikes_req_5_2_2ab9ab2f96dccef03ac94d9a202ca441": {
+        "name": "net_spikes_req_5_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_5_2_data.pkl"
+                },
+                "net_spikes_req_5_2": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_5_2\\net_spikes_req_5_2_2ab9ab2f96dccef03ac94d9a202ca441.pkl"
+    },
+    "net_rates_req_5_2_9631dd7147a2655941c332f880321953": {
+        "name": "net_rates_req_5_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_5_2_data.pkl"
+                },
+                "net_spikes_req_5_2": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_5_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_5_2\\net_rates_req_5_2_9631dd7147a2655941c332f880321953.pkl"
+    },
+    "net_spikes_req_5_3_e4dc6844ef95d5d9e1f6678778577371": {
+        "name": "net_spikes_req_5_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_5_3_data.pkl"
+                },
+                "net_spikes_req_5_3": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_5_3\\net_spikes_req_5_3_e4dc6844ef95d5d9e1f6678778577371.pkl"
+    },
+    "net_rates_req_5_3_ec2d8fcd46bee8968f962071415d76f7": {
+        "name": "net_rates_req_5_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_5_3_data.pkl"
+                },
+                "net_spikes_req_5_3": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_5_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_5_3\\net_rates_req_5_3_ec2d8fcd46bee8968f962071415d76f7.pkl"
+    },
+    "net_spikes_req_6_0_fba3b67cd4f2bce344199f06aeab3fb7": {
+        "name": "net_spikes_req_6_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_6_0_data.pkl"
+                },
+                "net_spikes_req_6_0": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_6_0\\net_spikes_req_6_0_fba3b67cd4f2bce344199f06aeab3fb7.pkl"
+    },
+    "net_rates_req_6_0_628ea99f574d7bee3136c58ef88bc9b3": {
+        "name": "net_rates_req_6_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_6_0_data.pkl"
+                },
+                "net_spikes_req_6_0": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_6_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_6_0\\net_rates_req_6_0_628ea99f574d7bee3136c58ef88bc9b3.pkl"
+    },
+    "net_spikes_req_6_1_ce3fee2a6643607e7bc2efcaa16fc412": {
+        "name": "net_spikes_req_6_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_6_1_data.pkl"
+                },
+                "net_spikes_req_6_1": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_6_1\\net_spikes_req_6_1_ce3fee2a6643607e7bc2efcaa16fc412.pkl"
+    },
+    "net_rates_req_6_1_6f243a2939087df73cfb604b85316b5a": {
+        "name": "net_rates_req_6_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_6_1_data.pkl"
+                },
+                "net_spikes_req_6_1": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_6_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_6_1\\net_rates_req_6_1_6f243a2939087df73cfb604b85316b5a.pkl"
+    },
+    "net_spikes_req_6_2_1bea031fc7d2749c83ef1932eef74d70": {
+        "name": "net_spikes_req_6_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_6_2_data.pkl"
+                },
+                "net_spikes_req_6_2": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_6_2\\net_spikes_req_6_2_1bea031fc7d2749c83ef1932eef74d70.pkl"
+    },
+    "net_rates_req_6_2_d1e79bc321be7702ef00fec4fa944e1e": {
+        "name": "net_rates_req_6_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_6_2_data.pkl"
+                },
+                "net_spikes_req_6_2": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_6_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_6_2\\net_rates_req_6_2_d1e79bc321be7702ef00fec4fa944e1e.pkl"
+    },
+    "net_spikes_req_6_3_62f4f5869c3166478ee3c59579e75f47": {
+        "name": "net_spikes_req_6_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_6_3_data.pkl"
+                },
+                "net_spikes_req_6_3": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_6_3\\net_spikes_req_6_3_62f4f5869c3166478ee3c59579e75f47.pkl"
+    },
+    "net_rates_req_6_3_35b9a0c16e2554f104e1dc186a82e437": {
+        "name": "net_rates_req_6_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_6_3_data.pkl"
+                },
+                "net_spikes_req_6_3": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_6_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_6_3\\net_rates_req_6_3_35b9a0c16e2554f104e1dc186a82e437.pkl"
+    },
+    "net_spikes_req_7_0_5a5f6ef38cc0e255616b2c5ce8a5b927": {
+        "name": "net_spikes_req_7_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_7_0_data.pkl"
+                },
+                "net_spikes_req_7_0": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_7_0\\net_spikes_req_7_0_5a5f6ef38cc0e255616b2c5ce8a5b927.pkl"
+    },
+    "net_rates_req_7_0_f603b32f71857511b209fcb9ae0379a8": {
+        "name": "net_rates_req_7_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_7_0_data.pkl"
+                },
+                "net_spikes_req_7_0": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_7_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_7_0\\net_rates_req_7_0_f603b32f71857511b209fcb9ae0379a8.pkl"
+    },
+    "net_spikes_req_7_1_765207a7084101834ef3f1843412301b": {
+        "name": "net_spikes_req_7_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_7_1_data.pkl"
+                },
+                "net_spikes_req_7_1": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_7_1\\net_spikes_req_7_1_765207a7084101834ef3f1843412301b.pkl"
+    },
+    "net_rates_req_7_1_133d7da8dbb8fdd06bd24093b7a16cd6": {
+        "name": "net_rates_req_7_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_7_1_data.pkl"
+                },
+                "net_spikes_req_7_1": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_7_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_7_1\\net_rates_req_7_1_133d7da8dbb8fdd06bd24093b7a16cd6.pkl"
+    },
+    "net_spikes_req_7_2_6d7f45593b47455e0d48bcc5db7c18a9": {
+        "name": "net_spikes_req_7_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_7_2_data.pkl"
+                },
+                "net_spikes_req_7_2": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_7_2\\net_spikes_req_7_2_6d7f45593b47455e0d48bcc5db7c18a9.pkl"
+    },
+    "net_rates_req_7_2_9f37b60139b208a4ce6e814fa28c55da": {
+        "name": "net_rates_req_7_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_7_2_data.pkl"
+                },
+                "net_spikes_req_7_2": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_7_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_7_2\\net_rates_req_7_2_9f37b60139b208a4ce6e814fa28c55da.pkl"
+    },
+    "net_spikes_req_7_3_ab436977781e05c8b13bf32120cc3991": {
+        "name": "net_spikes_req_7_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_7_3_data.pkl"
+                },
+                "net_spikes_req_7_3": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_7_3\\net_spikes_req_7_3_ab436977781e05c8b13bf32120cc3991.pkl"
+    },
+    "net_rates_req_7_3_80e58bda0460ff3d583a3669ddaf67e0": {
+        "name": "net_rates_req_7_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_7_3_data.pkl"
+                },
+                "net_spikes_req_7_3": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_7_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_7_3\\net_rates_req_7_3_80e58bda0460ff3d583a3669ddaf67e0.pkl"
+    },
+    "net_spikes_req_8_0_cf05e71fa08786aad0ebdb07b4df4ac0": {
+        "name": "net_spikes_req_8_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_8_0_data.pkl"
+                },
+                "net_spikes_req_8_0": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_8_0\\net_spikes_req_8_0_cf05e71fa08786aad0ebdb07b4df4ac0.pkl"
+    },
+    "net_rates_req_8_0_45c211dfc32af37b8b3aa65384d30f66": {
+        "name": "net_rates_req_8_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_8_0_data.pkl"
+                },
+                "net_spikes_req_8_0": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_8_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_8_0\\net_rates_req_8_0_45c211dfc32af37b8b3aa65384d30f66.pkl"
+    },
+    "net_spikes_req_8_1_6d7c9eba0b63315b992f61d50a42e9b7": {
+        "name": "net_spikes_req_8_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_8_1_data.pkl"
+                },
+                "net_spikes_req_8_1": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_8_1\\net_spikes_req_8_1_6d7c9eba0b63315b992f61d50a42e9b7.pkl"
+    },
+    "net_rates_req_8_1_03704c8dec6b1dc2089f4a1c759a2092": {
+        "name": "net_rates_req_8_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_8_1_data.pkl"
+                },
+                "net_spikes_req_8_1": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_8_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_8_1\\net_rates_req_8_1_03704c8dec6b1dc2089f4a1c759a2092.pkl"
+    },
+    "net_spikes_req_8_2_7ca14171500433cd23433695852bfdc8": {
+        "name": "net_spikes_req_8_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_8_2_data.pkl"
+                },
+                "net_spikes_req_8_2": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_8_2\\net_spikes_req_8_2_7ca14171500433cd23433695852bfdc8.pkl"
+    },
+    "net_rates_req_8_2_2d6222e9ad2f52c31fd424be7f2e10b7": {
+        "name": "net_rates_req_8_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_8_2_data.pkl"
+                },
+                "net_spikes_req_8_2": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_8_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_8_2\\net_rates_req_8_2_2d6222e9ad2f52c31fd424be7f2e10b7.pkl"
+    },
+    "net_spikes_req_8_3_4d4cc31115a9175149a35ab63bc78662": {
+        "name": "net_spikes_req_8_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_8_3_data.pkl"
+                },
+                "net_spikes_req_8_3": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_8_3\\net_spikes_req_8_3_4d4cc31115a9175149a35ab63bc78662.pkl"
+    },
+    "net_rates_req_8_3_187ff84f78820b11a15dda624fbe6f15": {
+        "name": "net_rates_req_8_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_8_3_data.pkl"
+                },
+                "net_spikes_req_8_3": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_8_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_8_3\\net_rates_req_8_3_187ff84f78820b11a15dda624fbe6f15.pkl"
+    },
+    "net_spikes_req_9_0_7e33d35695528015256ac48326c5ce71": {
+        "name": "net_spikes_req_9_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_9_0_data.pkl"
+                },
+                "net_spikes_req_9_0": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_9_0\\net_spikes_req_9_0_7e33d35695528015256ac48326c5ce71.pkl"
+    },
+    "net_rates_req_9_0_f9262d703bf328bbaafd2d8fff606a20": {
+        "name": "net_rates_req_9_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_9_0_data.pkl"
+                },
+                "net_spikes_req_9_0": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_9_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_9_0\\net_rates_req_9_0_f9262d703bf328bbaafd2d8fff606a20.pkl"
+    },
+    "net_spikes_req_9_1_f38f2a5cc85ce87fce8b2b3c8be52c1a": {
+        "name": "net_spikes_req_9_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_9_1_data.pkl"
+                },
+                "net_spikes_req_9_1": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_9_1\\net_spikes_req_9_1_f38f2a5cc85ce87fce8b2b3c8be52c1a.pkl"
+    },
+    "net_rates_req_9_1_6f0f4b3420b9fd4883581ff3fb7fb058": {
+        "name": "net_rates_req_9_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_9_1_data.pkl"
+                },
+                "net_spikes_req_9_1": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_9_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_9_1\\net_rates_req_9_1_6f0f4b3420b9fd4883581ff3fb7fb058.pkl"
+    },
+    "net_spikes_req_9_2_c03803478f357d5edd58103174701581": {
+        "name": "net_spikes_req_9_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_9_2_data.pkl"
+                },
+                "net_spikes_req_9_2": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_9_2\\net_spikes_req_9_2_c03803478f357d5edd58103174701581.pkl"
+    },
+    "net_rates_req_9_2_57d003f408853ff001da864ec67219bf": {
+        "name": "net_rates_req_9_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_9_2_data.pkl"
+                },
+                "net_spikes_req_9_2": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_9_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_9_2\\net_rates_req_9_2_57d003f408853ff001da864ec67219bf.pkl"
+    },
+    "net_spikes_req_9_3_87ed05b5f3781a513b9dc7ffc4c64892": {
+        "name": "net_spikes_req_9_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_9_3_data.pkl"
+                },
+                "net_spikes_req_9_3": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_9_3\\net_spikes_req_9_3_87ed05b5f3781a513b9dc7ffc4c64892.pkl"
+    },
+    "net_rates_req_9_3_7e01666d72cbc53e3289b99edd32f8fc": {
+        "name": "net_rates_req_9_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_9_3_data.pkl"
+                },
+                "net_spikes_req_9_3": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_9_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_9_3\\net_rates_req_9_3_7e01666d72cbc53e3289b99edd32f8fc.pkl"
+    },
+    "net_spikes_req_10_0_cb7f946b3051a46767e7592b322ef356": {
+        "name": "net_spikes_req_10_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_10_0_data.pkl"
+                },
+                "net_spikes_req_10_0": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_10_0\\net_spikes_req_10_0_cb7f946b3051a46767e7592b322ef356.pkl"
+    },
+    "net_rates_req_10_0_bc1fed83e91044a77be3b80af7d962fd": {
+        "name": "net_rates_req_10_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_10_0_data.pkl"
+                },
+                "net_spikes_req_10_0": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_10_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_10_0\\net_rates_req_10_0_bc1fed83e91044a77be3b80af7d962fd.pkl"
+    },
+    "net_spikes_req_10_1_5f55cc14a56c28ad2208424c19da83c6": {
+        "name": "net_spikes_req_10_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_10_1_data.pkl"
+                },
+                "net_spikes_req_10_1": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_10_1\\net_spikes_req_10_1_5f55cc14a56c28ad2208424c19da83c6.pkl"
+    },
+    "net_rates_req_10_1_9d158f83a1aa1ec1d22557b37f0d3329": {
+        "name": "net_rates_req_10_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_10_1_data.pkl"
+                },
+                "net_spikes_req_10_1": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_10_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_10_1\\net_rates_req_10_1_9d158f83a1aa1ec1d22557b37f0d3329.pkl"
+    },
+    "net_spikes_req_10_2_f86e612b7145569c299a3c67f949fc3e": {
+        "name": "net_spikes_req_10_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_10_2_data.pkl"
+                },
+                "net_spikes_req_10_2": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_10_2\\net_spikes_req_10_2_f86e612b7145569c299a3c67f949fc3e.pkl"
+    },
+    "net_rates_req_10_2_2898bda1ccb0687a30abe6080a9995f3": {
+        "name": "net_rates_req_10_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_10_2_data.pkl"
+                },
+                "net_spikes_req_10_2": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_10_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_10_2\\net_rates_req_10_2_2898bda1ccb0687a30abe6080a9995f3.pkl"
+    },
+    "net_spikes_req_10_3_9706890c6e9c6681985ed871e32fa390": {
+        "name": "net_spikes_req_10_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_10_3_data.pkl"
+                },
+                "net_spikes_req_10_3": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_10_3\\net_spikes_req_10_3_9706890c6e9c6681985ed871e32fa390.pkl"
+    },
+    "net_rates_req_10_3_ffb84010aca32c37e1d31008075bbcae": {
+        "name": "net_rates_req_10_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_10_3_data.pkl"
+                },
+                "net_spikes_req_10_3": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_10_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_10_3\\net_rates_req_10_3_ffb84010aca32c37e1d31008075bbcae.pkl"
+    },
+    "net_spikes_req_11_0_9ccc815df48f06c431e341771c980b21": {
+        "name": "net_spikes_req_11_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_11_0_data.pkl"
+                },
+                "net_spikes_req_11_0": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_11_0\\net_spikes_req_11_0_9ccc815df48f06c431e341771c980b21.pkl"
+    },
+    "net_rates_req_11_0_b3a3d6321c0f7371368d8af77d2b145c": {
+        "name": "net_rates_req_11_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_11_0_data.pkl"
+                },
+                "net_spikes_req_11_0": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_11_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_11_0\\net_rates_req_11_0_b3a3d6321c0f7371368d8af77d2b145c.pkl"
+    },
+    "net_spikes_req_11_1_26ca955b4c1de3fc9ccbb6f3d7a7c0bd": {
+        "name": "net_spikes_req_11_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_11_1_data.pkl"
+                },
+                "net_spikes_req_11_1": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_11_1\\net_spikes_req_11_1_26ca955b4c1de3fc9ccbb6f3d7a7c0bd.pkl"
+    },
+    "net_rates_req_11_1_3bfb594b9c2d07ae407c1d89943b7812": {
+        "name": "net_rates_req_11_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_11_1_data.pkl"
+                },
+                "net_spikes_req_11_1": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_11_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_11_1\\net_rates_req_11_1_3bfb594b9c2d07ae407c1d89943b7812.pkl"
+    },
+    "net_spikes_req_11_2_a09a38c5fc4e4ced2cc7334f83e38b24": {
+        "name": "net_spikes_req_11_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_11_2_data.pkl"
+                },
+                "net_spikes_req_11_2": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_11_2\\net_spikes_req_11_2_a09a38c5fc4e4ced2cc7334f83e38b24.pkl"
+    },
+    "net_rates_req_11_2_92e1af1c413ff6a01050946c36688052": {
+        "name": "net_rates_req_11_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_11_2_data.pkl"
+                },
+                "net_spikes_req_11_2": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_11_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_11_2\\net_rates_req_11_2_92e1af1c413ff6a01050946c36688052.pkl"
+    },
+    "net_spikes_req_11_3_674bc67e5cfcb61e5cd3b0506e1c667b": {
+        "name": "net_spikes_req_11_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_11_3_data.pkl"
+                },
+                "net_spikes_req_11_3": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_11_3\\net_spikes_req_11_3_674bc67e5cfcb61e5cd3b0506e1c667b.pkl"
+    },
+    "net_rates_req_11_3_a36798e7eab0ed28c77c35f5ce299042": {
+        "name": "net_rates_req_11_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_11_3_data.pkl"
+                },
+                "net_spikes_req_11_3": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_11_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_11_3\\net_rates_req_11_3_a36798e7eab0ed28c77c35f5ce299042.pkl"
+    },
+    "net_spikes_req_12_0_4606e3f25bad13e6b0d2a5e16317d8b7": {
+        "name": "net_spikes_req_12_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_12_0_data.pkl"
+                },
+                "net_spikes_req_12_0": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_12_0\\net_spikes_req_12_0_4606e3f25bad13e6b0d2a5e16317d8b7.pkl"
+    },
+    "net_rates_req_12_0_f8a6e6078d4a98ff10c005bb0ac73be8": {
+        "name": "net_rates_req_12_0",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_12_0_data.pkl"
+                },
+                "net_spikes_req_12_0": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_12_0": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_12_0\\net_rates_req_12_0_f8a6e6078d4a98ff10c005bb0ac73be8.pkl"
+    },
+    "net_spikes_req_12_1_5d99b07b12684fa44dc3ac66a1db6923": {
+        "name": "net_spikes_req_12_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_12_1_data.pkl"
+                },
+                "net_spikes_req_12_1": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_12_1\\net_spikes_req_12_1_5d99b07b12684fa44dc3ac66a1db6923.pkl"
+    },
+    "net_rates_req_12_1_b79b7fdc509bf848e18c940dc6376e75": {
+        "name": "net_rates_req_12_1",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_12_1_data.pkl"
+                },
+                "net_spikes_req_12_1": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_12_1": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_12_1\\net_rates_req_12_1_b79b7fdc509bf848e18c940dc6376e75.pkl"
+    },
+    "net_spikes_req_12_2_0ca69980fdf7ce83c938201e32059219": {
+        "name": "net_spikes_req_12_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_12_2_data.pkl"
+                },
+                "net_spikes_req_12_2": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_12_2\\net_spikes_req_12_2_0ca69980fdf7ce83c938201e32059219.pkl"
+    },
+    "net_rates_req_12_2_43426477357ed62f1841713eb4df7dd9": {
+        "name": "net_rates_req_12_2",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_12_2_data.pkl"
+                },
+                "net_spikes_req_12_2": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_12_2": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_12_2\\net_rates_req_12_2_43426477357ed62f1841713eb4df7dd9.pkl"
+    },
+    "net_spikes_req_12_3_ef0fc57ef05ece20a8b5039870fd19c9": {
+        "name": "net_spikes_req_12_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_12_3_data.pkl"
+                },
+                "net_spikes_req_12_3": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                }
+            }
+        },
+        "filepath_rel": "net_spikes_req_12_3\\net_spikes_req_12_3_ef0fc57ef05ece20a8b5039870fd19c9.pkl"
+    },
+    "net_rates_req_12_3_034ca3bc52bffa2cf01230fc456297cd": {
+        "name": "net_rates_req_12_3",
+        "params": {
+            "_chain": {
+                "source": {
+                    "filepath": "\\ddn\\niknovikov19\\repo\\A1_OUinp\\exp_results\\sim_manager_batch\\exp_subnet_state1_mech1_nosub_wmult_0.1\\thal_conn_5s_spline_alpha_0.5_auto_pfr_2\\results\\req_12_3_data.pkl"
+                },
+                "net_spikes_req_12_3": {
+                    "pop_names": [
+                        "TC",
+                        "TCM",
+                        "HTC",
+                        "TI",
+                        "TIM",
+                        "IRE",
+                        "IREM"
+                    ],
+                    "combine_cells": true,
+                    "time_limits": [
+                        0,
+                        null
+                    ],
+                    "subtract_t0": true,
+                    "ms": false,
+                    "ndigits": 6
+                },
+                "net_rates_req_12_3": {
+                    "pop_names": null,
+                    "time_limits": [
+                        2,
+                        null
+                    ]
+                }
+            }
+        },
+        "filepath_rel": "net_rates_req_12_3\\net_rates_req_12_3_034ca3bc52bffa2cf01230fc456297cd.pkl"
+    }
+}

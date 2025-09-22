@@ -1,0 +1,11 @@
+# Path(s) to the simulation results
+fpath_sim_res:
+- D:\WORK\Salvador\repo\model_tuner\opt_experiments\ou_surr_to_full\data\exp_subnet_state1_mech1_nosub_wmult_0.1\r_cv_grid_20x20.nc
+
+pop_names:
+- ITP4
+- ITS4
+- PV4
+- SOM4
+- VIP4
+- NGF4
