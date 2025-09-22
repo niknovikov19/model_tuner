@@ -116,7 +116,7 @@ class JointIntervalFinder:
         if len(X) == 0: return X, F1, F2, L
         order = np.argsort(X)
         return X[order], F1[order], F2[order], L[order]
-
+    
     def _brackets(self, X, L):
         # ---- x1: first non-L and last L strictly to its left ----
         idx_notL = np.where(L != LblL)[0]

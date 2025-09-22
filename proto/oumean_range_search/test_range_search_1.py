@@ -62,6 +62,8 @@ def joinpath_local(base, *args):
     return str(Path(base).joinpath(*args))
 
 
+#### Experiment parameters
+
 run_on_hpc = 0
 
 # Local base folder (configs in the root, results in subfolders)
@@ -73,7 +75,7 @@ else:
         r'D:\WORK\Salvador\repo\model_tuner\test_data\range_search')
 
 # Experiment name
-exp_name = 'exp_test_2'
+exp_name = 'thal_tcalc_5_10'
 
 # Max. number of iterations
 # (don't put it to config, so it can be increased later)
@@ -114,13 +116,13 @@ exp_params: OptExperimentParamsBase = configs['exp_params']['data']
 
 #### Folders
 
-# Local folder to store intermediate optimization plots
+# Local folder to store intermediate optimization data
 dirpath_figs_local = dirpath_exp_local / 'opt_figs'
-os.makedirs(dirpath_figs_local, exist_ok=True)
-
-# Local folder to store optimization info
 dirpath_info = dirpath_exp_local / 'info'
-os.makedirs(dirpath_info, exist_ok=True)
+dirpath_range_iters = dirpath_exp_local / 'range_tuner_iters'
+
+for dirpath in [dirpath_figs_local, dirpath_info, dirpath_range_iters]:
+    os.makedirs(dirpath, exist_ok=True)
 
 # HPC base folder for the experiment data
 exp_name_hpc = exp_name.replace('=', '_').replace('(', '').replace(')', '')
@@ -151,23 +153,36 @@ else:
 #### Task-specific part
 
 # Parameters
-pop_names = ['PV2', 'PV3']
+#pop_names = ['NGF1', 'NGF2', 'NGF3', 'NGF4', 'NGF5A', 'NGF5B', 'NGF6']
+pop_names = ['TC', 'TCM', 'HTC', 'TI', 'TIM', 'IRE', 'IREM']
+
 ou_std_vals = [0, 0.03]
-num_ou_mean_vals = 10
+num_ou_mean_vals = 5
 ou_mean_range_start = (-0.1, 0.1)
-rate_limits = (0.2, 30)
+rate_limits = (0.5, 50)
 tolerance = 0.05
-tcalc_win = (2, None)   # time window for rate calculation
+tcalc_win = (5, None)   # time window for rate calculation
+
 final_run = False   # when the range is found, and we need
                     # the last run with regularly located points
 
 # Range tuner object
-range_tuner = OUMeanRangeTuner(
-    pop_names, ou_std_vals, num_ou_mean_vals,
-    ou_mean_range_start, rate_limits,
-    tolerance, tcalc_win
-    #dummy_mode=True
-)
+fpath_range_iter = dirpath_range_iters / 'iter_0.pkl'
+if os.path.exists(fpath_range_iter):
+    # Load the existing version
+    with open(fpath_range_iter, 'rb') as fid:
+        range_tuner = pickle.load(fid)
+else:
+    # Create new
+    range_tuner = OUMeanRangeTuner(
+        pop_names, ou_std_vals, num_ou_mean_vals,
+        ou_mean_range_start, rate_limits,
+        tolerance, tcalc_win
+        #duration=(duration * 1000)
+        #dummy_mode=True
+    )
+    with open(fpath_range_iter, 'wb') as fid:
+        pickle.dump(range_tuner, fid)
 
 
 #### Main part
@@ -210,65 +225,75 @@ with SSHClient(ssh_par_fs=ssh_par_fs,
     while iter_num < n_iter:
         print(f'==== Iter: {iter_num} ====')
 
-        # Create simulation requests. Each request 
-        # corresponds to an (ou_mean_num, ou_std_num) pair
-        sim_requests = range_tuner.create_sim_requests(iter_num)
-        
-        # Loop over the requests and send them if needed
-        for sim_label, sim_request in sim_requests.items():
-            # Check if the simulation result already exists
-            if sim_res_locator.result_exists(sim_label):
-                print('Simulation result already exists, do not re-run')
-                continue            
-            # TODO: delete old result
-            # Send the request via SimManager (non-blocking)          
-            sim_manager.add_sim_request(sim_label, sim_request)
-            print(f'Add request: {sim_request["input"]}')
-        
-        # Push simulation requests
-        print('Push simulation requests to HPC', flush=True)
-        sim_manager.push_all_requests()
-        
-        # Wait for simulation results
-        print('Waiting for completion', end='', flush=True)
-        while not sim_manager.is_finished():
-            print('.', end='', flush=True)
-            time.sleep(0.5)
-        print('\nCompleted')
-        
-        pprint(sim_manager.get_all_sim_statuses())
-        # TODO: check for error statuses
-        
-        # Check the existence of all simulation results
-        results_ok = True
-        Rc_lst = []
-        for sim_label in sim_requests:
-            if not sim_res_locator.result_exists(sim_label):
-                print(f'No result found for {sim_label}', flush=True)
-                sim_manager.remove_sim_request(sim_label)
-                results_ok = False
-        if not results_ok:
-            print(f'NOT ALL RESULTS FOUND - RESTART THE ITERATION', flush=True)
-            continue
-        
-        # Update ou_mean ranges based on the simulation results
-        range_tuner.process_sim_results(dk, sim_res_locator, iter_num)
+        fpath_range_iter = dirpath_range_iters / f'iter_{iter_num}.pkl'
 
-        # Save info about the current state of the optimization process
-        fpath_info = dirpath_info / f'iter_rates_{iter_num}.pkl'
-        with open(fpath_info, 'wb') as fid:
-            pickle.dump(range_tuner._rates, fid)        
+        # If this iteration was previously done - restore range_tuner
+        if os.path.exists(fpath_range_iter):
+            with open(fpath_range_iter, 'rb') as fid:
+                range_tuner = pickle.load(fid)
         
-        # Visualize the iteration result
-        if need_plot_iter or (need_plot_res and (iter_num == (n_iter - 1))):
-            range_tuner.plot_rates(dirpath_figs_local, iter_num)
+        else:
+            # Create simulation requests. Each request 
+            # corresponds to an (ou_mean_num, ou_std_num) pair
+            sim_requests = range_tuner.create_sim_requests(iter_num)
+            
+            # Loop over the requests and send them if needed
+            for sim_label, sim_request in sim_requests.items():
+                # Check if the simulation result already exists
+                if sim_res_locator.result_exists(sim_label):
+                    print('Simulation result already exists, do not re-run')
+                    continue            
+                # TODO: delete old result
+                # Send the request via SimManager (non-blocking)          
+                sim_manager.add_sim_request(sim_label, sim_request)
+                print(f'Add request: {sim_request["input"]}')
+            
+            # Push simulation requests
+            print('Push simulation requests to HPC', flush=True)
+            sim_manager.push_all_requests()
+            
+            # Wait for simulation results
+            print('Waiting for completion', end='', flush=True)
+            while not sim_manager.is_finished():
+                print('.', end='', flush=True)
+                time.sleep(0.5)
+            print('\nCompleted')
+            
+            pprint(sim_manager.get_all_sim_statuses())
+            # TODO: check for error statuses
+            
+            # Check the existence of all simulation results
+            results_ok = True
+            Rc_lst = []
+            for sim_label in sim_requests:
+                if not sim_res_locator.result_exists(sim_label):
+                    print(f'No result found for {sim_label}', flush=True)
+                    sim_manager.remove_sim_request(sim_label)
+                    results_ok = False
+            if not results_ok:
+                print(f'NOT ALL RESULTS FOUND - RESTART THE ITERATION', flush=True)
+                continue
+            
+            # Update ou_mean ranges based on the simulation results
+            range_tuner.process_sim_results(dk, sim_res_locator, iter_num)
+
+            # Save info about the current state of the optimization process
+            fpath_info = dirpath_info / f'iter_rates_{iter_num}.pkl'
+            with open(fpath_info, 'wb') as fid:
+                pickle.dump(range_tuner._rates, fid)
+            with open(fpath_range_iter, 'wb') as fid:
+                pickle.dump(range_tuner, fid)  
+            
+            # Visualize the iteration result
+            if need_plot_iter or (need_plot_res and (iter_num == (n_iter - 1))):
+                range_tuner.plot_rates(dirpath_figs_local, iter_num)
 
         if final_run:
             # Final run is done - exit
             print('DONE', flush=True)
             break
         elif range_tuner.is_done():
-            # Ranges are found for all pops. - do the final run 
+            # Ranges are found for all pops. - do the final run
             print('ALL RANGES FOUND -> FINAL RUN', flush=True)
             range_tuner.final_step()
             final_run = True
@@ -278,3 +303,14 @@ with SSHClient(ssh_par_fs=ssh_par_fs,
 
         # Proceed to the next iteration
         iter_num += 1
+
+# Create a csv file with the found ranges
+ou_mean_limits = range_tuner.get_ou_mean_limits()
+rows = []
+for pop in pop_names:
+    mean_min, mean_max = np.round(ou_mean_limits[pop], 4)
+    std_min, std_max = ou_std_vals
+    rows.append([pop, mean_min, mean_max, std_min, std_max])
+df = pd.DataFrame(rows, columns=["pop_name", "ou_mean_min", "ou_mean_max",
+                                 "ou_std_min", "ou_std_max"])
+df.to_csv(dirpath_exp_local / 'ou_ranges.csv', index=False)

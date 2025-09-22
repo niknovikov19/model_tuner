@@ -31,6 +31,7 @@ class OUMeanRangeTuner:
     _tolerance: float
     _tcalc_win: tuple[float, float]   # time window for rate calculation
     _dummy_mode: bool
+    _duration: float
     
     # State
     _ou_mean_vals: dict[str, np.ndarray]   # (pop: ou_mean x 1)
@@ -50,7 +51,9 @@ class OUMeanRangeTuner:
                           dict[str, tuple[float, float]]),
             tolerance: float = 0.05,
             tcalc_win: tuple[float, float] = (1, None),
-            dummy_mode=False
+            dummy_mode=False,
+            dummy_func=None
+            #duration: float = 5000
             ):
         self._pop_names = pop_names
         self._ou_std_vals = ou_std_vals
@@ -58,6 +61,8 @@ class OUMeanRangeTuner:
         self._tolerance = tolerance
         self._tcalc_win = tcalc_win
         self._dummy_mode = dummy_mode
+        self._dummy_func = dummy_func or self._dummy_func_default
+        #self._duration = duration
 
         # Set ou_mean_range_start for every pop
         if isinstance(ou_mean_range_start, dict):
@@ -116,6 +121,13 @@ class OUMeanRangeTuner:
             self._ou_mean_vals[pop] = np.linspace(
                 range[0], range[1], self._num_ou_mean_vals)
     
+    def get_ou_mean_limits(self) -> dict[str, tuple[float, float]]:
+        res = {}
+        for pop in self._pop_names:
+            x = self._ou_mean_vals[pop]
+            res[pop] = (x.min(), x.max())
+        return res
+    
     def is_done(self) -> bool:
         b = [finder.is_done() for finder in self._finders.values()]
         return all(b)
@@ -131,8 +143,11 @@ class OUMeanRangeTuner:
         for ou_std_num, ou_std in enumerate(self._ou_std_vals):
             for ou_mean_num in range(self._num_ou_mean_vals):
                 sim_label = self.gen_sim_label(iter_num, ou_std_num, ou_mean_num)
-                req = {'input': {},
-                       'subnet_params': {'pops_active': self._pop_names}}
+                req = {
+                    'input': {},
+                    'subnet_params': {'pops_active': self._pop_names},
+                    #'duration': self._duration
+                }
                 for pop in self._pop_names:
                     req['input'][pop] = {
                         'ou_std': ou_std,
@@ -140,12 +155,18 @@ class OUMeanRangeTuner:
                     }
                 requests[sim_label] = req
         return requests
-
-    def _process_sim_results_dummy(self):
+    
+    @staticmethod
+    def _dummy_func_default(x, y, pop_n):
         rmax = 150
         xc = 0
         xmax = 0.003
         k = 1500
+        r = rmax / (1 + np.exp(-(x - xc + pop_n * 0.001) * (k / (1 + y * 100))))
+        r *= (x < xmax)
+        return r
+
+    def _process_sim_results_dummy(self):
         R = {}
         # Generate surrogate rates
         for n, pop in enumerate(self._pop_names):
@@ -157,9 +178,7 @@ class OUMeanRangeTuner:
             )
             for ou_std in self._ou_std_vals:
                 x = self._ou_mean_vals[pop]
-                y = ou_std
-                r = rmax / (1 + np.exp(-(x - xc + n * 0.001) * (k / (1 + y * 100))))
-                r *= (x < xmax)
+                r = self._dummy_func(x, ou_std, n)
                 R[pop].loc[{'ou_std': ou_std}] = r
         # Update low-level interval finders
         for pop in self._pop_names:
@@ -235,7 +254,7 @@ class OUMeanRangeTuner:
             for n in range(2):
                 plt.plot([ou_mean_vals.min(), ou_mean_vals.max()],
                          [self._rate_limits[pop_name][n]] * 2, 'k--')
-            plt.get_current_fig_manager().window.showMaximized()
+            #plt.get_current_fig_manager().window.showMaximized()
             plt.draw()
             plt.show()
             plt.savefig(dirpath_figs_pop / f'iter_{iter_num}.png')
