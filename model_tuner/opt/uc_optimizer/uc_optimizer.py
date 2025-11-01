@@ -43,7 +43,11 @@ class OptStrategyParams:
     #                        # between rotated and original step directions
     steps_by_pop: bool = False   # individual step for each pop.
     auto_decrease_step: bool = False
-
+    require_inc_Ru: bool = False   # result of Rc->Ru mapping should be increasing
+    step_max_frac_Ru: float | None = None   # max. Ru step size as a fraction of R0 
+    step_max_frac_Rc: float | None = None   # max. Rc step size as a fraction of R0 
+    use_step_max_before_alpha: bool = True   # True - step_max is a cutoff at alpha=1
+                                             # False - decrease alpha until step < step_max
 
 class UCOptimizer:
 
@@ -309,7 +313,7 @@ class UCOptimizer:
             pop_name: str
             ) -> bool:        
         # Check whether uc_mapper itself is valid
-        # (identity or successfully fiited)
+        # (identity or successfully fitted)
         if not uc_mapper.is_valid():
             logging.warning(f'UC mapper for {pop_name} is invalid (fitting failed)')
             return False
@@ -320,10 +324,21 @@ class UCOptimizer:
             logging.warning(f'UC mapper for {pop_name} cannot convert Rc0 to Ru')
             return False
         
+        # Check whether the result of Rc0->Ru mapping is strictly increasing
+        if self.opt_strategy_params.require_inc_Ru:
+            Ru_vec = np.asarray([Ru_.value for Ru_ in Ru])
+            if not np.all(np.diff(Ru_vec) > 0):
+                logging.warning(f'UC mapper for {pop_name} produces non-increasing Ru from Rc0')
+                return False
+        
         # Check whether IR mapping can invert Ru
-        Iu = [self.ir_mapper[pop_name].R_to_I(Ru_) for Ru_ in Ru]
-        if not all(Iu_.is_valid() for Iu_ in Iu):
-            logging.warning(f'IR mapper for {pop_name} cannot convert Ru to Iu')
+        try:
+            Iu = [self.ir_mapper[pop_name].R_to_I(Ru_) for Ru_ in Ru]
+            if not all(Iu_.is_valid() for Iu_ in Iu):
+                logging.warning(f'IR mapper for {pop_name} cannot convert Ru to Iu')
+                return False
+        except Exception as e:
+            logging.warning(f'IR mapper for {pop_name} cannot convert Ru to Iu (Exception: {e})')
             return False
 
         return True        
@@ -360,46 +375,79 @@ class UCOptimizer:
             Ru_sim = self._get_cur_Ru_sim().sel(pop=pop)
             Rc_sim = self._get_cur_Rc_sim().sel(pop=pop)
 
+            # Max. allowed step size
+            dRu_max_k = self.opt_strategy_params.step_max_frac_Ru
+            dRc_max_k = self.opt_strategy_params.step_max_frac_Rc
+            dRu_max, dRc_max = np.inf, np.inf
+            if dRu_max_k is not None:
+                dRu_max = dRu_max_k * self.Rc0.sel(pop=pop)
+            if dRc_max_k is not None:
+                dRc_max = dRc_max_k * self.Rc0.sel(pop=pop)
+
+            # Step size: prev to sim
+            dRu = Ru_sim - Ru_prev
+            dRc = Rc_sim - Rc_prev
+
+            # Clip the step size
+            if self.opt_strategy_params.use_step_max_before_alpha:
+                dRu = dRu.clip(-dRu_max, dRu_max)
+                dRc = dRc.clip(-dRc_max, dRc_max)
+
             # One iteration or a loop with decreasing alpha
             alpha_Ru = alpha_Ru_0
             alpha_Rc = alpha_Rc_0
             while True:
 
                 # New step
-                Ru_new = alpha_Ru * Ru_sim + (1 - alpha_Ru) * Ru_prev
-                Rc_new = alpha_Rc * Rc_sim + (1 - alpha_Rc) * Rc_prev
+                Ru_new = Ru_prev + alpha_Ru * dRu
+                Rc_new = Rc_prev + alpha_Rc * dRc
 
-                # Fit UC mapper for the pop.
-                pop_uc_mapper = self._fit_pop_uc_mapper_from_data(Ru_new, Rc_new)
-                
-                # Check whether the new UC mapping is valid
-                # (fitting succeeded, and Rc0->Ru->Iu conversion is possible)
-                if self._is_pop_uc_mapping_valid(pop_uc_mapper, pop):
-                    # Store the new step and the UC mapper fitted to it
-                    uc_mapper[pop] = pop_uc_mapper
-                    Ru_new_all.loc[{'pop': pop}] = Ru_new
-                    Rc_new_all.loc[{'pop': pop}] = Rc_new
-                    uc_fit_ok = True
-                    break
+                # Check step size
+                step_size_ok = True
+                if not self.opt_strategy_params.use_step_max_before_alpha:
+                    if not np.all(np.abs(alpha_Ru * dRu) <= dRu_max):
+                        step_size_ok = False
+                        logging.warning(f'Ru step is too large for {pop}')
+                    if not np.all(np.abs(alpha_Rc * dRc) <= dRc_max):
+                        step_size_ok = False
+                        logging.warning(f'Rc step is too large for {pop}')
+
+                if step_size_ok:
+                    try:
+                        # Fit UC mapper for the pop.
+                        pop_uc_mapper = self._fit_pop_uc_mapper_from_data(Ru_new, Rc_new)
+                        
+                        # Check whether the new UC mapping is valid
+                        # (fitting succeeded, and Rc0->Ru->Iu conversion is possible)
+                        if self._is_pop_uc_mapping_valid(pop_uc_mapper, pop):
+                            # Store the new step and the UC mapper fitted to it
+                            uc_mapper[pop] = pop_uc_mapper
+                            Ru_new_all.loc[{'pop': pop}] = Ru_new
+                            Rc_new_all.loc[{'pop': pop}] = Rc_new
+                            uc_fit_ok = True
+                            break
+                        else:
+                            logging.warning(f'Rc0->Ru->Iu conversion impossible for {pop}: {e}')
+                    
+                    except Exception as e:
+                        logging.warning(f'Exception during UC fitting for {pop}: {e}')
                 
                 # Cannot decrease alpha anymore
                 if (alpha_Ru < alpha_min) or (alpha_Rc < alpha_min):
                     if not self.opt_strategy_params.steps_by_pop:
-                        raise RuntimeError(
-                            f'UC mapping for {pop} failed: '
-                            'Rc0->Ru->Iu conversion impossible')
+                        raise RuntimeError(f'UC fitting for {pop} failed')
+                    logging.warning(f'UC fitting for {pop} failed - stay at the previous step')
                     break   # this pop will remain at the previous step
 
                 # Decrease alpha
                 alpha_Ru *= alpha_mult_Ru
                 alpha_Rc *= alpha_mult_Rc
                 logging.warning(
-                    f'Decrease alpha: ({alpha_Ru:.04f}, {alpha_Rc:.04f})'
+                    f'Decrease alpha for {pop}: ({alpha_Ru:.04f}, {alpha_Rc:.04f})'
                 )
         
         if not uc_fit_ok:
-            raise RuntimeError(
-                'UC mapping failed for all pops (fitting failed or Rc0->Ru->Iu conversion impossible')
+            raise RuntimeError('UC fitting failed for all pops')
 
         return uc_mapper, Ru_new_all, Rc_new_all
     
