@@ -31,3 +31,6 @@ class SSHFSCustom(SSHFS):
         fpath_local_rel = fpath_local.relative_to(root_local).as_posix()
         with OSFS(root_local) as fs_local:
             copy_file(fs_local, fpath_local_rel, self, fpath_ssh)
+
+    def makedirs(self, path: str) -> None:
+        super().makedirs(path, recreate=True)  # to follow the protocol (see note in batchtk.utils FSProtocol), default to allowing recreation of intermediate folders.
