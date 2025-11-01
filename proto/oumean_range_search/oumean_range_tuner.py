@@ -1,4 +1,5 @@
 from copy import deepcopy
+from dataclasses import dataclass
 import os
 from pathlib import Path
 
@@ -16,6 +17,19 @@ from model_tuner.sim_manager import SimResultLocator
 
 from bracket import JointIntervalFinder
 from get_sim_rates_ import get_sim_rates
+
+
+@dataclass
+class OUMeanRangeParams:
+    pop_names: list[str]
+    ou_std_vals: list[float]
+    num_ou_mean_vals: int
+    ou_mean_range_start: (tuple[float, float] | 
+                          dict[str, tuple[float, float]])
+    rate_limits: (tuple[float, float] | 
+                  dict[str, tuple[float, float]])
+    tolerance: float = 0.05
+    tcalc_win: tuple[float, float | None] = (1, None)
 
 
 class OUMeanRangeTuner:
@@ -40,41 +54,28 @@ class OUMeanRangeTuner:
     # Low-level interval finder objects
     _finders: dict[str, JointIntervalFinder]
 
-    def __init__(
-            self, 
-            pop_names: list[str],
-            ou_std_vals: list[float],
-            num_ou_mean_vals: int,
-            ou_mean_range_start: (tuple[float, float] | 
-                                  dict[str, tuple[float, float]]),
-            rate_limits: (tuple[float, float] | 
-                          dict[str, tuple[float, float]]),
-            tolerance: float = 0.05,
-            tcalc_win: tuple[float, float] = (1, None),
-            dummy_mode=False,
-            dummy_func=None
-            #duration: float = 5000
-            ):
-        self._pop_names = pop_names
-        self._ou_std_vals = ou_std_vals
-        self._num_ou_mean_vals = num_ou_mean_vals
-        self._tolerance = tolerance
-        self._tcalc_win = tcalc_win
+    def __init__(self, par: OUMeanRangeParams,
+                 dummy_mode=False, dummy_func=None):
+        self._pop_names = par.pop_names
+        self._ou_std_vals = par.ou_std_vals
+        self._num_ou_mean_vals = par.num_ou_mean_vals
+        self._tolerance = par.tolerance
+        self._tcalc_win = par.tcalc_win
         self._dummy_mode = dummy_mode
         self._dummy_func = dummy_func or self._dummy_func_default
         #self._duration = duration
 
         # Set ou_mean_range_start for every pop
-        if isinstance(ou_mean_range_start, dict):
-            self._ou_mean_range_start = deepcopy(ou_mean_range_start)
+        if isinstance(par.ou_mean_range_start, dict):
+            self._ou_mean_range_start = deepcopy(par.ou_mean_range_start)
         else:
-            self._ou_mean_range_start = {pop: deepcopy(ou_mean_range_start)
+            self._ou_mean_range_start = {pop: deepcopy(par.ou_mean_range_start)
                                          for pop in self._pop_names}
         # Set rate_limits for every pop
-        if isinstance(rate_limits, dict):
-            self._rate_limits = deepcopy(rate_limits)
+        if isinstance(par.rate_limits, dict):
+            self._rate_limits = deepcopy(par.rate_limits)
         else:
-            self._rate_limits = {pop: deepcopy(rate_limits)
+            self._rate_limits = {pop: deepcopy(par.rate_limits)
                                  for pop in self._pop_names}
            
         # Initialize the state

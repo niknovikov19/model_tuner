@@ -39,7 +39,7 @@ from model_tuner.main import (
 from model_tuner.utils import load_yaml
 
 # Imports from the same follder as this script
-from oumean_range_tuner import OUMeanRangeTuner 
+from oumean_range_tuner import OUMeanRangeParams, OUMeanRangeTuner
 
 # Needed for unpickling files that were created with the old folder structure
 import sys
@@ -74,12 +74,20 @@ else:
     dirpath_base_local = Path(
         r'D:\WORK\Salvador\repo\model_tuner\test_data\range_search')
 
+# Experiment group name
+exp_name_base = 'exp_subnet_state1_mech1_nosub_wmult_0.25'
+exp_name_base_hpc = 'sim_manager_batch/' + exp_name_base
+
 # Experiment name
-exp_name = 'thal_tcalc_5_10'
+exp_name = 'its4_pt5b'
+
+# Local experiment folder
+dirpath_exp_local_base = dirpath_base_local / exp_name_base
+dirpath_exp_local = dirpath_exp_local_base / exp_name
 
 # Max. number of iterations
 # (don't put it to config, so it can be increased later)
-n_iter = 50
+n_iter = 10
 
 # Action flags
 need_delete_prev_results = 0
@@ -89,17 +97,11 @@ need_plot_res = 1
 
 #### Configs
 
-# Local experiment folder
-dirpath_exp_local = (
-    dirpath_base_local / 'subnet_state1_mech1_nosub_wmult_0.1' / exp_name
-)
-
-exp_name_base = f'sim_manager_batch/exp_subnet_state1_mech1_nosub_wmult_0.1'
-
 # Load config files
 configs = {
     'ssh_params': {'class': None},
-    'exp_params': {'class': OptExperimentParamsBase}
+    'exp_params': {'class': OptExperimentParamsBase},
+    'range_params': {'class': OUMeanRangeParams}
 }
 for config_name, config_info in configs.items():
     config_path = dirpath_exp_local / f'{config_name}.yaml'
@@ -112,6 +114,9 @@ ssh_par_grid = SSHParams(**ssh_params['grid'])
 
 # Experiment params
 exp_params: OptExperimentParamsBase = configs['exp_params']['data']
+
+# Range tuning params
+range_params: OUMeanRangeParams = configs['range_params']['data']
 
 
 #### Folders
@@ -152,17 +157,6 @@ else:
 
 #### Task-specific part
 
-# Parameters
-#pop_names = ['NGF1', 'NGF2', 'NGF3', 'NGF4', 'NGF5A', 'NGF5B', 'NGF6']
-pop_names = ['TC', 'TCM', 'HTC', 'TI', 'TIM', 'IRE', 'IREM']
-
-ou_std_vals = [0, 0.03]
-num_ou_mean_vals = 5
-ou_mean_range_start = (-0.1, 0.1)
-rate_limits = (0.5, 50)
-tolerance = 0.05
-tcalc_win = (5, None)   # time window for rate calculation
-
 final_run = False   # when the range is found, and we need
                     # the last run with regularly located points
 
@@ -175,9 +169,7 @@ if os.path.exists(fpath_range_iter):
 else:
     # Create new
     range_tuner = OUMeanRangeTuner(
-        pop_names, ou_std_vals, num_ou_mean_vals,
-        ou_mean_range_start, rate_limits,
-        tolerance, tcalc_win
+        range_params
         #duration=(duration * 1000)
         #dummy_mode=True
     )
@@ -202,8 +194,8 @@ with SSHClient(ssh_par_fs=ssh_par_fs,
         ),
         batch_paths=hpc_paths,
         conda_env=exp_params.conda_env,
-        job_cmdline_args=[exp_name_base],
-        child_job_name=('j' + exp_name_base.split('/')[-1])[:10]
+        job_cmdline_args=[exp_name_base_hpc],
+        child_job_name=('j' + exp_name_base_hpc.split('/')[-1])[:10]
     )
     
     # Create HPC folders
@@ -222,7 +214,7 @@ with SSHClient(ssh_par_fs=ssh_par_fs,
 
     # Iterations of the main optimization algorithm
     iter_num = 1
-    while iter_num < n_iter:
+    while (iter_num < n_iter) or final_run:
         print(f'==== Iter: {iter_num} ====')
 
         fpath_range_iter = dirpath_range_iters / f'iter_{iter_num}.pkl'
@@ -307,9 +299,9 @@ with SSHClient(ssh_par_fs=ssh_par_fs,
 # Create a csv file with the found ranges
 ou_mean_limits = range_tuner.get_ou_mean_limits()
 rows = []
-for pop in pop_names:
+for pop in range_params.pop_names:
     mean_min, mean_max = np.round(ou_mean_limits[pop], 4)
-    std_min, std_max = ou_std_vals
+    std_min, std_max = range_params.ou_std_vals
     rows.append([pop, mean_min, mean_max, std_min, std_max])
 df = pd.DataFrame(rows, columns=["pop_name", "ou_mean_min", "ou_mean_max",
                                  "ou_std_min", "ou_std_max"])

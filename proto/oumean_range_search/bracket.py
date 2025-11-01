@@ -58,13 +58,55 @@ class JointIntervalFinder:
         x1_br, x2_br, _ = self._brackets(X, L)
         xs = self._choose_batch(self._A, self._B, self.N, x1_br, x2_br)
         return xs
+    
+    def _filter_outliers(self):
+        # Detect and relabel outlier R labels surrounded by M (to the left of a true R run)
+        L = np.array(self._L)
+        X = np.array(self._X)
+        # Find runs of LblR of length >=2
+        is_R = (L == LblR)
+        diff = np.diff(is_R.astype(int))
+        run_starts = np.where((diff == 1))[0] + 1
+        run_ends = np.where((diff == -1))[0] + 1
+
+        # Handle edge cases for runs at start/end
+        if is_R[0]:
+            run_starts = np.insert(run_starts, 0, 0)
+        if is_R[-1]:
+            run_ends = np.append(run_ends, len(L))
+
+        # For each run of length >=2, mark its leftmost index
+        true_R_lefts = set()
+        for s, e in zip(run_starts, run_ends):
+            if (e - s) >= 2:
+                true_R_lefts.add(s)
+
+        # For all LblR to the left of any true run, check if they are isolated (surrounded by M)
+        for i in range(len(L)):
+            if L[i] == LblR:
+                # Is this to the left of any true run?
+                if any(i < left for left in true_R_lefts):
+                    # Is it isolated? (previous and next are LblM)
+                    if i > 0 and i < len(L)-1:
+                        if L[i-1] == LblM and L[i+1] == LblM:
+                            self._L[i] = LblM
 
     def process_probe_result(self, x_vals: np.ndarray, f1_vals: np.ndarray, f2_vals: np.ndarray) -> None:
         x_vals = np.asarray(x_vals); f1_vals = np.asarray(f1_vals); f2_vals = np.asarray(f2_vals)
         for x, f1, f2 in zip(x_vals, f1_vals, f2_vals):
-            self._X.append(float(x)); self._F1.append(float(f1)); self._F2.append(float(f2))
+            self._X.append(float(x))
+            self._F1.append(float(f1)); self._F2.append(float(f2))
             self._L.append(self._label(f1, f2))
         self._iter += 1
+
+        idx = np.argsort(self._X)
+        self._X = np.asarray(self._X)[idx].tolist()
+        self._F1 = np.asarray(self._F1)[idx].tolist()
+        self._F2 = np.asarray(self._F2)[idx].tolist()
+        self._L  = np.asarray(self._L)[idx].tolist()
+
+        self._filter_outliers()
+
         X, _, _, L = self._current_arrays()
         self._A, self._B = self._window_update(X, L, self._A, self._B)
 
