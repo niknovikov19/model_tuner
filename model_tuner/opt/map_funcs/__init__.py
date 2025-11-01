@@ -5,6 +5,7 @@ from .map_func_1d_sigmoid_line import MapFunc1DSigmoidLine
 from .map_func_1d_richards import MapFunc1DRichards
 from .map_func_1d_rational_2_1 import MapFunc1DRational21
 from .map_func_1d_spline import MapFunc1DSpline
+from .map_func_1d_linear import MapFunc1DLinear
 
 from .create_map_func import MapFuncType
 from .create_map_func import create_map_func_by_name
@@ -19,6 +20,7 @@ __all__ = [
     'MapFunc1DRichards',
     'MapFunc1DRational21',
     'MapFunc1DSpline',
+    'MapFunc1DLinear',
     'MapFuncType',
     'create_map_func_by_name',
     'create_map_func_by_type'

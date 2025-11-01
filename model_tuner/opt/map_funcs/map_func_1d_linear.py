@@ -1,75 +1,43 @@
 from typing import Dict, List, Tuple
 
 import numpy as np
-from scipy.interpolate import CubicSpline, PchipInterpolator, PPoly
 
 from .map_func_1d import MapFunc1D, MapFitParams
 from .map_func_1d import _is_scalar, _to_scalar, _to_array
 from .map_func_1d import _clip_to_nan, _get_empty_bounds_dict
 
 
-def _interpolate(x, xx, yy, spline_: PPoly):
-    x = np.asarray(x)
-    y = np.zeros_like(x)
-    mask_l = x < xx[0]
-    mask_r = x > xx[-1]
-    mask_m = (xx[0] <= x) & (x <= xx[-1])
-    y[mask_l] = yy[0] + spline_(xx[0], 1) * (x[mask_l] - xx[0])
-    y[mask_r] = yy[-1] + spline_(xx[-1], 1) * (x[mask_r] - xx[-1])
-    y[mask_m] = spline_(x[mask_m])
-    if np.isscalar(x):
-        y = y[0]
-    return y
-
-def _interpolate_inv(y, xx, yy, spline_: PPoly):
-    y = np.asarray(y)
-    x = np.zeros_like(y)
-    for n, y_ in enumerate(y):
-        if y_ < yy[0]:
-            x[n] = xx[0] + (y_ - yy[0]) / spline_(xx[0], 1)
-        elif y_ > yy[-1]:
-            x[n] = xx[-1] + (y_ - yy[-1]) / spline_(xx[-1], 1)
-        else:
-            x[n] = spline_.solve(y_, extrapolate=False)[0]
-    if np.isscalar(y):
-        x = x[0]
-    return x
-
-
-class MapFunc1DSpline(MapFunc1D):
+class MapFunc1DLinear(MapFunc1D):
     def __init__(
             self,
             x_limits: Tuple[float, float] = (-np.inf, np.inf),
             y_limits: Tuple[float, float] = (-np.inf, np.inf),
-            spline_type: str | None = None,
+            base_point_num: int | None = None,
             require_increase: bool = True
             ):
         super().__init__()
         self._x_limits = x_limits
         self._y_limits = y_limits
-        self.xx = None
-        self.yy = None
-        self.spline = None
-        self.spline_type = spline_type or 'cubic'
+        self.base_point_num = base_point_num
         self.require_increase = require_increase
     
     @classmethod
     def get_par_names(cls) -> List[str]:
-        return []
+        return ['c', 'k']
     
-    def f(self, x: float | np.ndarray) -> float | np.ndarray:
+    def f(self, x: float | np.ndarray, c, k) -> float | np.ndarray:
         x_ = _to_array(x)
         x_ = _clip_to_nan(x_, self._x_limits)
-        y = _interpolate(x_, self.xx, self.yy, self.spline)
+        y = k * x_ + c
         y = y.clip(*self._y_limits)
         if _is_scalar(x):
             y = _to_scalar(y)
         return y
     
-    def f_inv(self, y: float | np.ndarray) -> float | np.ndarray:
+    def f_inv(self, y: float | np.ndarray, c, k) -> float | np.ndarray:
         y_ = _to_array(y)
         y_ = _clip_to_nan(y_, self._y_limits, need_copy=True)
-        x = _interpolate_inv(y_, self.xx, self.yy, self.spline)
+        x = (y_ - c) / k
         #x = x.clip(*self._x_limits)
         x = _clip_to_nan(x, self._x_limits, need_copy=False)
         if _is_scalar(y):
@@ -100,9 +68,7 @@ class MapFunc1DSpline(MapFunc1D):
         self.xx, self.yy = xx[idx], yy[idx]
         if self.require_increase and not np.all(np.diff(self.yy) > 0):
             raise ValueError('yy values should be strictly increasing')
-        if self.spline_type == 'cubic':
-            self.spline = CubicSpline(self.xx, self.yy, extrapolate=False)
-        elif self.spline_type == 'pchip':
-            self.spline = PchipInterpolator(self.xx, self.yy, extrapolate=False)
-        else:
-            raise ValueError(f'Unsupported spline_type: {self.spline_type}')
+        n = self.base_point_num or int(len(xx) / 2)
+        k, _ = np.polyfit(self.xx, self.yy, 1)
+        c = yy[n] - xx[n] * k
+        self.par = {'c': c, 'k': k}
