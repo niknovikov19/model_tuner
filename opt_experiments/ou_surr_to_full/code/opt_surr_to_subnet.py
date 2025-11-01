@@ -82,11 +82,12 @@ else:
         r'D:\WORK\Salvador\repo\model_tuner\opt_experiments\ou_surr_to_full\data')
 
 # Experiment group name
-exp_name_base = 'exp_subnet_state1_mech1_nosub_wmult_0.1'
+#exp_name_base = 'exp_subnet_state1_mech1_nosub_wmult_0.1'
+exp_name_base = 'exp_ou_full_state1_mech1_nosub_wmult_0.1'
 exp_name_base_hpc = 'sim_manager_batch/' + exp_name_base
 
 # Experiment name
-exp_name = 'L4_thal_conn_5s_spline_alpha_0.1_auto_pfr_2'
+exp_name = 'all_conn_5s_lin_dmax2_0.2_inc_dr_0.05'
 
 # Local experiment folder
 dirpath_exp_local_base = dirpath_base_local / exp_name_base
@@ -216,6 +217,8 @@ uc_optimizer = UCOptimizer(
 
 #### Main part
 
+logging.basicConfig(level=logging.WARNING, force=True)
+
 with SSHClient(ssh_par_fs=ssh_par_fs, ssh_par_conn=ssh_par_conn) as ssh:
     
     # Object that maps sim labels to sim result files
@@ -292,11 +295,14 @@ with SSHClient(ssh_par_fs=ssh_par_fs, ssh_par_conn=ssh_par_conn) as ssh:
             sim_request = {
                 'input': Iu.to_values_dict(),
                 'connected': exp_params.model_cfg['connected'],
-                'wmult': exp_params.model_cfg['wmult'],
-                'subnet_params': exp_params.model_cfg['subnet_params']
-            }            
+                'wmult': exp_params.model_cfg['wmult']
+            }
+            if 'duration' in exp_params.model_cfg:
+                sim_request['duration'] = exp_params.model_cfg['duration']
+            if 'subnet_params' in exp_params.model_cfg:
+                sim_request['subnet_params'] = exp_params.model_cfg['subnet_params']            
             sim_manager.add_sim_request(sim_label, sim_request)
-            print(f'Add request: {sim_request["input"]}')
+            #print(f'Add request: {sim_request["input"]}')
         
         # Push simulation requests
         print('Push simulation requests to HPC', flush=True)
@@ -309,7 +315,7 @@ with SSHClient(ssh_par_fs=ssh_par_fs, ssh_par_conn=ssh_par_conn) as ssh:
             time.sleep(0.5)
         print('\nCompleted')
         
-        pprint(sim_manager.get_all_sim_statuses())
+        #pprint(sim_manager.get_all_sim_statuses())
         # TODO: check for error statuses
         
         # Extract network regimes from simulation results
@@ -389,8 +395,17 @@ with SSHClient(ssh_par_fs=ssh_par_fs, ssh_par_conn=ssh_par_conn) as ssh:
                         uc_optimizer.step_data['Rc'].sel(iter=(iter_num - 1))),
                     Rc0_lst = NetRegime1DList.from_xr(uc_optimizer.Rc0)
                 )
+
+                plt.plot(uc_optimizer.sim_data['Ru'].sel(iter=iter_num,
+                                                         pop=pop_name).values,
+                         uc_optimizer.sim_data['Rc'].sel(iter=iter_num,
+                                                         pop=pop_name).values, 'r.')
                 
-                plt.get_current_fig_manager().window.showMaximized()
+                try:
+                    plt.get_current_fig_manager().window.showMaximized()
+                except Exception:
+                    pass
+                    #print('Cannot maximize the window')
                 plt.draw()
                 plt.show()
                 plt.savefig(dirpath_figs_iter / f'{pop_name}.png')

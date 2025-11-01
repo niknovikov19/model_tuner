@@ -17,10 +17,11 @@ from model_tuner.main import (
 
 dirpath_base = Path(
     r'D:\WORK\Salvador\repo\model_tuner\opt_experiments'
-    r'\ou_surr_to_full\data\exp_subnet_state1_mech1_nosub_wmult_0.1'
+    #r'\ou_surr_to_full\data\exp_subnet_state1_mech1_nosub_wmult_0.1'
+    r'\ou_surr_to_full\data\exp_ou_full_state1_mech1_nosub_wmult_0.1'
 )
 
-exp_name = 'L4_thal_conn_5s_spline_alpha_0.1_auto_pfr_2'
+exp_name = 'all_conn_5s_lin_dmax2_0.2_inc_dr_0.05'
 
 fpath_mask = str(dirpath_base / exp_name / 'info' / f'Ru_Rc_req_*.pkl')
 files = glob(fpath_mask)
@@ -100,7 +101,8 @@ if need_plot_conv:
             )
             plt.xlabel('Iteration')
             plt.ylabel(var)
-            plt.title(pop_name) 
+            plt.title(pop_name)
+            #plt.ylim(0, target_rates[pop_name] * 1.5)
         #plt.legend(loc='lower right')
         #plt.draw()
         #plt.show()
@@ -128,17 +130,18 @@ if need_plot_ucfit:
                 uc_mapper=uc_mappers[m],
                 Ru_lst=NetRegime1DList(X['Ru_mat_mixed'].isel(iter=m)),
                 Rc_lst=NetRegime1DList(X['Rc_mat_mixed'].isel(iter=m)),
+                Rc0_lst=NetRegime1DList(X['Ru'].isel(iter=1)),
                 #ru_limits=(ru_min, ru_max),
-                ru_limits=(0, ru_max),
+                #ru_limits=(0, ru_max),
                 color=colors[m % len(colors)]
             )
 
         r0 = target_rates[pop_name]
-        plt.plot([0, ru_max], [r0, r0], 'k--')
-        plt.plot([0, ru_max], [0, ru_max], 'k--')
+        #plt.plot([0, ru_max], [r0, r0], 'k--')
+        #plt.plot([0, ru_max], [0, ru_max], 'k--')
 
-        plt.xlim(0, ru_max)
-        plt.ylim(0, rc_max)
+        #plt.xlim(0, ru_max)
+        #plt.ylim(0, rc_max)
 
         plt.xlabel('Ru')
         plt.ylabel('Rc')
